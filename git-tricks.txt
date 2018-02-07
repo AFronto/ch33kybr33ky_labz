@@ -1,0 +1,39 @@
+1.Cloning
+	git clone <repo>  									#clones a repo to your computer
+
+2.Status and Views
+	git status        									#shows the untracked changes
+
+	git l 												#shows the work tree (see alias below!!!)
+
+	git diff <commit id>								#compares your current version of the branch to a previous commit
+
+3.Commiting
+	git add <path>    									#adds the changes defined by path to your commit (standing in the repo root [ git add . ] this adds everything)
+
+	git commit -m "My Commnet"  						#makes a local commit taged with your comment commited changes won't be lost
+
+	git push origin <branch>							#uploads your commit onto the branch you are on
+
+4.Downloading changes and merging versions
+	git fetch origin    								#updates the work tree with the recent changes made by others
+
+	git merge origin/<branch>							#merges your current version of the branch and the new version (maybe asks for manual merg but usually auto merges)
+
+5.Navigating in work tree and branching
+	git checkout <branch name/commit id>  				#moves you the the given location in the working tree
+
+	git checkout -b <new branch>						#creates a new branch and moves you there in the work tree
+
+6.Resetting to the last commit
+	git reset --hard 									#resets everything you did since the last commit (usefull if you just did something useless but can't merge because of the changes)	
+
+7.Configuging your identity for the 1st time
+	git config --global user.name "John Doe"  			#Your Username shown int work tree
+	
+	git config --global user.email johndoe@example.com 	#Your email (not necessary)
+
+
+
+git config --global alias.l "log --all --decorate=full --pretty=format:'%C(auto)%h%C(reset) %C(bold blue)%ar%C(reset)%C(auto)%d %s%C(reset) %C(dim white)%an%C(reset)' --graph --date-order"       #git l alias
+
