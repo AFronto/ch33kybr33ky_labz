@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>330</x>
-      <y>360</y>
-      <w>630</w>
-      <h>590</h>
+      <x>333</x>
+      <y>351</y>
+      <w>567</w>
+      <h>531</h>
     </coordinates>
     <panel_attributes>Box push button</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>580</x>
-      <y>380</y>
-      <w>100</w>
-      <h>30</h>
+      <x>558</x>
+      <y>369</y>
+      <w>90</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>Button: b
 bg=orange</panel_attributes>
@@ -27,10 +27,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>620</x>
-      <y>400</y>
-      <w>30</w>
-      <h>60</h>
+      <x>594</x>
+      <y>387</y>
+      <w>27</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
@@ -38,10 +38,10 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>470</x>
-      <y>500</y>
-      <w>400</w>
-      <h>340</h>
+      <x>459</x>
+      <y>477</y>
+      <w>360</w>
+      <h>306</h>
     </coordinates>
     <panel_attributes>optional</panel_attributes>
     <additional_attributes/>
@@ -49,10 +49,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>490</x>
-      <y>670</y>
-      <w>100</w>
-      <h>70</h>
+      <x>477</x>
+      <y>630</y>
+      <w>90</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>b = true
 style=wordwrap</panel_attributes>
@@ -61,10 +61,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>620</x>
-      <y>440</y>
-      <w>20</w>
-      <h>460</h>
+      <x>594</x>
+      <y>423</y>
+      <w>18</w>
+      <h>414</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -73,10 +73,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>620</x>
-      <y>890</y>
-      <w>30</w>
-      <h>80</h>
+      <x>594</x>
+      <y>828</y>
+      <w>27</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -84,10 +84,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>740</x>
-      <y>380</y>
-      <w>100</w>
-      <h>30</h>
+      <x>702</x>
+      <y>369</y>
+      <w>90</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>Moveable: m
 bg=orange</panel_attributes>
@@ -96,10 +96,10 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>770</x>
-      <y>540</y>
-      <w>20</w>
-      <h>110</h>
+      <x>729</x>
+      <y>513</y>
+      <w>18</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -108,10 +108,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>540</y>
-      <w>160</w>
-      <h>40</h>
+      <x>603</x>
+      <y>513</y>
+      <w>144</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 Press()</panel_attributes>
@@ -120,10 +120,10 @@ Press()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>770</x>
-      <y>400</y>
-      <w>30</w>
-      <h>160</h>
+      <x>729</x>
+      <y>387</y>
+      <w>27</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
@@ -131,10 +131,10 @@ Press()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>610</y>
-      <w>160</w>
-      <h>40</h>
+      <x>603</x>
+      <y>576</y>
+      <w>144</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 bool: b</panel_attributes>
@@ -143,10 +143,10 @@ bool: b</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>550</x>
-      <y>660</y>
-      <w>260</w>
-      <h>140</h>
+      <x>531</x>
+      <y>621</y>
+      <w>234</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>optional</panel_attributes>
     <additional_attributes/>
@@ -155,9 +155,9 @@ bool: b</panel_attributes>
     <id>Text</id>
     <coordinates>
       <x>360</x>
-      <y>500</y>
-      <w>100</w>
-      <h>70</h>
+      <y>477</y>
+      <w>90</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>OnMe != null
 style=wordwrap</panel_attributes>
@@ -166,10 +166,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>680</y>
-      <w>140</w>
-      <h>100</h>
+      <x>603</x>
+      <y>639</y>
+      <w>126</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 Activate()</panel_attributes>
@@ -178,10 +178,10 @@ Activate()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>440</y>
-      <w>320</w>
-      <h>40</h>
+      <x>324</x>
+      <y>423</y>
+      <w>288</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 </panel_attributes>
@@ -190,10 +190,10 @@ Activate()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>870</y>
-      <w>320</w>
-      <h>30</h>
+      <x>324</x>
+      <y>810</y>
+      <w>288</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;300.0;10.0</additional_attributes>
@@ -201,10 +201,10 @@ Activate()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>770</x>
-      <y>640</y>
-      <w>30</w>
-      <h>330</h>
+      <x>729</x>
+      <y>603</y>
+      <w>27</w>
+      <h>297</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;310.0</additional_attributes>

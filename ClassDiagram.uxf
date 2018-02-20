@@ -33,8 +33,9 @@ _-ClassAttribute: Long_
 --
 +GetNeighbour(d: Direction):Field
 +SetNeighbour(d: Direction,f: Field)
-+Accept(m: Moveable, d: Direcion): bool
-+Remove(m: Moveable)</panel_attributes>
++Accept(m: Moveable, d: Direcion): boolean
++Remove(m: Moveable)
++virtual FieldAction(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -104,6 +105,7 @@ _-ClassAttribute: Long_
 -IsActive: boolean
 --
 +Activate(): void
++IsAvtivated(): void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -143,14 +145,16 @@ _-ClassAttribute: Long_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>940</x>
-      <y>210</y>
+      <x>1030</x>
+      <y>530</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
-    <panel_attributes>Player
+    <panel_attributes>TrapDoor
 --
+-Button: AssignedButton
 --
+
 
 
 </panel_attributes>
@@ -196,6 +200,22 @@ Direction
 +LEFT
 +RIGHT
 --
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>230</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Player
+--
+--
+
 
 </panel_attributes>
     <additional_attributes/>
