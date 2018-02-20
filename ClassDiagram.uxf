@@ -101,11 +101,9 @@ _-ClassAttribute: Long_
     </coordinates>
     <panel_attributes>Button
 --
--id: Long {composite}
-_-ClassAttribute: Long_
+-IsActive: boolean
 --
-#Operation(i: int): int
-/+AbstractOperation()/
++Activate(): void
 </panel_attributes>
     <additional_attributes/>
   </element>

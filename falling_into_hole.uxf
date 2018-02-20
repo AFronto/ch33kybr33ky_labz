@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>150</x>
+      <y>240</y>
+      <w>480</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>Falling into hole</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>310</x>
+      <y>260</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Hole: h
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>280</y>
+      <w>30</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>290</x>
+      <y>350</y>
+      <w>300</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>optional</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>200</x>
+      <y>380</y>
+      <w>100</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>OnMe != null
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>350</x>
+      <y>420</y>
+      <w>20</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>430</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+Remove(Moveable: m)</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;80.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>520</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+</diagram>
