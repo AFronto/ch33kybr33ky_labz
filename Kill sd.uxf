@@ -54,7 +54,7 @@ bg=yellow</panel_attributes>
       <w>180</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 Kill(f)</panel_attributes>
     <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -100,7 +100,7 @@ bg=yellow</panel_attributes>
       <w>190</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 Remove()</panel_attributes>
     <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -180,7 +180,7 @@ bg=yellow</panel_attributes>
       <w>180</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 Kill(f)</panel_attributes>
     <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
   </element>
