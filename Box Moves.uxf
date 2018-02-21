@@ -67,7 +67,7 @@ bg=orange</panel_attributes>
       <w>98</w>
       <h>28</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 Control(m,d)</panel_attributes>
     <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -79,7 +79,7 @@ Control(m,d)</panel_attributes>
       <w>175</w>
       <h>28</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 GetNeighbour(d)</panel_attributes>
     <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -159,7 +159,7 @@ bg=orange</panel_attributes>
       <w>287</w>
       <h>28</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 Accept(p,d)</panel_attributes>
     <additional_attributes>390.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -193,7 +193,7 @@ Accept(p,d)</panel_attributes>
       <w>280</w>
       <h>28</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 Move(f2)</panel_attributes>
     <additional_attributes>10.0;20.0;380.0;20.0</additional_attributes>
   </element>
@@ -250,7 +250,7 @@ bg=orange</panel_attributes>
       <w>133</w>
       <h>28</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 Control(p,d)</panel_attributes>
     <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -285,8 +285,8 @@ canGo</panel_attributes>
       <w>168</w>
       <h>28</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
-Remve()</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Remove()</panel_attributes>
     <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -376,7 +376,7 @@ canGo</panel_attributes>
       <w>98</w>
       <h>42</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=&lt;&lt;&lt;-
 FieldAction()</panel_attributes>
     <additional_attributes>20.0;40.0;40.0;40.0;40.0;10.0;10.0;10.0</additional_attributes>
   </element>
