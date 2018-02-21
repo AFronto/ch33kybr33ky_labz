@@ -19,7 +19,7 @@ bg=orange</panel_attributes>
       <x>196</x>
       <y>70</y>
       <w>672</w>
-      <h>672</h>
+      <h>700</h>
     </coordinates>
     <panel_attributes>sd: Player Moves to Field with Box</panel_attributes>
     <additional_attributes/>
@@ -100,7 +100,7 @@ GetNeighbour(d)</panel_attributes>
       <x>273</x>
       <y>175</y>
       <w>14</w>
-      <h>553</h>
+      <h>574</h>
     </coordinates>
     <panel_attributes>bg=yellow</panel_attributes>
     <additional_attributes/>
@@ -180,7 +180,7 @@ Accept(p,d)</panel_attributes>
       <x>553</x>
       <y>336</y>
       <w>14</w>
-      <h>217</h>
+      <h>245</h>
     </coordinates>
     <panel_attributes>bg=yellow</panel_attributes>
     <additional_attributes/>
@@ -306,7 +306,7 @@ Remove()</panel_attributes>
       <x>210</x>
       <y>434</y>
       <w>532</w>
-      <h>98</h>
+      <h>133</h>
     </coordinates>
     <panel_attributes>opt</panel_attributes>
     <additional_attributes/>
@@ -345,90 +345,10 @@ Remove()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>210</x>
-      <y>560</y>
-      <w>616</w>
-      <h>112</h>
-    </coordinates>
-    <panel_attributes>opt</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>301</x>
-      <y>567</y>
-      <w>189</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>[canGo == false]</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>756</x>
-      <y>119</y>
-      <w>70</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>m : Movable
-bg=orange</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>784</x>
-      <y>133</y>
-      <w>21</w>
-      <h>469</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;650.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>784</x>
-      <y>588</y>
-      <w>14</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>bg=yellow</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>287</x>
-      <y>574</y>
-      <w>511</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Kill(f)</panel_attributes>
-    <additional_attributes>710.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>287</x>
-      <y>623</y>
-      <w>511</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-killed</panel_attributes>
-    <additional_attributes>10.0;20.0;710.0;20.0</additional_attributes>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>189</x>
-      <y>714</y>
+      <y>735</y>
       <w>98</w>
       <h>28</h>
     </coordinates>
@@ -440,7 +360,7 @@ canGo</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>287</x>
-      <y>532</y>
+      <y>567</y>
       <w>280</w>
       <h>28</h>
     </coordinates>
@@ -452,7 +372,7 @@ canGo</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>560</x>
-      <y>455</y>
+      <y>518</y>
       <w>98</w>
       <h>42</h>
     </coordinates>
@@ -464,9 +384,9 @@ FieldAction()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>560</x>
-      <y>483</y>
+      <y>546</y>
       <w>14</w>
-      <h>42</h>
+      <h>14</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -514,7 +434,7 @@ onMe</panel_attributes>
       <x>679</x>
       <y>287</y>
       <w>14</w>
-      <h>420</h>
+      <h>441</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -545,34 +465,10 @@ PlayerMoves(d,f2)</panel_attributes>
     <additional_attributes>10.0;20.0;560.0;20.0</additional_attributes>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>280</x>
-      <y>308</y>
-      <w>14</w>
-      <h>378</h>
-    </coordinates>
-    <panel_attributes>
-bg=yellow</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>287</x>
-      <y>644</y>
-      <w>406</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-killed</panel_attributes>
-    <additional_attributes>560.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>287</x>
-      <y>672</y>
+      <y>700</y>
       <w>406</w>
       <h>28</h>
     </coordinates>
@@ -584,7 +480,7 @@ canGo</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>280</x>
-      <y>693</y>
+      <y>714</y>
       <w>413</w>
       <h>28</h>
     </coordinates>
@@ -595,35 +491,24 @@ canGo</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>784</x>
-      <y>637</y>
-      <w>21</w>
-      <h>119</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>679</x>
-      <y>700</y>
+      <y>721</y>
       <w>21</w>
-      <h>56</h>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>273</x>
-      <y>721</y>
+      <y>742</y>
       <w>21</w>
-      <h>35</h>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -640,12 +525,12 @@ canGo</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>553</x>
-      <y>546</y>
+      <y>574</y>
       <w>21</w>
-      <h>182</h>
+      <h>175</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
@@ -653,7 +538,7 @@ canGo</panel_attributes>
       <x>203</x>
       <y>273</y>
       <w>637</w>
-      <h>441</h>
+      <h>462</h>
     </coordinates>
     <panel_attributes>opt</panel_attributes>
     <additional_attributes/>
@@ -668,5 +553,131 @@ canGo</panel_attributes>
     </coordinates>
     <panel_attributes>[onMe != null]</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>504</y>
+      <w>273</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>370.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>280</x>
+      <y>308</y>
+      <w>14</w>
+      <h>406</h>
+    </coordinates>
+    <panel_attributes>
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>287</x>
+      <y>672</y>
+      <w>406</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+killed</panel_attributes>
+    <additional_attributes>560.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>210</x>
+      <y>588</y>
+      <w>616</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>opt</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>301</x>
+      <y>595</y>
+      <w>189</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>[canGo == false &amp;&amp; m!=null]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>756</x>
+      <y>119</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>m : Movable
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>784</x>
+      <y>133</y>
+      <w>21</w>
+      <h>497</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;690.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>784</x>
+      <y>616</y>
+      <w>14</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>287</x>
+      <y>602</y>
+      <w>511</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Kill(f)</panel_attributes>
+    <additional_attributes>710.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>287</x>
+      <y>651</y>
+      <w>511</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+killed</panel_attributes>
+    <additional_attributes>10.0;20.0;710.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>784</x>
+      <y>665</y>
+      <w>21</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
   </element>
 </diagram>

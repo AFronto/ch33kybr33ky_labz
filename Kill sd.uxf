@@ -4,7 +4,7 @@
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>220</x>
+      <x>210</x>
       <y>80</y>
       <w>420</w>
       <h>370</h>
@@ -15,7 +15,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>340</x>
+      <x>330</x>
       <y>150</y>
       <w>100</w>
       <h>30</h>
@@ -26,7 +26,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
+      <x>360</x>
       <y>170</y>
       <w>30</w>
       <h>70</h>
@@ -37,7 +37,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>370</x>
+      <x>360</x>
       <y>220</y>
       <w>20</w>
       <h>180</h>
@@ -49,7 +49,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
+      <x>200</x>
       <y>200</y>
       <w>180</w>
       <h>40</h>
@@ -61,7 +61,7 @@ Kill(f)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>510</x>
+      <x>500</x>
       <y>150</y>
       <w>100</w>
       <h>30</h>
@@ -72,7 +72,7 @@ Kill(f)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
+      <x>540</x>
       <y>170</y>
       <w>30</w>
       <h>140</h>
@@ -83,7 +83,7 @@ Kill(f)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>550</x>
+      <x>540</x>
       <y>290</y>
       <w>20</w>
       <h>100</h>
@@ -95,7 +95,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
+      <x>370</x>
       <y>270</y>
       <w>190</w>
       <h>40</h>
@@ -107,7 +107,7 @@ Remove()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
+      <x>370</x>
       <y>370</y>
       <w>190</w>
       <h>30</h>
@@ -118,7 +118,7 @@ Remove()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
+      <x>200</x>
       <y>370</y>
       <w>180</w>
       <h>40</h>
@@ -130,7 +130,7 @@ true</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>750</x>
+      <x>740</x>
       <y>80</y>
       <w>420</w>
       <h>370</h>
@@ -141,7 +141,7 @@ true</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>870</x>
+      <x>860</x>
       <y>150</y>
       <w>100</w>
       <h>30</h>
@@ -152,7 +152,7 @@ true</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>900</x>
+      <x>890</x>
       <y>170</y>
       <w>30</w>
       <h>70</h>
@@ -163,7 +163,7 @@ true</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>900</x>
+      <x>890</x>
       <y>220</y>
       <w>20</w>
       <h>180</h>
@@ -175,7 +175,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>740</x>
+      <x>730</x>
       <y>200</y>
       <w>180</w>
       <h>40</h>
@@ -187,7 +187,7 @@ Kill(f)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1040</x>
+      <x>1030</x>
       <y>150</y>
       <w>100</w>
       <h>30</h>
@@ -198,7 +198,7 @@ Kill(f)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
+      <x>1070</x>
       <y>170</y>
       <w>30</w>
       <h>260</h>
@@ -209,7 +209,7 @@ Kill(f)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>740</x>
+      <x>730</x>
       <y>370</y>
       <w>180</w>
       <h>40</h>
