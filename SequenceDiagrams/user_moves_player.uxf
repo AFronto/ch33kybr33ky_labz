@@ -30,16 +30,16 @@ bg=orange</panel_attributes>
       <x>468</x>
       <y>234</y>
       <w>39</w>
-      <h>91</h>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>234</x>
-      <y>286</y>
+      <y>299</y>
       <w>260</w>
       <h>52</h>
     </coordinates>
@@ -51,7 +51,7 @@ Control(null,d)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>468</x>
-      <y>299</y>
+      <y>325</y>
       <w>26</w>
       <h>78</h>
     </coordinates>
@@ -106,11 +106,11 @@ Control(null,d)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>468</x>
-      <y>364</y>
+      <y>390</y>
       <w>39</w>
-      <h>104</h>
+      <h>78</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
 </diagram>
