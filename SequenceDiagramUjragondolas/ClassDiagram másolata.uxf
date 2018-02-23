@@ -92,12 +92,9 @@
     </coordinates>
     <panel_attributes>Button
 --
--IsActive: boolean
 -myTrap : TrapDoor
 --
-+Activate(): void
-+IsAvtivated(): void
-</panel_attributes>
++Activate(b: boolean): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -377,12 +374,13 @@ iController
       <x>592</x>
       <y>768</y>
       <w>624</w>
-      <h>56</h>
+      <h>96</h>
     </coordinates>
     <panel_attributes>Control(m,d): elso parameter ki tolta, masodik hogy merre, dobozra hivva beallítja, az m-et lasttouchedmenek
 Step(p: Player, m: iController, d: Direction):boolean első paraméter hogy ki tolja az objektumot,
      ez csak azért kell h tovább tudjuk adni, így több doboznál az utolsóra is az adott player lesz írva, ez scorená jó lesz.
-     második hgy ki szeretne a mezőre lépni, harmadik h merre megye.</panel_attributes>
+     második hgy ki szeretne a mezőre lépni, harmadik h merre megye.
+     Remove() virtuális, a fildnek a removeja csak playert tüntet a trapdoor meg hole pedig playert és boxot is</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

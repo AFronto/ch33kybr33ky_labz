@@ -56,7 +56,7 @@ bg=yellow</panel_attributes>
       <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Control(null,d)</panel_attributes>
+Control(m,d)</panel_attributes>
     <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -173,7 +173,7 @@ bg=yellow</panel_attributes>
       <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Step(null,p,d)</panel_attributes>
+Step(m,p,d)</panel_attributes>
     <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -221,5 +221,17 @@ canGo</panel_attributes>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>26</x>
+      <y>26</y>
+      <w>299</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>m != nullha tolják
+m == null ha user input mozgatja</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>

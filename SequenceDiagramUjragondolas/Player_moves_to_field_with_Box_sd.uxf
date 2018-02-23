@@ -67,7 +67,7 @@ bg=yellow</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Control(null,d)</panel_attributes>
+Control(m,d)</panel_attributes>
     <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -184,7 +184,7 @@ bg=yellow</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Step(null,p,d)</panel_attributes>
+Step(m,p,d)</panel_attributes>
     <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -407,5 +407,17 @@ FieldAction()</panel_attributes>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>m != nullha tolják
+m == null ha user input mozgatja</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
