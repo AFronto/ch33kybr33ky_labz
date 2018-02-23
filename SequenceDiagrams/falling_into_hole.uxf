@@ -4,8 +4,8 @@
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>580</x>
-      <y>330</y>
+      <x>480</x>
+      <y>170</y>
       <w>480</w>
       <h>370</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>740</x>
-      <y>350</y>
+      <x>640</x>
+      <y>190</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -27,8 +27,8 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>780</x>
-      <y>370</y>
+      <x>680</x>
+      <y>210</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -38,9 +38,9 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>710</x>
-      <y>480</y>
-      <w>310</w>
+      <x>570</x>
+      <y>320</y>
+      <w>350</w>
       <h>170</h>
     </coordinates>
     <panel_attributes>optional</panel_attributes>
@@ -49,8 +49,8 @@ bg=orange</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>620</x>
-      <y>480</y>
+      <x>580</x>
+      <y>350</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -61,8 +61,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>780</x>
-      <y>410</y>
+      <x>680</x>
+      <y>250</y>
       <w>20</w>
       <h>260</h>
     </coordinates>
@@ -73,20 +73,20 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>790</x>
-      <y>520</y>
-      <w>220</w>
+      <x>690</x>
+      <y>350</y>
+      <w>140</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-Remove(Moveable: m)</panel_attributes>
+Remove()</panel_attributes>
     <additional_attributes>10.0;10.0;60.0;10.0;60.0;80.0;20.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>400</y>
+      <x>470</x>
+      <y>230</y>
       <w>230</w>
       <h>40</h>
     </coordinates>
@@ -97,8 +97,8 @@ FieldAction()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>660</y>
+      <x>470</x>
+      <y>500</y>
       <w>230</w>
       <h>30</h>
     </coordinates>
@@ -108,8 +108,8 @@ FieldAction()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>790</x>
-      <y>590</y>
+      <x>690</x>
+      <y>430</y>
       <w>20</w>
       <h>50</h>
     </coordinates>
