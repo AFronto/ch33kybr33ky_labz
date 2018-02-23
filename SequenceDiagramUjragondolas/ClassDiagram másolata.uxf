@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>8</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>112</y>
-      <w>168</w>
-      <h>152</h>
+      <x>14</x>
+      <y>56</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Map
 --
@@ -19,10 +19,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>440</x>
-      <y>216</y>
-      <w>304</w>
-      <h>152</h>
+      <x>329</x>
+      <y>147</y>
+      <w>266</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Field
 --
@@ -32,17 +32,17 @@
 +GetNeighbour(d: Direction):Field
 +SetNeighbour(d: Direction,f: Field)
 +virtual Step(p: Player, m: iController, d: Direction):boolean
-+Remove():void
++virtual Remove():void
 +virtual FieldAction(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>64</x>
-      <y>440</y>
-      <w>168</w>
-      <h>152</h>
+      <x>0</x>
+      <y>343</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Wall
 --
@@ -55,78 +55,82 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>264</x>
-      <y>440</y>
-      <w>168</w>
-      <h>152</h>
+      <x>175</x>
+      <y>343</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Hole
 --
 
 --
-</panel_attributes>
++FieldAction(): void
++Remove():void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>464</x>
-      <y>440</y>
-      <w>168</w>
-      <h>152</h>
+      <x>350</x>
+      <y>343</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Target
 --
 
 --
-</panel_attributes>
++FieldAction(): void
++Remove():void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>664</x>
-      <y>440</y>
-      <w>168</w>
-      <h>152</h>
+      <x>525</x>
+      <y>343</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Button
 --
 -myTrap : TrapDoor
 --
-+Activate(b: boolean): void</panel_attributes>
++Activate(b: boolean): void
++FieldAction(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>752</x>
-      <y>264</y>
-      <w>216</w>
-      <h>152</h>
+      <x>602</x>
+      <y>189</y>
+      <w>189</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Box
 --
--lastTouchedMe : Movable
+-lastTouchedMe : IController
 --
 +Control(m: iController, d: Direction):void
 +Press():boolean
-+GetLastTouchedMe</panel_attributes>
++GetLastTouchedMe(): Player</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>264</x>
-      <y>624</y>
-      <w>168</w>
-      <h>152</h>
+      <x>175</x>
+      <y>504</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>TrapDoor
 --
 -IsActive: boolean
 --
 +SetActive(b:boolean):void
++FieldAction(): void
 
 
 
@@ -136,10 +140,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>464</x>
-      <y>192</y>
-      <w>80</w>
-      <h>24</h>
+      <x>350</x>
+      <y>126</y>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>-Directions</panel_attributes>
     <additional_attributes/>
@@ -147,10 +151,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
-      <y>152</y>
-      <w>168</w>
-      <h>80</h>
+      <x>378</x>
+      <y>91</y>
+      <w>147</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 r1=-neighbours
@@ -160,10 +164,10 @@ m1=0..4</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>920</x>
-      <y>552</y>
-      <w>168</w>
-      <h>152</h>
+      <x>749</x>
+      <y>441</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enumeration&gt;&gt;
 Direction
@@ -180,10 +184,10 @@ Direction
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>976</x>
-      <y>264</y>
-      <w>224</w>
-      <h>152</h>
+      <x>798</x>
+      <y>189</y>
+      <w>196</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Player
 --
@@ -200,10 +204,10 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>608</x>
-      <y>360</y>
-      <w>152</w>
-      <h>96</h>
+      <x>476</x>
+      <y>273</y>
+      <w>133</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;170.0;100.0</additional_attributes>
@@ -211,10 +215,10 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
-      <y>360</y>
-      <w>32</w>
-      <h>96</h>
+      <x>406</x>
+      <y>273</y>
+      <w>28</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;20.0;100.0</additional_attributes>
@@ -222,10 +226,10 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>360</y>
-      <w>144</w>
-      <h>96</h>
+      <x>259</x>
+      <y>273</y>
+      <w>126</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>160.0;10.0;10.0;100.0</additional_attributes>
@@ -233,10 +237,10 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>328</x>
-      <y>584</y>
-      <w>24</w>
-      <h>56</h>
+      <x>231</x>
+      <y>469</y>
+      <w>21</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -244,10 +248,10 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>176</x>
-      <y>360</y>
-      <w>288</w>
-      <h>96</h>
+      <x>98</x>
+      <y>273</y>
+      <w>252</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>340.0;10.0;10.0;100.0</additional_attributes>
@@ -255,10 +259,10 @@ Direction
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>64</x>
-      <y>624</y>
-      <w>168</w>
-      <h>152</h>
+      <x>0</x>
+      <y>504</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Pillar
 --
@@ -271,10 +275,10 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>136</x>
-      <y>584</y>
-      <w>24</w>
-      <h>56</h>
+      <x>63</x>
+      <y>469</y>
+      <w>21</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -282,10 +286,10 @@ Direction
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1264</x>
-      <y>264</y>
-      <w>168</w>
-      <h>152</h>
+      <x>1050</x>
+      <y>189</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Score
 --
@@ -298,10 +302,10 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1192</x>
-      <y>328</y>
-      <w>88</w>
-      <h>32</h>
+      <x>987</x>
+      <y>245</y>
+      <w>77</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 -players 0..4</panel_attributes>
@@ -310,10 +314,10 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
-      <y>184</y>
-      <w>216</w>
-      <h>80</h>
+      <x>154</x>
+      <y>119</y>
+      <w>189</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 -fields 0..*</panel_attributes>
@@ -322,10 +326,10 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>664</x>
-      <y>360</y>
-      <w>360</w>
-      <h>208</h>
+      <x>525</x>
+      <y>273</y>
+      <w>315</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>430.0;240.0;430.0;80.0;110.0;80.0;10.0;10.0</additional_attributes>
@@ -333,26 +337,25 @@ Direction
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>856</x>
-      <y>48</y>
-      <w>216</w>
-      <h>144</h>
+      <x>693</x>
+      <y>0</y>
+      <w>189</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 iController
 --
 --
-+Control(m: iController, d: Direction):void
-+Press():boolean</panel_attributes>
++Control(m: iController, d: Direction):void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>184</y>
-      <w>176</w>
-      <h>96</h>
+      <x>784</x>
+      <y>119</y>
+      <w>154</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;200.0;100.0</additional_attributes>
@@ -360,10 +363,10 @@ iController
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>824</x>
-      <y>184</y>
-      <w>104</w>
-      <h>96</h>
+      <x>665</x>
+      <y>119</y>
+      <w>91</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>110.0;10.0;10.0;100.0</additional_attributes>
@@ -371,10 +374,10 @@ iController
   <element>
     <id>Text</id>
     <coordinates>
-      <x>592</x>
-      <y>768</y>
-      <w>624</w>
-      <h>96</h>
+      <x>462</x>
+      <y>630</y>
+      <w>546</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>Control(m,d): elso parameter ki tolta, masodik hogy merre, dobozra hivva beallítja, az m-et lasttouchedmenek
 Step(p: Player, m: iController, d: Direction):boolean első paraméter hogy ki tolja az objektumot,
