@@ -56,7 +56,7 @@ bg=yellow</panel_attributes>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Activate()</panel_attributes>
+Activate(b)</panel_attributes>
     <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -91,7 +91,7 @@ bg=orange</panel_attributes>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-SetActive(!b.isActive)</panel_attributes>
+SetActive(b)</panel_attributes>
     <additional_attributes>190.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -105,41 +105,6 @@ SetActive(!b.isActive)</panel_attributes>
     <panel_attributes>
 bg=yellow</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>369</x>
-      <y>360</y>
-      <w>117</w>
-      <h>54</h>
-    </coordinates>
-    <panel_attributes>[onMe != null &amp;&amp; 
-isActive == true]</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>360</x>
-      <y>333</y>
-      <w>279</w>
-      <h>126</h>
-    </coordinates>
-    <panel_attributes>opt</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>504</x>
-      <y>342</y>
-      <w>108</w>
-      <h>63</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Remove()</panel_attributes>
-    <additional_attributes>20.0;50.0;40.0;50.0;40.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -173,18 +138,6 @@ Remove()</panel_attributes>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>504</x>
-      <y>387</y>
-      <w>18</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>
-bg=yellow</panel_attributes>
-    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
