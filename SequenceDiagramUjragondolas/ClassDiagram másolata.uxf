@@ -174,16 +174,16 @@ Direction
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1057</x>
+      <x>1050</x>
       <y>294</y>
-      <w>182</w>
+      <w>189</w>
       <h>133</h>
     </coordinates>
     <panel_attributes>Player
 --
 -score:int
 --
-+Control(m: Player, d: Direction):void
++Control(m: Player, d: Direction):boolean
 +AddScore():void
 +GetScore():int
 +DeadScore():void
@@ -308,7 +308,7 @@ Direction
 iController
 --
 --
-+Control(m: Player, d: Direction):void
++Control(m: Player, d: Direction):boolean
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -449,12 +449,12 @@ m1=1</panel_attributes>
     <coordinates>
       <x>952</x>
       <y>350</y>
-      <w>119</w>
+      <w>112</w>
       <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 r1=-lastTouchedMe
 m1=1</panel_attributes>
-    <additional_attributes>150.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
