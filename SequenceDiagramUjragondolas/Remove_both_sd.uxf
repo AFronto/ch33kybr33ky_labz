@@ -251,7 +251,7 @@ bg=yellow</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-UpdateScore()</panel_attributes>
+UpdateScore(myPlayer)</panel_attributes>
     <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
   </element>
   <element>
