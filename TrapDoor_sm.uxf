@@ -131,7 +131,7 @@
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-Activate()</panel_attributes>
+Activate(true)</panel_attributes>
     <additional_attributes>10.0;70.0;120.0;10.0;210.0;80.0</additional_attributes>
   </element>
   <element>
@@ -143,7 +143,7 @@ Activate()</panel_attributes>
       <h>90</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-Activate()</panel_attributes>
+Activate(false)</panel_attributes>
     <additional_attributes>230.0;20.0;120.0;70.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
