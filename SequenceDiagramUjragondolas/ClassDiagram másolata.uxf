@@ -12,7 +12,7 @@
     <panel_attributes>Map
 --
 --
-+CreateMap()
++CreateMap(): void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -28,7 +28,7 @@
 --
 --
 +GetNeighbour(d: Direction):Field
-+SetNeighbour(d: Direction,f: Field)
++SetNeighbour(d: Direction,f: Field): void
 +virtual Step(p: Player, m: iController, d: Direction, realStep: boolean):boolean
 +virtual Remove():void
 +virtual FieldAction(): void</panel_attributes>
@@ -100,13 +100,13 @@
     <coordinates>
       <x>763</x>
       <y>294</y>
-      <w>189</w>
+      <w>196</w>
       <h>133</h>
     </coordinates>
     <panel_attributes>Box
 --
 --
-+Control(m: iController, d: Direction):void
++Control(m: Player, d: Direction):boolean
 +GetLastTouchedMe(): Player</panel_attributes>
     <additional_attributes/>
   </element>
@@ -174,16 +174,16 @@ Direction
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1050</x>
+      <x>1057</x>
       <y>294</y>
-      <w>196</w>
+      <w>182</w>
       <h>133</h>
     </coordinates>
     <panel_attributes>Player
 --
 -score:int
 --
-+Control(m: iController, d: Direction):void
++Control(m: Player, d: Direction):void
 +AddScore():void
 +GetScore():int
 +DeadScore():void
@@ -308,7 +308,7 @@ Direction
 iController
 --
 --
-+Control(m: iController, d: Direction):void
++Control(m: Player, d: Direction):void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -390,10 +390,10 @@ Game
 -players: int
 -overallScore: int[]
 --
-+UpdateScore(p: Player)
-+CountBoxes(add: int)
-+NewGame()
-+EndGame()</panel_attributes>
++UpdateScore(p: Player): void
++CountBoxes(add: int): void
++NewGame(playerCount: int): void
++EndGame(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -418,7 +418,7 @@ r1=active_map</panel_attributes>
       <h>301</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;590.0;10.0;590.0;410.0;580.0;410.0</additional_attributes>
+    <additional_attributes>10.0;10.0;590.0;10.0;590.0;410.0;570.0;410.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -447,7 +447,7 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>945</x>
+      <x>952</x>
       <y>350</y>
       <w>119</w>
       <h>35</h>
