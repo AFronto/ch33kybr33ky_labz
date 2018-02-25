@@ -85,9 +85,9 @@ bg=yellow</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>460</x>
-      <y>270</y>
+      <y>260</y>
       <w>20</w>
-      <h>50</h>
+      <h>30</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -97,12 +97,12 @@ bg=yellow</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>460</x>
-      <y>220</y>
+      <y>210</y>
       <w>190</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Step(p,m,d,false)</panel_attributes>
+GetNeighbour(d)</panel_attributes>
     <additional_attributes>20.0;50.0;70.0;50.0;70.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -174,7 +174,7 @@ bg=yellow</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-CountBoxes(-1)</panel_attributes>
+             CountBoxes(-1)</panel_attributes>
     <additional_attributes>560.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -220,5 +220,75 @@ CountBoxes(-1)</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;370.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>650</x>
+      <y>110</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>nextField: Field
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>130</y>
+      <w>30</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>280</y>
+      <w>250</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Step(p,m,d,false)</panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>690</x>
+      <y>300</y>
+      <w>20</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>320</y>
+      <w>30</w>
+      <h>460</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;440.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>310</y>
+      <w>250</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+canGo</panel_attributes>
+    <additional_attributes>10.0;20.0;230.0;20.0</additional_attributes>
   </element>
 </diagram>

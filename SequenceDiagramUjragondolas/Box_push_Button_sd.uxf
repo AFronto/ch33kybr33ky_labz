@@ -5,9 +5,9 @@
     <id>UMLFrame</id>
     <coordinates>
       <x>306</x>
-      <y>36</y>
+      <y>27</y>
       <w>657</w>
-      <h>585</h>
+      <h>846</h>
     </coordinates>
     <panel_attributes>sd: Push button</panel_attributes>
     <additional_attributes/>
@@ -16,7 +16,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>531</x>
-      <y>72</y>
+      <y>63</y>
       <w>90</w>
       <h>27</h>
     </coordinates>
@@ -28,7 +28,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>567</x>
-      <y>90</y>
+      <y>81</y>
       <w>27</w>
       <h>45</h>
     </coordinates>
@@ -39,9 +39,9 @@ bg=orange</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>369</x>
-      <y>144</y>
+      <y>135</y>
       <w>423</w>
-      <h>270</h>
+      <h>234</h>
     </coordinates>
     <panel_attributes>opt</panel_attributes>
     <additional_attributes/>
@@ -50,7 +50,7 @@ bg=orange</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>567</x>
-      <y>117</y>
+      <y>108</y>
       <w>18</w>
       <h>171</h>
     </coordinates>
@@ -62,18 +62,18 @@ bg=yellow</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>567</x>
-      <y>567</y>
+      <y>765</y>
       <w>27</w>
-      <h>72</h>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
       <x>369</x>
-      <y>450</y>
+      <y>648</y>
       <w>135</w>
       <h>63</h>
     </coordinates>
@@ -85,19 +85,19 @@ style=wordwrap</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>576</x>
-      <y>171</y>
-      <w>126</w>
+      <y>162</y>
+      <w>144</w>
       <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Activate(b)</panel_attributes>
+Activate(true)</panel_attributes>
     <additional_attributes>20.0;80.0;60.0;80.0;60.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>297</x>
-      <y>99</y>
+      <y>90</y>
       <w>288</w>
       <h>45</h>
     </coordinates>
@@ -110,7 +110,7 @@ FieldAction()
     <id>UMLGeneric</id>
     <coordinates>
       <x>576</x>
-      <y>243</y>
+      <y>234</y>
       <w>18</w>
       <h>45</h>
     </coordinates>
@@ -122,7 +122,7 @@ bg=yellow</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>522</x>
-      <y>288</y>
+      <y>279</y>
       <w>162</w>
       <h>63</h>
     </coordinates>
@@ -135,9 +135,9 @@ sd TrapDoor Activation</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>567</x>
-      <y>351</y>
+      <y>342</y>
       <w>18</w>
-      <h>99</h>
+      <h>171</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -147,7 +147,7 @@ bg=yellow</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>576</x>
-      <y>351</y>
+      <y>342</y>
       <w>18</w>
       <h>18</h>
     </coordinates>
@@ -159,7 +159,7 @@ bg=yellow</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>297</x>
-      <y>558</y>
+      <y>756</y>
       <w>288</w>
       <h>27</h>
     </coordinates>
@@ -170,7 +170,7 @@ bg=yellow</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>369</x>
-      <y>423</y>
+      <y>621</y>
       <w>423</w>
       <h>126</h>
     </coordinates>
@@ -181,12 +181,11 @@ bg=yellow</panel_attributes>
     <id>Text</id>
     <coordinates>
       <x>396</x>
-      <y>198</y>
+      <y>189</y>
       <w>135</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>[myBox != null 
-&amp;&amp; myPlayer == null]
+    <panel_attributes>[myBox != null]
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
@@ -194,7 +193,7 @@ style=wordwrap</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>522</x>
-      <y>450</y>
+      <y>648</y>
       <w>162</w>
       <h>63</h>
     </coordinates>
@@ -207,9 +206,93 @@ sd Field FieldAction</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>567</x>
-      <y>513</y>
+      <y>711</y>
       <w>18</w>
       <h>63</h>
+    </coordinates>
+    <panel_attributes>
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>369</x>
+      <y>369</y>
+      <w>423</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>opt</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>396</y>
+      <w>153</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Activate(false)</panel_attributes>
+    <additional_attributes>20.0;80.0;60.0;80.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>576</x>
+      <y>468</y>
+      <w>18</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>522</x>
+      <y>513</y>
+      <w>162</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>ref
+--
+sd TrapDoor Activation</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>576</x>
+      <y>576</y>
+      <w>18</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>396</x>
+      <y>423</y>
+      <w>135</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>[myPlayer != null]
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>567</x>
+      <y>576</y>
+      <w>18</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
