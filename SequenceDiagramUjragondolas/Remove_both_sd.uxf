@@ -102,7 +102,7 @@ bg=yellow</panel_attributes>
       <w>630</w>
       <h>130</h>
     </coordinates>
-    <panel_attributes>otp</panel_attributes>
+    <panel_attributes>opt</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -169,7 +169,7 @@ CounBoxes(-1)</panel_attributes>
       <w>630</w>
       <h>190</h>
     </coordinates>
-    <panel_attributes>otp</panel_attributes>
+    <panel_attributes>opt</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
