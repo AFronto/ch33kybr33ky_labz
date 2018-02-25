@@ -184,7 +184,7 @@ bg=yellow</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Step(p,b,d)</panel_attributes>
+Step(p,b,d,true)</panel_attributes>
     <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
