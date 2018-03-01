@@ -6,7 +6,7 @@
     <coordinates>
       <x>416</x>
       <y>78</y>
-      <w>663</w>
+      <w>910</w>
       <h>689</h>
     </coordinates>
     <panel_attributes>sd: Player moves to field with Player</panel_attributes>
@@ -67,7 +67,7 @@ Control(m,d)</panel_attributes>
       <w>130</w>
       <h>39</h>
     </coordinates>
-    <panel_attributes>f: Field
+    <panel_attributes>myField: Field
 bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
@@ -173,7 +173,7 @@ bg=yellow</panel_attributes>
       <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Step(m,p,d,true)</panel_attributes>
+CheckNeighbour(d)</panel_attributes>
     <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -185,7 +185,7 @@ Step(m,p,d,true)</panel_attributes>
       <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-canGo</panel_attributes>
+canGo = false</panel_attributes>
     <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
   </element>
   <element>
@@ -197,7 +197,7 @@ canGo</panel_attributes>
       <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-canGo</panel_attributes>
+canGo = false</panel_attributes>
     <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
   </element>
   <element>
@@ -233,5 +233,28 @@ canGo</panel_attributes>
     <panel_attributes>m != nullha tolják
 m == null ha user input mozgatja</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1092</x>
+      <y>156</y>
+      <w>130</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>m: Player
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1144</x>
+      <y>182</y>
+      <w>39</w>
+      <h>572</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;420.0</additional_attributes>
   </element>
 </diagram>
