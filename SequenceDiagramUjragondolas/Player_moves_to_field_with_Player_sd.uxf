@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>13</zoom_level>
+  <zoom_level>12</zoom_level>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>416</x>
-      <y>78</y>
-      <w>910</w>
-      <h>689</h>
+      <x>360</x>
+      <y>48</y>
+      <w>840</w>
+      <h>636</h>
     </coordinates>
     <panel_attributes>sd: Player moves to field with Player</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>533</x>
-      <y>156</y>
-      <w>130</w>
-      <h>39</h>
+      <x>468</x>
+      <y>120</y>
+      <w>120</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>p: Player
 bg=orange</panel_attributes>
@@ -27,10 +27,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>585</x>
-      <y>182</y>
-      <w>39</w>
-      <h>91</h>
+      <x>516</x>
+      <y>144</y>
+      <w>36</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -38,10 +38,10 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>585</x>
-      <y>247</y>
-      <w>26</w>
-      <h>455</h>
+      <x>516</x>
+      <y>204</y>
+      <w>24</w>
+      <h>420</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -50,10 +50,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>403</x>
-      <y>221</y>
-      <w>208</w>
-      <h>52</h>
+      <x>348</x>
+      <y>180</y>
+      <w>192</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 Control(m,d)</panel_attributes>
@@ -62,10 +62,10 @@ Control(m,d)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>741</x>
-      <y>156</y>
-      <w>130</w>
-      <h>39</h>
+      <x>660</x>
+      <y>120</y>
+      <w>120</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>myField: Field
 bg=orange</panel_attributes>
@@ -74,10 +74,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>793</x>
-      <y>182</y>
-      <w>39</w>
-      <h>117</h>
+      <x>708</x>
+      <y>144</y>
+      <w>36</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
@@ -85,10 +85,10 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>793</x>
-      <y>273</y>
-      <w>26</w>
-      <h>130</h>
+      <x>708</x>
+      <y>228</y>
+      <w>24</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -97,10 +97,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>598</x>
-      <y>247</y>
-      <w>221</w>
-      <h>52</h>
+      <x>528</x>
+      <y>204</y>
+      <w>204</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 GetNeighbour(d)</panel_attributes>
@@ -109,10 +109,10 @@ GetNeighbour(d)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>598</x>
-      <y>364</y>
-      <w>221</w>
-      <h>52</h>
+      <x>528</x>
+      <y>312</y>
+      <w>204</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 f2</panel_attributes>
@@ -121,10 +121,10 @@ f2</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>910</x>
-      <y>156</y>
-      <w>130</w>
-      <h>39</h>
+      <x>816</x>
+      <y>120</y>
+      <w>120</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>f2: Field
 bg=orange</panel_attributes>
@@ -133,10 +133,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>793</x>
-      <y>390</y>
-      <w>39</w>
-      <h>390</h>
+      <x>708</x>
+      <y>336</y>
+      <w>36</w>
+      <h>360</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;280.0</additional_attributes>
@@ -144,10 +144,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>962</x>
-      <y>182</y>
-      <w>39</w>
-      <h>286</h>
+      <x>864</x>
+      <y>144</y>
+      <w>36</w>
+      <h>264</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
@@ -155,10 +155,10 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>962</x>
-      <y>442</y>
-      <w>26</w>
-      <h>78</h>
+      <x>864</x>
+      <y>384</y>
+      <w>24</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -167,10 +167,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>598</x>
-      <y>416</y>
-      <w>390</w>
-      <h>52</h>
+      <x>528</x>
+      <y>360</y>
+      <w>360</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 CheckNeighbour(d)</panel_attributes>
@@ -179,10 +179,10 @@ CheckNeighbour(d)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>598</x>
-      <y>481</y>
-      <w>390</w>
-      <h>52</h>
+      <x>528</x>
+      <y>420</y>
+      <w>360</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 canGo = false</panel_attributes>
@@ -191,10 +191,10 @@ canGo = false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>403</x>
-      <y>663</y>
-      <w>208</w>
-      <h>52</h>
+      <x>348</x>
+      <y>588</y>
+      <w>192</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 canGo = false</panel_attributes>
@@ -203,10 +203,10 @@ canGo = false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>962</x>
-      <y>507</y>
-      <w>39</w>
-      <h>260</h>
+      <x>864</x>
+      <y>444</y>
+      <w>36</w>
+      <h>240</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
@@ -214,10 +214,10 @@ canGo = false</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>585</x>
-      <y>689</y>
-      <w>39</w>
-      <h>91</h>
+      <x>516</x>
+      <y>612</y>
+      <w>36</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -225,10 +225,10 @@ canGo = false</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>26</x>
-      <y>26</y>
-      <w>299</w>
-      <h>91</h>
+      <x>0</x>
+      <y>0</y>
+      <w>276</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>m != nullha tolják
 m == null ha user input mozgatja</panel_attributes>
@@ -237,10 +237,10 @@ m == null ha user input mozgatja</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1092</x>
-      <y>156</y>
-      <w>130</w>
-      <h>39</h>
+      <x>984</x>
+      <y>120</y>
+      <w>120</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>m: Player
 bg=orange</panel_attributes>
@@ -249,10 +249,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1144</x>
-      <y>182</y>
-      <w>39</w>
-      <h>572</h>
+      <x>1032</x>
+      <y>144</y>
+      <w>36</w>
+      <h>528</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;420.0</additional_attributes>

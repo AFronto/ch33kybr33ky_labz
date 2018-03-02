@@ -54,8 +54,7 @@ bg=orange</panel_attributes>
       <w>130</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>[myPlayer != null 
-|| myBox != null]</panel_attributes>
+    <panel_attributes>[myMoveable != null]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
