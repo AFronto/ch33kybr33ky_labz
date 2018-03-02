@@ -9,7 +9,7 @@
       <w>950</w>
       <h>770</h>
     </coordinates>
-    <panel_attributes>sd: Box moves to field with Player</panel_attributes>
+    <panel_attributes>sd: Box moves to field with Player /kill</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -67,7 +67,7 @@ Control(p,d)</panel_attributes>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>f: Field
+    <panel_attributes>myField: Field
 bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
@@ -185,7 +185,7 @@ CheckNeighbour(p,d)</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-canGo</panel_attributes>
+canGo=false</panel_attributes>
     <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
   </element>
   <element>
@@ -197,7 +197,7 @@ canGo</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-canGo</panel_attributes>
+canGo=true</panel_attributes>
     <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
   </element>
   <element>
@@ -244,28 +244,6 @@ bg=orange</panel_attributes>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>300</x>
-      <y>400</y>
-      <w>630</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>opt</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>310</x>
-      <y>420</y>
-      <w>120</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>[canGo == false]</panel_attributes>
-    <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
@@ -318,12 +296,12 @@ Control(p,d)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>730</x>
-      <y>340</y>
+      <y>350</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-canGo</panel_attributes>
+canGo=false</panel_attributes>
     <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
   </element>
   <element>
