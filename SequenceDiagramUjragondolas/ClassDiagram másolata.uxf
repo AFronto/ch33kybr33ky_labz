@@ -287,7 +287,7 @@ Direction
     <coordinates>
       <x>945</x>
       <y>196</y>
-      <w>217</w>
+      <w>224</w>
       <h>126</h>
     </coordinates>
     <panel_attributes>&lt;&lt;abstract&gt;&gt;
@@ -296,7 +296,6 @@ Movable
 --
 +virtual IsStuck():boolean
 +virtual Control(m: Player, d: Direction):boolean
-+virtual SetStuck()
 /+Kill():void/
 /+Press():void/
 /+GetLastTouchedMe():Player/
