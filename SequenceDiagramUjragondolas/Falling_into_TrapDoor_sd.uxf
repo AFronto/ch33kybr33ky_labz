@@ -4,10 +4,10 @@
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>380</x>
+      <x>290</x>
       <y>140</y>
-      <w>630</w>
-      <h>460</h>
+      <w>680</w>
+      <h>570</h>
     </coordinates>
     <panel_attributes>Falling into TrapDoor</panel_attributes>
     <additional_attributes/>
@@ -38,24 +38,23 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>430</x>
-      <y>290</y>
-      <w>390</w>
+      <x>350</x>
+      <y>490</y>
+      <w>410</w>
       <h>170</h>
     </coordinates>
-    <panel_attributes>optional</panel_attributes>
+    <panel_attributes>opt</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>440</x>
-      <y>320</y>
+      <x>360</x>
+      <y>530</y>
       <w>140</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>[myMoveable != null
-&amp;&amp; isActive == true]</panel_attributes>
+    <panel_attributes>[isActive == false]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -64,7 +63,7 @@ bg=orange</panel_attributes>
       <x>580</x>
       <y>220</y>
       <w>20</w>
-      <h>260</h>
+      <h>310</h>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
@@ -85,25 +84,25 @@ Remove()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
+      <x>280</x>
       <y>200</y>
-      <w>230</w>
+      <w>320</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 FieldAction()</panel_attributes>
-    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>300.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>470</y>
-      <w>230</w>
+      <x>280</x>
+      <y>660</y>
+      <w>320</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;210.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;300.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
@@ -115,6 +114,53 @@ FieldAction()</panel_attributes>
     </coordinates>
     <panel_attributes>
 bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>510</x>
+      <y>530</y>
+      <w>180</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>ref
+--
+sd Field FieldAction</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>350</x>
+      <y>310</y>
+      <w>410</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>opt</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>580</x>
+      <y>600</y>
+      <w>20</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>380</x>
+      <y>340</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>[isActive == true]</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
