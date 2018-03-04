@@ -422,4 +422,15 @@ setStuck()</panel_attributes>
 </panel_attributes>
     <additional_attributes>10.0;20.0;590.0;20.0</additional_attributes>
   </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>952</x>
+      <y>432</y>
+      <w>24</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+  </element>
 </diagram>

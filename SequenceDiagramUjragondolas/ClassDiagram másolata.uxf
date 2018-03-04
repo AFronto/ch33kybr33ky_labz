@@ -111,6 +111,7 @@
 -stuck : boolean
 --
 +IsStuck():boolean
++SetStuck(): void
 +Control(m: Player, d: Direction):boolean
 +Kill():void
 +Press():void
@@ -295,10 +296,10 @@ Movable
 --
 +virtual IsStuck():boolean
 +virtual Control(m: Player, d: Direction):boolean
++virtual SetStuck()
 /+Kill():void/
 /+Press():void/
 /+GetLastTouchedMe():Player/
-/+SetStuck()/
 /+Die()/</panel_attributes>
     <additional_attributes/>
   </element>
