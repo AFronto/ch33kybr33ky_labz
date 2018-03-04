@@ -199,7 +199,7 @@ Press()
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Activate(b)</panel_attributes>
+Activate(true)</panel_attributes>
     <additional_attributes>10.0;20.0;330.0;20.0</additional_attributes>
   </element>
   <element>
