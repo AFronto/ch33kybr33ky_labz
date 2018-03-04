@@ -141,29 +141,6 @@ score</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>340</x>
-      <y>470</y>
-      <w>470</w>
-      <h>160</h>
-    </coordinates>
-    <panel_attributes>opt</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>350</x>
-      <y>500</y>
-      <w>100</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>[score==-1]
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>450</x>
@@ -198,5 +175,28 @@ bg=yellow</panel_attributes>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
     <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>350</x>
+      <y>500</y>
+      <w>100</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>[players==1]
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>340</x>
+      <y>470</y>
+      <w>470</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>opt</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
