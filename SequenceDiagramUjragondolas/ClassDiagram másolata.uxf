@@ -92,7 +92,6 @@
     </coordinates>
     <panel_attributes>Button
 --
-
 --
 +Activate(b: boolean): void
 +FieldAction(): void</panel_attributes>
@@ -116,7 +115,7 @@
 +Kill():void
 +Press():void
 +GetLastTouchedMe():Player
-+Die()</panel_attributes>
++Die(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -199,7 +198,7 @@ Direction
 +AddScore():void
 +GetScore():int
 +DeadScore():void
-+Die()
++Die(): void
 
 </panel_attributes>
     <additional_attributes/>
@@ -299,7 +298,7 @@ Movable
 /+Kill():void/
 /+Press():void/
 /+GetLastTouchedMe():Player/
-/+Die()/</panel_attributes>
+/+Die(): void/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
