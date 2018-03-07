@@ -1,5 +1,9 @@
 package killer_sokoban;
 
-public class Hole {
+public class Hole extends Field {
 
+	public void FieldAction()
+	{
+		
+	}
 }
