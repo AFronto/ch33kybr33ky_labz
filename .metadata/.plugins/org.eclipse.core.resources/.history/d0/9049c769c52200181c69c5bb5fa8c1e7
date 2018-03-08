@@ -7,9 +7,6 @@ public class Wall extends Box{
 		return canGo;
 	}
 	
-	/**
-	 * Fixen true, mivel a fal nem tud mozogni.
-	 */
 	public boolean IsStuck(){
 		
 		return true;

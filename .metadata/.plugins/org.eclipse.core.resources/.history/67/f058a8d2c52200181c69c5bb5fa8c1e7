@@ -9,7 +9,7 @@ public class Player extends Moveable{
 	}
 	
 	public int GetScore(){
-		return score;
+		
 	}
 	
 	public boolean Control(Player m, Direction d){
@@ -25,11 +25,8 @@ public class Player extends Moveable{
 	public void Press(){
 		
 	}
-	/**
-	 * null-t add vissza, mert csak a boxoknál számít, hogy ki érintette meg utoljára.
-	 */
 	public Player GetLastTouchedMe(){
-		return null;
+		
 	}
 	public void Die(){
 		

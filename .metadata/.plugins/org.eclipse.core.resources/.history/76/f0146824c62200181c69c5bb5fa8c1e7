@@ -14,7 +14,7 @@ public class Field {
 	}
 	
 	public Moveable GetmyMoveable(){
-		return myMoveable;
+		
 	}
 	
 	public void SetmyMoveable(){
