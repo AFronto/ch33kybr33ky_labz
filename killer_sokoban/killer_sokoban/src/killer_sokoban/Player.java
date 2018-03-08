@@ -16,6 +16,7 @@ public class Player extends Moveable{
 	public boolean Control(Player m, Direction d){
 		printOnEntry(this,"Control");
 		printOnExit(this,"Control","canGo");
+		return true; ///ez a forditas miatt kell csak 
 	}
 	
 	public void DeadScore(){
@@ -28,7 +29,7 @@ public class Player extends Moveable{
 		
 	}
 	/**
-	 * null-t add vissza, mert csak a boxoknál számít, hogy ki érintette meg utoljára.
+	 * null-t add vissza, mert csak a boxoknal szamit, hogy ki erintette meg utoljara.
 	 */
 	public Player GetLastTouchedMe(){
 		return null;
