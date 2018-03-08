@@ -1,0 +1,1 @@
+INDEX VERSION 1.127+E:\Szop_lab\ch33kybr33ky_labz\killer_sokoban\killer_sokoban\src\killer_sokoban\.metadata\.plugins\org.eclipse.jdt.core
