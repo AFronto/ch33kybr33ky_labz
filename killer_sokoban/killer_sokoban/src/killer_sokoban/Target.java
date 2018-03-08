@@ -1,5 +1,8 @@
 package killer_sokoban;
 
-public class Target {
-
+public class Target extends Field{
+	
+	public void FieldAction(){
+		
+	}
 }
