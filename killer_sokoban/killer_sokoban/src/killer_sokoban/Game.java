@@ -70,20 +70,28 @@ public class Game {
 		tabs--;
 	}
 
-	
-	public void UpdateScore(Player p){
+	/**
+	 * Kiir egy opciot
+	 */
+	public static void printOption(String opt) {
+		System.out.print("-     ");
+		printIndent();
+		System.out.println("  " + opt);
+	}
+
+	public static void UpdateScore(Player p){
 		
 	}
 	
-	public void CountBoxes(int add){
+	public static void CountBoxes(int add){
 		
 	}
 	
-	public void NewGame(int playerCount){
+	public static void NewGame(int playerCount){
 		
 	}
 	
-	public void EndGame(){
+	public static void EndGame(){
 		
 	}
 }
