@@ -1,5 +1,4 @@
 package killer_sokoban;
-import static killer_sokoban.Game.*;
 
 public class Player extends Moveable{
 
@@ -14,8 +13,7 @@ public class Player extends Moveable{
 	}
 	
 	public boolean Control(Player m, Direction d){
-		printOnEntry(this,"Control");
-		printOnExit(this,"Control","canGo");
+		
 	}
 	
 	public void DeadScore(){

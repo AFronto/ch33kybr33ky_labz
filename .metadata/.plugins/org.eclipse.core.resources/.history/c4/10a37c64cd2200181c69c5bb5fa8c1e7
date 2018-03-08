@@ -1,15 +1,10 @@
 package killer_sokoban;
 
-import static killer_sokoban.Game.printOnEntry;
-import static killer_sokoban.Game.printOnExit;
-
 public class Game {
 
 	private int boxes;
 	private int players;
 	private int[] overallScore;
-	private Map active_map;
-	
 	/**
 	 *Csak a Skeletonhoz hasznalt valtozok
 	 */
@@ -75,31 +70,20 @@ public class Game {
 		tabs--;
 	}
 
-	/**
-	 * Kiir egy opciot
-	 */
-	public static void printOption(String opt) {
-		System.out.print("-     ");
-		printIndent();
-		System.out.println("  " + opt);
-	}
-
-	public static void UpdateScore(Player p){
+	
+	public void UpdateScore(Player p){
 		
 	}
 	
-	public static void CountBoxes(int add){
+	public void CountBoxes(int add){
 		
 	}
 	
-
-	public static void NewGame(int playerCount){
-		printOnEntry(this,"NewGame");
-		active_map.CreateMap();
-		printOnExit(this,"NewGame",null);
+	public void NewGame(int playerCount){
+		
 	}
 	
-	public static void EndGame(){
+	public void EndGame(){
 		
 	}
 }
