@@ -9,9 +9,9 @@ public class Field {
 	protected Moveable myMoveable;
 
 	public Field(){
-		printOnEntry(this,"<init>");
+		printOnConstruct("Field");
 		neighbours= new EnumMap<Direction,Field>(Direction.class);
-		printOnExit(this,"<init>",null);
+		printOnExitConstuctor("Field");
 	}
 	
 	public Field GetNeighbour(Direction d){

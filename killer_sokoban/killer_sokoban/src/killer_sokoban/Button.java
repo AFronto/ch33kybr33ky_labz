@@ -1,8 +1,16 @@
 package killer_sokoban;
 
-public class Button {
+import static killer_sokoban.Game.*;
+
+public class Button extends Field{
 	
 	protected TrapDoor myTrap;
+
+	public Button(){
+		super();
+		printOnConstruct("Button");
+		printOnExitConstuctor("Button");
+	}
 	
 	public void Activate(boolean b){
 		
@@ -12,4 +20,9 @@ public class Button {
 		
 	}
 
+	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
+	@Override
+	public String toString(){
+		return "Button";
+	}
 }

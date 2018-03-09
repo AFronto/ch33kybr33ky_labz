@@ -8,8 +8,9 @@ public class Box extends Moveable{
 	private Player lastTouchedMe;
 	
 	public Box(){
-		printOnEntry(this,"<init>");
-		printOnExit(this,"<init>",null);
+		printOnConstruct("Box");
+		CountBoxes(1);
+		printOnExitConstuctor("Box");
 	}
 	
 	public Player GetLastTouchedMe(){

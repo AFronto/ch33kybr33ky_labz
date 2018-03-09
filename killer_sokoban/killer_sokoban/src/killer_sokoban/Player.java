@@ -6,8 +6,8 @@ public class Player extends Moveable{
 	private int score;
 	
 	public Player(){
-		printOnEntry(this,"<init>");
-		printOnExit(this,"<init>",null);
+		printOnConstruct("Player");
+		printOnExitConstuctor("Player");
 	}
 
 	public void AddScore(){

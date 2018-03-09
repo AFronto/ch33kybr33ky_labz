@@ -6,8 +6,8 @@ public class Wall extends Box{
 
 	public Wall(){
 		super();
-		printOnEntry(this,"<init>");
-		printOnExit(this,"<init>",null);
+		printOnConstruct("Wall");
+		printOnExitConstuctor("Wall");
 	}
 
 	public boolean Control(Player p, Direction d){

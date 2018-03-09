@@ -8,16 +8,16 @@ public class Map {
 	private Field[][] fields;
 	
 	public Map(){
-		printOnEntry(this,"<init>");
+		printOnConstruct("Map");
 		fields=new Field[20][20];				///ez a palya csak teszt
-		printOnExit(this,"<init>",null);
+		printOnExitConstuctor("Map");
 	}
 
 	public void CreateMap(int playerCount){
 	
 		printOnEntry(this,"CreateMap",playerCount+"");
 		String[] newFieldStrings = {"1. Field",
-		"2. Hole", "3. TrapDoor","4. Button","5. Vegeztem az epitessel"};
+		"2. Hole", "3. TrapDoor","4. Button","5. Target","6. Vegeztem az epitessel"};
 
 
 		boolean buildingMap = true;
@@ -26,7 +26,7 @@ public class Map {
 			for (String s : newFieldStrings){
 				printOption(s);
 			}
-			int sel = printQuestion("Milyen mezot akarsz rakni?", 1, 5);
+			int sel = printQuestion("Milyen mezot akarsz rakni?", 1, 6);
 			switch (sel) {
 				case 1:
 					Field f= new Field();
@@ -35,18 +35,40 @@ public class Map {
 					f.SetNeighbour(Direction.LEFT,f);
 					f.SetNeighbour(Direction.RIGHT,f);
 					MovableOption(f);
-					f.GetNeighbour(Direction.UP);
+					////f.GetNeighbour(Direction.UP);    ////teszt
 					break;
 				case 2:
-					
+					Hole h= new Hole();
+					h.SetNeighbour(Direction.UP,h);
+					h.SetNeighbour(Direction.DOWN,h);
+					h.SetNeighbour(Direction.LEFT,h);
+					h.SetNeighbour(Direction.RIGHT,h);
 					break;
 				case 3:
-					
+					TrapDoor t= new TrapDoor();
+					t.SetNeighbour(Direction.UP,t);
+					t.SetNeighbour(Direction.DOWN,t);
+					t.SetNeighbour(Direction.LEFT,t);
+					t.SetNeighbour(Direction.RIGHT,t);
+					MovableOption(t);
 					break;
 				case 4:
-
+					Button b= new Button();
+					b.SetNeighbour(Direction.UP,b);
+					b.SetNeighbour(Direction.DOWN,b);
+					b.SetNeighbour(Direction.LEFT,b);
+					b.SetNeighbour(Direction.RIGHT,b);
+					MovableOption(b);
 					break;
 				case 5:
+					Target ta= new Target();
+					ta.SetNeighbour(Direction.UP,ta);
+					ta.SetNeighbour(Direction.DOWN,ta);
+					ta.SetNeighbour(Direction.LEFT,ta);
+					ta.SetNeighbour(Direction.RIGHT,ta);
+					MovableOption(ta);
+					break;
+				case 6:
 					buildingMap = false;
 					break;
 	

@@ -17,15 +17,16 @@ public class Game {
 	 */
 	private static Scanner sc = new Scanner(System.in);
 	private static int tabs = 0;
+	private static Game game;
 
 	public Game() {
-		printOnEntry(this,"<init>");
+		printOnConstruct("Game");
 		active_map= new Map();
-		printOnExit(this,"<init>",null);
+		printOnExitConstuctor("Game");
 	}
 
 	public static void main(String[] args) {
-		Game game = new Game();
+		game = new Game();
 
 		boolean keepGoing=true;
 		while(keepGoing){
@@ -48,7 +49,8 @@ public class Game {
 	}
 	
 	public static void CountBoxes(int add){
-		
+		printOnEntry(game,"CountBoxes",""+add);
+		printOnExit(game,"CountBoxes",null);
 	}
 	
 	public static void printIndent() {
@@ -83,6 +85,31 @@ public class Game {
 		System.out.println(methodEnter);    //-->Class.method(params...):
 	}
 
+
+	/**
+	 * Ezzel a fuggvennyel jelezzuk az adott konstruktor elejen a konstruktor hivast 
+	 *
+	 * @param method a hivott fuggveny tulajdonosa,neve es a utanna sorban a parameterei ha vannak 
+	 */
+	public static void printOnConstruct(String... method) {
+		System.out.print("create    ");
+		tabs++;
+		printIndent();
+
+		String methodEnter = "-->";
+		methodEnter += method[0] + "(";
+		if (method.length != 1) {
+			int i;
+			for (i = 1; i < method.length - 1; i++)
+				methodEnter += method[i] + ", ";
+			methodEnter += method[i];
+		}
+		methodEnter += "):";
+
+
+		System.out.println(methodEnter);    //-->Constructor(params...):
+	}
+
 	/**
 	 * Ezzel a fuggvennyel jelezzuk az adott metodus vegen, hogy a metodus viszater 
 	 *
@@ -104,6 +131,21 @@ public class Game {
 		tabs--;
 	}
 
+	/**
+	 * Ezzel a fuggvennyel jelezzuk az adott konstruktor vegen, hogy a konstruktor viszater 
+	 *
+	 * @param method a hivott fuggveny neve
+	 */
+	public static void printOnExitConstuctor(String method) {
+		System.out.print("return    ");
+		printIndent();
+
+		
+		String methodExit = "<--";
+		methodExit += method + "(" + ")";
+		System.out.println(methodExit); ///<--Constructor()
+		tabs--;
+	}
 	/**
 	 * Kiir egy opciot
 	 * @param opt a ki irando opcio 
@@ -155,7 +197,7 @@ public class Game {
 				return false;
 		}
 
-		
+
 		return true;
 	}
 
