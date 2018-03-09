@@ -5,6 +5,11 @@ public class Player extends Moveable{
 
 	private int score;
 	
+	public Player(){
+		printOnEntry(this,"<init>");
+		printOnExit(this,"<init>",null);
+	}
+
 	public void AddScore(){
 		
 	}

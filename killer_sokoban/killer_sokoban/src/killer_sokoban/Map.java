@@ -5,10 +5,11 @@ import static killer_sokoban.Game.*;
 
 public class Map {
 	
-	private Field[]fields;
+	private Field[][] fields;
 	
 	public Map(){
 		printOnEntry(this,"<init>");
+		fields=new Field[20][20];				///ez a palya csak teszt
 		printOnExit(this,"<init>",null);
 	}
 
@@ -25,10 +26,15 @@ public class Map {
 			for (String s : newFieldStrings){
 				printOption(s);
 			}
-			int sel = printQuestion("Mit akarsz csinalni?", 1, 4);
+			int sel = printQuestion("Milyen mezot akarsz rakni?", 1, 4);
 			switch (sel) {
 				case 1:
-					
+					Field f= new Field();
+					f.SetNeighbour(Direction.UP,new Field());
+					f.SetNeighbour(Direction.DOWN,new Field());
+					f.SetNeighbour(Direction.LEFT,new Field());
+					f.SetNeighbour(Direction.RIGHT,new Field());
+					MovableOption(f);
 					break;
 				case 2:
 					
@@ -47,21 +53,29 @@ public class Map {
 	}
 	
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
-	public void MovableOption(){
-		String[] movableStrings = {"1. Player","2. Box","3. Ures"};
+	public void MovableOption(Field f){
+		String[] movableStrings = {"1. Player","2. Box","3. Wall","4. Ures"};
 		
 		for (String s : movableStrings){
 			printOption(s);
 		}
-		int sel = printQuestion("Mit akarsz csinalni?", 1, 3);
+		int sel = printQuestion("Mi legyen rajta?", 1, 4);
 		switch (sel) {
 			case 1:
+				Player p = new Player();
+				f.SetmyMoveable(p);
 				break;
 			case 2:
+				Box b = new Box();
+				f.SetmyMoveable(b);
 				break;
 			case 3:
+				Wall w = new Wall();
+				f.SetmyMoveable(w);
 				break;
-
+			case 4:
+				f.SetmyMoveable(null);
+				break;
 
 		}
 	}

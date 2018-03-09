@@ -2,6 +2,11 @@ package killer_sokoban;
 
 public class Wall extends Box{
 
+	public Wall(){
+		printOnEntry(this,"<init>");
+		printOnExit(this,"<init>",null);
+	}
+
 	public boolean Control(Player p, Direction d){
 		boolean canGo = false;
 		return canGo;

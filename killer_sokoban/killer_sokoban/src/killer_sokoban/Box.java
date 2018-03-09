@@ -5,6 +5,10 @@ public class Box {
 	private boolean stuck;
 	private Player lastTouchedMe;
 	
+	public Box(){
+		printOnEntry(this,"<init>");
+		printOnExit(this,"<init>",null);
+	}
 	
 	public Player GetLastTouchedMe(){
 		return lastTouchedMe;
