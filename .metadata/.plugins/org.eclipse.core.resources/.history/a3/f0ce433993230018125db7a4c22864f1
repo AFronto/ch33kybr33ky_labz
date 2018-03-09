@@ -5,7 +5,7 @@ import static killer_sokoban.Game.*;
 
 public class Map {
 	
-	private Field[]fields;
+	private Field[] fields;
 	
 	public Map(){
 		printOnEntry(this,"<init>");
@@ -15,26 +15,24 @@ public class Map {
 	public void CreateMap(int playerCount){
 	
 		printOnEntry(this,"CreateMap");
-		String[] newFieldStrings = {"1. Field",
-		"2. Hole", "3. TrapDoor","4. Button"};
-
+		
+		String[] createMapStrings = {"1. Uj mezo",
+		"2. Uj mezo Playerrel", "3. Uj mezo Boxxal", "4. Kesz"};
 
 		boolean buildingMap = true;
 		
 		while(buildingMap){
-			for (String s : newFieldStrings){
+			for (String s : createMapStrings){
 				printOption(s);
 			}
 			int sel = printQuestion("Mit akarsz csinalni?", 1, 4);
 			switch (sel) {
 				case 1:
-					
+					FieldOption();
 					break;
 				case 2:
-					
 					break;
 				case 3:
-					
 					break;
 				case 4:
 					buildingMap = false;
@@ -47,13 +45,14 @@ public class Map {
 	}
 	
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
-	public void MovableOption(){
-		String[] movableStrings = {"1. Player","2. Box","3. Ures"};
+	public void FieldOption(){
+		String[] newFieldStrings = {"1. Field",
+		"2. Hole", "3. TrapDoor","4. Button","5. Wall"};
 		
-		for (String s : movableStrings){
+		for (String s : newFieldStrings){
 			printOption(s);
 		}
-		int sel = printQuestion("Mit akarsz csinalni?", 1, 3);
+		int sel = printQuestion("Mit akarsz csinalni?", 1, 5);
 		switch (sel) {
 			case 1:
 				break;
@@ -61,7 +60,8 @@ public class Map {
 				break;
 			case 3:
 				break;
-
+			case 4:
+				break;
 
 		}
 	}

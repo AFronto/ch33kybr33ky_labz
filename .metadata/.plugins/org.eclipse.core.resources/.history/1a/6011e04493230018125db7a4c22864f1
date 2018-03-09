@@ -36,7 +36,7 @@ public class Game {
 	
 	public void NewGame(int playerCount){
 		printOnEntry(this,"NewGame",""+playerCount);
-		active_map.CreateMap(playerCount);
+		active_map.CreateMap();
 		printOnExit(this,"NewGame",null);
 	}
 	

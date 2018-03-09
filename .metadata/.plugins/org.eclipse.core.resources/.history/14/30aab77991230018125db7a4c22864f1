@@ -1,0 +1,51 @@
+package killer_sokoban;
+
+import static killer_sokoban.Game.*;
+
+
+public class Map {
+	
+	private Field[] fields;
+	
+	public Map(){
+		printOnEntry(this,"<init>");
+		printOnExit(this,"<init>",null);
+	}
+
+	public void CreateMap(){
+	
+		printOnEntry(this,"CreateMap");
+		
+		String[] createMapStrings = {"1. Uj mezo",
+		"2. Kesz"};
+		String[] newFieldStrings = {"1. Ures mezo",
+		"2. Hole", "3. TrapDoor","4. Button","5. Wall"};
+		boolean buildingMap = true;
+		
+		while(buildingMap){
+			for (String s : createMapStrings){
+				printOption(s);
+			}
+			int sel = printQuestion("Mit akarsz csinalni?", 1, 2);
+			switch (sel) {
+				case 1:
+					for (String s : newFieldStrings){
+						printOption(s);
+					}
+					int sel2 = printQuestion("Milyen mezo legyen?", 1, 5);
+					
+					switch (sel2){
+					case 1:
+						
+					}
+					break;
+				case 2:
+					buildingMap = false;
+					break;
+	
+			}
+			
+		}
+		printOnExit(this,"CreateMap",null);
+}}
+
