@@ -15,9 +15,9 @@ public class Map {
 
 	public void CreateMap(int playerCount){
 	
-		printOnEntry(this,"CreateMap");
+		printOnEntry(this,"CreateMap",playerCount+"");
 		String[] newFieldStrings = {"1. Field",
-		"2. Hole", "3. TrapDoor","4. Button"};
+		"2. Hole", "3. TrapDoor","4. Button","5. Vegeztem az epitessel"};
 
 
 		boolean buildingMap = true;
@@ -26,15 +26,16 @@ public class Map {
 			for (String s : newFieldStrings){
 				printOption(s);
 			}
-			int sel = printQuestion("Milyen mezot akarsz rakni?", 1, 4);
+			int sel = printQuestion("Milyen mezot akarsz rakni?", 1, 5);
 			switch (sel) {
 				case 1:
 					Field f= new Field();
-					f.SetNeighbour(Direction.UP,new Field());
-					f.SetNeighbour(Direction.DOWN,new Field());
-					f.SetNeighbour(Direction.LEFT,new Field());
-					f.SetNeighbour(Direction.RIGHT,new Field());
+					f.SetNeighbour(Direction.UP,f);
+					f.SetNeighbour(Direction.DOWN,f);
+					f.SetNeighbour(Direction.LEFT,f);
+					f.SetNeighbour(Direction.RIGHT,f);
 					MovableOption(f);
+					f.GetNeighbour(Direction.UP);
 					break;
 				case 2:
 					
@@ -43,6 +44,9 @@ public class Map {
 					
 					break;
 				case 4:
+
+					break;
+				case 5:
 					buildingMap = false;
 					break;
 	

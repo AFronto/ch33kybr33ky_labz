@@ -26,11 +26,10 @@ public class Game {
 
 	public static void main(String[] args) {
 		Game game = new Game();
-		game.Menu();
 
 		boolean keepGoing=true;
 		while(keepGoing){
-			keepGoing = game.Menu();
+			keepGoing = game.Run();
 		}
 	}
 	
@@ -138,11 +137,11 @@ public class Game {
 	}
 
 
-	public boolean Menu() { 
-		String[] menuStrings = {"1. Uj Jatek",
+	public boolean Run() { 
+		String[] runStrings = {"1. Uj Jatek",
 							"2. Kilepes"};
 
-		for (String s : menuStrings){
+		for (String s : runStrings){
 			printOption(s);
 		}
 
@@ -156,6 +155,7 @@ public class Game {
 				return false;
 		}
 
+		
 		return true;
 	}
 

@@ -42,4 +42,10 @@ public class Player extends Moveable{
 	public void Die(){
 		
 	}
+
+	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
+	@Override
+	public String toString(){
+		return "Player";
+	}
 }

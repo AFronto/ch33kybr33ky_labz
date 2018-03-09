@@ -1,21 +1,21 @@
 package killer_sokoban;
 import static killer_sokoban.Game.*;
 
-import static killer_sokoban.Game.printOnEntry;
-import static killer_sokoban.Game.printOnExit;
+import java.util.EnumMap;
 
 public class Field {
 	
-	protected Field[] neighbours;
+	protected EnumMap<Direction, Field> neighbours; 				///iranyokkal allíithato tomb
 	protected Moveable myMoveable;
 
 	public Field(){
 		printOnEntry(this,"<init>");
+		neighbours= new EnumMap<Direction,Field>(Direction.class);
 		printOnExit(this,"<init>",null);
 	}
 	
 	public Field GetNeighbour(Direction d){
-		printOnEntry(this,"GetNeighbour");
+		printOnEntry(this,"GetNeighbour",d+"");
 		String[] getNeighbourStrings = {"1. Van szomszed",
 		"2. Nincs szomszed"};
 
@@ -23,48 +23,38 @@ public class Field {
 		printOption(s);
 		}
 		
-		int sel = printQuestion("Mit akarsz csinalni?", 1, 2);
+		int sel = printQuestion("Van arra szomszed?", 1, 2);
 		switch (sel) {
 			case 1:
-				printOnExit(this,"GetNeighbour","Field");
-				return new Field();
+				if(neighbours.get(d).equals(null)){
+					neighbours.put(d,this);
+				}
+				break;
 			case 2:
-				printOnExit(this,"GetNeighbour",null);
-				return null;
+				neighbours.put(d,null);
+				break;				
 		}
-		return null;
+		printOnExit(this,"GetNeighbour",""+neighbours.get(d));
+		return neighbours.get(d);
 		
 	}
 	
 	public void SetNeighbour(Direction d, Field f){
-		printOnEntry(this,"SetNeighbour");
+		printOnEntry(this,"SetNeighbour",d+"",f+"");
+		neighbours.put(d,f);
 		printOnExit(this,"SetNeighbour",null);
 	}
 	
 	public Moveable GetmyMoveable(){
-		printOnEntry(this,"GetmyMoveable");
-		String[] getMovStrings = {"1. Van Moveable",
-		"2. Nincs Moveable"};
-
-		for (String s : getMovStrings){
-		printOption(s);
-		}
-		
-		int sel = printQuestion("Mit akarsz csinalni?", 1, 2);
-		switch (sel) {
-			case 1:
-				printOnExit(this,"GetmyMoveable","Moveable");
-				return myMoveable;
-			case 2:
-				printOnExit(this,"GetmyMoveable",null);
-				return null;
-		}
+		printOnEntry(this,"GetmyMoveable");								////valosaghoz kozelibb de ezt akarjuk?
+		printOnExit(this,"GetmyMoveable",myMoveable+"");
 		return null;
 	}
 	
 
-	public void SetmyMoveable(){
-		printOnEntry(this,"SetmyMoveable");
+	public void SetmyMoveable(Moveable m){
+		printOnEntry(this,"SetmyMoveable",m+"");
+		myMoveable=m;
 		printOnExit(this,"SetmyMoveable",null);
 	}
 	///Regi CheckNeighbour
@@ -82,6 +72,12 @@ public class Field {
 	
 	public void FieldAction(){
 		
+	}
+
+	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
+	@Override
+	public String toString(){
+		return "Field";
 	}
 	
 

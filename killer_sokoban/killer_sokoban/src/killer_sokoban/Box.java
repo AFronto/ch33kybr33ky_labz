@@ -1,6 +1,8 @@
 package killer_sokoban;
 
-public class Box {
+import static killer_sokoban.Game.*;
+
+public class Box extends Moveable{
 
 	private boolean stuck;
 	private Player lastTouchedMe;
@@ -36,6 +38,11 @@ public class Box {
 	
 	public void Die(){
 		
+	}
+//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
+	@Override
+	public String toString(){
+		return "Box";
 	}
 	
 }
