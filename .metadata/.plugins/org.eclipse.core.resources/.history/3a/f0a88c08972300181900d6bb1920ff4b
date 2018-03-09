@@ -61,12 +61,12 @@ public class Field {
 		printOnEntry(this,"SetmyMoveable");
 		printOnExit(this,"SetmyMoveable",null);
 	}
-	///Regi CheckNeighbour
-	public boolean Step(Player p, Direction d){
+	
+	public boolean CheckNeighbour(Player p, Direction d){
 		return true; ///ez a forditas miatt kell csak 
 	}
-	/// Regi Step
-	public void Register(Moveable m){
+	
+	public void Step(Moveable m){
 		
 	}
 	
