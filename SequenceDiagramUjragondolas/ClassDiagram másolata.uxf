@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>153</x>
-      <y>126</y>
+      <x>171</x>
+      <y>81</y>
       <w>162</w>
       <h>63</h>
     </coordinates>
@@ -19,8 +19,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>153</x>
-      <y>261</y>
+      <x>171</x>
+      <y>216</y>
       <w>450</w>
       <h>171</h>
     </coordinates>
@@ -31,8 +31,8 @@
 +SetNeighbour(d: Direction,f: Field): void
 +GetmyMovable(): Movable
 +SetmyMovable(m: Movable): void
-+Step(m: Movable):void
-+CheckNeighbour(p: Player, d: Direction): boolean
++Register(m: Movable):void
++Step(p: Player, d: Direction): boolean
 +Remove():void
 +virtual FieldAction(): void</panel_attributes>
     <additional_attributes/>
@@ -40,8 +40,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>729</y>
+      <x>666</x>
+      <y>684</y>
       <w>252</w>
       <h>81</h>
     </coordinates>
@@ -55,8 +55,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>153</x>
-      <y>504</y>
+      <x>171</x>
+      <y>459</y>
       <w>162</w>
       <h>81</h>
     </coordinates>
@@ -69,8 +69,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>342</x>
-      <y>504</y>
+      <x>360</x>
+      <y>459</y>
       <w>144</w>
       <h>81</h>
     </coordinates>
@@ -83,8 +83,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>414</x>
-      <y>630</y>
+      <x>432</x>
+      <y>585</y>
       <w>171</w>
       <h>81</h>
     </coordinates>
@@ -98,8 +98,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>504</y>
+      <x>666</x>
+      <y>459</y>
       <w>252</w>
       <h>171</h>
     </coordinates>
@@ -119,8 +119,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>153</x>
-      <y>630</y>
+      <x>171</x>
+      <y>585</y>
       <w>162</w>
       <h>90</h>
     </coordinates>
@@ -139,8 +139,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
-      <y>234</y>
+      <x>333</x>
+      <y>189</y>
       <w>90</w>
       <h>27</h>
     </coordinates>
@@ -150,8 +150,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>351</x>
-      <y>180</y>
+      <x>369</x>
+      <y>135</y>
       <w>162</w>
       <h>99</h>
     </coordinates>
@@ -163,8 +163,8 @@ r1=-neighbours
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>423</x>
-      <y>729</y>
+      <x>441</x>
+      <y>684</y>
       <w>189</w>
       <h>108</h>
     </coordinates>
@@ -180,8 +180,8 @@ Direction
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>936</x>
-      <y>504</y>
+      <x>954</x>
+      <y>459</y>
       <w>243</w>
       <h>171</h>
     </coordinates>
@@ -204,8 +204,8 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>495</x>
-      <y>423</y>
+      <x>513</x>
+      <y>378</y>
       <w>27</w>
       <h>225</h>
     </coordinates>
@@ -215,8 +215,8 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>342</x>
-      <y>423</y>
+      <x>360</x>
+      <y>378</y>
       <w>108</w>
       <h>99</h>
     </coordinates>
@@ -226,8 +226,8 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>423</y>
+      <x>252</x>
+      <y>378</y>
       <w>117</w>
       <h>99</h>
     </coordinates>
@@ -237,8 +237,8 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>225</x>
-      <y>576</y>
+      <x>243</x>
+      <y>531</y>
       <w>27</w>
       <h>72</h>
     </coordinates>
@@ -248,8 +248,8 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>666</y>
+      <x>783</x>
+      <y>621</y>
       <w>27</w>
       <h>81</h>
     </coordinates>
@@ -259,8 +259,8 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>180</y>
+      <x>198</x>
+      <y>135</y>
       <w>81</w>
       <h>99</h>
     </coordinates>
@@ -271,8 +271,8 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>594</x>
-      <y>396</y>
+      <x>612</x>
+      <y>351</y>
       <w>45</w>
       <h>351</h>
     </coordinates>
@@ -282,8 +282,8 @@ Direction
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>261</y>
+      <x>666</x>
+      <y>216</y>
       <w>288</w>
       <h>162</h>
     </coordinates>
@@ -302,8 +302,8 @@ Movable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>828</x>
-      <y>414</y>
+      <x>846</x>
+      <y>369</y>
       <w>252</w>
       <h>108</h>
     </coordinates>
@@ -313,8 +313,8 @@ Movable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>414</y>
+      <x>783</x>
+      <y>369</y>
       <w>27</w>
       <h>108</h>
     </coordinates>
@@ -324,8 +324,8 @@ Movable
   <element>
     <id>Text</id>
     <coordinates>
-      <x>486</x>
-      <y>990</y>
+      <x>504</x>
+      <y>945</y>
       <w>702</w>
       <h>108</h>
     </coordinates>
@@ -339,8 +339,8 @@ Step(p: Player, m: iController, d: Direction, realStep: boolean):boolean első p
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>549</x>
-      <y>189</y>
+      <x>567</x>
+      <y>144</y>
       <w>216</w>
       <h>90</h>
     </coordinates>
@@ -354,8 +354,8 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>954</x>
-      <y>135</y>
+      <x>972</x>
+      <y>90</y>
       <w>225</w>
       <h>171</h>
     </coordinates>
@@ -375,8 +375,8 @@ Game
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>306</x>
-      <y>126</y>
+      <x>324</x>
+      <y>81</y>
       <w>666</w>
       <h>45</h>
     </coordinates>
@@ -388,8 +388,8 @@ r1=active_map</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1089</x>
-      <y>297</y>
+      <x>1107</x>
+      <y>252</y>
       <w>27</w>
       <h>225</h>
     </coordinates>
@@ -399,8 +399,8 @@ r1=active_map</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>306</x>
-      <y>666</y>
+      <x>324</x>
+      <y>621</y>
       <w>126</w>
       <h>45</h>
     </coordinates>
@@ -412,8 +412,8 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>846</x>
-      <y>666</y>
+      <x>864</x>
+      <y>621</y>
       <w>225</w>
       <h>63</h>
     </coordinates>
@@ -425,8 +425,8 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>810</x>
-      <y>297</y>
+      <x>828</x>
+      <y>252</y>
       <w>396</w>
       <h>495</h>
     </coordinates>

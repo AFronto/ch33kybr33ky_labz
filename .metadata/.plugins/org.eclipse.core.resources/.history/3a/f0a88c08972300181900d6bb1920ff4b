@@ -1,17 +1,12 @@
 package killer_sokoban;
 import static killer_sokoban.Game.*;
 
-import static killer_sokoban.Game.printOnEntry;
-import static killer_sokoban.Game.printOnExit;
-
 public class Field {
 	
 	protected Field[] neighbours;
 	protected Moveable myMoveable;
 
 	public Field(){
-		printOnEntry(this,"<init>");
-		printOnExit(this,"<init>",null);
 	}
 	
 	public Field GetNeighbour(Direction d){
@@ -62,17 +57,16 @@ public class Field {
 		return null;
 	}
 	
-
 	public void SetmyMoveable(){
 		printOnEntry(this,"SetmyMoveable");
 		printOnExit(this,"SetmyMoveable",null);
 	}
-	///Regi CheckNeighbour
-	public boolean Step(Player p, Direction d){
+	
+	public boolean CheckNeighbour(Player p, Direction d){
 		return true; ///ez a forditas miatt kell csak 
 	}
-	/// Regi Step
-	public void Register(Moveable m){
+	
+	public void Step(Moveable m){
 		
 	}
 	
