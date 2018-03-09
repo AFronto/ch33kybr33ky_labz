@@ -11,7 +11,7 @@ public class Box {
 	}
 	
 	public boolean Control(Player p, Direction d){
-		
+		return true; ///ez a forditas miatt kell csak 
 	}
 	
 	public boolean IsStuck(){

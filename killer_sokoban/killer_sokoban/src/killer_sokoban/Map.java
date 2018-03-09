@@ -7,6 +7,11 @@ public class Map {
 	
 	private Field[] fields;
 	
+	public Map(){
+		printOnEntry(this,"<init>");
+		printOnExit(this,"<init>",null);
+	}
+
 	public void CreateMap(){
 		
 		printOnEntry(this,"CreateMap");
