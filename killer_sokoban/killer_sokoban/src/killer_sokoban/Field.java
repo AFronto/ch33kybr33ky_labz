@@ -4,6 +4,9 @@ public class Field {
 	
 	protected Field[] neighbours;
 	protected Moveable myMoveable;
+
+	public Field(){
+	}
 	
 	public Field GetNeighbour(Direction d){
 		return new Field(); ///ez a forditas miatt kell csak 
