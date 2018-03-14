@@ -32,8 +32,14 @@ public class Box extends Moveable{
 	public void Kill(){
 		
 	}
-	
+	/**
+	 * Doboz megnyomja a gombot.
+	 */
 	public void Press(){
+		
+		printOnEntry(this, "Press");
+		myField.Activate(true);
+		printOnExit(this, "Press", null);
 		
 	}
 	

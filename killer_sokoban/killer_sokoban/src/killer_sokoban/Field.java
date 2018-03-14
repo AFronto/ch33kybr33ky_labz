@@ -73,6 +73,15 @@ public class Field {
 	public void FieldAction(){
 		
 	}
+	
+	/**
+	 *  Virtualis aktivalo fuggveny, a Buttonban van megvalositva
+	 * @param b Megadja hogy aktivalja-e a Buttont ami majd a TrapDoort.
+	 */
+	public void Activate(boolean b) {
+		
+	}
+
 
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
 	@Override

@@ -30,9 +30,18 @@ public class Player extends Moveable{
 	public void Kill(){
 		
 	}
+	
+	/**
+	 * Ez az a fuggveny ami megnyomja a gombot amikor a jatekos ralep.
+	 */
 	public void Press(){
+	printOnEntry(this, "Press");
+	//myField nem Button, ezert nem ismeri az Activate() fuggvenyt
+	myField.Activate(false);
+	printOnExit(this, "Press", null);
 		
 	}
+	
 	/**
 	 * null-t add vissza, mert csak a boxoknal szamit, hogy ki erintette meg utoljara.
 	 */
@@ -42,6 +51,8 @@ public class Player extends Moveable{
 	public void Die(){
 		
 	}
+	
+		
 
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
 	@Override
