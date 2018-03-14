@@ -5,7 +5,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>730</x>
-      <y>370</y>
+      <y>380</y>
       <w>100</w>
       <h>40</h>
     </coordinates>
@@ -17,7 +17,7 @@ bg=orange</panel_attributes>
     <id>UMLActor</id>
     <coordinates>
       <x>540</x>
-      <y>340</y>
+      <y>350</y>
       <w>60</w>
       <h>110</h>
     </coordinates>
@@ -28,7 +28,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>580</x>
-      <y>380</y>
+      <y>390</y>
       <w>170</w>
       <h>30</h>
     </coordinates>
@@ -39,7 +39,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>600</x>
-      <y>360</y>
+      <y>370</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -51,7 +51,7 @@ bg=orange</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>540</x>
-      <y>450</y>
+      <y>460</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -63,7 +63,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>630</x>
-      <y>400</y>
+      <y>410</y>
       <w>140</w>
       <h>90</h>
     </coordinates>
@@ -74,7 +74,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>660</x>
-      <y>430</y>
+      <y>440</y>
       <w>110</w>
       <h>60</h>
     </coordinates>
@@ -88,7 +88,7 @@ bg=orange</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1150</x>
-      <y>380</y>
+      <y>390</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -100,7 +100,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>820</x>
-      <y>380</y>
+      <y>390</y>
       <w>350</w>
       <h>30</h>
     </coordinates>
@@ -110,20 +110,20 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>890</x>
-      <y>360</y>
-      <w>80</w>
+      <x>880</x>
+      <y>370</y>
+      <w>100</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-1.2 Step(d)</panel_attributes>
-    <additional_attributes>60.0;20.0;10.0;20.0</additional_attributes>
+1.2 Step(p,d)</panel_attributes>
+    <additional_attributes>70.0;20.0;20.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>960</x>
-      <y>240</y>
+      <y>250</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -135,7 +135,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>820</x>
-      <y>250</y>
+      <y>260</y>
       <w>160</w>
       <h>150</h>
     </coordinates>
@@ -146,21 +146,21 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>810</x>
-      <y>290</y>
+      <y>300</y>
       <w>140</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
   
         
- 1.1 GetNeoghbour()</panel_attributes>
+ 1.1 GetNeoghbour(d)</panel_attributes>
     <additional_attributes>80.0;10.0;50.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>980</x>
-      <y>360</y>
+      <y>370</y>
       <w>110</w>
       <h>40</h>
     </coordinates>
@@ -172,7 +172,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>930</x>
-      <y>400</y>
+      <y>410</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -184,7 +184,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>900</x>
-      <y>270</y>
+      <y>280</y>
       <w>100</w>
       <h>70</h>
     </coordinates>

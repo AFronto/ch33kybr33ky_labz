@@ -110,14 +110,14 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
+      <x>680</x>
       <y>300</y>
-      <w>80</w>
+      <w>100</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-1.2 Step(d)</panel_attributes>
-    <additional_attributes>60.0;20.0;10.0;20.0</additional_attributes>
+1.2 Step(p,d)</panel_attributes>
+    <additional_attributes>70.0;20.0;20.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
@@ -188,7 +188,7 @@ bg=orange</panel_attributes>
     <panel_attributes>lt=&lt;&lt;&lt;-
   
         
- 1.1 GetNeoghbour()</panel_attributes>
+ 1.1 GetNeoghbour(d)</panel_attributes>
     <additional_attributes>80.0;10.0;50.0;40.0</additional_attributes>
   </element>
 </diagram>

@@ -113,7 +113,7 @@ public class Game {
 	/**
 	 * Ezzel a fuggvennyel jelezzuk az adott metodus vegen, hogy a metodus viszater 
 	 *
-	 * @param returningObject az objektum, amibol meg lett hívva a metodus
+	 * @param returningObject az objektum, amibol meg lett hivva a metodus
 	 * @param method a hivott fuggveny neve
 	 * @param ret a vissza teresi ertek Stringben ha van
 	 */
