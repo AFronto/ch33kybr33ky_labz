@@ -21,7 +21,9 @@ public abstract class Moveable {
 	
 	public void SetmyField(Field f) {
 		printOnEntry(this, "SetmyField", f+"");
+		myField = f;
 		printOnExit(this, "SetmyField", null);
+		
 	}
 	
 	public abstract void Kill();
