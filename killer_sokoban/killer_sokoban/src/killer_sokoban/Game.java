@@ -160,7 +160,7 @@ public class Game {
 	 * Kiir ja a kerdest
 	 *
 	 * @param msg A felteendo kerdes
-	 * @return stringként a megadott valasz
+	 * @return stringkent a megadott valasz
 	 */
 	public static int printQuestion(String msg,int min, int max) {
 		while (true) {

@@ -13,7 +13,11 @@ public class Button extends Field{
 	}
 	
 	public void Activate(boolean b){
+		printOnEntry(this, "Activate", b+"");
 		
+		myTrap.SetActive(b);
+		
+		printOnExit(this, "Activate", null);		
 	}
 	
 	public void FieldAction(){
