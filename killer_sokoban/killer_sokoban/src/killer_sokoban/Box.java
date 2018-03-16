@@ -13,7 +13,12 @@ public class Box extends Moveable{
 		printOnExitConstuctor("Box");
 	}
 	
+	/**
+	 * Visszadja ki mozgatta meg a dobozt.
+	 */
 	public Player GetLastTouchedMe(){
+		printOnEntry(this, "GetLastTouchedMe");
+		printOnExit(this, "GetLastTouchedMe", lastTouchedMe+"");
 		return lastTouchedMe;
 	}
 	
@@ -21,17 +26,32 @@ public class Box extends Moveable{
 		return true; ///ez a forditas miatt kell csak 
 	}
 	
+	/**
+	 * Visszaadja, hogy a doboz be van-e szorulva.
+	 */
 	public boolean IsStuck(){
+		printOnEntry(this, "IsStuck");
+		printOnExit(this, "IsStuck",stuck+"");
 		return stuck;
 	}
 	
+	/**
+	 * Beallitja, hogy be van-e szorulva a doboz.
+	 */
 	public void SetStuck(){
+		printOnEntry(this, "SetStuck");
+		printOnExit(this,"SetStuck",null);
 		
 	}
 	
+	/**
+	 * Megoli a jatekost. (?)
+	 */
 	public void Kill(){
-		
+		printOnEntry(this, "Kill");
+		printOnExit(this, "Kill", null);
 	}
+	
 	/**
 	 * Doboz megnyomja a gombot.
 	 */
@@ -43,7 +63,12 @@ public class Box extends Moveable{
 		
 	}
 	
+	/**
+	 * Eltunteti a dobozt (?)
+	 */
 	public void Die(){
+		printOnEntry(this, "Die");
+		printOnExit(this, "Die", null);
 		
 	}
 //////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
