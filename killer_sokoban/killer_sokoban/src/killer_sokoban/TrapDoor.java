@@ -26,7 +26,7 @@ public class TrapDoor extends Hole{
 		
 		printOption("1. Igen");
 		printOption("2. Nem");
-		int sel = printQuestion("Aktív a TrapDoor?",1,2);
+		int sel = printQuestion("Aktiv a TrapDoor?",1,2);
 		switch (sel)
 		{
 		case 1:

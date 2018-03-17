@@ -19,15 +19,17 @@ public class Player extends Moveable{
 	}
 	
 	public boolean Control(Player m, Direction d){
-		printOnEntry(this,"Control");
-		Field f2 = new Field().GetNeighbour(d);
+		printOnEntry(this,"Control",m+"",d+"");
+		myField=new Field();
+		Field f2 = myField.GetNeighbour(d);
 		boolean canGo = f2.Step(this,d);
 		if(canGo){
 			myField.Remove();
 			f2.Register(this);
+			myField=f2;
 			f2.FieldAction();
-		}										///ha false akkor mindenképp marad a Player, a tobbit a rekurzio intezi 
-		printOnExit(this,"Control","canGo");
+		}										///ha false akkor mindenkepp marad a Player, a tobbit a rekurzio intezi 
+		printOnExit(this,"Control",canGo+"");
 		return canGo;  
 	}
 	
