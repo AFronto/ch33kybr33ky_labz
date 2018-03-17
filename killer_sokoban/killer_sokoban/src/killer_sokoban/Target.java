@@ -10,7 +10,18 @@ public class Target extends Field{
 	}
 
 	public void FieldAction(){
+		printOnEntry(this,"FieldAction");
 		
+		printOnExit(this,"FieldAction");
+		
+		Player p = myMoveable.GetLastTouchedMe();
+		
+		if (p != null){
+			Remove();
+			p.AddScore();
+		}else{
+			return
+		}
 	}
 
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////

@@ -38,7 +38,11 @@ public class Button extends Field{
 	}
 	
 	public void FieldAction(){
+		printOnEntry(this, "FieldAction");
 		
+		myMoveable.Press();
+		
+		printOnExit(this, "Activate", null);
 	}
 
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
