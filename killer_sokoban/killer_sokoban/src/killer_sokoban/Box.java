@@ -30,7 +30,20 @@ public class Box extends Moveable{
 	 * Visszaadja, hogy a doboz be van-e szorulva.
 	 */
 	public boolean IsStuck(){
+		
 		printOnEntry(this, "IsStuck");
+		
+		printOption("1. igen");
+		printOption("2. nem");
+		
+		int sel = printQuestion("Be van szorulva a Box?",1,2);
+		switch (sel) {
+		
+		case 1: stuck = true;
+		case 2: stuck = false;
+		
+		}
+		
 		printOnExit(this, "IsStuck",stuck+"");
 		return stuck;
 	}
@@ -40,6 +53,16 @@ public class Box extends Moveable{
 	 */
 	public void SetStuck(){
 		printOnEntry(this, "SetStuck");
+		
+		printOption("1. Igen");
+		printOption("2. Nem");
+		
+		int sel = printQuestion("Legyen beszorulva a doboz?",1,2);
+		switch (sel) {
+		case 1: stuck = true;
+		case 2: stuck = false;
+		}
+		
 		printOnExit(this,"SetStuck",null);
 		
 	}
