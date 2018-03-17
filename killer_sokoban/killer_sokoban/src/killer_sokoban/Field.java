@@ -63,12 +63,6 @@ public class Field {
 		return null;
 	}
 	
-
-	public void SetmyMoveable(Moveable m){
-		printOnEntry(this,"SetmyMoveable",m+"");
-		myMoveable=m;
-		printOnExit(this,"SetmyMoveable",null);
-	}
 	///Regi CheckNeighbour
 	public boolean Step(Player p, Direction d){
 		printOnEntry(this,"Step",p+"",d+"");
@@ -76,13 +70,18 @@ public class Field {
 		printOnExit(this,"Step",canGo+"");
 		return canGo; ///ez a forditas miatt kell csak 
 	}
+	
 	/// Regi Step
 	public void Register(Moveable m){
-		
+		printOnEntry(this,"Register",m+"");
+		myMoveable = m;
+		printOnExit(this,"Register",null);
 	}
 	
 	public void  Remove(){
-		
+		printOnEntry(this,"Remove");
+		myMoveable.Die();
+		printOnExit(this,"Remove",null);
 	}
 	
 	public void FieldAction(){
