@@ -181,19 +181,42 @@ public class Game {
 
 	public boolean Run() { 
 		String[] runStrings = {"1. Uj Jatek",
-							"2. Kilepes"};
+							"2. Jatekos lep",
+							"3. Kilepes"};
 
 		for (String s : runStrings){
 			printOption(s);
 		}
 
-		int sel = printQuestion("Mit akarsz csinalni?", 1, 2);
+		int sel = printQuestion("Mit akarsz csinalni?", 1, 3);
 		switch (sel) {
 			case 1:
 				int numP=printQuestion("Hany jatekos legyen?", 1, 4);
 				NewGame(numP);
 				break;
 			case 2:
+				Player p= new Player();
+				String[] directionString = {"1. UP",
+							"2. DOWN",
+							"3. LEFT",
+							"4. RIGHT"};
+
+				for (String s : directionString){
+					printOption(s);
+				}
+
+				int dir=printQuestion("Hova lep?", 1, 4);
+				if(dir==1){
+					p.Control(null,Direction.UP);
+				}else if(dir==2){
+					p.Control(null,Direction.DOWN);
+				}else if(dir==3){
+					p.Control(null,Direction.LEFT);
+				}else if(dir==4){
+					p.Control(null,Direction.RIGHT);
+				}
+				break;
+			case 3:
 				return false;
 		}
 		
