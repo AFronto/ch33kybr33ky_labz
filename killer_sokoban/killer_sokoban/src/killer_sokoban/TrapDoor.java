@@ -22,6 +22,26 @@ public class TrapDoor extends Hole{
 	}
 	
 	public void FieldAction(){
+		printOnEntry(this, "FieldAction");
+		
+		printOption("1. Igen");
+		printOption("2. Nem");
+		int sel = printQuestion("Aktív a TrapDoor?",1,2);
+		switch (sel)
+		{
+		case 1:
+		{
+			this.Remove();
+			break;
+		}
+		case 2:
+			
+		{			
+			break;
+		}
+		}
+		
+		printOnExit(this, "FieldAction", null);
 		
 	}
 
