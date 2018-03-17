@@ -16,24 +16,36 @@ public class Field {
 	
 	public Field GetNeighbour(Direction d){
 		printOnEntry(this,"GetNeighbour",d+"");
-		String[] getNeighbourStrings = {"1. Van szomszed",
-		"2. Nincs szomszed"};
+		String[] getNeighbourStrings = {"1. Field",
+										"2. Hole",
+										"3. Button",
+										"4. TrapDoor",
+										"5. Target"};
 
 		for (String s : getNeighbourStrings){
 		printOption(s);
 		}
 		
-		int sel = printQuestion("Van arra szomszed?", 1, 2);
+		int sel = printQuestion("Milyen szomszed van arra?", 1, 5);
 		switch (sel) {
 			case 1:
-				if(neighbours.get(d).equals(null)){
-					neighbours.put(d,this);
-				}
+				neighbours.put(d,new Field());
 				break;
 			case 2:
-				neighbours.put(d,null);
-				break;				
+				neighbours.put(d,new Hole());
+				break;
+			case 3:
+				neighbours.put(d,new Button());
+				break;		
+			case 4:
+				neighbours.put(d,new TrapDoor());
+				break;	
+			case 5:
+				neighbours.put(d,new Target());
+				break;		
 		}
+
+
 		printOnExit(this,"GetNeighbour",""+neighbours.get(d));
 		return neighbours.get(d);
 		
@@ -53,7 +65,10 @@ public class Field {
 	
 	///Regi CheckNeighbour
 	public boolean Step(Player p, Direction d){
-		return true; ///ez a forditas miatt kell csak 
+		printOnEntry(this,"Step",p+"",d+"");
+		boolean canGo=true;
+		printOnExit(this,"Step",canGo+"");
+		return canGo; ///ez a forditas miatt kell csak 
 	}
 	
 	/// Regi Step
