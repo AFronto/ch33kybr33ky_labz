@@ -20,8 +20,15 @@ public class Player extends Moveable{
 	
 	public boolean Control(Player m, Direction d){
 		printOnEntry(this,"Control");
+		Field f2 = new Field().GetNeighbour(d);
+		boolean canGo = f2.Step(this,d);
+		if(canGo){
+			myField.Remove();
+			f2.Register(this);
+			f2.FieldAction();
+		}										///ha false akkor mindenképp marad a Player, a tobbit a rekurzio intezi 
 		printOnExit(this,"Control","canGo");
-		return true; ///ez a forditas miatt kell csak 
+		return canGo;  
 	}
 	
 	public void DeadScore(){
