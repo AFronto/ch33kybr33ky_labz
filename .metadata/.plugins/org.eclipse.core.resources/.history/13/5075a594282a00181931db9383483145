@@ -20,8 +20,7 @@ public class Player extends Moveable{
 	
 	public boolean Control(Player m, Direction d){
 		printOnEntry(this,"Control");
-		Field f2 = new Field().GetNeighbour(d);   ///egy new Field() nek hivom meg a GetNeighboue() fuggvenyet, 
-												  ///mert nincs a playernek beallitva
+		Field f2 = new Field().GetNeighbour(d);
 		boolean canGo = f2.Step(this,d);
 		if(canGo){
 			myField.Remove();
