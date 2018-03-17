@@ -36,7 +36,8 @@ public class TrapDoor extends Hole{
 		}
 		case 2:
 			
-		{			
+		{
+			//Field.FieldAction() jön majd ide
 			break;
 		}
 		}

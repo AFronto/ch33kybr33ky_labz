@@ -71,7 +71,9 @@ public class Field {
 	}
 	
 	public void FieldAction(){
+		printOnEntry(this, "FieldAction");
 		
+		printOnExit(this, "FieldAction", null);
 	}
 	
 	/**
