@@ -33,14 +33,22 @@ public class Box extends Moveable{
 		
 		printOnEntry(this, "IsStuck");
 		
-		printOption("1. igen");
-		printOption("2. nem");
+		printOption("1. Igen");
+		printOption("2. Nem");
 		
 		int sel = printQuestion("Be van szorulva a Box?",1,2);
 		switch (sel) {
 		
-		case 1: stuck = true;
-		case 2: stuck = false;
+		case 1:
+			{
+				stuck = true;
+				break;
+			}
+		case 2: 
+			{
+				stuck = false;
+				break;
+			}
 		
 		}
 		
