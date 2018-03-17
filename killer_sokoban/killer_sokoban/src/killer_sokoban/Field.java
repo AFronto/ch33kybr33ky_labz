@@ -67,6 +67,32 @@ public class Field {
 	public boolean Step(Player p, Direction d){
 		printOnEntry(this,"Step",p+"",d+"");
 		boolean canGo=true;
+
+		String[] stepStrings = {"1. Box",
+								"2. Player",
+								"3. Wall",
+								"4. Üres"};
+
+		for (String s : getNeighbourStrings){
+		printOption(s);
+		}
+
+		int sel = printQuestion("Milyen szomszed van arra?", 1, 4);
+		switch (sel) {
+			case 1:
+				myMoveable.Control(p,d);
+				break;
+			case 2:
+				myMoveable.Control(p,d);
+				break;
+			case 3:
+				
+				break;		
+			case 4:
+				
+				break;			
+		}
+
 		printOnExit(this,"Step",canGo+"");
 		return canGo; ///ez a forditas miatt kell csak 
 	}
