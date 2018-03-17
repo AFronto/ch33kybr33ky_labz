@@ -18,11 +18,13 @@ public class Player extends Moveable{
 		return score;
 	}
 	
-	public boolean Control(Player m, Direction d){
+	public boolean Control(Player m, Direction d){		///az atvett m Playertol megkerdezhetne a getmyfieldel hogy hol van es ha szomszedos mezon akkor insta false?
+
 		printOnEntry(this,"Control",m+"",d+"");
 		myField=new Field();
 		myField.Register(this);
 		Field f2 = myField.GetNeighbour(d);
+
 		boolean canGo = f2.Step(this,d);
 		if(canGo){
 			myField.Remove();
@@ -30,7 +32,7 @@ public class Player extends Moveable{
 			myField=f2;
 			f2.FieldAction();
 		}										///ha false akkor mindenkepp marad a Player, a tobbit a rekurzio intezi 
-		printOnExit(this,"Control",canGo+"");
+		printOnExit(this,"Control",canGo+"");	
 		return canGo;  
 	}
 	
@@ -38,7 +40,7 @@ public class Player extends Moveable{
 		
 	}
 	public void Kill(){
-		
+		Die();
 	}
 	
 	/**

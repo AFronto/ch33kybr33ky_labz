@@ -25,6 +25,7 @@ public class Box extends Moveable{
 	public boolean Control(Player p, Direction d){
 		printOnEntry(this,"Control",p+"",d+"");
 		Field myField = new Field();
+		myField.Register(this);
 		Field f2 = myField.GetNeighbour(d); 	///egy new Field() nek hivom meg a GetNeighboue() fuggvenyet, 
 													///mert nincs a playernek beallitva
 		boolean canGo = f2.Step(p,d);				///Playert adom tovabb aki hivta a controlt
@@ -34,7 +35,8 @@ public class Box extends Moveable{
 			f2.FieldAction();
 		}else{
 			f2.GetmyMoveable().Kill();
-			f2.Step(p, d);
+			f2.Step(p, d); 							///lehet jobb lenne egy kill true false visszateros dolog mert 
+													///igy a tesztelonek vegig kell mennie tobbszor a rekurzion a gepnek is plusz terheles de a tesztelonek kurva idegesito
 		}
 		printOnExit(this,"Control","canGo");
 		return canGo;  

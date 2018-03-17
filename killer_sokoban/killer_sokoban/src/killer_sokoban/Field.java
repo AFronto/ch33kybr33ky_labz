@@ -60,7 +60,7 @@ public class Field {
 	public Moveable GetmyMoveable(){
 		printOnEntry(this,"GetmyMoveable");								////valosaghoz kozelibb de ezt akarjuk?
 		printOnExit(this,"GetmyMoveable",myMoveable+"");
-		return null;
+		return myMoveable;
 	}
 	
 	///Regi CheckNeighbour
@@ -73,28 +73,31 @@ public class Field {
 								"3. Wall",
 								"4. Üres"};
 
-		for (String s : getNeighbourStrings){
+		for (String s : stepStrings){
 		printOption(s);
 		}
 
 		int sel = printQuestion("Milyen szomszed van arra?", 1, 4);
 		switch (sel) {
 			case 1:
-				myMoveable.Control(p,d);
+				myMoveable=new Box();
+				canGo=myMoveable.Control(p,d);
 				break;
 			case 2:
-				myMoveable.Control(p,d);
+				myMoveable=new Player();
+				canGo=myMoveable.Control(p,d); ///egyelore player eltolja a playert de majd meg erre ranezunk.
 				break;
 			case 3:
-				
+				myMoveable=new Wall();
+				canGo=myMoveable.Control(p,d);
 				break;		
 			case 4:
-				
+				canGo=true;
 				break;			
 		}
 
 		printOnExit(this,"Step",canGo+"");
-		return canGo; ///ez a forditas miatt kell csak 
+		return canGo;  
 	}
 	
 	/// Regi Step
@@ -104,14 +107,16 @@ public class Field {
 		printOnExit(this,"Register",null);
 	}
 	
-	public void  Remove(){
-		printOnEntry(this,"Remove");
-		myMoveable.Die();
+	public void  Remove(){  	        /// mindig megoli ami rajta van megha csak arrébb mozgatas is volt 
+		printOnEntry(this,"Remove"); 	///jobb lenne a diet igazi halaloknal hivni nem ebben (ez a sequencian is szar) Ezt javítottam is!!!!
+		
 		printOnExit(this,"Remove",null);
 	}
 	
 	public void FieldAction(){
+		printOnEntry(this, "FieldAction");
 		
+		printOnExit(this, "FieldAction", null);
 	}
 	
 	/**

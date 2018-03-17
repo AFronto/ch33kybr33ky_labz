@@ -11,6 +11,10 @@ public class Hole extends Field {
 
 	public void FieldAction()
 	{
+		printOnEntry(this, "FieldAction");
+		myMoveable.Die();
+		this.Remove();
+		printOnExit(this, "FieldAction", null);
 
 	}
 

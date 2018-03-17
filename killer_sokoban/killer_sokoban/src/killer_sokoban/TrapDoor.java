@@ -29,16 +29,13 @@ public class TrapDoor extends Hole{
 		int sel = printQuestion("Aktiv a TrapDoor?",1,2);
 		switch (sel)
 		{
-		case 1:
-		{
-			this.Remove();
-			break;
-		}
-		case 2:
-			
-		{			
-			break;
-		}
+			case 1:
+				myMoveable.Die();
+				this.Remove();
+				break;
+			case 2:
+				//Field.FieldAction() jon majd ide
+				break;
 		}
 		
 		printOnExit(this, "FieldAction", null);

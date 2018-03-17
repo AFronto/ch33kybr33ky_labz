@@ -11,17 +11,22 @@ public class Target extends Field{
 
 	public void FieldAction(){
 		printOnEntry(this,"FieldAction");
+
 	
 		Player p = myMoveable.GetLastTouchedMe();
 		
+
 		if (p != null){
+			myMoveable.Die();
 			Remove();
 			p.AddScore();
 		}else{
+
 			printOnExit(this,"FieldAction",null);
 			return;
 		}
 		printOnExit(this,"FieldAction",null);
+
 	}
 
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
