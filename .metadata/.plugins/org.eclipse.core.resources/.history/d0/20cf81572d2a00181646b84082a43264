@@ -11,9 +11,7 @@ public class Wall extends Box{
 	}
 
 	public boolean Control(Player p, Direction d){
-		printOnEntry(this,"Control",p+"",d+"");
 		boolean canGo = false;
-		printOnExit(this,"Control",canGo+"");
 		return canGo;
 	}
 	
@@ -21,8 +19,7 @@ public class Wall extends Box{
 	 * Fixen true, mivel a fal nem tud mozogni.
 	 */
 	public boolean IsStuck(){
-		printOnEntry(this,"Control");
-		printOnExit(this,"Control",null);
+		
 		return true;
 	}
 

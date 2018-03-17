@@ -89,18 +89,18 @@ public class Map {
 		switch (sel) {
 			case 1:
 				Player p = new Player();
-				f.Register(p);
+				f.SetmyMoveable(p);
 				break;
 			case 2:
 				Box b = new Box();
-				f.Register(b);
+				f.SetmyMoveable(b);
 				break;
 			case 3:
 				Wall w = new Wall();
-				f.Register(w);
+				f.SetmyMoveable(w);
 				break;
 			case 4:
-				f.Register(null);
+				f.SetmyMoveable(null);
 				break;
 
 		}

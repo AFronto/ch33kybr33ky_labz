@@ -21,7 +21,6 @@ public class Player extends Moveable{
 	public boolean Control(Player m, Direction d){
 		printOnEntry(this,"Control",m+"",d+"");
 		myField=new Field();
-		myField.Register(this);
 		Field f2 = myField.GetNeighbour(d);
 		boolean canGo = f2.Step(this,d);
 		if(canGo){
