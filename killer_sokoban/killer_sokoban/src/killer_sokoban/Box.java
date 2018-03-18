@@ -24,17 +24,23 @@ public class Box extends Moveable{
 	
 	public boolean Control(Player p, Direction d){
 		printOnEntry(this,"Control",p+"",d+"");
+		lastTouchedMe=p;
 		Field myField = new Field();
+		myField.Register(this);
 		Field f2 = myField.GetNeighbour(d); 	///egy new Field() nek hivom meg a GetNeighboue() fuggvenyet, 
 													///mert nincs a playernek beallitva
 		boolean canGo = f2.Step(p,d);				///Playert adom tovabb aki hivta a controlt
+		if(canGo==false){
+			boolean dead=f2.GetmyMoveable().Kill();
+			if(dead){
+				canGo=f2.Step(p, d); 			///lehet jobb lenne egy kill true false visszateros dolog mert 
+												///igy a tesztelonek vegig kell mennie tobbszor a rekurzion a gepnek is plusz terheles de a tesztelonek tok idegesito
+			}
+		}
 		if(canGo){
 			myField.Remove();
 			f2.Register(this);
 			f2.FieldAction();
-		}else{
-			f2.GetmyMoveable().Kill();
-			f2.Step(p, d);
 		}
 		printOnExit(this,"Control","canGo");
 		return canGo;  
@@ -84,9 +90,10 @@ public class Box extends Moveable{
 	/**
 	 * Megoli a jatekost. (?)
 	 */
-	public void Kill(){
+	public boolean Kill(){
 		printOnEntry(this, "Kill");
-		printOnExit(this, "Kill", null);
+		printOnExit(this, "Kill", false+"");
+		return false;
 	}
 	
 	/**

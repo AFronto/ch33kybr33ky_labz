@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Game {
 
 	private int boxes;
-	private int players;
+	private static int players;	//(Vera) atirtam staticra, mert az UpdateScore() statikus es egyebkent nem lehetne hasznalni benne.
 	private int[] overallScore;
 	private Map active_map;
 	
@@ -41,11 +41,21 @@ public class Game {
 	}
 	
 	public static void EndGame(){
-		
+		printOnEntry(game,"EndGame");
+		printOnExit(game,"EndGame",null);
 	}
 
 	public static void UpdateScore(Player p){
+		printOnEntry(game,"UpdateScore",p+"");
 		
+		int score = p.GetScore();
+		if(score == -1)
+			players--;
+		
+		if(players == 1)
+			EndGame();
+		
+		printOnExit(game,"UpdateScore",null);
 	}
 	
 	public static void CountBoxes(int add){

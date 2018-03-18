@@ -7,22 +7,32 @@ public class Player extends Moveable{
 	
 	public Player(){
 		printOnConstruct("Player");
+		score=0;
 		printOnExitConstuctor("Player");
 	}
 
 	public void AddScore(){
+		printOnEntry(this,"AddScore");
 		
+		score++;
+		UpdateScore(this);
+		
+		printOnExit(this,"AddScore",null);
 	}
 	
 	public int GetScore(){
+		printOnEntry(this,"GetScore");
+		printOnExit(this,"GetScore",score+"");
 		return score;
 	}
 	
-	public boolean Control(Player m, Direction d){
+	public boolean Control(Player m, Direction d){		///az atvett m Playertol megkerdezhetne a getmyfieldel hogy hol van es ha szomszedos mezon akkor insta false?
+
 		printOnEntry(this,"Control",m+"",d+"");
 		myField=new Field();
 		myField.Register(this);
 		Field f2 = myField.GetNeighbour(d);
+
 		boolean canGo = f2.Step(this,d);
 		if(canGo){
 			myField.Remove();
@@ -30,15 +40,24 @@ public class Player extends Moveable{
 			myField=f2;
 			f2.FieldAction();
 		}										///ha false akkor mindenkepp marad a Player, a tobbit a rekurzio intezi 
-		printOnExit(this,"Control",canGo+"");
+		printOnExit(this,"Control",canGo+"");	
 		return canGo;  
 	}
 	
 	public void DeadScore(){
+		printOnEntry(this,"DeadScore");
 		
+		score = -1;
+		UpdateScore(this);
+		
+		printOnExit(this,"DeadScore",null);
 	}
-	public void Kill(){
-		
+	public boolean Kill(){
+		printOnEntry(this, "Kill");
+		Die();
+		myField.Remove();
+		printOnExit(this, "Kill", true+"");
+		return true;
 	}
 	
 	/**
