@@ -26,7 +26,7 @@ public abstract class Moveable {
 		
 	}
 	
-	public abstract void Kill();
+	public abstract boolean Kill();
 	public abstract void Press();
 	public abstract Player GetLastTouchedMe();
 	public abstract void Die();

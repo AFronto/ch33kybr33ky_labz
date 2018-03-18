@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Game {
 
 	private int boxes;
-	private static int players;	//(Vera) Átállítottam staticra, mert az UpdateScore() statikus és egyébként nem lehetne használni benne.
+	private static int players;	//(Vera) atirtam staticra, mert az UpdateScore() statikus es egyebkent nem lehetne hasznalni benne.
 	private int[] overallScore;
 	private Map active_map;
 	

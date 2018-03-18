@@ -7,6 +7,7 @@ public class Player extends Moveable{
 	
 	public Player(){
 		printOnConstruct("Player");
+		score=0;
 		printOnExitConstuctor("Player");
 	}
 
@@ -51,8 +52,12 @@ public class Player extends Moveable{
 		
 		printOnExit(this,"DeadScore",null);
 	}
-	public void Kill(){
+	public boolean Kill(){
+		printOnEntry(this, "Kill");
 		Die();
+		myField.Remove();
+		printOnExit(this, "Kill", true+"");
+		return true;
 	}
 	
 	/**
