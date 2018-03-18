@@ -6,6 +6,7 @@ public class Player extends Moveable{
 	private int score;
 	
 	public Player(){
+		super();
 		printOnConstruct("Player");
 		score=0;
 		printOnExitConstuctor("Player");
@@ -27,19 +28,49 @@ public class Player extends Moveable{
 	}
 	
 	public boolean Control(Player m, Direction d){		///az atvett m Playertol megkerdezhetne a getmyfieldel hogy hol van es ha szomszedos mezon akkor insta false?
-
 		printOnEntry(this,"Control",m+"",d+"");
-		myField=new Field();
-		myField.Register(this);
-		Field f2 = myField.GetNeighbour(d);
+		boolean canGo=false;
+		if(m!=null){
+			m.GetmyField();
+			String[] runStrings = {"1. Igen, szomszedos mezon van a tolo",
+								"2.  Nem, nem szomszedos mezon van a tolo"
+								};
+			for (String s : runStrings){
+				printOption(s);
+			}
+			int sel = printQuestion("Szomszed mezon van a tolo?", 1, 2);
+			switch(sel){
+				case 1:
+					canGo=false;
+					break;
+				case 2:
+					myField=new Field();
+					myField.Register(this);
+					Field f2 = myField.GetNeighbour(d);
 
-		boolean canGo = f2.Step(this,d);
-		if(canGo){
-			myField.Remove();
-			f2.Register(this);
-			myField=f2;
-			f2.FieldAction();
-		}										///ha false akkor mindenkepp marad a Player, a tobbit a rekurzio intezi 
+					canGo = f2.Step(this,d);
+					if(canGo){
+						myField.Remove();
+						f2.Register(this);
+						myField=f2;
+						f2.FieldAction();
+					}	
+					break;
+			}
+		}else{
+			myField=new Field();
+			myField.Register(this);
+			Field f2 = myField.GetNeighbour(d);
+
+			canGo = f2.Step(this,d);
+			if(canGo){
+				myField.Remove();
+				f2.Register(this);
+				myField=f2;
+				f2.FieldAction();
+			}										///ha false akkor mindenkepp marad a Player, a tobbit a rekurzio intezi 
+		}
+
 		printOnExit(this,"Control",canGo+"");	
 		return canGo;  
 	}
@@ -75,6 +106,8 @@ public class Player extends Moveable{
 	 * null-t add vissza, mert csak a boxoknal szamit, hogy ki erintette meg utoljara.
 	 */
 	public Player GetLastTouchedMe(){
+		printOnEntry(this, "GetLastTouchedMe");
+		printOnExit(this, "GetLastTouchedMe", null+"");
 		return null;
 	}
 	public void Die(){
