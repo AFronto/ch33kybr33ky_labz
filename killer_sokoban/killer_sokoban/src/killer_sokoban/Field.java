@@ -71,7 +71,7 @@ public class Field {
 		String[] stepStrings = {"1. Box",
 								"2. Player",
 								"3. Wall",
-								"4. Üres"};
+								"4. Ures"};
 
 		for (String s : stepStrings){
 		printOption(s);
