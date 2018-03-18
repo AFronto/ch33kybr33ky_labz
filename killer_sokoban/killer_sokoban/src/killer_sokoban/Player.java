@@ -11,10 +11,17 @@ public class Player extends Moveable{
 	}
 
 	public void AddScore(){
+		printOnEntry(this,"AddScore");
 		
+		score++;
+		UpdateScore(this);
+		
+		printOnExit(this,"AddScore",null);
 	}
 	
 	public int GetScore(){
+		printOnEntry(this,"GetScore");
+		printOnExit(this,"GetScore",score+"");
 		return score;
 	}
 	
@@ -37,7 +44,12 @@ public class Player extends Moveable{
 	}
 	
 	public void DeadScore(){
+		printOnEntry(this,"DeadScore");
 		
+		score = -1;
+		UpdateScore(this);
+		
+		printOnExit(this,"DeadScore",null);
 	}
 	public void Kill(){
 		Die();
