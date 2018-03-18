@@ -5,13 +5,15 @@ public class Player extends Moveable{
 
 	private int score;
 	
+	//Player konstruktorja 
 	public Player(){
 		super();
 		printOnConstruct("Player");
 		score=0;
 		printOnExitConstuctor("Player");
 	}
-
+	
+	//Egyet ad a Player pontjaihoz
 	public void AddScore(){
 		printOnEntry(this,"AddScore");
 		
@@ -27,18 +29,19 @@ public class Player extends Moveable{
 		return score;
 	}
 	
+	//Ezzel irányítjuk a Player-t
 	public boolean Control(Player m, Direction d){		///az atvett m Playertol megkerdezhetne a getmyfieldel hogy hol van es ha szomszedos mezon akkor insta false?
 		printOnEntry(this,"Control",m+"",d+"");
 		boolean canGo=false;
 		if(m!=null){
 			m.GetmyField();
-			String[] runStrings = {"1. Igen, szomszedos mezon van a tolo",
-								"2.  Nem, nem szomszedos mezon van a tolo"
+			String[] runStrings = {"1. Igen",
+								"2.  Nem"
 								};
 			for (String s : runStrings){
 				printOption(s);
 			}
-			int sel = printQuestion("Szomszed mezon van a tolo?", 1, 2);
+			int sel = printQuestion("Közvetlenül egy Player akar tovább tolni?", 1, 2);
 			switch(sel){
 				case 1:
 					canGo=false;
@@ -75,6 +78,7 @@ public class Player extends Moveable{
 		return canGo;  
 	}
 	
+	//Törli a Player pontjait
 	public void DeadScore(){
 		printOnEntry(this,"DeadScore");
 		
@@ -83,6 +87,8 @@ public class Player extends Moveable{
 		
 		printOnExit(this,"DeadScore",null);
 	}
+	
+	//Törli a Player-t a Fieldrõl
 	public boolean Kill(){
 		printOnEntry(this, "Kill");
 		Die();
