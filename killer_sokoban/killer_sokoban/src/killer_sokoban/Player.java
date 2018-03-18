@@ -111,7 +111,11 @@ public class Player extends Moveable{
 		return null;
 	}
 	public void Die(){
+		printOnEntry(this, "Die");
 		
+		DeadScore();
+		
+		printOnExit(this,"Die",null);
 	}
 	
 		
