@@ -7,6 +7,7 @@ public class Box extends Moveable{
 	private boolean stuck;
 	private Player lastTouchedMe;
 	
+	//konstruktor
 	public Box(){
 		super();
 		printOnConstruct("Box");
@@ -23,6 +24,7 @@ public class Box extends Moveable{
 		return lastTouchedMe;
 	}
 	
+	//Ezzel irányítjok a Box-okat
 	public boolean Control(Player p, Direction d){
 		printOnEntry(this,"Control",p+"",d+"");
 		lastTouchedMe=p;

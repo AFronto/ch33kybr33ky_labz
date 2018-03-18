@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Game {
 
 	private int boxes;
-	private static int players;	//(Vera) atirtam staticra, mert az UpdateScore() statikus es egyebkent nem lehetne hasznalni benne.
+	private static int players;	
 	private int[] overallScore;
 	private Map active_map;
 	
@@ -18,13 +18,15 @@ public class Game {
 	private static Scanner sc = new Scanner(System.in);
 	private static int tabs = 0;
 	private static Game game;
-
+	
+	//Konstruktor
 	public Game() {
 		printOnConstruct("Game");
 		active_map= new Map();
 		printOnExitConstuctor("Game");
 	}
-
+	
+	//Program main-je
 	public static void main(String[] args) {
 		game = new Game();
 
@@ -34,17 +36,20 @@ public class Game {
 		}
 	}
 	
+	//Új játék
 	public void NewGame(int playerCount){
 		printOnEntry(this,"NewGame",""+playerCount);
 		active_map.CreateMap(playerCount);
 		printOnExit(this,"NewGame",null);
 	}
 	
+	//Játék vége
 	public static void EndGame(){
 		printOnEntry(game,"EndGame");
 		printOnExit(game,"EndGame",null);
 	}
-
+	
+	//Kiveszi a Player-t ha -1 a pontja és figyel a játék végre is
 	public static void UpdateScore(Player p){
 		printOnEntry(game,"UpdateScore",p+"");
 		
@@ -58,6 +63,7 @@ public class Game {
 		printOnExit(game,"UpdateScore",null);
 	}
 	
+	//Boxok számát tartja számon
 	public static void CountBoxes(int add){
 		printOnEntry(game,"CountBoxes",""+add);
 		printOnExit(game,"CountBoxes",null);

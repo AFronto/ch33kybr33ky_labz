@@ -9,6 +9,7 @@ public abstract class Moveable {
 		return false;
 	}
 	
+	//A leszármazottakba van kidolgozva
 	public boolean Control(Player p, Direction d){
 		return true; ///ez a forditas miatt kell csak 
 	}

@@ -3,13 +3,15 @@ package killer_sokoban;
 import static killer_sokoban.Game.*;
 
 public class Wall extends Box{
-
+	
+	//Konstruktor
 	public Wall(){
 		super();
 		printOnConstruct("Wall");
 		printOnExitConstuctor("Wall");
 	}
-
+	
+	//Mindig false-t ad vissza, így nem lehet rajta átmenni
 	public boolean Control(Player p, Direction d){
 		printOnEntry(this,"Control",p+"",d+"");
 		boolean canGo = false;
