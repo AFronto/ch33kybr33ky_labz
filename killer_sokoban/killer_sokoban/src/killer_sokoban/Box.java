@@ -8,6 +8,7 @@ public class Box extends Moveable{
 	private Player lastTouchedMe;
 	
 	public Box(){
+		super();
 		printOnConstruct("Box");
 		CountBoxes(1);
 		printOnExitConstuctor("Box");
@@ -33,14 +34,14 @@ public class Box extends Moveable{
 		if(canGo==false){
 			boolean dead=f2.GetmyMoveable().Kill();
 			if(dead){
-				canGo=f2.Step(p, d); 			///lehet jobb lenne egy kill true false visszateros dolog mert 
-												///igy a tesztelonek vegig kell mennie tobbszor a rekurzion a gepnek is plusz terheles de a tesztelonek tok idegesito
+				canGo=f2.Step(p, d); 			
 			}
 		}
 		if(canGo){
 			myField.Remove();
 			f2.Register(this);
-			f2.FieldAction();
+			myField=f2;
+			myField.FieldAction();
 		}
 		printOnExit(this,"Control","canGo");
 		return canGo;  
