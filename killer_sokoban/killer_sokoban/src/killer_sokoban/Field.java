@@ -13,7 +13,11 @@ public class Field {
 		neighbours= new EnumMap<Direction,Field>(Direction.class);
 		printOnExitConstuctor("Field");
 	}
-	
+	/**
+	 * Ez a fuggveny visszaadja a kÈrt iranyban levo szomszedot
+	 * @param d irany
+	 * @return a kert szomszed
+	 */
 	public Field GetNeighbour(Direction d){
 		printOnEntry(this,"GetNeighbour",d+"");
 		String[] getNeighbourStrings = {"1. Field",
@@ -63,7 +67,12 @@ public class Field {
 		return myMoveable;
 	}
 	
-	///Regi CheckNeighbour
+	/**
+	 * Ez a fuggveny indtja a lepes folyamatat
+	 * @param p az utolso player aki tolt
+	 * @param d irany
+	 * @return rekurzivan megkeresi Ès visszadja,hogy vegul tudunk e lepni
+	 */
 	public boolean Step(Player p, Direction d){
 		printOnEntry(this,"Step",p+"",d+"");
 		boolean canGo=true;
@@ -100,15 +109,20 @@ public class Field {
 		return canGo;  
 	}
 	
-	/// Regi Step
+	/**
+	 * Az adott Movablet helyezi at a fieldre
+	 * @param m az athelyezendo Movable
+	 */
 	public void Register(Moveable m){
 		printOnEntry(this,"Register",m+"");
 		myMoveable = m;
 		printOnExit(this,"Register",null);
 	}
-	
-	public void  Remove(){  	        /// mindig megoli ami rajta van megha csak arr√©bb mozgatas is volt 
-		printOnEntry(this,"Remove"); 	///jobb lenne a diet igazi halaloknal hivni nem ebben (ez a sequencian is szar) Ezt jav√≠tottam is!!!!
+	/**
+	 * Eltavolitja a Movablet a mezorol
+	 */
+	public void  Remove(){  	        
+		printOnEntry(this,"Remove"); 	
 		
 		printOnExit(this,"Remove",null);
 	}

@@ -12,7 +12,10 @@ public class Map {
 		fields=new Field[20][20];				///ez a palya csak teszt
 		printOnExitConstuctor("Map");
 	}
-
+/**
+ * Generalja a palyat.
+ * @param playerCount a jatekosok szama
+ */
 	public void CreateMap(int playerCount){
 	
 		printOnEntry(this,"CreateMap",playerCount+"");
