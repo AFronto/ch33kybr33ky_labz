@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>36</x>
-      <y>12</y>
+      <x>0</x>
+      <y>0</y>
       <w>216</w>
       <h>84</h>
     </coordinates>
@@ -19,8 +19,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>36</x>
-      <y>192</y>
+      <x>0</x>
+      <y>180</y>
       <w>600</w>
       <h>228</h>
     </coordinates>
@@ -33,9 +33,9 @@
 +GetmyMovable(): Movable
 +SetmyMovable(m: Movable): void
 +Getfriction(): int
-+Setfriction(i: int): void
++Setfriction(): void
 +Register(m: Movable):void
-+Step(p: Player, d: Direction, i: int): boolean
++Step(p: Player, d: Direction, f: int): boolean
 +Remove():void
 +virtual FieldAction(): void</panel_attributes>
     <additional_attributes/>
@@ -43,8 +43,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>696</x>
-      <y>816</y>
+      <x>660</x>
+      <y>804</y>
       <w>336</w>
       <h>108</h>
     </coordinates>
@@ -58,8 +58,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>36</x>
-      <y>516</y>
+      <x>0</x>
+      <y>504</y>
       <w>216</w>
       <h>108</h>
     </coordinates>
@@ -72,8 +72,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>516</y>
+      <x>252</x>
+      <y>504</y>
       <w>192</w>
       <h>108</h>
     </coordinates>
@@ -86,8 +86,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>384</x>
-      <y>684</y>
+      <x>348</x>
+      <y>672</y>
       <w>228</w>
       <h>108</h>
     </coordinates>
@@ -101,10 +101,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>696</x>
-      <y>516</y>
+      <x>660</x>
+      <y>504</y>
       <w>336</w>
-      <h>228</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>Box
 --
@@ -113,7 +113,7 @@
 --
 +GetStuck():int
 +SetStuck(): void
-+Control(m: Player, d: Direction, i: int):boolean
++Control(m: Player, d: Direction, f: int):boolean
 +Kill():void
 +Press():void
 +GetLastTouchedMe():Player
@@ -123,8 +123,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>36</x>
-      <y>684</y>
+      <x>0</x>
+      <y>672</y>
       <w>216</w>
       <h>120</h>
     </coordinates>
@@ -143,8 +143,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>252</x>
-      <y>156</y>
+      <x>216</x>
+      <y>144</y>
       <w>120</w>
       <h>36</h>
     </coordinates>
@@ -154,8 +154,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
-      <y>84</y>
+      <x>264</x>
+      <y>72</y>
       <w>216</w>
       <h>132</h>
     </coordinates>
@@ -167,8 +167,8 @@ r1=-neighbours
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>396</x>
-      <y>816</y>
+      <x>360</x>
+      <y>804</y>
       <w>252</w>
       <h>144</h>
     </coordinates>
@@ -184,23 +184,20 @@ Direction
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1080</x>
-      <y>516</y>
-      <w>324</w>
-      <h>228</h>
+      <x>1044</x>
+      <y>504</y>
+      <w>360</w>
+      <h>240</h>
     </coordinates>
     <panel_attributes>Player
 --
 -score:int
--honey:int
--oil:int
+-strength:int
 --
-+Control(m: Player, d: Direction, i: int):boolean
++Control(m: Player, d: Direction, f: int):boolean
 +Kill():void
 +Press():void
 +GetLastTouchedMe():Player
-+PutHoney(): void
-+PutOil(): void
 +AddScore():void
 +GetScore():int
 +DeadScore():void
@@ -212,8 +209,8 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>492</x>
-      <y>408</y>
+      <x>456</x>
+      <y>396</y>
       <w>36</w>
       <h>300</h>
     </coordinates>
@@ -223,8 +220,8 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>288</x>
-      <y>408</y>
+      <x>252</x>
+      <y>396</y>
       <w>144</w>
       <h>132</h>
     </coordinates>
@@ -234,8 +231,8 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>408</y>
+      <x>108</x>
+      <y>396</y>
       <w>156</w>
       <h>132</h>
     </coordinates>
@@ -245,8 +242,8 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>132</x>
-      <y>612</y>
+      <x>96</x>
+      <y>600</y>
       <w>36</w>
       <h>96</h>
     </coordinates>
@@ -256,19 +253,19 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>852</x>
+      <x>816</x>
       <y>732</y>
       <w>36</w>
-      <h>108</h>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>72</x>
-      <y>84</y>
+      <x>36</x>
+      <y>72</y>
       <w>108</w>
       <h>132</h>
     </coordinates>
@@ -279,8 +276,8 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>624</x>
-      <y>372</y>
+      <x>588</x>
+      <y>360</y>
       <w>60</w>
       <h>468</h>
     </coordinates>
@@ -290,8 +287,8 @@ Direction
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>696</x>
-      <y>192</y>
+      <x>660</x>
+      <y>180</y>
       <w>384</w>
       <h>216</h>
     </coordinates>
@@ -300,7 +297,7 @@ Movable
 --
 --
 +virtual IsStuck():boolean
-+virtual Control(m: Player, d: Direction, i: int):boolean
++virtual Control(m: Player, d: Direction, f: int):boolean
 /+Kill():void/
 /+Press():void/
 /+GetLastTouchedMe():Player/
@@ -310,8 +307,8 @@ Movable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
-      <y>396</y>
+      <x>900</x>
+      <y>384</y>
       <w>336</w>
       <h>144</h>
     </coordinates>
@@ -321,8 +318,8 @@ Movable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>852</x>
-      <y>396</y>
+      <x>816</x>
+      <y>384</y>
       <w>36</w>
       <h>144</h>
     </coordinates>
@@ -332,8 +329,8 @@ Movable
   <element>
     <id>Text</id>
     <coordinates>
-      <x>480</x>
-      <y>1164</y>
+      <x>444</x>
+      <y>1152</y>
       <w>936</w>
       <h>144</h>
     </coordinates>
@@ -347,8 +344,8 @@ Step(p: Player, m: iController, d: Direction, realStep: boolean):boolean első p
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>564</x>
-      <y>96</y>
+      <x>528</x>
+      <y>84</y>
       <w>288</w>
       <h>120</h>
     </coordinates>
@@ -362,8 +359,8 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1104</x>
-      <y>24</y>
+      <x>1068</x>
+      <y>12</y>
       <w>300</w>
       <h>228</h>
     </coordinates>
@@ -383,8 +380,8 @@ Game
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
-      <y>12</y>
+      <x>204</x>
+      <y>0</y>
       <w>888</w>
       <h>60</h>
     </coordinates>
@@ -396,8 +393,8 @@ r1=active_map</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1284</x>
-      <y>240</y>
+      <x>1248</x>
+      <y>228</y>
       <w>36</w>
       <h>300</h>
     </coordinates>
@@ -407,8 +404,8 @@ r1=active_map</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
-      <y>732</y>
+      <x>204</x>
+      <y>720</y>
       <w>168</w>
       <h>60</h>
     </coordinates>
@@ -420,7 +417,7 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
+      <x>924</x>
       <y>732</y>
       <w>300</w>
       <h>84</h>
@@ -433,12 +430,12 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>912</x>
-      <y>240</y>
-      <w>528</w>
-      <h>660</h>
+      <x>876</x>
+      <y>228</y>
+      <w>576</w>
+      <h>672</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>370.0;10.0;420.0;60.0;420.0;530.0;120.0;530.0;120.0;470.0;10.0;470.0;10.0;420.0</additional_attributes>
+    <additional_attributes>370.0;10.0;460.0;60.0;460.0;540.0;120.0;530.0;120.0;470.0;10.0;470.0;10.0;430.0</additional_attributes>
   </element>
 </diagram>
