@@ -113,7 +113,7 @@
 +GetStuck():boolean
 +SetStuck(): void
 +Control(m: Player, d: Direction, f: int):boolean
-+Kill():void
++Kill():boolean
 +Press():void
 +GetLastTouchedMe():Player
 +Die(): void</panel_attributes>
@@ -194,7 +194,7 @@ Direction
 -strength:int
 --
 +Control(m: Player, d: Direction, f: int):boolean
-+Kill():void
++Kill():boolean
 +Press():void
 +GetLastTouchedMe():Player
 +AddScore():void
@@ -297,7 +297,7 @@ Movable
 --
 +virtual IsStuck():boolean
 +virtual Control(m: Player, d: Direction, f: int):boolean
-/+Kill():void/
+/+Kill():boolean/
 /+Press():void/
 /+GetLastTouchedMe():Player/
 /+Die(): void/</panel_attributes>
