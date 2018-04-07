@@ -1,0 +1,20 @@
+kimeneti nyelv:
+
+****************************
+input a create-hez: create <type> <name>
+output a createhez: <type> <name> has been created.
+
+in:	connect <field1> <field2> <direction>
+out:	<field2> connected to the <direction> side of <field1>
+
+
+in:	choose <moveable1>
+out:	<moveable1> has been selected.
+
+
+in:	step <direction>
+out:	moving <choosen moveable> <direction>
+if(sikeres)
+out:	<choosen moveable> has moved to <field1>
+else
+out:	<choosen moveable> cannot be moved <direction>
