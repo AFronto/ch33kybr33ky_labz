@@ -4,8 +4,20 @@ kimeneti nyelv:
 in:	create <type> <name>
 out:	<type> <name> has been created.
 
+
+//connecting two fields
 in:	connect <field1> <field2> <direction>
 out:	<type2> <field2> connected to the <direction> side of <type1> <field1>
+
+
+//connecting a moveable to a field
+in:	connect <field> <moveable>
+out:	<type> <moveable> has been moved to <type> <field>
+
+
+//connecting button to a trapdoor
+in:	connect <button> <trapdoor>
+out:	<button> has been connected to <trapdoor>
 
 
 in:	choose <moveable1>
