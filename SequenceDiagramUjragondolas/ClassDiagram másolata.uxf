@@ -31,7 +31,6 @@
 +GetNeighbour(d: Direction):Field
 +SetNeighbour(d: Direction,f: Field): void
 +GetmyMovable(): Movable
-+SetmyMovable(m: Movable): void
 +Getfriction(): int
 +Setfriction(): void
 +Register(m: Movable):void
