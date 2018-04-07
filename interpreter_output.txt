@@ -1,11 +1,11 @@
 kimeneti nyelv:
 
 ****************************
-input a create-hez: create <type> <name>
-output a createhez: <type> <name> has been created.
+in:	create <type> <name>
+out:	<type> <name> has been created.
 
 in:	connect <field1> <field2> <direction>
-out:	<field2> connected to the <direction> side of <field1>
+out:	<type2> <field2> connected to the <direction> side of <type1> <field1>
 
 
 in:	choose <moveable1>
@@ -18,3 +18,15 @@ if(sikeres)
 out:	<choosen moveable> has moved to <field1>
 else
 out:	<choosen moveable> cannot be moved <direction>
+
+in:	listNeighbour
+out:	Left neighbour is a <type1> <name1>, top neighbour is a <type2> <name2>
+	Right neigbour is a <type3> <name3>, bottom neighbour is a <type4> <name4>
+
+in:	listBox
+out:	Pushable boxes are for(int i=0; i<<pushableboxes>; i++) <type> <name>
+
+
+in:	listPlayer
+out:	Players in game are: for(int i=0; i<<numberofplayers>;i++) <type> <name>
+
