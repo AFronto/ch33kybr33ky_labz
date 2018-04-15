@@ -14,7 +14,9 @@ public class Field {
 	 */
 	public Field(){
 		printOnConstruct("Field");
+		
 		neighbours= new EnumMap<Direction,Field>(Direction.class);
+		
 		printOnExitConstuctor("Field");
 	}
 
@@ -73,6 +75,12 @@ public class Field {
 		return myMoveable;
 	}
 	
+	public void SetmyMoveable(Moveable m){
+		printOnEntry(this,"GetmyMoveable");								
+		printOnExit(this,"GetmyMoveable",myMoveable+"");
+		myMoveable = m;
+	}
+	
 	/**
 	 * Ez a fuggveny indtja a lepes folyamatat
 	 *
@@ -80,11 +88,22 @@ public class Field {
 	 * @param d Irany
 	 * @return Rekurzivan megkeresi es visszadja,hogy vegul tudunk e lepni
 	 */
-	public boolean Step(Player p, Direction d){
+	public boolean Step(Player p, Direction d,int f){
 		printOnEntry(this,"Step",p+"",d+"");
-		boolean canGo=true;
+		boolean canGo=false;
+		
 
-		String[] stepStrings = {"1. Box",
+
+		if(myMoveable != null){
+			if(f == 0){					// Elfogyott az ero, nem tudjuk eltolni ami itt van.
+				return false;
+			}
+			canGo = myMoveable.Control(p, d, f-1);  // Csokkentjuk az erot.
+		}else{
+			return true;		//Ures a mezo, lehet jonni.
+		}
+		
+	/*	String[] stepStrings = {"1. Box",
 								"2. Player",
 								"3. Wall",
 								"4. Ures"};
@@ -111,6 +130,7 @@ public class Field {
 				canGo=true;
 				break;			
 		}
+	*/
 
 		printOnExit(this,"Step",canGo+"");
 		return canGo;  
@@ -132,7 +152,7 @@ public class Field {
 	 */
 	public void  Remove(){  	        
 		printOnEntry(this,"Remove"); 	
-		
+		myMoveable = null;
 		printOnExit(this,"Remove",null);
 	}
 	

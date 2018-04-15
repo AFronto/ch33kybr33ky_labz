@@ -9,7 +9,7 @@ public abstract class Moveable {
 		return false;
 	}
 	
-	public boolean Control(Player p, Direction d){
+	public boolean Control(Player p, Direction d,int f){
 		return true; 
 	}
 	
