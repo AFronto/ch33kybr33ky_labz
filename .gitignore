@@ -1,0 +1,8 @@
+.metadata
+.recommenders
+killer_sokoban/*
+!killer_sokoban/killer_sokoban
+killer_sokoban/killer_sokoban/*
+!killer_sokoban/killer_sokoban/src
+killer_sokoban/killer_sokoban/src/killer_sokoban/.recommenders
+killer_sokoban/killer_sokoban/src/killer_sokoban/.metadata

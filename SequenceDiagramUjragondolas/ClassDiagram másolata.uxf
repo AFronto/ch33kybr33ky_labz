@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>192</x>
+      <x>88</x>
       <y>8</y>
       <w>168</w>
       <h>56</h>
@@ -19,7 +19,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>192</x>
+      <x>88</x>
       <y>128</y>
       <w>400</w>
       <h>152</h>
@@ -42,7 +42,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>632</x>
+      <x>528</x>
       <y>544</y>
       <w>224</w>
       <h>72</h>
@@ -57,7 +57,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>192</x>
+      <x>88</x>
       <y>344</y>
       <w>144</w>
       <h>72</h>
@@ -71,7 +71,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
+      <x>256</x>
       <y>344</y>
       <w>128</w>
       <h>72</h>
@@ -85,7 +85,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>424</x>
+      <x>320</x>
       <y>456</y>
       <w>152</w>
       <h>72</h>
@@ -100,7 +100,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>632</x>
+      <x>528</x>
       <y>344</y>
       <w>224</w>
       <h>160</h>
@@ -121,7 +121,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>192</x>
+      <x>88</x>
       <y>456</y>
       <w>144</w>
       <h>80</h>
@@ -141,7 +141,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>336</x>
+      <x>232</x>
       <y>104</y>
       <w>80</w>
       <h>24</h>
@@ -152,7 +152,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>368</x>
+      <x>264</x>
       <y>56</y>
       <w>144</w>
       <h>88</h>
@@ -165,7 +165,7 @@ r1=-neighbours
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>432</x>
+      <x>328</x>
       <y>544</y>
       <w>168</w>
       <h>96</h>
@@ -182,7 +182,7 @@ Direction
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>888</x>
+      <x>784</x>
       <y>344</y>
       <w>240</w>
       <h>160</h>
@@ -207,7 +207,7 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
+      <x>392</x>
       <y>272</y>
       <w>24</w>
       <h>200</h>
@@ -218,7 +218,7 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>256</x>
       <y>272</y>
       <w>96</w>
       <h>88</h>
@@ -229,7 +229,7 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>264</x>
+      <x>160</x>
       <y>272</y>
       <w>104</w>
       <h>88</h>
@@ -240,7 +240,7 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>256</x>
+      <x>152</x>
       <y>408</y>
       <w>24</w>
       <h>64</h>
@@ -251,7 +251,7 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>736</x>
+      <x>632</x>
       <y>496</y>
       <w>24</w>
       <h>64</h>
@@ -262,7 +262,7 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>216</x>
+      <x>112</x>
       <y>56</y>
       <w>72</w>
       <h>88</h>
@@ -274,7 +274,7 @@ Direction
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>584</x>
+      <x>480</x>
       <y>248</y>
       <w>40</w>
       <h>312</h>
@@ -285,7 +285,7 @@ Direction
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>632</x>
+      <x>528</x>
       <y>128</y>
       <w>256</w>
       <h>144</h>
@@ -305,7 +305,7 @@ Movable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
+      <x>688</x>
       <y>264</y>
       <w>224</w>
       <h>96</h>
@@ -316,7 +316,7 @@ Movable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>736</x>
+      <x>632</x>
       <y>264</y>
       <w>24</w>
       <h>96</h>
@@ -327,7 +327,7 @@ Movable
   <element>
     <id>Text</id>
     <coordinates>
-      <x>488</x>
+      <x>384</x>
       <y>776</y>
       <w>624</w>
       <h>96</h>
@@ -342,7 +342,7 @@ Step(p: Player, m: iController, d: Direction, realStep: boolean):boolean első p
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>544</x>
+      <x>440</x>
       <y>64</y>
       <w>192</w>
       <h>80</h>
@@ -357,7 +357,7 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>904</x>
+      <x>800</x>
       <y>16</y>
       <w>200</w>
       <h>152</h>
@@ -379,20 +379,20 @@ Game
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>352</x>
+      <x>248</x>
       <y>8</y>
       <w>568</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
-r1=active_map</panel_attributes>
+r1=-active_map</panel_attributes>
     <additional_attributes>10.0;20.0;690.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1024</x>
+      <x>920</x>
       <y>160</y>
       <w>24</w>
       <h>200</h>
@@ -403,20 +403,20 @@ r1=active_map</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>328</x>
+      <x>224</x>
       <y>488</y>
       <w>112</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-r1=myTrap
+r1=-myTrap
 m1=1</panel_attributes>
     <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>808</x>
+      <x>704</x>
       <y>496</y>
       <w>200</w>
       <h>56</h>
@@ -429,7 +429,7 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>776</x>
+      <x>672</x>
       <y>160</y>
       <w>384</w>
       <h>448</h>
