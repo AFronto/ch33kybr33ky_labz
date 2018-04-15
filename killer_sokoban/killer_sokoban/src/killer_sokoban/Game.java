@@ -89,6 +89,9 @@ public class Game {
 		printOnExit(game,"CountBoxes",null);
 	}
 	
+	public static void setBoxNum(int i){
+		boxes=i;
+	}
 
 ////////////////////////////////////////////////Skeleton fuggvenyek///////////////////////////////////////////////////////////////////////
 	
@@ -225,7 +228,7 @@ public class Game {
 	 * @return Igaz hamisat ad vissza ami arra valasz hogy akarjuk e meg folytatni a tesztelest.
 	 */
 	public boolean Run() { 
-		String[] runStrings = {"1. Uj Jatek",
+		/*String[] runStrings = {"1. Uj Jatek",
 							"2. Jatekos lep",
 							"3. Kilepes"};
 
@@ -263,11 +266,11 @@ public class Game {
 				break;
 			case 3:
 				return false;
-		}
+		}*/
 		
-
-
-		return true;
+		Map newMap= new Map();
+		newMap.CreateMap(4);
+		return false;
 	}
 
 }

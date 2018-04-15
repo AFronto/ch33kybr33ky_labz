@@ -21,7 +21,7 @@ public class Interpreter {
 		
 		//ha tobb eleme van mint 5 akkor kuka, amugy eldontjuk mit akarunk vele kezdeni
 		if (parts.size() > 5) {
-			System.out.println("Túl sok paraméter");
+			System.out.println("Tul sok parameter");
 		} else {
 			Decide(parts);
 		}
@@ -47,7 +47,7 @@ public class Interpreter {
 		return -1;
 	}
 
-	//a megfelelõ cucliba kerul es ott elvileg az tortenik vele ami kell
+	//a megfelelo cucliba kerul es ott elvileg az tortenik vele ami kell
 	void Decide(ArrayList<String> p) {
 		switch (p.get(0)) {
 		case "create":
@@ -81,7 +81,7 @@ public class Interpreter {
 				fNames.add(p.get(2));
 
 			case "Player":
-				moveables.add(new Player());
+				moveables.add(new Player(4));
 				mNames.add(p.get(2));
 
 			case "Box":

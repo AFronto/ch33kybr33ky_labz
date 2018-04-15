@@ -33,18 +33,18 @@ public class Box extends Moveable{
 	 *@param d Az irany amibe a doboz mozdul.
 	 *@return Igaz hamis ertekkel ter vissza attol fuggoen hogy sikeresen mozgott e. 
 	 */
-	public boolean Control(Player p, Direction d){
+	public boolean Control(Player p, Direction d, int f){
 		printOnEntry(this,"Control",p+"",d+"");
 		lastTouchedMe=p;
 		myField = new Field();
 		myField.Register(this);
 		Field f2 = myField.GetNeighbour(d); 	///egy new Field() nek hivom meg a GetNeighboue() fuggvenyet, 
 													///mert nincs a playernek beallitva
-		boolean canGo = f2.Step(p,d);				///Playert adom tovabb aki hivta a controlt
+		boolean canGo = f2.Step(p,d,f);				///Playert adom tovabb aki hivta a controlt
 		if(canGo==false){
 			boolean dead=f2.GetmyMoveable().Kill();
 			if(dead){
-				canGo=f2.Step(p, d); 			
+				canGo=f2.Step(p, d,f); 			
 			}
 		}
 		if(canGo){

@@ -70,8 +70,8 @@ public class Field {
 	}
 	
 	public Moveable GetmyMoveable(){
-		printOnEntry(this,"GetmyMoveable");								
-		printOnExit(this,"GetmyMoveable",myMoveable+"");
+		///printOnEntry(this,"GetmyMoveable");								
+		///printOnExit(this,"GetmyMoveable",myMoveable+"");
 		return myMoveable;
 	}
 	
