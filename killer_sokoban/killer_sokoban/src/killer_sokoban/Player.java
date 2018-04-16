@@ -159,7 +159,7 @@ public class Player extends Moveable {
 		printOnEntry(this, "GetLastTouchedMe");
 		printOnExit(this, "GetLastTouchedMe", null + "");
 		
-		return this;
+		return null;
 	}
 
 	/**
