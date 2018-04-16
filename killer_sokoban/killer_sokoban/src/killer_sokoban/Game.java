@@ -93,9 +93,15 @@ public class Game {
 		boxes=i;
 	}
 	
-	public bool CheckForInvalidShape()
+	/**
+	 * Megnezi, hogy strength max erovel tekintve van-e beszorult doboz blokk
+	 * 
+	 * @param strength A max tolhato dobozok szama
+	 */
+	public bool CheckForInvalidShape(int strength)
 	{
-		
+		int width = active_map.GetWidth();
+		int height = active_map.GetHeight();
 	}
 
 ////////////////////////////////////////////////Skeleton fuggvenyek///////////////////////////////////////////////////////////////////////
