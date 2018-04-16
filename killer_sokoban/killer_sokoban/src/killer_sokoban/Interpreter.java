@@ -30,7 +30,7 @@ public class Interpreter {
 	
 	void Run() {
 		/**
-		 * enterrel elválasztva a parancsokat nézik
+		 * enterrel elvalasztva a parancsokat nezik
 		 */
 		Scanner sc = new Scanner(System.in);
 		while(sc.hasNextLine()) {
@@ -57,9 +57,9 @@ public class Interpreter {
 			switch (p.get(1)) {
 			case "Map":
 				Map map = new Map();
-				map.CreateMap(4);
+				map.CreateMap(4,6);
 				break;
-				
+
 			case "Field":
 				fields.put(p.get(2), new Field());
 				break;

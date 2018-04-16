@@ -48,7 +48,7 @@ public class Game {
 	 */
 	public void NewGame(int playerCount){
 		printOnEntry(this,"NewGame",""+playerCount);
-		active_map.CreateMap(playerCount);
+		active_map.CreateMap(playerCount,6);
 		printOnExit(this,"NewGame",null);
 	}
 	
@@ -94,10 +94,19 @@ public class Game {
 		boxes=i;
 	}
 	
-	/*public bool CheckForInvalidShape()
+
+	/**
+	 * Megnezi, hogy strength max erovel tekintve van-e beszorult doboz blokk
+	 * 
+	 * @param strength A max tolhato dobozok szama
+	 */
+	public boolean CheckForInvalidShape(int strength)
 	{
-		
-	}*/
+		int width = active_map.GetWidth();
+		int height = active_map.GetHeight();
+		return false;
+	}
+
 
 ////////////////////////////////////////////////Skeleton fuggvenyek///////////////////////////////////////////////////////////////////////
 	
@@ -275,7 +284,7 @@ public class Game {
 		}*/
 		
 		Map newMap= new Map();
-		newMap.CreateMap(4);
+		newMap.CreateMap(4,6);
 		return false;
 	}
 

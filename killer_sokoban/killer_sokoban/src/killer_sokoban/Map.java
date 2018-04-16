@@ -33,7 +33,7 @@ public class Map {
 	 *
 	 * @param playerCount a jatekosok szama
 	 */
-	public void CreateMap(int playerCount){
+	public void CreateMap(int playerCount,int maxStrength){
 		
 		fields=new Field[height][width];
 		
@@ -44,11 +44,11 @@ public class Map {
             	fields[y][x]=new Field();
             	if(x-1>0){
            			fields[y][x-1].SetNeighbour(Direction.RIGHT,fields[y][x]);
-           			fields[y][x].SetNeighbour(Direction.RIGHT,fields[y][x-1]);
+           			fields[y][x].SetNeighbour(Direction.LEFT,fields[y][x-1]);
            		}
            		if(y-1>0){
-           			fields[y-1][x].SetNeighbour(Direction.RIGHT,fields[y][x]);
-           			fields[y][x].SetNeighbour(Direction.RIGHT,fields[y-1][x]);
+           			fields[y-1][x].SetNeighbour(Direction.DOWN,fields[y][x]);
+           			fields[y][x].SetNeighbour(Direction.UP,fields[y-1][x]);
            		}
             }
         }
@@ -60,126 +60,174 @@ public class Map {
             	if(maze[y][x]==0){
             		fields[y][x].Register(null);
             	}else{
-            		fields[y][x].Register(new Wall());
+            		Wall w=new Wall();
+            		w.SetmyField(fields[y][x]);
+            		fields[y][x].Register(w);
             	}
             }
         }
 
         setBoxNum(0);
 
+        double trapDoorChance=0.05;
+        double holeChance=0.05;
+
+        for (int y = 0; y < height; y++)
+        {	
+            for (int x = 0; x < width; x++)
+            {
+            	double chance=Math.random();
+            	if(fields[y][x].GetmyMoveable()==null){
+            		if(chance>1-holeChance){
+            			fields[y][x]=new Hole();
+            			fields[y][x-1].SetNeighbour(Direction.RIGHT,fields[y][x]);
+           				fields[y][x].SetNeighbour(Direction.LEFT,fields[y][x-1]);
+           				fields[y-1][x].SetNeighbour(Direction.DOWN,fields[y][x]);
+           				fields[y][x].SetNeighbour(Direction.UP,fields[y-1][x]);
+
+           				fields[y][x+1].SetNeighbour(Direction.LEFT,fields[y][x]);
+           				fields[y][x].SetNeighbour(Direction.RIGHT,fields[y][x+1]);
+           				fields[y+1][x].SetNeighbour(Direction.UP,fields[y][x]);
+           				fields[y][x].SetNeighbour(Direction.DOWN,fields[y+1][x]);
+            		}else if(chance<trapDoorChance){
+            			TrapDoor t=new TrapDoor();
+
+           				int counter=0;
+           				int nX = ThreadLocalRandom.current().nextInt(1, 10);
+           				int nY = ThreadLocalRandom.current().nextInt(1, 10);
+           				while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))&&counter<20){
+           					nX = ThreadLocalRandom.current().nextInt(1, 10);
+           					nY = ThreadLocalRandom.current().nextInt(1, 10);
+           					counter++;
+           				}
+
+           				if(counter<20){
+           					Button b=new Button();
+           					b.SetmyTrap(t);
+
+           					fields[nY][nX]=b;
+
+           					fields[nY][nX-1].SetNeighbour(Direction.RIGHT,fields[nY][nX]);
+           					fields[nY][nX].SetNeighbour(Direction.LEFT,fields[nY][nX-1]);
+           					fields[nY-1][nX].SetNeighbour(Direction.DOWN,fields[nY][nX]);
+           					fields[nY][nX].SetNeighbour(Direction.UP,fields[nY-1][nX]);
+
+           					fields[nY][nX+1].SetNeighbour(Direction.LEFT,fields[nY][nX]);
+           					fields[nY][nX].SetNeighbour(Direction.RIGHT,fields[nY][nX+1]);
+           					fields[nY+1][nX].SetNeighbour(Direction.UP,fields[nY][nX]);
+           					fields[nY][nX].SetNeighbour(Direction.DOWN,fields[nY+1][nX]);
+
+
+            				fields[y][x]=t;
+
+	            			fields[y][x-1].SetNeighbour(Direction.RIGHT,fields[y][x]);
+	           				fields[y][x].SetNeighbour(Direction.LEFT,fields[y][x-1]);
+	           				fields[y-1][x].SetNeighbour(Direction.DOWN,fields[y][x]);
+	           				fields[y][x].SetNeighbour(Direction.UP,fields[y-1][x]);
+
+	           				fields[y][x+1].SetNeighbour(Direction.LEFT,fields[y][x]);
+	           				fields[y][x].SetNeighbour(Direction.RIGHT,fields[y][x+1]);
+	           				fields[y+1][x].SetNeighbour(Direction.UP,fields[y][x]);
+	           				fields[y][x].SetNeighbour(Direction.DOWN,fields[y+1][x]);
+           				}
+            		}
+            	}
+            }
+        }
+
+        int nX = ThreadLocalRandom.current().nextInt(1, 10);
+        int nY = ThreadLocalRandom.current().nextInt(1, 10);
+        while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))){     ////vegtelenciklus veszely exception 
+        	nX = ThreadLocalRandom.current().nextInt(1, 10);
+           	nY = ThreadLocalRandom.current().nextInt(1, 10);										
+        }
+        
+        fields[nY][nX]=new Target();
+
+        fields[nY][nX-1].SetNeighbour(Direction.RIGHT,fields[nY][nX]);
+        fields[nY][nX].SetNeighbour(Direction.LEFT,fields[nY][nX-1]);
+        fields[nY-1][nX].SetNeighbour(Direction.DOWN,fields[nY][nX]);
+        fields[nY][nX].SetNeighbour(Direction.UP,fields[nY-1][nX]);
+	
+
+        fields[nY][nX+1].SetNeighbour(Direction.LEFT,fields[nY][nX]);
+        fields[nY][nX].SetNeighbour(Direction.RIGHT,fields[nY][nX+1]);
+        fields[nY+1][nX].SetNeighbour(Direction.UP,fields[nY][nX]);
+        fields[nY][nX].SetNeighbour(Direction.DOWN,fields[nY+1][nX]);
+
+        double boxChance=0.05;
+
         for (int y = 0; y < height; y++)
         {	
             for (int x = 0; x < width; x++)
             {
             	if(fields[y][x].GetmyMoveable()==null){
-            		System.out.print("  ");
+            		if((fields[y][x]+"").equals("Field")){
+            			double chance=Math.random();
+            			if(chance<boxChance){
+            				Box b=new Box();
+            				b.SetmyField(fields[y][x]);
+            				fields[y][x].Register(b);
+            				fields[y][x].FieldAction();
+            			}
+            		}
+            	}
+            }
+        }
+
+        nX = ThreadLocalRandom.current().nextInt(1, 10);
+        nY = ThreadLocalRandom.current().nextInt(1, 10);
+        while(playerCount>0){
+	        while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))){     ////vegtelenciklus veszely exception 
+	        	nX = ThreadLocalRandom.current().nextInt(1, 10);
+	           	nY = ThreadLocalRandom.current().nextInt(1, 10);										
+	        }
+	        Player p=new Player(maxStrength);
+            p.SetmyField(fields[nY][nX]);
+            fields[nY][nX].Register(p);
+            maxStrength--;
+            playerCount--;
+        }
+
+        for (int y = 0; y < height; y++)
+        {	
+            for (int x = 0; x < width; x++)
+            {
+            	if(fields[y][x].GetmyMoveable()==null){
+            		if((fields[y][x]+"").equals("Field")){
+            			System.out.print("  ");
+            		}else if((fields[y][x]+"").equals("Hole")){
+            			System.out.print("H ");
+            		}else if((fields[y][x]+"").equals("TrapDoor")){
+            			System.out.print("D ");
+            		}else if((fields[y][x]+"").equals("Target")){
+            			System.out.print("T ");
+            		}else if((fields[y][x]+"").equals("Button")){
+            			System.out.print("B ");
+            		}
             	}else{
-            		System.out.print("0 ");
+            		if((fields[y][x].GetmyMoveable()+"").equals("Wall")){
+            			System.out.print("W ");
+            		}else if((fields[y][x].GetmyMoveable()+"").equals("Box")){
+            			System.out.print("b ");
+            		}else if((fields[y][x].GetmyMoveable()+"").equals("Player")){
+            			System.out.print("p ");
+            		}
             	}
             }
             System.out.println();
         }
-		/*printOnEntry(this,"CreateMap",playerCount+"");
-		String[] newFieldStrings = {"1. Field",
-		"2. Hole", "3. TrapDoor","4. Button","5. Target","6. Vegeztem az epitessel"};
-
-
-		boolean buildingMap = true;
-		
-		while(buildingMap){
-			for (String s : newFieldStrings){
-				printOption(s);
-			}
-			int sel = printQuestion("Milyen mezot akarsz rakni?", 1, 6);
-			switch (sel) {
-				case 1:
-					Field f= new Field();
-					f.SetNeighbour(Direction.UP,f);
-					f.SetNeighbour(Direction.DOWN,f);
-					f.SetNeighbour(Direction.LEFT,f);
-					f.SetNeighbour(Direction.RIGHT,f);
-					MovableOption(f);
-					////f.GetNeighbour(Direction.UP);    ////teszt
-					break;
-				case 2:
-					Hole h= new Hole();
-					h.SetNeighbour(Direction.UP,h);
-					h.SetNeighbour(Direction.DOWN,h);
-					h.SetNeighbour(Direction.LEFT,h);
-					h.SetNeighbour(Direction.RIGHT,h);
-					break;
-				case 3:
-					TrapDoor t= new TrapDoor();
-					t.SetNeighbour(Direction.UP,t);
-					t.SetNeighbour(Direction.DOWN,t);
-					t.SetNeighbour(Direction.LEFT,t);
-					t.SetNeighbour(Direction.RIGHT,t);
-					MovableOption(t);
-					break;
-				case 4:
-					Button b= new Button();
-					b.SetNeighbour(Direction.UP,b);
-					b.SetNeighbour(Direction.DOWN,b);
-					b.SetNeighbour(Direction.LEFT,b);
-					b.SetNeighbour(Direction.RIGHT,b);
-					MovableOption(b);
-					break;
-				case 5:
-					Target ta= new Target();
-					ta.SetNeighbour(Direction.UP,ta);
-					ta.SetNeighbour(Direction.DOWN,ta);
-					ta.SetNeighbour(Direction.LEFT,ta);
-					ta.SetNeighbour(Direction.RIGHT,ta);
-					MovableOption(ta);
-					break;
-				case 6:
-					buildingMap = false;
-					break;
-	
-			}
-			
-		}
-		printOnExit(this,"CreateMap",null);*/
 	}
-	
-	public Field getByIndex(int i, int j)
+
+
+	public Field GetByIndex(int i, int j)
 	{
 		return fields[i][j];
 	}
-	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
-
-	/**
-	 *A tesztelo valszt hogy mit tesz az adott mezore
-	 *
-	 *@param f A mezo amire pakol a tesztelo.
-	 */
-
-	public void MovableOption(Field f){
-		String[] movableStrings = {"1. Player","2. Box","3. Wall","4. Ures"};
-		
-		for (String s : movableStrings){
-			printOption(s);
-		}
-		int sel = printQuestion("Mi legyen rajta?", 1, 4);
-		switch (sel) {
-			case 1:
-				Player p = new Player(4);
-				f.Register(p);
-				break;
-			case 2:
-				Box b = new Box();
-				f.Register(b);
-				break;
-			case 3:
-				Wall w = new Wall();
-				f.Register(w);
-				break;
-			case 4:
-				f.Register(null);
-				break;
-
-		}
-	}
+	
+	public int GetWidth() { return width; }
+	
+	public int GetHeight() { return height; }
 
 	/*
 	 * Generalunk egy palyat, a megadott meretekkel.
