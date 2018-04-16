@@ -27,8 +27,8 @@ public class Field {
 	 * @return A kert szomszed
 	 */
 	public Field GetNeighbour(Direction d){
-		printOnEntry(this,"GetNeighbour",d+"");
-		String[] getNeighbourStrings = {"1. Field",
+		//printOnEntry(this,"GetNeighbour",d+"");
+		/*String[] getNeighbourStrings = {"1. Field",
 										"2. Hole",
 										"3. Button",
 										"4. TrapDoor",
@@ -57,8 +57,8 @@ public class Field {
 				break;		
 		}
 
-
-		printOnExit(this,"GetNeighbour",""+neighbours.get(d));
+*/
+	//	printOnExit(this,"GetNeighbour",""+neighbours.get(d));
 		return neighbours.get(d);
 		
 	}
@@ -160,7 +160,9 @@ public class Field {
 	public void Register(Moveable m){
 		printOnEntry(this,"Register",m+"");
 		myMoveable = m;
-		m.SetmyField(this);
+		if(m!=null){
+			m.SetmyField(this);
+		}
 		printOnExit(this,"Register",null);
 	}
 

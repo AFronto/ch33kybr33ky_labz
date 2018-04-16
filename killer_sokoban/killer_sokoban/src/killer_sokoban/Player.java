@@ -54,6 +54,7 @@ public class Player extends Moveable {
 		
 		boolean canGo = false;
 		
+		// Az elso feltetel a teszteles miatt kell
 		if(m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))){		//Player tol Player eset ellenorzese
 			return false;
 		}
@@ -65,6 +66,7 @@ public class Player extends Moveable {
 				myField.Remove();
 				myNeighbour.Register(m);
 				myNeighbour.FieldAction();
+				System.out.println("cango");
 			}
 			/*
 			String[] runStrings = { "1. Igen", "2.  Nem" };
