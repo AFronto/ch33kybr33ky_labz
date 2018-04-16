@@ -218,8 +218,10 @@ public class Map {
         }
 	}
 
-
-	public void generateMazeBase()
+	/*
+	 * Generalunk egy palyat, a megadott meretekkel.
+	 */
+	public void generateMazeBase()		
     {
         maze = new int[height][ width];
         // Initialize

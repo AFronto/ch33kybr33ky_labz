@@ -159,7 +159,7 @@ public class Player extends Moveable {
 		printOnEntry(this, "GetLastTouchedMe");
 		printOnExit(this, "GetLastTouchedMe", null + "");
 		
-		return this;
+		return null;
 	}
 
 	/**
@@ -171,6 +171,14 @@ public class Player extends Moveable {
 		DeadScore();
 
 		printOnExit(this, "Die", null);
+	}
+	
+	public int getStrength() {
+		return strength;
+	}
+	
+	public void changeFriction() {
+		myField.SetFriction();
 	}
 
 	////////////////////////////////////////////////////////////// SKELETON

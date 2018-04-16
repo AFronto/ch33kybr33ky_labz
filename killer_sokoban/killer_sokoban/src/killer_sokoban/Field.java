@@ -7,7 +7,7 @@ public class Field {
 	
 	protected EnumMap<Direction, Field> neighbours; 				///iranyokkal allíithato tomb
 	protected Moveable myMoveable;									///A filden allo Moveable
-
+	protected int friction = 1;										// A mezo surlodasa
 
 	/**
 	 *Konstruktor
@@ -75,10 +75,26 @@ public class Field {
 		return myMoveable;
 	}
 	
-	public void SetmyMoveable(Moveable m){
-		printOnEntry(this,"GetmyMoveable");								
-		printOnExit(this,"GetmyMoveable",myMoveable+"");
-		myMoveable = m;
+	public void SetFriction(){
+		int oilFriction = 0;		//kulonbozo anyagokhoz kulonbozo ertekek
+		int honeyFriction = 2;
+		int baseFriction = 1;
+		
+		switch(friction){
+		case 1: 
+			friction = oilFriction;
+			break;
+		case 0:
+			friction = honeyFriction;
+			break;
+		case 2:
+			friction = baseFriction;
+			break;
+		}
+	}
+	
+	public int GetFriction(){
+		return friction;
 	}
 	
 	/**
@@ -98,7 +114,7 @@ public class Field {
 			if(f == 0){					// Elfogyott az ero, nem tudjuk eltolni ami itt van.
 				return false;
 			}
-			canGo = myMoveable.Control(p, d, f-1);  // Csokkentjuk az erot.
+			canGo = myMoveable.Control(p, d, f-friction);  // Csokkentjuk az erot, a foldon levo anyagnak megfeleloen.
 		}else{
 			return true;		//Ures a mezo, lehet jonni.
 		}
@@ -144,6 +160,7 @@ public class Field {
 	public void Register(Moveable m){
 		printOnEntry(this,"Register",m+"");
 		myMoveable = m;
+		m.SetmyField(this);
 		printOnExit(this,"Register",null);
 	}
 

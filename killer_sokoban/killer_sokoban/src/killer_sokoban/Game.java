@@ -33,11 +33,12 @@ public class Game {
 	 */
 	public static void main(String[] args) {
 		game = new Game();
-
-		boolean keepGoing=true;
+		Interpreter i = new Interpreter();
+		/*boolean keepGoing=true;
 		while(keepGoing){
 			keepGoing = game.Run();
-		}
+		}*/
+		i.Run();
 	}
 	
 	/**
@@ -91,6 +92,17 @@ public class Game {
 	
 	public static void setBoxNum(int i){
 		boxes=i;
+	}
+	
+	/**
+	 * Megnezi, hogy strength max erovel tekintve van-e beszorult doboz blokk
+	 * 
+	 * @param strength A max tolhato dobozok szama
+	 */
+	public boolean CheckForInvalidShape(int strength)
+	{
+		int width = active_map.GetWidth();
+		int height = active_map.GetHeight();
 	}
 
 ////////////////////////////////////////////////Skeleton fuggvenyek///////////////////////////////////////////////////////////////////////
