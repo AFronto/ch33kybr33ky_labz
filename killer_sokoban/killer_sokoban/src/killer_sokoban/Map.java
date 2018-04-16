@@ -142,6 +142,10 @@ public class Map {
 		printOnExit(this,"CreateMap",null);*/
 	}
 	
+	public Field getByIndex(int i, int j)
+	{
+		return fields[i][j];
+	}
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
 
 	/**

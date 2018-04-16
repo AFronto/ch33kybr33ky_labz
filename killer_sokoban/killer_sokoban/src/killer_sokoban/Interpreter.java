@@ -132,9 +132,7 @@ public class Interpreter {
 				}
 				break;
 				
-				/**
-				 * indul a szopas
-				 */
+				
 			default:
 				System.out.println("A parancs nem ertelmezheto!");
 				break;
