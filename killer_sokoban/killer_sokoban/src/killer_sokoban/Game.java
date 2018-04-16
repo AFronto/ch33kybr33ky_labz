@@ -15,7 +15,7 @@ public class Game {
 	
 	public int GetMaxStrength() { return maxStrength; }
 	
-	public int SetMaxStrength(int newMaxStrength) { maxStrength = newMaxStrength; }
+	public void SetMaxStrength(int newMaxStrength) { maxStrength = newMaxStrength; }
 	
 	/**
 	 *Csak a Skeletonhoz hasznalt valtozok
@@ -105,7 +105,7 @@ public class Game {
 	 * 
 	 * @param strength A max tolhato dobozok szama
 	 */
-	public boolean CheckForInvalidShape(int strength)
+	/*public boolean CheckForInvalidShape(int strength)
 	{
 		int width = active_map.GetWidth();
 		int height = active_map.GetHeight();
@@ -121,8 +121,8 @@ public class Game {
 					
 					for(int l = 0; l < strength; l++) {
 						
-							if(active_map.GetByIndex(i + k, j + l)!=null && active_map.GetByIndex(i + k, j + l).IsStuck != null) blockFull = true;
-							else blockFull = false;
+							///if(active_map.GetByIndex(i + k, j + l)!=null && active_map.GetByIndex(i + k, j + l).GetmyMoveable().IsStuck() != null) blockFull = true;
+							///else blockFull = false;
 						}
 						
 					}
@@ -133,7 +133,7 @@ public class Game {
 				
 					for(int l = 0; l < strength; l++) {
 					
-						current_map.GetByIndex(i + k, j + l).SetStuck();
+						///active_map.GetByIndex(i + k, j + l).GetmyMoveable().SetStuck();
 					}
 				}
 				
@@ -144,17 +144,17 @@ public class Game {
 				
 			}
 		}
-	
+	*/
 	
 	/**
 	 * Method overloading - parameter nelkul is legyen hivhato a fuggveny. Ilyenkor  Game maxStrength ertekevel szamol.
 	 */
-	public boolean CheckForInvalidShape() {
+	/*public boolean CheckForInvalidShape() {
 		
 		return CheckForInvalidShape(maxStrength);
 
 	}
-
+*/
 
 ////////////////////////////////////////////////Skeleton fuggvenyek///////////////////////////////////////////////////////////////////////
 	
