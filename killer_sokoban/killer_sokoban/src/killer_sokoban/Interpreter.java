@@ -54,7 +54,7 @@ public class Interpreter {
 			switch (p.get(1)) {
 			case "Map":
 				Map map = new Map();
-				map.CreateMap(4);
+				map.CreateMap(4,6);
 
 			case "Field":
 				fields.add(new Field());
