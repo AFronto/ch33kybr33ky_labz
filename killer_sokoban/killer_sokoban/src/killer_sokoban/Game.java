@@ -99,7 +99,7 @@ public class Game {
 	 * 
 	 * @param strength A max tolhato dobozok szama
 	 */
-	public bool CheckForInvalidShape(int strength)
+	public boolean CheckForInvalidShape(int strength)
 	{
 		int width = active_map.GetWidth();
 		int height = active_map.GetHeight();
