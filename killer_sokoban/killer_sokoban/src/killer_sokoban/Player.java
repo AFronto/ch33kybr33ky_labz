@@ -172,6 +172,14 @@ public class Player extends Moveable {
 
 		printOnExit(this, "Die", null);
 	}
+	
+	public int getStrength() {
+		return strength;
+	}
+	
+	public void changeFriction() {
+		myField.SetFriction();
+	}
 
 	////////////////////////////////////////////////////////////// SKELETON
 	////////////////////////////////////////////////////////////// FUGGVENYEK/////////////////////////////////////////
