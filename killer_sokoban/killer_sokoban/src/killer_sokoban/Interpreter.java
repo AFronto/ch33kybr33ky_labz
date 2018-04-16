@@ -100,57 +100,66 @@ public class Interpreter {
 			break;
 			
 		case "connect":
-			switch (p.get(1)) {
-			case "Neighbour":
-				/**
-				 * a parancsban megadott nevû fieldet kiekeresi és elvégzi az összekapcsolást
-				 * ha nincs olyan hibauzenetet dob
-				 */
-				if(fields.get(p.get(2)) == null || fields.get(p.get(3)) == null) {
-					System.out.println("Nincs ilyen nevu mezo!");
-				}else {
-					fields.get(p.get(2)).SetNeighbour(Direction.valueOf(p.get(4)), fields.get(p.get(3)));
-					fields.get(p.get(3)).SetNeighbour(Direction.valueOf(p.get(4)).Opposite(), fields.get(p.get(2)));
+				switch (p.get(1)) {
+				case "Neighbour":
+					/**
+					 * a parancsban megadott nevû fieldet kiekeresi és elvégzi az összekapcsolást
+					 * ha nincs olyan hibauzenetet dob
+					 */
+					if(fields.get(p.get(2)) == null || fields.get(p.get(3)) == null) {
+						System.out.println("Nincs ilyen nevu mezo!");
+					}else {
+						fields.get(p.get(2)).SetNeighbour(Direction.valueOf(p.get(4)), fields.get(p.get(3)));
+						fields.get(p.get(3)).SetNeighbour(Direction.valueOf(p.get(4)).Opposite(), fields.get(p.get(2)));
+					}
+					break;
+					
+				case "Moveable":
+					if(fields.get(p.get(2)) == null || moveables.get(p.get(3)) == null) {
+						System.out.println("Valamelyik parameter hibas!");
+					}else {
+						fields.get(p.get(2)).Register(moveables.get(p.get(3)));
+					}
+					break;
+					
+				case "Button-TrapDoor":
+					if(fields.get(p.get(2)) == null || fields.get(p.get(3)) == null) {
+						System.out.println("Valamelyik parameter hibas!");
+					}else {
+						Button b = (Button) fields.get(p.get(2));
+						TrapDoor td = (TrapDoor) fields.get(p.get(3));
+						b.SetmyTrap(td);
+					}
+					break;
+					
+					
+				default:
+					System.out.println("A parancs nem ertelmezheto!");
+					break;
+					
 				}
 				break;
-				
-			case "Moveable":
-				if(fields.get(p.get(2)) == null || moveables.get(p.get(3)) == null) {
-					System.out.println("Valamelyik parameter hibas!");
-				}else {
-					fields.get(p.get(2)).Register(moveables.get(p.get(3)));
-				}
-				break;
-				
-			case "Button-TrapDoor":
-				if(fields.get(p.get(2)) == null || fields.get(p.get(3)) == null) {
-					System.out.println("Valamelyik parameter hibas!");
-				}else {
-					Button b = (Button) fields.get(p.get(2));
-					TrapDoor td = (TrapDoor) fields.get(p.get(3));
-					b.SetmyTrap(td);
-				}
-				break;
-				
-				
-			default:
-				System.out.println("A parancs nem ertelmezheto!");
-				break;
-				
-			}
-			break;
+			
 		case "choose":
 			chosen = (Player) moveables.get(p.get(1));
+			System.out.println("Chosen:"+moveables.get(p.get(1))+" name: "+p.get(1));
 			break;
 			
 		case "step":
-			chosen.Control(null, Direction.valueOf(p.get(1)), chosen.getStrength());
+			chosen.Control(chosen, Direction.valueOf(p.get(1)), chosen.getStrength());
 			break;
 			
 		case "listNeighbour":
 			Field f = chosen.GetmyField();
+			String toPrint = "null";
 			for(Direction d : Direction.values()) {
-				System.out.println(d + " : " + f.GetNeighbour(d));
+				for(String key:fields.keySet()){
+					if(f.GetNeighbour(d) != null && f.GetNeighbour(d).equals(fields.get(key))){
+						toPrint = key;
+					}
+				}
+				System.out.println(d + " : " + f.GetNeighbour(d)+" name: "+toPrint);
+				toPrint = "null";
 			}
 			break;
 			

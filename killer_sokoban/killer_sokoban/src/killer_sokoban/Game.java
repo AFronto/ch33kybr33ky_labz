@@ -94,10 +94,10 @@ public class Game {
 		boxes=i;
 	}
 	
-	public bool CheckForInvalidShape()
+	/*public bool CheckForInvalidShape()
 	{
 		
-	}
+	}*/
 
 ////////////////////////////////////////////////Skeleton fuggvenyek///////////////////////////////////////////////////////////////////////
 	
