@@ -160,7 +160,9 @@ public class Field {
 	public void Register(Moveable m){
 		printOnEntry(this,"Register",m+"");
 		myMoveable = m;
-		m.SetmyField(this);
+		if(m!=null){
+			m.SetmyField(this);
+		}
 		printOnExit(this,"Register",null);
 	}
 

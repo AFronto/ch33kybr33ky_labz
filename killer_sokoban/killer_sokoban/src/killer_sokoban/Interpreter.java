@@ -103,7 +103,7 @@ public class Interpreter {
 				switch (p.get(1)) {
 				case "Neighbour":
 					/**
-					 * a parancsban megadott nevû fieldet kiekeresi és elvégzi az összekapcsolást
+					 * a parancsban megadott nevu fieldet kiekeresi es elvegzi az osszekapcsolast
 					 * ha nincs olyan hibauzenetet dob
 					 */
 					if(fields.get(p.get(2)) == null || fields.get(p.get(3)) == null) {
