@@ -75,12 +75,6 @@ public class Field {
 		return myMoveable;
 	}
 	
-	public void SetmyMoveable(Moveable m){
-		printOnEntry(this,"GetmyMoveable");								
-		printOnExit(this,"GetmyMoveable",myMoveable+"");
-		myMoveable = m;
-	}
-	
 	public void SetFriction(){
 		int oilFriction = 0;		//kulonbozo anyagokhoz kulonbozo ertekek
 		int honeyFriction = 2;
@@ -166,6 +160,7 @@ public class Field {
 	public void Register(Moveable m){
 		printOnEntry(this,"Register",m+"");
 		myMoveable = m;
+		m.SetmyField(this);
 		printOnExit(this,"Register",null);
 	}
 
