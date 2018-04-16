@@ -148,6 +148,7 @@ public class Map {
         fields[nY][nX].SetNeighbour(Direction.LEFT,fields[nY][nX-1]);
         fields[nY-1][nX].SetNeighbour(Direction.DOWN,fields[nY][nX]);
         fields[nY][nX].SetNeighbour(Direction.UP,fields[nY-1][nX]);
+	
 
         fields[nY][nX+1].SetNeighbour(Direction.LEFT,fields[nY][nX]);
         fields[nY][nX].SetNeighbour(Direction.RIGHT,fields[nY][nX+1]);
@@ -217,6 +218,16 @@ public class Map {
             System.out.println();
         }
 	}
+
+
+	public Field GetByIndex(int i, int j)
+	{
+		return fields[i][j];
+	}
+	
+	public int GetWidth() { return width; }
+	
+	public int GetHeight() { return height; }
 
 	/*
 	 * Generalunk egy palyat, a megadott meretekkel.
