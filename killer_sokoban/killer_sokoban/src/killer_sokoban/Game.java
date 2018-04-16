@@ -11,6 +11,11 @@ public class Game {
 	private static int players;	
 	private int[] overallScore;
 	private Map active_map;
+	private int maxStrength;
+	
+	public int GetMaxStrength() { return maxStrength; }
+	
+	public int SetMaxStrength(int newMaxStrength) { maxStrength = newMaxStrength; }
 	
 	/**
 	 *Csak a Skeletonhoz hasznalt valtozok
@@ -95,7 +100,7 @@ public class Game {
 	}
 	
 	/**
-	 * Megnezi, hogy strength max erovel tekintve van-e beszorult doboz blokk
+	 * Megnezi, hogy strength max erovel tekintve van-e beszorult doboz-blokk
 	 * 
 	 * @param strength A max tolhato dobozok szama
 	 */
@@ -103,6 +108,48 @@ public class Game {
 	{
 		int width = active_map.GetWidth();
 		int height = active_map.GetHeight();
+		boolean blockFull = false;
+		
+		for(int i = 0; i < height - strength; i++) {
+			
+			for(int j = 0; j < width - strength; j++) {
+				
+				//checking if current strength*strength block is filled with moveables
+				for(int k = 0; k < strength; k++) {
+					
+					for(int l = 0; l < strength; l++) {
+						
+							if(active_map.GetByIndex(i + k, j + l)!=null && active_map.GetByIndex(i + k, j + l).IsStuck != null) blockFull = true;
+							else blockFull = false;
+						}
+						
+					}
+				
+				//setting all moveables stuck
+				if(blockFull) {
+				for(int k = 0; k < strength; k++) {
+				
+					for(int l = 0; l < strength; l++) {
+					
+						current_map.GetByIndex(i + k, j + l).SetStuck();
+					}
+				}
+				
+				}
+					//moving to the next block --> reseting blockFull boolean variable	
+					blockFull = false;
+				}
+				
+			}
+		}
+	
+	
+	/**
+	 * Method overloading - parameter nelkul is legyen hivhato a fuggveny. Ilyenkor  Game maxStrength ertekevel szamol.
+	 */
+	public boolean CheckForInvalidShape() {
+		
+		return CheckForInvalidShape(maxStrength);
 	}
 
 ////////////////////////////////////////////////Skeleton fuggvenyek///////////////////////////////////////////////////////////////////////

@@ -147,7 +147,7 @@ public class Map {
 		return fields[i][j];
 	}
 	
-	public int GetWidt() { return width; }
+	public int GetWidth() { return width; }
 	
 	public int GetHeight() { return height; }
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
