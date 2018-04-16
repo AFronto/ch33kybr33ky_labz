@@ -3,6 +3,7 @@ package killer_sokoban;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Interpreter {
 	/**
@@ -24,19 +25,26 @@ public class Interpreter {
 	 * Globalis player
 	 */
 	Player chosen = new Player(4);
-	Interpreter(String s) {
+	Interpreter() {	
+	}
+	
+	void Run() {
 		/**
-		 * szokozoknel eldarabolja a kapott stringet
+		 * enterrel elválasztva a parancsokat nézik
 		 */
-		parts = new ArrayList<String>(Arrays.asList(s.split(" ")));
-		
-		/**
-		 * ha tobb eleme van mint 5 akkor kuka, amugy eldontjuk mit akarunk vele kezdeni
-		 */
-		if (parts.size() > 5) {
-			System.out.println("Tul sok parameter");
-		} else {
-			Decide(parts);
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNextLine()) {
+			String command = sc.nextLine();
+			parts = new ArrayList<String>(Arrays.asList(command.split(" ")));
+			
+			/**
+			 * ha tobb eleme van mint 5 akkor kuka, amugy eldontjuk mit akarunk vele kezdeni
+			 */
+			if (parts.size() > 5) {
+				System.out.println("Tul sok parameter");
+			} else {
+				Decide(parts);
+			}
 		}
 	}
 
@@ -50,7 +58,8 @@ public class Interpreter {
 			case "Map":
 				Map map = new Map();
 				map.CreateMap(4);
-
+				break;
+				
 			case "Field":
 				fields.put(p.get(2), new Field());
 				break;
@@ -88,7 +97,8 @@ public class Interpreter {
 				break;
 				
 			}
-
+			break;
+			
 		case "connect":
 			switch (p.get(1)) {
 			case "Neighbour":
@@ -108,7 +118,7 @@ public class Interpreter {
 				if(fields.get(p.get(2)) == null || moveables.get(p.get(3)) == null) {
 					System.out.println("Valamelyik parameter hibas!");
 				}else {
-					fields.get(p.get(2)).SetmyMoveable(moveables.get(p.get(3)));
+					fields.get(p.get(2)).Register(moveables.get(p.get(3)));
 				}
 				break;
 				
@@ -130,13 +140,13 @@ public class Interpreter {
 				break;
 				
 			}
-
+			break;
 		case "choose":
 			chosen = (Player) moveables.get(p.get(1));
 			break;
 			
 		case "step":
-			chosen.Control(null, Direction.valueOf(p.get(3)), chosen.getStrength());
+			chosen.Control(null, Direction.valueOf(p.get(1)), chosen.getStrength());
 			break;
 			
 		case "listNeighbour":
@@ -151,6 +161,7 @@ public class Interpreter {
 			break;
 			
 		case "listBox":
+			
 			break;
 			
 		case "listPlayer":

@@ -33,11 +33,12 @@ public class Game {
 	 */
 	public static void main(String[] args) {
 		game = new Game();
-
-		boolean keepGoing=true;
+		Interpreter i = new Interpreter();
+		/*boolean keepGoing=true;
 		while(keepGoing){
 			keepGoing = game.Run();
-		}
+		}*/
+		i.Run();
 	}
 	
 	/**
