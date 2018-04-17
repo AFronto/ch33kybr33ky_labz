@@ -1,0 +1,7 @@
+create Field F1
+create Hole H1
+create Player P1
+connect Neighbour F1 H1 RIGHT
+connect Moveable F1 P1
+choose P1
+step RIGHT
