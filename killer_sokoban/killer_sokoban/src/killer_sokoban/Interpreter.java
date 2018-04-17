@@ -211,7 +211,7 @@ public class Interpreter {
 		case "step":
 			System.out.println("Moving "+getMoveableName(chosen)+" "+Direction.valueOf(p.get(1)));
 			Field originalPos =	chosen.GetmyField();
-			chosen.Control(chosen, Direction.valueOf(p.get(1)), chosen.getStrength());
+			chosen.Control(null, Direction.valueOf(p.get(1)), 0);
 			if(originalPos.equals(chosen.GetmyField().GetNeighbour(Direction.valueOf(p.get(1)).Opposite()))){         		//Megnezem hogy valoban megtortent-e a lepes.
 				System.out.println(getMoveableName(chosen)+" has been moved to "+getFieldName(chosen.GetmyField())+".");		//Ha az eredeti pozicio megegyezik az uj pozicio
 																															//mozgatassal ellenkezo iranybeli szomszeddal akkor sikeres

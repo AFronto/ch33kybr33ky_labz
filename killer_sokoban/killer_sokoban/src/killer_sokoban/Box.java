@@ -34,7 +34,7 @@ public class Box extends Moveable{
 	 *@return Igaz hamis ertekkel ter vissza attol fuggoen hogy sikeresen mozgott e. 
 	 */
 	public boolean Control(Player p, Direction d, int f){
-	//	printOnEntry(this,"Control",p+"",d+"");
+		printOnEntry(this,"Control",p+"",d+"");
 		boolean canGo = false;
 		lastTouchedMe = p;
 		if(p == null){  //Ez elvileg nem lehet nulla, de ki tudja

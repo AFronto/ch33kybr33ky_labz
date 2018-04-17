@@ -28,6 +28,9 @@ public class Target extends Field{
 		printOnExit(this,"FieldAction",null);
 
 	}
+	public boolean Step(Player p, Direction d,int f){
+		return true;
+	}
 
 
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////

@@ -54,20 +54,29 @@ public class Player extends Moveable {
 		
 		boolean canGo = false;
 		
-		if(m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))){		//Player tol Player eset ellenorzese
-			return false;
+		Field myNeighbour;
+		if(m == null){
+			myNeighbour = this.GetmyField().GetNeighbour(d);
+			canGo = myNeighbour.Step(this, d, this.strength);
+			if(canGo){
+				myField.Remove();
+				myNeighbour.Register(this);
+				myNeighbour.FieldAction();
+			}
 		}
-		
 		if (m != null) {
-			Field myNeighbour = m.GetmyField().GetNeighbour(d);
-			canGo = myNeighbour.Step(m, d, f);
+			if(m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))){		//Player tol Player eset ellenorzese
+				return false;
+			}
+			myNeighbour = m.GetmyField().GetNeighbour(d);
+			canGo = myNeighbour.Step(this, d, f);
 			if(canGo){
 				myField.Remove();
 				myNeighbour.Register(m);
 				myNeighbour.FieldAction();
 			}
-			
 		}
+
 		
 		printOnExit(this, "Control", canGo + "");
 		return canGo;
