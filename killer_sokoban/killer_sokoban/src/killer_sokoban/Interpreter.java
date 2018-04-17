@@ -1,5 +1,9 @@
 package killer_sokoban;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -45,6 +49,19 @@ public class Interpreter {
 			} else {
 				Decide(parts);
 			}
+		}
+	}
+	
+	void Read(String[] file) throws FileNotFoundException, IOException {
+		try(BufferedReader br = new BufferedReader(new FileReader(file + ".txt"))) {
+		    String line = br.readLine();
+
+		    while (line != null) {
+		    	parts = new ArrayList<String>(Arrays.asList(line.split(" ")));
+		    	Decide(parts);
+		    	
+		        line = br.readLine();
+		    }
 		}
 	}
 
