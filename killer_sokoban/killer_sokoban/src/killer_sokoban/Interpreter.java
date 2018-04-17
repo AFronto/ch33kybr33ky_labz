@@ -158,8 +158,12 @@ public class Interpreter {
 				break;
 			
 		case "choose":
-			chosen = (Player) moveables.get(p.get(1));
-			System.out.println("Chosen:"+moveables.get(p.get(1))+" name: "+p.get(1));
+			if(moveables.get(p.get(1)).toString().equals("Player")){
+				chosen = (Player) moveables.get(p.get(1));
+				System.out.println("Chosen:"+moveables.get(p.get(1))+" name: "+p.get(1));
+			}else{
+				System.out.println("Hallod ba$tya, csak playert lehet valasztani");
+			}
 			break;
 			
 		case "step":
