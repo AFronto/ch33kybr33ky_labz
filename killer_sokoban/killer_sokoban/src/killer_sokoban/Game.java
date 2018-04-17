@@ -51,8 +51,9 @@ public class Game {
 		while (true) {
 			if(0 < args.length) {
 				File inFile = new File(args[0]);
-				System.out.println("ANYAD");
+				System.out.println(args[0]);
 				i.Read(inFile);
+				break;
 			}else {
 				System.out.println("Irnek geco");
 				i.Run();
