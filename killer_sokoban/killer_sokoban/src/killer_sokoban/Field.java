@@ -181,7 +181,28 @@ public class Field {
 	 */
 	public void FieldAction(){
 	//	printOnEntry(this, "FieldAction");
-		
+		EnumMap<Direction, Boolean> stuckDirs=new EnumMap<Direction, Boolean>(Direction.class);
+		System.out.println(neighbours.values().size());
+		for(Direction d: neighbours.keySet()){
+			System.out.println(this.GetNeighbour(d));
+			if(this.GetNeighbour(d)!=null){
+				if(this.GetNeighbour(d).GetmyMoveable()!=null){
+					stuckDirs.put(d,this.GetNeighbour(d).GetmyMoveable().IsStuck());
+				}
+			}
+		}
+
+		if(stuckDirs.get(Direction.UP)!=null&&stuckDirs.get(Direction.LEFT)!=null&&(stuckDirs.get(Direction.UP)&&stuckDirs.get(Direction.LEFT))){
+			GetmyMoveable().SetStuck();
+		}else if(stuckDirs.get(Direction.UP)!=null&&stuckDirs.get(Direction.RIGHT)!=null&&(stuckDirs.get(Direction.UP)&&stuckDirs.get(Direction.RIGHT))){
+			GetmyMoveable().SetStuck();
+		}else if(stuckDirs.get(Direction.DOWN)!=null&&stuckDirs.get(Direction.LEFT)!=null&&(stuckDirs.get(Direction.DOWN)&&stuckDirs.get(Direction.LEFT))){
+			GetmyMoveable().SetStuck();
+		}else if(stuckDirs.get(Direction.DOWN)!=null&&stuckDirs.get(Direction.RIGHT)!=null&&(stuckDirs.get(Direction.DOWN)&&stuckDirs.get(Direction.RIGHT))){
+			GetmyMoveable().SetStuck();
+		}
+
+		///checkForInvalidShape();
 	//	printOnExit(this, "FieldAction", null);
 	}
 	

@@ -43,11 +43,11 @@ public class Map {
             for (int x = 0; x < width; x++)
             {
             	fields[y][x]=new Field();
-            	if(x-1>0){
+            	if(x-1>=0){
            			fields[y][x-1].SetNeighbour(Direction.RIGHT,fields[y][x]);
            			fields[y][x].SetNeighbour(Direction.LEFT,fields[y][x-1]);
            		}
-           		if(y-1>0){
+           		if(y-1>=0){
            			fields[y-1][x].SetNeighbour(Direction.DOWN,fields[y][x]);
            			fields[y][x].SetNeighbour(Direction.UP,fields[y-1][x]);
            		}
@@ -157,6 +157,18 @@ public class Map {
         fields[nY][nX].SetNeighbour(Direction.RIGHT,fields[nY][nX+1]);
         fields[nY+1][nX].SetNeighbour(Direction.UP,fields[nY][nX]);
         fields[nY][nX].SetNeighbour(Direction.DOWN,fields[nY+1][nX]);
+
+
+        nX = ThreadLocalRandom.current().nextInt(1, 10);										///Ez kell hogy 1 box fixen legyen
+        nY = ThreadLocalRandom.current().nextInt(1, 10);
+        while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))){     
+	        	nX = ThreadLocalRandom.current().nextInt(1, 10);
+	           	nY = ThreadLocalRandom.current().nextInt(1, 10);										
+	        }
+	    Box bx=new Box();
+        bx.SetmyField(fields[nY][nX]);
+        fields[nY][nX].Register(bx);
+   		fields[nY][nX].FieldAction();
 
         double boxChance=0.05;
 

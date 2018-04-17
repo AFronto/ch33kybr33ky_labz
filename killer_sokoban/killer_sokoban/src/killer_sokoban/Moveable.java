@@ -9,6 +9,8 @@ public abstract class Moveable {
 		return false;
 	}
 	
+	public void SetStuck(){}
+
 	public boolean Control(Player p, Direction d,int f){
 		return true; 
 	}

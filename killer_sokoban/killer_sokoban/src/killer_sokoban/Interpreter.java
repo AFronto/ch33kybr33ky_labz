@@ -56,12 +56,8 @@ public class Interpreter {
 	void Read(File file) throws FileNotFoundException, IOException {
 		try(BufferedReader br = new BufferedReader(new FileReader(file))) {
 		    String line = br.readLine();
-		    System.out.println(line);
 		    while (line != null) {
 		    	parts = new ArrayList<String>(Arrays.asList(line.split(" ")));
-		    	for(String s: parts){
-		    		System.out.println("\t"+s);
-		    	}
 		    	Decide(parts);
 		    	
 		        line = br.readLine();
@@ -83,7 +79,6 @@ public class Interpreter {
 
 			case "Field":
 				fields.put(p.get(2), new Field());
-				System.out.println(p.get(2));
 				break;
 				
 			case "Wall":
