@@ -180,9 +180,9 @@ public class Field {
 	 *Az adott fieldre jellemzo akcio
 	 */
 	public void FieldAction(){
-		printOnEntry(this, "FieldAction");
+	//	printOnEntry(this, "FieldAction");
 		
-		printOnExit(this, "FieldAction", null);
+	//	printOnExit(this, "FieldAction", null);
 	}
 	
 	/**

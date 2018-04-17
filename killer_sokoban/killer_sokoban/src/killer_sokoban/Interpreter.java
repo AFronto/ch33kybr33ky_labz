@@ -167,7 +167,11 @@ public class Interpreter {
 			break;
 			
 		case "step":
+			Field originalPos =	chosen.GetmyField();
 			chosen.Control(chosen, Direction.valueOf(p.get(1)), chosen.getStrength());
+			if(originalPos.equals(chosen.GetmyField().GetNeighbour(Direction.valueOf(p.get(1)).Opposite()))){
+				System.out.println(getMoveableName(chosen)+" has been moved to "+getFieldName(chosen.GetmyField()));
+			}
 			break;
 			
 		case "listNeighbour":
@@ -200,5 +204,28 @@ public class Interpreter {
 			break;
 			
 		}
+	}
+	
+	/*
+	 * Visszaadja a Moveable nevet az interpreterben hasznalt a HashMapbol.
+	 */
+	public String getMoveableName(Moveable m){
+		for(String key:moveables.keySet()){
+			if(m.equals(moveables.get(key))){
+				return key;
+			}
+		}
+		return null;
+	}
+	/*
+	 * Visszaadja a Field nevet az interpreterben hasznalt a HashMapbol.
+	 */
+	public String getFieldName(Field m){
+		for(String key:fields.keySet()){
+			if(m.equals(fields.get(key))){
+				return key;
+			}
+		}
+		return null;
 	}
 }
