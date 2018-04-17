@@ -3,6 +3,7 @@ package killer_sokoban;
 import static killer_sokoban.Game.printOnEntry;
 import static killer_sokoban.Game.printOnExit;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
@@ -48,10 +49,13 @@ public class Game {
 			keepGoing = game.Run();
 		}*/
 		while (true) {
-			if(args == null) {
-				i.Run();
+			if(0 < args.length) {
+				File inFile = new File(args[0]);
+				System.out.println("ANYAD");
+				i.Read(inFile);
 			}else {
-				i.Read(args);
+				System.out.println("Irnek geco");
+				i.Run();
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 package killer_sokoban;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -52,8 +53,8 @@ public class Interpreter {
 		}
 	}
 	
-	void Read(String[] file) throws FileNotFoundException, IOException {
-		try(BufferedReader br = new BufferedReader(new FileReader(file + ".txt"))) {
+	void Read(File file) throws FileNotFoundException, IOException {
+		try(BufferedReader br = new BufferedReader(new FileReader(file))) {
 		    String line = br.readLine();
 
 		    while (line != null) {
