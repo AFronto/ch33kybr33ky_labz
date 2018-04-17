@@ -9,6 +9,7 @@ public class Target extends Field{
 	public Target(){
 		super();
 		printOnConstruct("Target");
+		myMoveable = null;
 		printOnExitConstuctor("Target");
 	}
 
@@ -22,10 +23,12 @@ public class Target extends Field{
 			myMoveable.Die();
 			Remove();
 			p.AddScore();
+			System.out.println("Player scored!");
 		}
 		printOnExit(this,"FieldAction",null);
 
 	}
+
 
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
 	@Override

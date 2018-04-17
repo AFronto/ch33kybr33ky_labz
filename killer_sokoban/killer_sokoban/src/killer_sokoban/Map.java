@@ -32,12 +32,13 @@ public class Map {
 	 * Generalja a palyat.
 	 *
 	 * @param playerCount a jatekosok szama
+	 * @param maxStrength a maximalis ero
 	 */
 	public void CreateMap(int playerCount,int maxStrength){
 		
 		fields=new Field[height][width];
 		
-		for (int y = 0; y < height; y++)
+		for (int y = 0; y < height; y++)											///csinal egy width x height méretu palyat sima mezokbol.
         {	
             for (int x = 0; x < width; x++)
             {
@@ -51,9 +52,11 @@ public class Map {
            			fields[y][x].SetNeighbour(Direction.UP,fields[y-1][x]);
            		}
             }
-        }
-		generateMazeBase();
-		for (int y = 0; y < height; y++)
+        } 																		
+
+		generateMazeBase();															
+		
+		for (int y = 0; y < height; y++)											///felviszi a falakat a palyara
         {	
             for (int x = 0; x < width; x++)
             {
@@ -67,18 +70,18 @@ public class Map {
             }
         }
 
-        setBoxNum(0);
+        setBoxNum(0);																///kinullazza a doboz szamlalot 
 
         double trapDoorChance=0.05;
         double holeChance=0.05;
 
-        for (int y = 0; y < height; y++)
+        for (int y = 0; y < height; y++)										
         {	
             for (int x = 0; x < width; x++)
             {
             	double chance=Math.random();
             	if(fields[y][x].GetmyMoveable()==null){
-            		if(chance>1-holeChance){
+            		if(chance>1-holeChance){										///ha a random szam bele esik a megszabott valoszinusegbe akkor Hole-t rak
             			fields[y][x]=new Hole();
             			fields[y][x-1].SetNeighbour(Direction.RIGHT,fields[y][x]);
            				fields[y][x].SetNeighbour(Direction.LEFT,fields[y][x-1]);
@@ -89,14 +92,14 @@ public class Map {
            				fields[y][x].SetNeighbour(Direction.RIGHT,fields[y][x+1]);
            				fields[y+1][x].SetNeighbour(Direction.UP,fields[y][x]);
            				fields[y][x].SetNeighbour(Direction.DOWN,fields[y+1][x]);
-            		}else if(chance<trapDoorChance){
+            		}else if(chance<trapDoorChance){								///A TrapDoor rakasnal is hasonloan valoszinuseg alapjan jar el.
             			TrapDoor t=new TrapDoor();
 
            				int counter=0;
            				int nX = ThreadLocalRandom.current().nextInt(1, 10);
            				int nY = ThreadLocalRandom.current().nextInt(1, 10);
-           				while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))&&counter<20){
-           					nX = ThreadLocalRandom.current().nextInt(1, 10);
+           				while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))&&counter<20){  ///Viszont a TrapDoort csak akkor rakja le ha gombot 
+           					nX = ThreadLocalRandom.current().nextInt(1, 10);												///ha gombot is tud raknihozza.
            					nY = ThreadLocalRandom.current().nextInt(1, 10);
            					counter++;
            				}
@@ -134,17 +137,17 @@ public class Map {
             	}
             }
         }
-
-        int nX = ThreadLocalRandom.current().nextInt(1, 10);
+        ///////////////////////////////////////////////TODO: Vegtelen ciklus///////////////////////////////////////////////////////////////////
+        int nX = ThreadLocalRandom.current().nextInt(1, 10);			
         int nY = ThreadLocalRandom.current().nextInt(1, 10);
-        while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))){     ////vegtelenciklus veszely exception 
-        	nX = ThreadLocalRandom.current().nextInt(1, 10);
+        while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))){      ///addig generalgat random koordinatakat amig nem talala egy ures mezot
+        	nX = ThreadLocalRandom.current().nextInt(1, 10);										
            	nY = ThreadLocalRandom.current().nextInt(1, 10);										
         }
-        
-        fields[nY][nX]=new Target();
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        fields[nY][nX]=new Target();																///ide rakja le a targetet
 
-        fields[nY][nX-1].SetNeighbour(Direction.RIGHT,fields[nY][nX]);
+        fields[nY][nX-1].SetNeighbour(Direction.RIGHT,fields[nY][nX]);								
         fields[nY][nX].SetNeighbour(Direction.LEFT,fields[nY][nX-1]);
         fields[nY-1][nX].SetNeighbour(Direction.DOWN,fields[nY][nX]);
         fields[nY][nX].SetNeighbour(Direction.UP,fields[nY-1][nX]);
@@ -157,7 +160,7 @@ public class Map {
 
         double boxChance=0.05;
 
-        for (int y = 0; y < height; y++)
+        for (int y = 0; y < height; y++)														///veletlen szeruen lerak dobozokat
         {	
             for (int x = 0; x < width; x++)
             {
@@ -175,21 +178,23 @@ public class Map {
             }
         }
 
+        ///////////////////////////////////////////////TODO: Vegtelen ciklus///////////////////////////////////////////////////////////////////
         nX = ThreadLocalRandom.current().nextInt(1, 10);
         nY = ThreadLocalRandom.current().nextInt(1, 10);
-        while(playerCount>0){
-	        while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))){     ////vegtelenciklus veszely exception 
+        while(playerCount>0){																			///random helyekre rakja le a megfelelo szamu playert.
+	        while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))){     
 	        	nX = ThreadLocalRandom.current().nextInt(1, 10);
 	           	nY = ThreadLocalRandom.current().nextInt(1, 10);										
 	        }
 	        Player p=new Player(maxStrength);
             p.SetmyField(fields[nY][nX]);
             fields[nY][nX].Register(p);
-            maxStrength--;
+            maxStrength--;																				///fokozatosan csokkenti a jatekosok erejet.
             playerCount--;
         }
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        for (int y = 0; y < height; y++)
+        for (int y = 0; y < height; y++)																///kiirja a vegeredmenyt
         {	
             for (int x = 0; x < width; x++)
             {
@@ -219,18 +224,33 @@ public class Map {
         }
 	}
 
-
+	/**
+	 * A megfelelo indexen levo field elemet adja vissza.
+	 * 
+	 * @param i Az i index a 2d tombben 
+	 * @param j A j index a 2d tombben
+	 */
 	public Field GetByIndex(int i, int j)
 	{
 		return fields[i][j];
 	}
 	
+	/**
+	 * Vissaza adja a szelesseget
+	 *
+	 * @return width 
+	 */
 	public int GetWidth() { return width; }
 	
+	/**
+	 * Vissaza adja a magassagot
+	 *
+	 * @return height
+	 */
 	public int GetHeight() { return height; }
 
-	/*
-	 * Generalunk egy palyat, a megadott meretekkel.
+	/**
+	 * DFS segitsegeve rekurzivan le generalja a palya alapjait 
 	 */
 	public void generateMazeBase()		
     {
@@ -261,6 +281,12 @@ public class Map {
         recursion(r, c);
     }
 
+    /**
+	 * Ez magaa a rekurzio ami a terkep ket koordinatajaval dolgozik amik azt irjak le hogy epp hol all a DFS.
+	 *  
+	 * @param r Az eppen aktualis r koordinata 
+	 * @param c Az eppen aktualis c koordinata
+	 */
     public void recursion(int r, int c)
     {
         // 4 random directions
@@ -344,6 +370,11 @@ public class Map {
         }
     }
 
+    /**
+     * Random sorrendben lerakja a lehetseges 4 iranyt egy tombben
+     *
+     * @return MyArray Ez a negy iranyra utalo integereket tartalmazo tomb. 
+     */
     public ArrayList<Integer> generateRandomDirections()
     {
         ArrayList<Integer> MyArray = new ArrayList<Integer>();
@@ -360,7 +391,13 @@ public class Map {
         return MyArray;
     }
 
-
+    /**
+     * General egy ureget az algoritmusbna gyartott folyosok menten.
+     * Ez a tagasabb terk generalasa vegett kerult be.
+     *
+     * @param x Az aktualis x koordinata ahonan a aszobanak ki kene nonie
+     * @param y Az aktualis Y koordinata ahonan a aszobanak ki kene nonie
+     */
     public void GenRoom(int x,int y)
     {
         double chanche = Math.random();

@@ -111,8 +111,10 @@ public class Field {
 
 
 		if(myMoveable != null){
-			if(f == 0){					// Elfogyott az ero, nem tudjuk eltolni ami itt van.
+			if(f == 0){		
+				System.out.println("Elfogyott az ero");  // Elfogyott az ero, nem tudjuk eltolni ami itt van.
 				return false;
+				
 			}
 			canGo = myMoveable.Control(p, d, f-friction);  // Csokkentjuk az erot, a foldon levo anyagnak megfeleloen.
 		}else{
@@ -180,9 +182,9 @@ public class Field {
 	 *Az adott fieldre jellemzo akcio
 	 */
 	public void FieldAction(){
-		printOnEntry(this, "FieldAction");
+	//	printOnEntry(this, "FieldAction");
 		
-		printOnExit(this, "FieldAction", null);
+	//	printOnExit(this, "FieldAction", null);
 	}
 	
 	/**

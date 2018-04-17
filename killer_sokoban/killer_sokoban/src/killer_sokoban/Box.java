@@ -131,9 +131,9 @@ public class Box extends Moveable{
 	 * Eltunteti a dobozt
 	 */
 	public void Die(){
-		printOnEntry(this, "Die");
+	//	printOnEntry(this, "Die");
 		CountBoxes(-1);
-		printOnExit(this, "Die", null);
+	//	printOnExit(this, "Die", null);
 	}
 //////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
 	@Override

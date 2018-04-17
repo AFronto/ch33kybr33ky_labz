@@ -3,6 +3,7 @@ package killer_sokoban;
 import static killer_sokoban.Game.printOnEntry;
 import static killer_sokoban.Game.printOnExit;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,10 +52,14 @@ public class Game {
 			keepGoing = game.Run();
 		}*/
 		while (true) {
-			if(args == null) {
-				i.Run();
+			if(0 < args.length) {
+				File inFile = new File(args[0]);
+				System.out.println(args[0]);
+				i.Read(inFile);
+				break;
 			}else {
-				i.Read(args);
+				System.out.println("Irnek geco");
+				i.Run();
 			}
 		}
 	}
@@ -74,8 +79,8 @@ public class Game {
 	 *Jatek vege
 	 */
 	public static void EndGame(){
-		printOnEntry(game,"EndGame");
-		printOnExit(game,"EndGame",null);
+		//printOnEntry(game,"EndGame");
+	//	printOnExit(game,"EndGame",null);
 	}
 	
 	/**
@@ -85,7 +90,7 @@ public class Game {
 	 *@param p A jatekos akinek epp updateli a pontjait
 	 */
 	public static void UpdateScore(Player p){
-		printOnEntry(game,"UpdateScore",p+"");
+	//	printOnEntry(game,"UpdateScore",p+"");
 		
 		int score = p.GetScore();
 		if(score == -1)
@@ -94,18 +99,18 @@ public class Game {
 		if(players <= 1)
 			EndGame();
 		
-		printOnExit(game,"UpdateScore",null);
+	//	printOnExit(game,"UpdateScore",null);
 	}
 	
 	/**
 	 *Boxokat tartja szamon
 	 */
 	public static void CountBoxes(int add){
-		printOnEntry(game,"CountBoxes",""+add);
+	//	printOnEntry(game,"CountBoxes",""+add);
 		boxes+=add;
 		if(boxes == 0)
 			EndGame();
-		printOnExit(game,"CountBoxes",null);
+	//	printOnExit(game,"CountBoxes",null);
 	}
 	
 	public static void setBoxNum(int i){
