@@ -12,9 +12,9 @@ public class Box extends Moveable{
 	 */
 	public Box(){
 		super();
-		printOnConstruct("Box");
+	//	printOnConstruct("Box");
 		CountBoxes(1);
-		printOnExitConstuctor("Box");
+	//	printOnExitConstuctor("Box");
 	}
 	
 	/**
@@ -34,26 +34,22 @@ public class Box extends Moveable{
 	 *@return Igaz hamis ertekkel ter vissza attol fuggoen hogy sikeresen mozgott e. 
 	 */
 	public boolean Control(Player p, Direction d, int f){
-		printOnEntry(this,"Control",p+"",d+"");
-		lastTouchedMe=p;
-		myField = new Field();
-		myField.Register(this);
-		Field f2 = myField.GetNeighbour(d); 	///egy new Field() nek hivom meg a GetNeighboue() fuggvenyet, 
-													///mert nincs a playernek beallitva
-		boolean canGo = f2.Step(p,d,f);				///Playert adom tovabb aki hivta a controlt
-		if(canGo==false){
-			boolean dead=f2.GetmyMoveable().Kill();
-			if(dead){
-				canGo=f2.Step(p, d,f); 			
+	//	printOnEntry(this,"Control",p+"",d+"");
+		boolean canGo = false;
+		lastTouchedMe = p;
+		if(p == null){
+			System.out.println("Valami nem jo ba$tya");
+		}
+		if (p != null) {
+			Field myNeighbour = this.GetmyField().GetNeighbour(d);
+			canGo = myNeighbour.Step(p, d, f);
+			if(canGo){
+				myField.Remove();
+				myNeighbour.Register(this);
+				myNeighbour.FieldAction();
 			}
 		}
-		if(canGo){
-			myField.Remove();
-			f2.Register(this);
-			myField=f2;
-			myField.FieldAction();
-		}
-		printOnExit(this,"Control","canGo");
+	//	printOnExit(this,"Control","canGo");
 		return canGo;  
 	}
 	

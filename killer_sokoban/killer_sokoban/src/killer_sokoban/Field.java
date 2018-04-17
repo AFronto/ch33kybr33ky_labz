@@ -13,11 +13,11 @@ public class Field {
 	 *Konstruktor
 	 */
 	public Field(){
-		printOnConstruct("Field");
+	//	printOnConstruct("Field");
 		
 		neighbours= new EnumMap<Direction,Field>(Direction.class);
 		
-		printOnExitConstuctor("Field");
+	//	printOnExitConstuctor("Field");
 	}
 
 	/**
@@ -64,9 +64,9 @@ public class Field {
 	}
 	
 	public void SetNeighbour(Direction d, Field f){
-		printOnEntry(this,"SetNeighbour",d+"",f+"");
+	//	printOnEntry(this,"SetNeighbour",d+"",f+"");
 		neighbours.put(d,f);
-		printOnExit(this,"SetNeighbour",null);
+	//	printOnExit(this,"SetNeighbour",null);
 	}
 	
 	public Moveable GetmyMoveable(){
@@ -105,7 +105,7 @@ public class Field {
 	 * @return Rekurzivan megkeresi es visszadja,hogy vegul tudunk e lepni
 	 */
 	public boolean Step(Player p, Direction d,int f){
-		printOnEntry(this,"Step",p+"",d+"");
+		//printOnEntry(this,"Step",p+"",d+"");
 		boolean canGo=false;
 		
 
@@ -148,7 +148,7 @@ public class Field {
 		}
 	*/
 
-		printOnExit(this,"Step",canGo+"");
+	//	printOnExit(this,"Step",canGo+"");
 		return canGo;  
 	}
 	
@@ -158,21 +158,21 @@ public class Field {
 	 * @param m A bejegyzendo Movable
 	 */
 	public void Register(Moveable m){
-		printOnEntry(this,"Register",m+"");
+	//	printOnEntry(this,"Register",m+"");
 		myMoveable = m;
 		if(m!=null){
 			m.SetmyField(this);
 		}
-		printOnExit(this,"Register",null);
+	//	printOnExit(this,"Register",null);
 	}
 
 	/**
 	 * Eltavolitja a Movablet a mezorol
 	 */
 	public void  Remove(){  	        
-		printOnEntry(this,"Remove"); 	
+	//	printOnEntry(this,"Remove"); 	
 		myMoveable = null;
-		printOnExit(this,"Remove",null);
+	//	printOnExit(this,"Remove",null);
 	}
 	
 

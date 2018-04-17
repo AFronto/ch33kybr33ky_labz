@@ -14,15 +14,15 @@ public abstract class Moveable {
 	}
 	
 	public Field GetmyField() {
-		printOnEntry(this, "GetmyField");
-		printOnExit(this, "GetmyField", myField+"");
+	//	printOnEntry(this, "GetmyField");
+	//	printOnExit(this, "GetmyField", myField+"");
 		return myField;		
 	}
 	
 	public void SetmyField(Field f) {
-		printOnEntry(this, "SetmyField", f+"");
+	//	printOnEntry(this, "SetmyField", f+"");
 		myField = f;
-		printOnExit(this, "SetmyField", null);
+	//	printOnExit(this, "SetmyField", null);
 		
 	}
 	

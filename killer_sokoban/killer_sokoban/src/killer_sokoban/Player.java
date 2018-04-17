@@ -12,12 +12,12 @@ public class Player extends Moveable {
 	 */
 	public Player(int s) {
 		super();
-		printOnConstruct("Player");
+	//	printOnConstruct("Player");
 
 		score = 0;
 		strength = s;
 
-		printOnExitConstuctor("Player");
+	//	printOnExitConstuctor("Player");
 	}
 
 	/**
@@ -50,11 +50,10 @@ public class Player extends Moveable {
 	 *         mozgott e.
 	 */
 	public boolean Control(Player m, Direction d, int f) {
-		printOnEntry(this, "Control", m + "", d + "");
+	//	printOnEntry(this, "Control", m + "", d + "");
 		
 		boolean canGo = false;
 		
-		// Az elso feltetel a teszteles miatt kell
 		if(m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))){		//Player tol Player eset ellenorzese
 			return false;
 		}
@@ -66,7 +65,6 @@ public class Player extends Moveable {
 				myField.Remove();
 				myNeighbour.Register(m);
 				myNeighbour.FieldAction();
-				System.out.println("cango");
 			}
 			/*
 			String[] runStrings = { "1. Igen", "2.  Nem" };
@@ -109,7 +107,7 @@ public class Player extends Moveable {
 			 */
 		}
 		
-		printOnExit(this, "Control", canGo + "");
+	//	printOnExit(this, "Control", canGo + "");
 		return canGo;
 	}
 
