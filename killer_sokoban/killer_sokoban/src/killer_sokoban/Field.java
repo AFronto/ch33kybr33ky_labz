@@ -111,44 +111,18 @@ public class Field {
 
 
 		if(myMoveable != null){
-			if(f == 0){					// Elfogyott az ero, nem tudjuk eltolni ami itt van.
+			if(f <= 0){		
+				System.out.println("Elfogyott az ero");  // Elfogyott az ero, nem tudjuk eltolni ami itt van.
 				return false;
+				
 			}
+		System.out.println(f);
 			canGo = myMoveable.Control(p, d, f-friction);  // Csokkentjuk az erot, a foldon levo anyagnak megfeleloen.
+			
 		}else{
 			return true;		//Ures a mezo, lehet jonni.
 		}
 		
-	/*	String[] stepStrings = {"1. Box",
-								"2. Player",
-								"3. Wall",
-								"4. Ures"};
-
-		for (String s : stepStrings){
-		printOption(s);
-		}
-
-		int sel = printQuestion("Milyen szomszed van arra?", 1, 4);
-		switch (sel) {
-			case 1:
-				myMoveable=new Box();
-				canGo=myMoveable.Control(p,d);
-				break;
-			case 2:
-				myMoveable=new Player();
-				canGo=myMoveable.Control(p,d); ///egyelore player eltolja a playert de majd meg erre ranezunk.
-				break;
-			case 3:
-				myMoveable=new Wall();
-				canGo=myMoveable.Control(p,d);
-				break;		
-			case 4:
-				canGo=true;
-				break;			
-		}
-	*/
-
-	//	printOnExit(this,"Step",canGo+"");
 		return canGo;  
 	}
 	

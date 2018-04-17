@@ -35,7 +35,7 @@ public class Box extends Moveable{
 	 *@return Igaz hamis ertekkel ter vissza attol fuggoen hogy sikeresen mozgott e. 
 	 */
 	public boolean Control(Player p, Direction d, int f){
-	//	printOnEntry(this,"Control",p+"",d+"");
+		printOnEntry(this,"Control",p+"",d+"");
 		boolean canGo = false;
 		lastTouchedMe = p;
 		if(p == null){  //Ez elvileg nem lehet nulla, de ki tudja
@@ -106,9 +106,9 @@ public class Box extends Moveable{
 	 * Eltunteti a dobozt
 	 */
 	public void Die(){
-		printOnEntry(this, "Die");
+	//	printOnEntry(this, "Die");
 		CountBoxes(-1);
-		printOnExit(this, "Die", null);
+	//	printOnExit(this, "Die", null);
 	}
 //////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
 	@Override

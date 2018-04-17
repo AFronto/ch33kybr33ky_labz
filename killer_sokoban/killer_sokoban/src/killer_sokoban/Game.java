@@ -6,7 +6,10 @@ import static killer_sokoban.Game.printOnExit;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.xml.datatype.DatatypeConstants.Field;
 
 public class Game {
 
@@ -75,8 +78,8 @@ public class Game {
 	 *Jatek vege
 	 */
 	public static void EndGame(){
-		printOnEntry(game,"EndGame");
-		printOnExit(game,"EndGame",null);
+		//printOnEntry(game,"EndGame");
+	//	printOnExit(game,"EndGame",null);
 	}
 	
 	/**
@@ -86,7 +89,7 @@ public class Game {
 	 *@param p A jatekos akinek epp updateli a pontjait
 	 */
 	public static void UpdateScore(Player p){
-		printOnEntry(game,"UpdateScore",p+"");
+	//	printOnEntry(game,"UpdateScore",p+"");
 		
 		int score = p.GetScore();
 		if(score == -1)
@@ -95,18 +98,18 @@ public class Game {
 		if(players <= 1)
 			EndGame();
 		
-		printOnExit(game,"UpdateScore",null);
+	//	printOnExit(game,"UpdateScore",null);
 	}
 	
 	/**
 	 *Boxokat tartja szamon
 	 */
 	public static void CountBoxes(int add){
-		printOnEntry(game,"CountBoxes",""+add);
+	//	printOnEntry(game,"CountBoxes",""+add);
 		boxes+=add;
 		if(boxes == 0)
 			EndGame();
-		printOnExit(game,"CountBoxes",null);
+	//	printOnExit(game,"CountBoxes",null);
 	}
 	
 	public static void setBoxNum(int i){
@@ -119,46 +122,75 @@ public class Game {
 	 * 
 	 * @param strength A max tolhato dobozok szama
 	 */
-	/*public boolean CheckForInvalidShape(int strength)
+	public boolean CheckForInvalidShape(int strength)
 	{
-		int width = active_map.GetWidth();
-		int height = active_map.GetHeight();
-
-		boolean blockFull = false;
+		int width = active_map.GetWiArrayList<E>	int height = active_map.GetHeight();
+		boolean isBlock;
 		
-		for(int i = 0; i < height - strength; i++) {
+		ArrayList<Field> fieldRow = new ArrayList<Field>(strength);
+		ArrayList<ArrayLits<Field>> fieldMatrix = new ArrayList<ArrayList<Field>>(strength);
+		
+		//vegigiteralas a palyan
+		for(int i = 0; i < height - strength) {
 			
-			for(int j = 0; j < width - strength; j++) {
+			for(int j = 0; j < width - strength) {
 				
-				//checking if current strength*strength block is filled with moveables
+				//fieldMatrix feltoltese az epp vizsgalt strenth*strength matrix Field elemeivel
 				for(int k = 0; k < strength; k++) {
 					
 					for(int l = 0; l < strength; l++) {
 						
-							///if(active_map.GetByIndex(i + k, j + l)!=null && active_map.GetByIndex(i + k, j + l).GetmyMoveable().IsStuck() != null) blockFull = true;
-							///else blockFull = false;
+						//fieldRow feltoltese az adott sorral
+						fieldRow.add(active_map.GetByIndex(i+k, j+l));
+					}
+				//fieldRow beaddolasa a matrixba
+				fieldMatrix.add(fieldRow);
+				fieldRow.clear();
+				}
+				
+				// TODO: itt kell elvegezni a kivalasztott reszmatrixra a vizsgalatokat
+				
+				//(1) megnezzuk, hogy a matrix minden eleme stuckolt Moveable-e
+				isBlock = true;
+				for(int k = 0; k < strength; k++) {
+					
+					fieldRow = fieldMatrix.get(k);
+					
+					for(int l = 0; l < strength; l++) {
+						
+						if(isBlock && (fieldRow.get(l).GetmyMoveable() == null || fieldRow.get(l).GetmyMoveable().IsActive() == null)) {
+							
+							isBlock = false;
 						}
 						
 					}
-				
-				//setting all moveables stuck
-				if(blockFull) {
-				for(int k = 0; k < strength; k++) {
-				
-					for(int l = 0; l < strength; l++) {
 					
-						///active_map.GetByIndex(i + k, j + l).GetmyMoveable().SetStuck();
-					}
+					fieldRow.clear();
+				}
+				//ezen a ponton ha az isBlock == true akkor egy invalid blokkot talaltunk; (stuckoljuk?) es visszaterunk
+				//TODO: ha kell hogy itt stuckoljuk oket, akkor azt meg kell valositani meg
+				if(isBlock) {
+					
+					return true;
 				}
 				
-				}
-					//moving to the next block --> reseting blockFull boolean variable	
-					blockFull = false;
-				}
-				
+				//(2)
+			
+			//A vizsgalatok utan uritjuk a fieldMatrixot, tovabb iteralunk a palyan jobbra, es elkeszitunk egy uj matrixot
+			fieldMatrix.clear();
+			
 			}
 		}
-	*/
+		
+
+		
+		
+		
+		
+				
+			
+	}
+	
 	
 	/**
 	 * Method overloading - parameter nelkul is legyen hivhato a fuggveny. Ilyenkor  Game maxStrength ertekevel szamol.

@@ -1,0 +1,9 @@
+create Field F1
+create Button B1
+create TrapDoor TD1
+create Player P1
+connect Neighbour F1 TD1 RIGHT
+connect Moveable F1 P1
+connect Button-TrapDoor B1 TD1
+choose P1
+step RIGHT

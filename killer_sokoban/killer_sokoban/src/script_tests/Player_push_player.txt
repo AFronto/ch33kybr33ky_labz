@@ -1,0 +1,11 @@
+create Field F1
+create Field F2
+create Field F3
+create Player P1
+create Player P2
+connect Neighbour F1 F2 RIGHT
+connect Neighbour F2 F3 RIGHT
+connect Moveable F1 P1
+connect Moveable F2 P2
+choose P1
+step RIGHT
