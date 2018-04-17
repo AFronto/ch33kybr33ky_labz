@@ -37,7 +37,7 @@ public class Box extends Moveable{
 	//	printOnEntry(this,"Control",p+"",d+"");
 		boolean canGo = false;
 		lastTouchedMe = p;
-		if(p == null){
+		if(p == null){  //Ez elvileg nem lehet nulla, de ki tudja
 			System.out.println("Valami nem jo ba$tya");
 		}
 		if (p != null) {
@@ -47,6 +47,14 @@ public class Box extends Moveable{
 				myField.Remove();
 				myNeighbour.Register(this);
 				myNeighbour.FieldAction();
+			}else{								//Megnezzuk, hogy player van-e ott, ha igen, akkor megoljuk
+				if(myNeighbour.GetmyMoveable() != null && myNeighbour.GetmyMoveable().GetLastTouchedMe() == null){ //Ha a szomszedon van moveable es az player
+					boolean died = myNeighbour.GetmyMoveable().Kill();
+					if(died){	//Ha sikerult megolni..
+						System.out.println("Got rekt!!4!!4!4");
+						canGo = true; //.. akkor lehet jonni
+					}
+				}
 			}
 		}
 	//	printOnExit(this,"Control","canGo");
