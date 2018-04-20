@@ -31,8 +31,8 @@ public class Wall extends Box{
 	 * @return Fixen true, mivel a fal nem tud mozogni.
 	 */
 	public boolean IsStuck(){
-		printOnEntry(this,"Control");
-		printOnExit(this,"Control",null);
+		printOnEntry(this,"IsStuck");
+		printOnExit(this,"IsStuck","true");
 		return true;
 	}
 
