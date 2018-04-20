@@ -1,7 +1,7 @@
 create Field F1
 create Field F2
 create Field F3
-create Hole H4
+create Hole H1
 create Player P1
 create Player P2
 create Box B1

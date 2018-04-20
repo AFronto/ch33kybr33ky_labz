@@ -79,14 +79,9 @@ public class Interpreter {
 
 			case "Field":
 				fields.put(p.get(2), new Field());
-<<<<<<< HEAD
-=======
-
 				if(getFieldName(fields.get(p.get(2))).equals(p.get(2))){											//Teszt, hogy valoban letre jott-e az objektum
 					System.out.println("Field "+getFieldName(fields.get(p.get(2)))+" has been created.");
 				}
-
->>>>>>> origin/master
 				break;
 				
 			case "Wall":
@@ -183,7 +178,7 @@ public class Interpreter {
 						TrapDoor td = (TrapDoor) fields.get(p.get(3));
 						b.SetmyTrap(td);
 						if(b.GetmyTrap().equals(td)){
-							System.out.println(getFieldName(fields.get(p.get(2)))+" Button has been connected to "+getFieldName(fields.get(p.get(2))));
+							System.out.println(getFieldName(fields.get(p.get(2)))+" Button has been connected to "+getFieldName(fields.get(p.get(3))));
 						}
 					}
 					break;
