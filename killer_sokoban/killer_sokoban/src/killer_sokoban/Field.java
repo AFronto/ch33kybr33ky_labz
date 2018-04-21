@@ -103,52 +103,27 @@ public class Field {
 	 * @param p Az utolso player aki tolt
 	 * @param d Irany
 	 * @return Rekurzivan megkeresi es visszadja,hogy vegul tudunk e lepni
+	 * @throws Exception 
 	 */
-	public boolean Step(Player p, Direction d,int f){
-		//printOnEntry(this,"Step",p+"",d+"");
+	public boolean Step(Player p, Direction d,int f) throws Exception{
+		printOnEntry(this,"Step",p+"",d+"");
 		boolean canGo=false;
 		
 
 
 		if(myMoveable != null){
 			if(f == 0){		
-				System.out.println("Elfogyott az ero");  // Elfogyott az ero, nem tudjuk eltolni ami itt van.
-				return false;
+				throw new Exception("Elfogyott az ero");
+				//System.out.println("Elfogyott az ero");  // Elfogyott az ero, nem tudjuk eltolni ami itt van.
+				//return false;
 				
 			}
+			System.out.println("Current force: "+f);
 			canGo = myMoveable.Control(p, d, f-friction);  // Csokkentjuk az erot, a foldon levo anyagnak megfeleloen.
 		}else{
 			return true;		//Ures a mezo, lehet jonni.
 		}
 		
-	/*	String[] stepStrings = {"1. Box",
-								"2. Player",
-								"3. Wall",
-								"4. Ures"};
-
-		for (String s : stepStrings){
-		printOption(s);
-		}
-
-		int sel = printQuestion("Milyen szomszed van arra?", 1, 4);
-		switch (sel) {
-			case 1:
-				myMoveable=new Box();
-				canGo=myMoveable.Control(p,d);
-				break;
-			case 2:
-				myMoveable=new Player();
-				canGo=myMoveable.Control(p,d); ///egyelore player eltolja a playert de majd meg erre ranezunk.
-				break;
-			case 3:
-				myMoveable=new Wall();
-				canGo=myMoveable.Control(p,d);
-				break;		
-			case 4:
-				canGo=true;
-				break;			
-		}
-	*/
 
 	//	printOnExit(this,"Step",canGo+"");
 		return canGo;  
@@ -184,9 +159,9 @@ public class Field {
 	public void FieldAction(){
 	//	printOnEntry(this, "FieldAction");
 		EnumMap<Direction, Boolean> stuckDirs=new EnumMap<Direction, Boolean>(Direction.class);
-		System.out.println(neighbours.values().size());
+		//System.out.println("Numeber of neighbours:" +neighbours.values().size());
 		for(Direction d: neighbours.keySet()){
-			System.out.println(this.GetNeighbour(d));
+			//System.out.println("Field Action : "+this.GetNeighbour(d));
 			if(this.GetNeighbour(d)!=null){
 				if(this.GetNeighbour(d).GetmyMoveable()!=null){
 					stuckDirs.put(d,this.GetNeighbour(d).GetmyMoveable().IsStuck());

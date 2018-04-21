@@ -11,7 +11,7 @@ public abstract class Moveable {
 	
 	public void SetStuck(){}
 
-	public boolean Control(Player p, Direction d,int f){
+	public boolean Control(Player p, Direction d,int f) throws Exception{
 		return true; 
 	}
 	

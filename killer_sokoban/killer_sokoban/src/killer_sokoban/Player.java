@@ -12,12 +12,12 @@ public class Player extends Moveable {
 	 */
 	public Player(int s) {
 		super();
-	//	printOnConstruct("Player");
+		// printOnConstruct("Player");
 
 		score = 0;
 		strength = s;
 
-	//	printOnExitConstuctor("Player");
+		// printOnExitConstuctor("Player");
 	}
 
 	/**
@@ -33,8 +33,8 @@ public class Player extends Moveable {
 	}
 
 	public int GetScore() {
-	//	printOnEntry(this, "GetScore");
-	//	printOnExit(this, "GetScore", score + "");
+		// printOnEntry(this, "GetScore");
+		// printOnExit(this, "GetScore", score + "");
 
 		return score;
 	}
@@ -48,36 +48,40 @@ public class Player extends Moveable {
 	 *            Az irany amibe a doboz mozdul.
 	 * @return Igaz hamis ertekkel ter vissza attol fuggoen hogy sikeresen
 	 *         mozgott e.
+	 * @throws Exception 
 	 */
-	public boolean Control(Player m, Direction d, int f) {
+	public boolean Control(Player m, Direction d, int f) throws Exception {
 		printOnEntry(this, "Control", m + "", d + "");
-		
+
 		boolean canGo = false;
-		
 		Field myNeighbour;
-		if(m == null){
-			myNeighbour = this.GetmyField().GetNeighbour(d);
-			canGo = myNeighbour.Step(this, d, this.strength);
-			if(canGo){
-				myField.Remove();
-				myNeighbour.Register(this);
-				myNeighbour.FieldAction();
+		try { // Az ero miatt
+			if (m == null) {
+				myNeighbour = this.GetmyField().GetNeighbour(d);
+				canGo = myNeighbour.Step(this, d, this.strength);
+				if (canGo) {
+					myField.Remove();
+					myNeighbour.Register(this);
+					myNeighbour.FieldAction();
+				}
 			}
-		}
-		if (m != null) {
-			if(m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))){		//Player tol Player eset ellenorzese
-				return false;
+			if (m != null) {
+				if (m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))) { // Player tol Playereset ellenorzese
+					return false;
+				}
+				myNeighbour = m.GetmyField().GetNeighbour(d);
+				canGo = myNeighbour.Step(this, d, f);
+				if (canGo) {
+					myField.Remove();
+					myNeighbour.Register(m);
+					myNeighbour.FieldAction();
+				}
 			}
-			myNeighbour = m.GetmyField().GetNeighbour(d);
-			canGo = myNeighbour.Step(this, d, f);
-			if(canGo){
-				myField.Remove();
-				myNeighbour.Register(m);
-				myNeighbour.FieldAction();
-			}
+		} catch (Exception e) { // Ha a step dobott akkor továbbdobjuk az
+								// Interpreternek
+			throw e;
 		}
 
-		
 		printOnExit(this, "Control", canGo + "");
 		return canGo;
 	}
@@ -86,12 +90,12 @@ public class Player extends Moveable {
 	 * Torli a jatekos pontjait es elkezdi kivenni a jatekbol.
 	 */
 	public void DeadScore() {
-	//	printOnEntry(this, "DeadScore");
+		// printOnEntry(this, "DeadScore");
 
 		score = -1;
 		UpdateScore(this);
 
-	//	printOnExit(this, "DeadScore", null);
+		// printOnExit(this, "DeadScore", null);
 	}
 
 	/**
@@ -101,12 +105,12 @@ public class Player extends Moveable {
 	 * @return Igazzal ter vissza mert a Player ossze nyomhato.
 	 */
 	public boolean Kill() {
-	//	printOnEntry(this, "Kill");
-		
+		// printOnEntry(this, "Kill");
+
 		Die();
 		myField.Remove();
-		
-	//	printOnExit(this, "Kill", true + "");
+
+		// printOnExit(this, "Kill", true + "");
 		return true;
 	}
 
@@ -117,7 +121,7 @@ public class Player extends Moveable {
 		printOnEntry(this, "Press");
 
 		myField.Activate(false);
-		
+
 		printOnExit(this, "Press", null);
 
 	}
@@ -127,9 +131,9 @@ public class Player extends Moveable {
 	 * utoljara.
 	 */
 	public Player GetLastTouchedMe() {
-	//	printOnEntry(this, "GetLastTouchedMe");
-	//	printOnExit(this, "GetLastTouchedMe", null + "");
-		
+		// printOnEntry(this, "GetLastTouchedMe");
+		// printOnExit(this, "GetLastTouchedMe", null + "");
+
 		return null;
 	}
 
@@ -137,17 +141,17 @@ public class Player extends Moveable {
 	 * A player mikor meghal ki esik a jatekbol ezt kezeli le ez a fuggveny.
 	 */
 	public void Die() {
-	//	printOnEntry(this, "Die");
+		// printOnEntry(this, "Die");
 
 		DeadScore();
 
-	//	printOnExit(this, "Die", null);
+		// printOnExit(this, "Die", null);
 	}
-	
+
 	public int getStrength() {
 		return strength;
 	}
-	
+
 	public void changeFriction() {
 		myField.SetFriction();
 	}
