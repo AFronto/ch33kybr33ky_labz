@@ -35,11 +35,6 @@ public class TrapDoor extends Hole{
 
 		if(isActive)
 		{
-			if(myMoveable == null) {
-				System.out.println("Nincs rajtam semmi");
-			}else {
-				System.out.println("Van rajtam valami");
-			}
 				myMoveable.Die();
 				this.Remove();
 		}else {

@@ -135,12 +135,12 @@ public class Field {
 	 * @param m A bejegyzendo Movable
 	 */
 	public void Register(Moveable m){
-		printOnEntry(this,"Register",m+"");
+		//printOnEntry(this,"Register",m+"");
 		myMoveable = m;
 		if(m!=null){
 			m.SetmyField(this);
 		}
-		printOnExit(this,"Register",null);
+		//printOnExit(this,"Register",null);
 	}
 
 	/**
