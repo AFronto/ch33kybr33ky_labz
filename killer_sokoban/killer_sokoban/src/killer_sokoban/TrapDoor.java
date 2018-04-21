@@ -19,6 +19,9 @@ public class TrapDoor extends Hole{
 	public void SetActive(boolean b){
 		printOnEntry(this, "SetActive", b+"");
 		isActive = b;
+		if (isActive) {
+			FieldAction();
+		}
 		printOnExit(this, "SetActive", null);
 	}
 	
@@ -29,19 +32,18 @@ public class TrapDoor extends Hole{
 	 */
 	public void FieldAction(){
 		printOnEntry(this, "FieldAction");
-		
-		printOption("1. Igen");
-		printOption("2. Nem");
-		int sel = printQuestion("Aktiv a TrapDoor?",1,2);
-		switch (sel)
+
+		if(isActive)
 		{
-			case 1:
+			if(myMoveable == null) {
+				System.out.println("Nincs rajtam semmi");
+			}else {
+				System.out.println("Van rajtam valami");
+			}
 				myMoveable.Die();
 				this.Remove();
-				break;
-			case 2:
-				//Field.FieldAction() jon majd ide
-				break;
+		}else {
+				super.FieldAction();
 		}
 		
 		printOnExit(this, "FieldAction", null);

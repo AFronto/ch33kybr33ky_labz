@@ -135,12 +135,12 @@ public class Field {
 	 * @param m A bejegyzendo Movable
 	 */
 	public void Register(Moveable m){
-	//	printOnEntry(this,"Register",m+"");
+		printOnEntry(this,"Register",m+"");
 		myMoveable = m;
 		if(m!=null){
 			m.SetmyField(this);
 		}
-	//	printOnExit(this,"Register",null);
+		printOnExit(this,"Register",null);
 	}
 
 	/**
@@ -157,7 +157,7 @@ public class Field {
 	 *Az adott fieldre jellemzo akcio
 	 */
 	public void FieldAction(){
-	//	printOnEntry(this, "FieldAction");
+		printOnEntry(this, "FieldAction");
 		EnumMap<Direction, Boolean> stuckDirs=new EnumMap<Direction, Boolean>(Direction.class);
 		//System.out.println("Numeber of neighbours:" +neighbours.values().size());
 		for(Direction d: neighbours.keySet()){
@@ -180,7 +180,7 @@ public class Field {
 		}
 
 		///checkForInvalidShape();
-	//	printOnExit(this, "FieldAction", null);
+		printOnExit(this, "FieldAction", null);
 	}
 	
 	/**
