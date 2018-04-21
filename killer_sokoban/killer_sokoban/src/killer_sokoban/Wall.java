@@ -18,7 +18,7 @@ public class Wall extends Box{
 	 *
 	 *@return Mindig false.
 	 */
-	public boolean Control(Player p, Direction d){
+	public boolean Control(Player p, Direction d, int f){
 		printOnEntry(this,"Control",p+"",d+"");
 		boolean canGo = false;
 		printOnExit(this,"Control",canGo+"");
