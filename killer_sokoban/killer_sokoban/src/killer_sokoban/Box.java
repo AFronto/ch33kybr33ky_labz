@@ -1,6 +1,7 @@
 package killer_sokoban;
 
 import static killer_sokoban.Game.*;
+import static killer_sokoban.Interpreter.*;
 
 public class Box extends Moveable {
 
@@ -40,36 +41,34 @@ public class Box extends Moveable {
 	 */
 	public boolean Control(Player p, Direction d, int f) throws Exception {
 		printOnEntry(this, "Control", p + "", d + "");
+
+		SequenceCheck(this);
+
 		boolean canGo = false;
 		lastTouchedMe = p;
 		if (p == null) { // Ez elvileg nem lehet nulla, de ki tudja
 			System.out.println("Valami nem jo ba$tya");
 		}
-		try { // Step miatt
-			if (p != null) {
-				Field myNeighbour = this.GetmyField().GetNeighbour(d);
-				canGo = myNeighbour.Step(p, d, f);
-				if (canGo) {
-					myField.Remove();
-					myNeighbour.Register(this);
-					myNeighbour.FieldAction();
-				} else { // Megnezzuk, hogy player van-e ott, ha igen, akkor
-							// megoljuk
-					if (myNeighbour.GetmyMoveable() != null) { 
-						boolean died = myNeighbour.GetmyMoveable().Kill();
-						if (died) { // Ha sikerult megolni..
-							System.out.println("Got rekt!!4!!4!4");
-							myField.Remove();
-							myNeighbour.Register(this);
-							myNeighbour.FieldAction();
-							canGo = true; // .. akkor lehet jonni
-						}
+		if (p != null) {
+			Field myNeighbour = this.GetmyField().GetNeighbour(d);
+			canGo = myNeighbour.Step(p, d, f);
+			if (canGo) {
+				myField.Remove();
+				myNeighbour.Register(this);
+				myNeighbour.FieldAction();
+			} else { // Megnezzuk, hogy player van-e ott, ha igen, akkor
+						// megoljuk
+				if (myNeighbour.GetmyMoveable() != null) { 
+					boolean died = myNeighbour.GetmyMoveable().Kill();
+					if (died) { // Ha sikerult megolni..
+						System.out.println("Got rekt!!4!!4!4");
+						myField.Remove();
+						myNeighbour.Register(this);
+						myNeighbour.FieldAction();
+						canGo = true; // .. akkor lehet jonni
 					}
 				}
 			}
-		} catch (Exception e) { // Ha a step dobott akkor tovabbdobjuk az
-			// Interpreternek
-			throw e;
 		}
 		// printOnExit(this,"Control","canGo");
 		return canGo;

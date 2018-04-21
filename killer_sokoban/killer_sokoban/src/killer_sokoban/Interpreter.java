@@ -14,26 +14,26 @@ public class Interpreter {
 	/**
 	 * parancs
 	 */
-	ArrayList<String> parts;
-
+	private static ArrayList<String> parts;
+	private static ArrayList<Moveable> seq=new ArrayList<Moveable>();
 	/**
 	 * letrehozott fieldek es nevuk
 	 */
-	HashMap<String, Field> fields = new HashMap<String, Field>();
+	private static HashMap<String, Field> fields = new HashMap<String, Field>();
 
 	/**
 	 * letrehozott moveableek es nevuk
 	 */
-	HashMap<String, Moveable> moveables = new HashMap<String, Moveable>();
+	private static HashMap<String, Moveable> moveables = new HashMap<String, Moveable>();
 
 	/**
 	 * Globalis player
 	 */
-	Player chosen = new Player(10);
-	Interpreter() {	
+	private static Player chosen = new Player(10);
+	Interpreter() {
 	}
 	
-	void Run() {
+	public static void Run() {
 		/**
 		 * enterrel elvalasztva a parancsokat nezik
 		 */
@@ -53,7 +53,7 @@ public class Interpreter {
 		}
 	}
 	
-	void Read(File file) throws FileNotFoundException, IOException {
+	public static void Read(File file) throws FileNotFoundException, IOException {
 		try(BufferedReader br = new BufferedReader(new FileReader(file))) {
 		    String line = br.readLine();
 		    while (line != null) {
@@ -68,7 +68,7 @@ public class Interpreter {
 	/**
 	 * a megfelelo cucliba kerul es ott elvileg az tortenik vele ami kell
 	 */
-	void Decide(ArrayList<String> p) {
+	public static void Decide(ArrayList<String> p) {
 		switch (p.get(0)) {
 		case "create":
 			switch (p.get(1)) {
@@ -159,11 +159,12 @@ public class Interpreter {
 					}
 					break;
 					
-				case "Moveable":
+				case "Moveable":															
 					if(fields.get(p.get(2)) == null || moveables.get(p.get(3)) == null) {
 						System.out.println("Valamelyik parameter hibas!");
 					}else {
 						fields.get(p.get(2)).Register(moveables.get(p.get(3)));
+						
 						if(getMoveableName(fields.get(p.get(2)).GetmyMoveable()).equals(p.get(3))){				//Teszt, hogy valoban ra lett e rakva a mezore
 							System.out.println(getMoveableName(fields.get(p.get(2)).GetmyMoveable())+" has been placed to "+getFieldName(fields.get(p.get(2))));
 						}
@@ -206,6 +207,19 @@ public class Interpreter {
 			System.out.println("Moving "+getMoveableName(chosen)+" "+Direction.valueOf(p.get(1)));
 			Field originalPos =	chosen.GetmyField();
 			try {
+				seq.add(chosen);
+				Field nextField=chosen.GetmyField().GetNeighbour(Direction.valueOf(p.get(1)));
+				while(nextField!=null){
+					System.out.println(getFieldName(nextField));
+					if(nextField.GetmyMoveable()!=null){
+						seq.add(nextField.GetmyMoveable());
+					}else{
+						break;
+					}
+					nextField=nextField.GetNeighbour(Direction.valueOf(p.get(1)));
+				}
+
+				
 				chosen.Control(null, Direction.valueOf(p.get(1)), 0);
 				if(originalPos.equals(chosen.GetmyField().GetNeighbour(Direction.valueOf(p.get(1)).Opposite()))){         		//Megnezem hogy valoban megtortent-e a lepes.
 					System.out.println(getMoveableName(chosen)+" has been moved to "+getFieldName(chosen.GetmyField())+".");		//Ha az eredeti pozicio megegyezik az uj pozicio																											//mozgatassal ellenkezo iranybeli szomszeddal akkor sikeres
@@ -250,7 +264,7 @@ public class Interpreter {
 	/*
 	 * Visszaadja a Moveable nevet az interpreterben hasznalt a HashMapbol.
 	 */
-	public String getMoveableName(Moveable m){
+	public static String getMoveableName(Moveable m){
 		for(String key:moveables.keySet()){
 			if(m.equals(moveables.get(key))){
 				return key;
@@ -261,12 +275,23 @@ public class Interpreter {
 	/*
 	 * Visszaadja a Field nevet az interpreterben hasznalt a HashMapbol.
 	 */
-	public String getFieldName(Field m){
+	public static String getFieldName(Field m){
 		for(String key:fields.keySet()){
 			if(m.equals(fields.get(key))){
 				return key;
 			}
 		}
 		return null;
+	}
+
+	public static void SequenceCheck(Moveable m) throws Exception {
+		if(seq.size()>0){
+			Moveable act=seq.remove(0);
+			if(!act.equals(m)){
+				throw new Exception("Hibas sorrendben hivodnak az elemek!");
+			}
+		}else{
+			throw new Exception("Hibas sorrendben hivodnak az elemek!");
+		}
 	}
 }

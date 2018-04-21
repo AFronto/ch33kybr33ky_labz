@@ -1,6 +1,7 @@
 package killer_sokoban;
 
 import static killer_sokoban.Game.*;
+import static killer_sokoban.Interpreter.*;
 
 public class Player extends Moveable {
 
@@ -51,37 +52,32 @@ public class Player extends Moveable {
 	 * @throws Exception 
 	 */
 	public boolean Control(Player m, Direction d, int f) throws Exception {
-		printOnEntry(this, "Control", m + "", d + "");
+		//printOnEntry(this, "Control", m + "", d + "");
+		SequenceCheck(this);
 
 		boolean canGo = false;
 		Field myNeighbour;
 		myNeighbour = this.GetmyField().GetNeighbour(d);
-		try { // Az ero miatt
-			if (m == null) {
-				canGo = myNeighbour.Step(this, d, this.strength);
-				if (canGo) {
-					myField.Remove();
-					myNeighbour.Register(this);
-					myNeighbour.FieldAction();
-				}
+		if (m == null) {
+			canGo = myNeighbour.Step(this, d, this.strength);
+			if (canGo) {
+				myField.Remove();
+				myNeighbour.Register(this);
+				myNeighbour.FieldAction();
 			}
-			if (m != null) {
-				if (m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))) { // Player tol Playereset ellenorzese
-					return false;
-				}
-				canGo = myNeighbour.Step(this, d, f);
-				if (canGo) {
-					myField.Remove();
-					myNeighbour.Register(this);
-					myNeighbour.FieldAction();
-				}
-			}
-		} catch (Exception e) { // Ha a step dobott akkor tovabbdobjuk az
-								// Interpreternek
-			throw e;
 		}
-
-		printOnExit(this, "Control", canGo + "");
+		if (m != null) {
+			if (m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))) { // Player tol Playereset ellenorzese
+				return false;
+			}
+			canGo = myNeighbour.Step(this, d, f);
+			if (canGo) {
+				myField.Remove();
+				myNeighbour.Register(this);
+				myNeighbour.FieldAction();
+			}
+		}
+		//printOnExit(this, "Control", canGo + "");
 		return canGo;
 	}
 

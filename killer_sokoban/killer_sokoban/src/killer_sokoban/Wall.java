@@ -1,6 +1,7 @@
 package killer_sokoban;
 
 import static killer_sokoban.Game.*;
+import static killer_sokoban.Interpreter.*;
 
 public class Wall extends Box{
 	
@@ -18,8 +19,9 @@ public class Wall extends Box{
 	 *
 	 *@return Mindig false.
 	 */
-	public boolean Control(Player p, Direction d, int f){
+	public boolean Control(Player p, Direction d, int f)throws Exception{
 		printOnEntry(this,"Control",p+"",d+"");
+		SequenceCheck(this);
 		boolean canGo = false;
 		printOnExit(this,"Control",canGo+"");
 		return canGo;
