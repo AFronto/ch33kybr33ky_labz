@@ -20,8 +20,8 @@ public class Map {
 	 *Konstruktor
 	 */
 	public Map(){
-		printOnConstruct("Map");
-		printOnExitConstuctor("Map");
+		//printOnConstruct("Map");
+		//printOnExitConstuctor("Map");
 		width=11;
 		height=11;
 		corridorLength=2;

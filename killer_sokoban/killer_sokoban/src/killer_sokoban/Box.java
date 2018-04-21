@@ -23,8 +23,8 @@ public class Box extends Moveable {
 	 * Visszadja ki mozgatta meg a dobozt.
 	 */
 	public Player GetLastTouchedMe() {
-		printOnEntry(this, "GetLastTouchedMe");
-		printOnExit(this, "GetLastTouchedMe", lastTouchedMe + "");
+		//printOnEntry(this, "GetLastTouchedMe");
+		//printOnExit(this, "GetLastTouchedMe", lastTouchedMe + "");
 		return lastTouchedMe;
 	}
 
@@ -40,7 +40,7 @@ public class Box extends Moveable {
 	 * @throws Exception
 	 */
 	public boolean Control(Player p, Direction d, int f) throws Exception {
-		printOnEntry(this, "Control", p + "", d + "");
+		//printOnEntry(this, "Control", p + "", d + "");
 
 		SequenceCheck(this);
 
@@ -98,8 +98,8 @@ public class Box extends Moveable {
 	 * @return Hamissal ter vissza mert a doboz nem hal meg.
 	 */
 	public boolean Kill() {
-		printOnEntry(this, "Kill");
-		printOnExit(this, "Kill", false + "");
+		//printOnEntry(this, "Kill");
+		//printOnExit(this, "Kill", false + "");
 		return false;
 	}
 
@@ -108,9 +108,9 @@ public class Box extends Moveable {
 	 */
 	public void Press() {
 
-		printOnEntry(this, "Press");
+		//printOnEntry(this, "Press");
 		myField.Activate(true);
-		printOnExit(this, "Press", null);
+		//printOnExit(this, "Press", null);
 
 	}
 

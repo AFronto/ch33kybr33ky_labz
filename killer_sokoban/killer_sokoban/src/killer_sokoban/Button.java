@@ -11,20 +11,20 @@ public class Button extends Field{
 	*/
 	public Button(){
 		super();
-		printOnConstruct("Button");
-		printOnExitConstuctor("Button");
+		//printOnConstruct("Button");
+		//printOnExitConstuctor("Button");
 	}
 	
 	public TrapDoor GetmyTrap() {
-		printOnEntry(this, "GetmyTrap");
-		printOnExit(this, "GetmyTrap", myTrap+"");
+		//printOnEntry(this, "GetmyTrap");
+		//printOnExit(this, "GetmyTrap", myTrap+"");
 		return myTrap;
 	}
 	
 	public void SetmyTrap(TrapDoor t) {
-		printOnEntry(this, "SetmyTrap", t+"");
+		//printOnEntry(this, "SetmyTrap", t+"");
 		myTrap = t;
-		printOnExit(this, "SetmyTrap", null);
+		//printOnExit(this, "SetmyTrap", null);
 	}
 	
 	/**

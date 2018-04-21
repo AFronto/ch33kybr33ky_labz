@@ -7,8 +7,8 @@ public class TrapDoor extends Hole{
 	
 	public TrapDoor(){
 		super();
-		printOnConstruct("TrapDoor");
-		printOnExitConstuctor("TrapDoor");
+		//printOnConstruct("TrapDoor");
+		//printOnExitConstuctor("TrapDoor");
 	}
 	
 	/**
@@ -33,12 +33,10 @@ public class TrapDoor extends Hole{
 	public void FieldAction(){
 		printOnEntry(this, "FieldAction");
 
-		if(isActive)
+		if(isActive && myMoveable != null)
 		{
 				myMoveable.Die();
 				this.Remove();
-		}else {
-				super.FieldAction();
 		}
 		
 		printOnExit(this, "FieldAction", null);

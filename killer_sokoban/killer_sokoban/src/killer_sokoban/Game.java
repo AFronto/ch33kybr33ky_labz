@@ -34,9 +34,9 @@ public class Game {
 	 *Konstruktor
 	 */
 	public Game() {
-		printOnConstruct("Game");
+		//printOnConstruct("Game");
 		active_map= new Map();
-		printOnExitConstuctor("Game");
+		//printOnExitConstuctor("Game");
 	}
 	
 	/**
@@ -57,7 +57,6 @@ public class Game {
 				i.Read(inFile);
 				break;
 			}else {
-				System.out.println("Irnek geco");
 				i.Run();
 			}
 		}
@@ -69,9 +68,9 @@ public class Game {
 	 *@param playerCount A jatekosok szama ahanyan jatszani akarnak.
 	 */
 	public void NewGame(int playerCount){
-		printOnEntry(this,"NewGame",""+playerCount);
+		//printOnEntry(this,"NewGame",""+playerCount);
 		active_map.CreateMap(playerCount,6);
-		printOnExit(this,"NewGame",null);
+		//printOnExit(this,"NewGame",null);
 	}
 	
 	/**

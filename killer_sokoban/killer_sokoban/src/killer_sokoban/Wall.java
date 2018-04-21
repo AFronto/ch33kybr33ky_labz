@@ -10,8 +10,8 @@ public class Wall extends Box{
 	 */
 	public Wall(){
 		super();
-		printOnConstruct("Wall");
-		printOnExitConstuctor("Wall");
+		//printOnConstruct("Wall");
+		//printOnExitConstuctor("Wall");
 	}
 	
 	/**
@@ -33,8 +33,8 @@ public class Wall extends Box{
 	 * @return Fixen true, mivel a fal nem tud mozogni.
 	 */
 	public boolean IsStuck(){
-		printOnEntry(this,"IsStuck");
-		printOnExit(this,"IsStuck","true");
+		//printOnEntry(this,"IsStuck");
+		//printOnExit(this,"IsStuck","true");
 		return true;
 	}
 

@@ -106,7 +106,7 @@ public class Field {
 	 * @throws Exception 
 	 */
 	public boolean Step(Player p, Direction d,int f) throws Exception{
-		printOnEntry(this,"Step",p+"",d+"");
+		//printOnEntry(this,"Step",p+"",d+"");
 		boolean canGo=false;
 		
 
@@ -157,7 +157,7 @@ public class Field {
 	 *Az adott fieldre jellemzo akcio
 	 */
 	public void FieldAction(){
-		printOnEntry(this, "FieldAction");
+		//printOnEntry(this, "FieldAction");
 		EnumMap<Direction, Boolean> stuckDirs=new EnumMap<Direction, Boolean>(Direction.class);
 		//System.out.println("Numeber of neighbours:" +neighbours.values().size());
 		for(Direction d: neighbours.keySet()){
@@ -180,7 +180,7 @@ public class Field {
 		}
 
 		///checkForInvalidShape();
-		printOnExit(this, "FieldAction", null);
+		//printOnExit(this, "FieldAction", null);
 	}
 	
 	/**
