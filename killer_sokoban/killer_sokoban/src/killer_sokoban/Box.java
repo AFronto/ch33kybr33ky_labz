@@ -55,23 +55,19 @@ public class Box extends Moveable {
 					myNeighbour.FieldAction();
 				} else { // Megnezzuk, hogy player van-e ott, ha igen, akkor
 							// megoljuk
-					if (myNeighbour.GetmyMoveable() != null && myNeighbour.GetmyMoveable().GetLastTouchedMe() == null) { // Ha
-																															// a
-																															// szomszedon
-																															// van
-																															// moveable
-																															// es
-																															// az
-																															// player
+					if (myNeighbour.GetmyMoveable() != null) { 
 						boolean died = myNeighbour.GetmyMoveable().Kill();
 						if (died) { // Ha sikerult megolni..
 							System.out.println("Got rekt!!4!!4!4");
+							myField.Remove();
+							myNeighbour.Register(this);
+							myNeighbour.FieldAction();
 							canGo = true; // .. akkor lehet jonni
 						}
 					}
 				}
 			}
-		} catch (Exception e) { // Ha a step dobott akkor továbbdobjuk az
+		} catch (Exception e) { // Ha a step dobott akkor tovabbdobjuk az
 			// Interpreternek
 			throw e;
 		}

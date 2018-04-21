@@ -14,7 +14,7 @@ public class Field {
 	 */
 	public Field(){
 	//	printOnConstruct("Field");
-		
+		myMoveable=null;
 		neighbours= new EnumMap<Direction,Field>(Direction.class);
 		
 	//	printOnExitConstuctor("Field");

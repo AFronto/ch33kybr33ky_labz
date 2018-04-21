@@ -55,9 +55,9 @@ public class Player extends Moveable {
 
 		boolean canGo = false;
 		Field myNeighbour;
+		myNeighbour = this.GetmyField().GetNeighbour(d);
 		try { // Az ero miatt
 			if (m == null) {
-				myNeighbour = this.GetmyField().GetNeighbour(d);
 				canGo = myNeighbour.Step(this, d, this.strength);
 				if (canGo) {
 					myField.Remove();
@@ -69,15 +69,14 @@ public class Player extends Moveable {
 				if (m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))) { // Player tol Playereset ellenorzese
 					return false;
 				}
-				myNeighbour = m.GetmyField().GetNeighbour(d);
 				canGo = myNeighbour.Step(this, d, f);
 				if (canGo) {
 					myField.Remove();
-					myNeighbour.Register(m);
+					myNeighbour.Register(this);
 					myNeighbour.FieldAction();
 				}
 			}
-		} catch (Exception e) { // Ha a step dobott akkor továbbdobjuk az
+		} catch (Exception e) { // Ha a step dobott akkor tovabbdobjuk az
 								// Interpreternek
 			throw e;
 		}
