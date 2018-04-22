@@ -5,7 +5,7 @@ import static killer_sokoban.Interpreter.*;
 public class Hole extends Field {
 
 	/**
-	 *Konstruktor
+	 *Konstruktor, az ose parameternelkuli konstruktorat hivja.
 	 */
 	public Hole(){
 		super();
@@ -13,7 +13,7 @@ public class Hole extends Field {
 
 
 	/**
-	 *Minden a Hole-ba kerulo Moveable elpusztul.
+	 *Ha van rajta Moveable, akkor megöli, mert minden a Hole-ba kerulo Moveable elpusztul.
 	 */
 	public void FieldAction()
 	{	

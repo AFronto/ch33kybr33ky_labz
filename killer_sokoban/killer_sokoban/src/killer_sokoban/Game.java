@@ -34,7 +34,7 @@ public class Game {
 	private static Game game;
 	
 	/**
-	 *Konstruktor
+	 *Konstruktor, letrehoz egy uj Mapot is.
 	 */
 	public Game() {		
 		active_map= new Map();		

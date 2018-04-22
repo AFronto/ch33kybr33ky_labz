@@ -7,7 +7,7 @@ public class Button extends Field{
 	private TrapDoor myTrap;
 
 	/**
-	*Konstruktor
+	*Konstruktor, az ose konstruktorat hivja.
 	*/
 	public Button(){
 		super();

@@ -9,7 +9,7 @@ public class Box extends Moveable {
 	private Player lastTouchedMe;
 
 	/**
-	 * Konstruktor
+	 * Konstruktor, hivja az ose konstruktorat, illetve noveli a Boxok szamlalojat egyel.
 	 */
 	public Box() {
 		super();
@@ -19,6 +19,7 @@ public class Box extends Moveable {
 
 	/**
 	 * Visszadja ki mozgatta meg a dobozt.
+	 * @return Az ot utoljara megerinto Player.
 	 */
 	public Player GetLastTouchedMe() {
 		return lastTouchedMe;
