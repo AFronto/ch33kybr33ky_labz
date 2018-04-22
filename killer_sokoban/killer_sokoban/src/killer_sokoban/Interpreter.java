@@ -411,6 +411,7 @@ public class Interpreter {
 	 * Vissza adja hogy mi van az adott mezon
 	 *
 	 * @param friction - A mezo surlodasa ebbol mondja meg hogy mi van raja.
+	 * @return Szoveg ami le irja a a mezo kenetet.
 	 */
 	public static String nameOfStuff(int friction){
 		switch(friction){						//egy switch case ami megmondja mi van a 3 lehetseges kozul a mezon.
