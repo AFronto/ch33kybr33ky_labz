@@ -307,4 +307,8 @@ public class Interpreter {
 			System.out.println(getMoveableName(m)+" can not be moved to "+getFieldName(m.GetmyField().GetNeighbour(d))+".");
 		}
 	}
+
+	public static void playerDiedInterpret(Moveable p){
+		System.out.println(getMoveableName(p)+" died");
+	}
 }

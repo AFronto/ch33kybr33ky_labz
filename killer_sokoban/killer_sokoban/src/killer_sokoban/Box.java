@@ -60,9 +60,12 @@ public class Box extends Moveable {
 			} else { // Megnezzuk, hogy player van-e ott, ha igen, akkor
 						// megoljuk
 				if (myNeighbour.GetmyMoveable() != null) { 
+					//just for the interpreter
+					Moveable actm = myNeighbour.GetmyMoveable();
+					//just for the interpreter
 					boolean died = myNeighbour.GetmyMoveable().Kill();
 					if (died) { // Ha sikerult megolni..
-						System.out.println("Got rekt!!4!!4!4");
+						playerDiedInterpret(actm);
 						myField.Remove();
 						myNeighbour.Register(this);
 						myNeighbour.FieldAction();
