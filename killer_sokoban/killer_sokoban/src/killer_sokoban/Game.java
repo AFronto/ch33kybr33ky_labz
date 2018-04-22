@@ -21,6 +21,7 @@ public class Game {
 	
 	/**
 	 * A legerosebb jatekos toloerejevel ter vissza.
+	 * @return A maximalis toloero a jatek jelenlegi allasaban.
 	 */
 	public int GetMaxStrength() { return maxStrength; }
 	
@@ -104,6 +105,7 @@ public class Game {
 	
 	/**
 	 *Boxokat tartja szamon
+	 *@param add - Amennyivel novelni kell a szamontartott dobozok szamat.
 	 */
 	public static void CountBoxes(int add){
 	

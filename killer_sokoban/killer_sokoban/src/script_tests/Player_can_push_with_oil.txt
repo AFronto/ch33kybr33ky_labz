@@ -1,0 +1,27 @@
+create Field F1
+create Field F2
+create Field F3
+create Field F4
+create Field F5
+create Field F6
+create Player P1
+create Box B1
+create Box B2
+create Box B3
+create Box B4
+connect Neighbour F1 F2 RIGHT
+connect Neighbour F2 F3 RIGHT
+connect Neighbour F3 F4 RIGHT
+connect Neighbour F4 F5 RIGHT
+connect Neighbour F5 F6 RIGHT
+connect Moveable F1 P1
+connect Moveable F2 B1
+connect Moveable F3 B2
+connect Moveable F4 B3
+connect Moveable F5 B4
+putSomeThing F2
+putSomeThing F3
+putSomeThing F4
+putSomeThing F5
+choose P1
+step RIGHT

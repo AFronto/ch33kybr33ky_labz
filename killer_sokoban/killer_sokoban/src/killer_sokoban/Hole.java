@@ -9,8 +9,6 @@ public class Hole extends Field {
 	 */
 	public Hole(){
 		super();
-	//	//printOnConstruct("Hole");
-	//	//printOnExitConstuctor("Hole");
 	}
 
 
@@ -18,13 +16,10 @@ public class Hole extends Field {
 	 *Minden a Hole-ba kerulo Moveable elpusztul.
 	 */
 	public void FieldAction()
-	{
-	//	//printOnEntry(this, "FieldAction");
+	{	
 		moveableDestroyed(myMoveable);
 		myMoveable.Die();
 		this.Remove();
-	//	//printOnExit(this, "FieldAction", null);
-
 	}
 
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
