@@ -7,10 +7,12 @@ public enum Direction {
 
 	UP, DOWN, LEFT, RIGHT;
 	
-	/*
+	/**
 	 * Visszaadja az ellenkezo iranyt.
+	 *
+	 * @return Vissza adja az ellenkezo iranyt 
 	 */
-	Direction Opposite(){
+	public Direction Opposite(){
 		switch(this){
 		case UP:
 			return DOWN;
