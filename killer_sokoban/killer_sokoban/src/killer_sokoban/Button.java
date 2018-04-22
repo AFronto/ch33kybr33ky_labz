@@ -44,6 +44,7 @@ public class Button extends Field{
 	 */
 	public void FieldAction(){
 		myMoveable.Press();
+		super.FieldAction();    //Beszorulas ellenorzes.
 	}
 
 	@Override

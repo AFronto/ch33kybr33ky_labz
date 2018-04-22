@@ -135,14 +135,14 @@ public class Map {
             	}
             }
         }
-        ///////////////////////////////////////////////TODO: Vegtelen ciklus///////////////////////////////////////////////////////////////////
+        
         int nX = ThreadLocalRandom.current().nextInt(1, 10);			
         int nY = ThreadLocalRandom.current().nextInt(1, 10);
         while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))){      ///addig generalgat random koordinatakat amig nem talala egy ures mezot
         	nX = ThreadLocalRandom.current().nextInt(1, 10);										
            	nY = ThreadLocalRandom.current().nextInt(1, 10);										
         }
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         fields[nY][nX]=new Target();																///ide rakja le a targetet
 
         fields[nY][nX-1].SetNeighbour(Direction.RIGHT,fields[nY][nX]);								
@@ -198,7 +198,7 @@ public class Map {
             }
         }
 
-        ///////////////////////////////////////////////TODO: Vegtelen ciklus///////////////////////////////////////////////////////////////////
+        
         nX = ThreadLocalRandom.current().nextInt(1, 10);
         nY = ThreadLocalRandom.current().nextInt(1, 10);
         while(playerCount>0){																			///random helyekre rakja le a megfelelo szamu playert.
@@ -212,8 +212,7 @@ public class Map {
             maxStrength--;																				///fokozatosan csokkenti a jatekosok erejet.
             playerCount--;
         }
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+        
         for (int y = 0; y < height; y++)																///kiirja a vegeredmenyt
         {	
             for (int x = 0; x < width; x++)

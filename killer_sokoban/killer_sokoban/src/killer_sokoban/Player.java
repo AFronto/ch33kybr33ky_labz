@@ -141,10 +141,6 @@ public class Player extends Moveable {
 		myField.SetFriction();
 	}
 
-<<<<<<< HEAD
-=======
-	
->>>>>>> origin/master
 	@Override
 	public String toString() {
 		return "Player";

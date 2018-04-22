@@ -260,7 +260,7 @@ public class Interpreter {
 				field.SetFriction();
 			}
 			if(getFieldName(field).equals(p.get(1))){
-				System.out.println(getFieldName(field)+"'s friction has been changed.");
+				System.out.println(getFieldName(field)+"'s friction has been changed. Now it has "+nameOfStuff(field.GetFriction())+"on.");
 			}
 			break;
 
@@ -349,5 +349,18 @@ public class Interpreter {
 	 */
 	public static void moveableDestroyed(Moveable p){
 		System.out.println(getMoveableName(p)+" has been destroyed");
+	}
+
+	public static String nameOfStuff(int friction){
+		switch(friction){
+			case 1: 
+				return "Empty";
+			case 0:
+				return "Oil";
+			case 2:
+				return "Honey";
+		}
+
+		return "Alma";
 	}
 }

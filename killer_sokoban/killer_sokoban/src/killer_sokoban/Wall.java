@@ -14,6 +14,7 @@ public class Wall extends Box{
 	
 	/**
 	 *Mindig false-t ad vissza, igy nem lehet rajta atmenni es nem lehet eltolni se.
+	 *
 	 *@param p - A mozgast kezdemenyezo jatekos.
 	 *@param d - A mozgas iranya.
 	 *@param f - A toloero.
