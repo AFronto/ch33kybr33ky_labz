@@ -15,12 +15,19 @@ public class Button extends Field{
 		//printOnExitConstuctor("Button");
 	}
 	
+	/**
+	 * Visszater a buttonhoz csatolt TrapDoor-ral.
+	 */
 	public TrapDoor GetmyTrap() {
 		//printOnEntry(this, "GetmyTrap");
 		//printOnExit(this, "GetmyTrap", myTrap+"");
 		return myTrap;
 	}
 	
+	/**
+	 * Hozzacsatol a buttonhoz egy TrapDoort.
+	 * @param t - a buttonhoz csatolando TrapDoor.
+	 */
 	public void SetmyTrap(TrapDoor t) {
 		//printOnEntry(this, "SetmyTrap", t+"");
 		myTrap = t;

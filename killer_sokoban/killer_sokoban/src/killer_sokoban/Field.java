@@ -13,11 +13,11 @@ public class Field {
 	 *Konstruktor
 	 */
 	public Field(){
-	//	//printOnConstruct("Field");
+	
 		myMoveable=null;
 		neighbours= new EnumMap<Direction,Field>(Direction.class);
 		
-	//	//printOnExitConstuctor("Field");
+	
 	}
 
 	/**
@@ -27,54 +27,34 @@ public class Field {
 	 * @return A kert szomszed
 	 */
 	public Field GetNeighbour(Direction d){
-		////printOnEntry(this,"GetNeighbour",d+"");
-		/*String[] getNeighbourStrings = {"1. Field",
-										"2. Hole",
-										"3. Button",
-										"4. TrapDoor",
-										"5. Target"};
-
-		for (String s : getNeighbourStrings){
-		printOption(s);
-		}
 		
-		int sel = printQuestion("Milyen szomszed van arra?", 1, 5);
-		switch (sel) {
-			case 1:
-				neighbours.put(d,new Field());
-				break;
-			case 2:
-				neighbours.put(d,new Hole());
-				break;
-			case 3:
-				neighbours.put(d,new Button());
-				break;		
-			case 4:
-				neighbours.put(d,new TrapDoor());
-				break;	
-			case 5:
-				neighbours.put(d,new Target());
-				break;		
-		}
-
-*/
-	//	//printOnExit(this,"GetNeighbour",""+neighbours.get(d));
+			
 		return neighbours.get(d);
 		
 	}
 	
+	/**
+	 * Beallit egy szomszedot egy adott iranyba.
+	 * @param d - az irany, ahova a szomszedot szeretnenk beallitani.
+	 * @param f - a szomszed amit be szeretnenk allitani.
+	 */
 	public void SetNeighbour(Direction d, Field f){
-	//	//printOnEntry(this,"SetNeighbour",d+"",f+"");
+	
 		neighbours.put(d,f);
-	//	//printOnExit(this,"SetNeighbour",null);
+	
 	}
 	
+	/**
+	 * Visszater a Field altal tarolt Moveable-lel.
+	 */
 	public Moveable GetmyMoveable(){
-		/////printOnEntry(this,"GetmyMoveable");								
-		/////printOnExit(this,"GetmyMoveable",myMoveable+"");
+		
 		return myMoveable;
 	}
 	
+	/**
+	 * Beallitja a Field surlodasat a tarolt ertek szerint.
+	 */
 	public void SetFriction(){
 		int oilFriction = 0;		//kulonbozo anyagokhoz kulonbozo ertekek
 		int honeyFriction = 2;
@@ -93,6 +73,9 @@ public class Field {
 		}
 	}
 	
+	/**
+	 * Visszater a Field surlodasaval.
+	 */
 	public int GetFriction(){
 		return friction;
 	}
