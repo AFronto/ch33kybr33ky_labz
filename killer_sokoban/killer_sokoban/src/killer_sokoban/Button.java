@@ -11,7 +11,6 @@ public class Button extends Field{
 	*/
 	public Button(){
 		super();
-		
 	}
 	
 	/**
@@ -21,34 +20,45 @@ public class Button extends Field{
 	public TrapDoor GetmyTrap() {		
 		return myTrap;	
 		}
+
+	
 	
 	/**
 	 * Hozzacsatol a buttonhoz egy TrapDoort.
-	 * @param t - a buttonhoz csatolando TrapDoor.
+	 *
+	 * @param t  a buttonhoz csatolando TrapDoor.
 	 */
 	public void SetmyTrap(TrapDoor t) {		
 		myTrap = t;		
+
 	}
 	
 	/**
 	 * Ez a fuggveny aktivalja a trapdoort.
 	 * 
-	 * @param b Megadja hogy aktivalja-e a gombot ami majd a trapdoort.
+	 * @param b  Megadja hogy aktivalja-e a gombot ami majd a trapdoort.
 	 */
 	public void Activate(boolean b){		
-		myTrap.SetActive(b);		
+		myTrap.SetActive(b);	
+	}
 		
+
+	public void Activate(boolean b){
+		myTrap.SetActive(b);
+
 	}
 	
 	/**
 	 * A raallo Moveable megnyomasert felelos fuggvenyet fogja hivni,
 	 * ha box akkor ez aktivalashoz vezet ha player akkor nem.
 	 */
+
 	public void FieldAction(){			
 		myMoveable.Press();		
 	}
 
 	
+
 	@Override
 	public String toString(){
 		return "Button";

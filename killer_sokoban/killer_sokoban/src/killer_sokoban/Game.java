@@ -125,18 +125,6 @@ public class Game {
 	
 
 	/**
-	 * Megnezi, hogy strength max erovel tekintve van-e beszorult doboz-blokk
-	 * 
-	 * @param strength A max tolhato dobozok szama
-	 */
-	public void CheckForInvalidShape()
-	{
-	}
-	
-
-////////////////////////////////////////////////Skeleton fuggvenyek///////////////////////////////////////////////////////////////////////
-	
-	/**
 	 *A beindentalast tartja szamon es vegzi el.
 	 */
 	public static void printIndent() {

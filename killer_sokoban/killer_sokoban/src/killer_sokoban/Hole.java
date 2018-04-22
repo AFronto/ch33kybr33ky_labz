@@ -22,7 +22,7 @@ public class Hole extends Field {
 		this.Remove();
 	}
 
-	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
+
 	@Override
 	public String toString(){
 		return "Hole";

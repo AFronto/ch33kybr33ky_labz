@@ -40,13 +40,11 @@ public class Player extends Moveable {
 	/**
 	 * Ezzel a fuggvennyel kezeljuk le a jatekos mozgatasat.
 	 *
-	 * @param p
-	 *            A player aki a mozgast inditotta.
-	 * @param d
-	 *            Az irany amibe a doboz mozdul.
-	 * @return Igaz hamis ertekkel ter vissza attol fuggoen hogy sikeresen
-	 *         mozgott e.
-	 * @throws Exception 
+	 * @param p   A player aki a mozgast inditotta.
+	 * @param d   Az irany amibe a doboz mozdul.
+	 * @return    Igaz hamis ertekkel ter vissza attol fuggoen hogy sikeresen
+	 *            mozgott e.
+	 * @throws 	  Ez az Exception azert felel ha rossz volna a sorrend vagy mert elfogy az ero.
 	 */
 	public boolean Control(Player m, Direction d, int f) throws Exception {
 		SequenceCheck(this);
@@ -59,14 +57,14 @@ public class Player extends Moveable {
 			//A szomszedra hivjuk a step fuggvenyt, tehat lepesi szandekot kezdemenyezunk
 			canGo = myNeighbour.Step(this, d, this.strength);
 			if (canGo) {
-				//Ha sikerult leszedjuk a jelenlegi helyrol és atteszuk a szomszedra
+				//Ha sikerult leszedjuk a jelenlegi helyrol atteszuk a szomszedra
 				myField.Remove();
 				myNeighbour.Register(this);
 				myNeighbour.FieldAction();
 			}
 		}
 		if (m != null) {
-			if (m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))) { // Player tol Playereset ellenorzese
+			if (m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))) { // Player tol Player eset ellenorzese
 				CheckPos(this,d);
 				return false;
 			}
@@ -143,7 +141,6 @@ public class Player extends Moveable {
 		myField.SetFriction();
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Player";
