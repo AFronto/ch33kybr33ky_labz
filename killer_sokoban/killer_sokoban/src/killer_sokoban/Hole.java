@@ -1,5 +1,6 @@
 package killer_sokoban;
 import static killer_sokoban.Game.*;
+import static killer_sokoban.Interpreter.*;
 
 public class Hole extends Field {
 
@@ -19,9 +20,9 @@ public class Hole extends Field {
 	public void FieldAction()
 	{
 	//	//printOnEntry(this, "FieldAction");
+		moveableDestroyed(myMoveable);
 		myMoveable.Die();
 		this.Remove();
-		System.out.println("Hole has killed a Moveable.");
 	//	//printOnExit(this, "FieldAction", null);
 
 	}

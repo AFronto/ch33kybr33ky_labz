@@ -1,5 +1,6 @@
 package killer_sokoban;
 import static killer_sokoban.Game.*;
+import static killer_sokoban.Interpreter.*;
 
 public class TrapDoor extends Hole{
 
@@ -35,6 +36,7 @@ public class TrapDoor extends Hole{
 
 		if(isActive && myMoveable != null)
 		{
+			moveableDestroyed(myMoveable);
 			myMoveable.Die();
 			this.Remove();
 		}

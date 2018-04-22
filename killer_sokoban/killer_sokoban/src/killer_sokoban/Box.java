@@ -65,7 +65,7 @@ public class Box extends Moveable {
 					//just for the interpreter
 					boolean died = myNeighbour.GetmyMoveable().Kill();
 					if (died) { // Ha sikerult megolni..
-						playerDiedInterpret(actm);
+						moveableDestroyed(actm);
 						myField.Remove();
 						myNeighbour.Register(this);
 						myNeighbour.FieldAction();

@@ -121,74 +121,9 @@ public class Game {
 	 * 
 	 * @param strength A max tolhato dobozok szama
 	 */
-	/*public boolean CheckForInvalidShape(int strength)
+	public void CheckForInvalidShape()
 	{
-		int width = active_map.GetWiArrayList<E>	int height = active_map.GetHeight();
-		boolean isBlock;
-		
-		ArrayList<Field> fieldRow = new ArrayList<Field>(strength);
-		ArrayList<ArrayLits<Field>> fieldMatrix = new ArrayList<ArrayList<Field>>(strength);
-		
-		//vegigiteralas a palyan
-		for(int i = 0; i < height - strength) {
-			
-			for(int j = 0; j < width - strength) {
-				
-				//fieldMatrix feltoltese az epp vizsgalt strenth*strength matrix Field elemeivel
-				for(int k = 0; k < strength; k++) {
-					
-					for(int l = 0; l < strength; l++) {
-						
-						//fieldRow feltoltese az adott sorral
-						fieldRow.add(active_map.GetByIndex(i+k, j+l));
-					}
-				//fieldRow beaddolasa a matrixba
-				fieldMatrix.add(fieldRow);
-				fieldRow.clear();
-				}
-				
-				// TODO: itt kell elvegezni a kivalasztott reszmatrixra a vizsgalatokat
-				
-				//(1) megnezzuk, hogy a matrix minden eleme stuckolt Moveable-e
-				isBlock = true;
-				for(int k = 0; k < strength; k++) {
-					
-					fieldRow = fieldMatrix.get(k);
-					
-					for(int l = 0; l < strength; l++) {
-						
-						if(isBlock && (fieldRow.get(l).GetmyMoveable() == null || fieldRow.get(l).GetmyMoveable().IsActive() == null)) {
-							
-							isBlock = false;
-						}
-						
-					}
-					
-					fieldRow.clear();
-				}
-				//ezen a ponton ha az isBlock == true akkor egy invalid blokkot talaltunk; (stuckoljuk?) es visszaterunk
-				//TODO: ha kell hogy itt stuckoljuk oket, akkor azt meg kell valositani meg
-				if(isBlock) {
-					
-					return true;
-				}
-				
-				//(2)
-			
-			//A vizsgalatok utan uritjuk a fieldMatrixot, tovabb iteralunk a palyan jobbra, es elkeszitunk egy uj matrixot
-			fieldMatrix.clear();
-			
-			}
-		}
-		
-
-		
-		
-		
-		
-				
-			
-	}*/
+	}
 	
 	
 	/**
