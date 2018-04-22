@@ -95,7 +95,7 @@ public class Field {
 
 
 		if(myMoveable != null){
-			if(f == 0){		
+			if(f <= 0){		
 				throw new Exception("Elfogyott az ero");
 				//System.out.println("Elfogyott az ero");  // Elfogyott az ero, nem tudjuk eltolni ami itt van.
 				//return false;

@@ -33,7 +33,7 @@ public class Interpreter {
 	/**
 	 * Globalis player
 	 */
-	private static Player chosen = new Player(10);
+	private static Player chosen = new Player(5);
 	Interpreter() {
 	}
 	
@@ -247,14 +247,22 @@ public class Interpreter {
 			break;
 			
 		case "putSomeThing":
-			chosen.changeFriction();
+			Field field = fields.get(p.get(1));
+			if (field == null) {
+				System.out.println("para van");
+			}else {
+				field.SetFriction();
+			}
+			if(getFieldName(field).equals(p.get(1))){
+				System.out.println(getFieldName(field)+"'s friction has been changed.");
+			}
 			break;
 
 		case "exit":
 			 System.exit(0);
 			break;
 		default:
-			System.out.println("A parancs nem ertelmezheto!");
+			System.out.println("Command is undefined!");
 			break;
 			
 		}
