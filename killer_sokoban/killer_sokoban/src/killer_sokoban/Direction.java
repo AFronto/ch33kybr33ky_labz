@@ -8,7 +8,8 @@ public enum Direction {
 	UP, DOWN, LEFT, RIGHT;
 	
 	/**
-	 * Visszaadja az ellenkezo iranyt.
+	 * Ez egy olyan metódus, amely minden bizonnyal azt a Direction-t fogja visszaadni, mely ellentéte az általunk korábban kiválasztott iránynak.
+	 * Ha valamilyen oknál fogva nem lenne ellentéte a metódus mégis null értéket ad vissza. 
 	 *
 	 * @return Vissza adja az ellenkezo iranyt 
 	 */
