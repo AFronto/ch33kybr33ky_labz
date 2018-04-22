@@ -75,7 +75,7 @@ public class Box extends Moveable {
 			// Interpreternek
 			throw e;
 		}
-		// printOnExit(this,"Control","canGo");
+		 printOnExit(this,"Control","canGo");
 		return canGo;
 	}
 
