@@ -33,7 +33,7 @@ public class TrapDoor extends Hole{
 	public void FieldAction(){
 		//printOnEntry(this, "FieldAction");
 
-		if(isActive)
+		if(isActive && myMoveable != null)
 		{
 			myMoveable.Die();
 			this.Remove();

@@ -249,14 +249,10 @@ public class Interpreter {
 		case "putSomeThing":
 			chosen.changeFriction();
 			break;
-			
-		case "listBox":
-			
+
+		case "exit":
+			 System.exit(0);
 			break;
-			
-		case "listPlayer":
-			break;
-			
 		default:
 			System.out.println("A parancs nem ertelmezheto!");
 			break;
