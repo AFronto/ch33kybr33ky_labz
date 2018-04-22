@@ -12,7 +12,8 @@ public class Target extends Field{
 	}
 
 	/**
-	 * Ha dobozt tolnak ra le kerdezi ki tolta, ad neki egy pontot es a dobozt eltunteti.
+	 * Ha dobozt tolnak ra lekerdezi melyik jatekos inditott meg az adott mozgast, annak jovair egy pontot, majd az adott dobozt
+	 * ,,megoli''.
 	 */
 	public void FieldAction(){		
 		Player p = myMoveable.GetLastTouchedMe();

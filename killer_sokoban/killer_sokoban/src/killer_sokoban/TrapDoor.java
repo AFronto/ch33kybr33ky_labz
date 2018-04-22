@@ -7,14 +7,14 @@ public class TrapDoor extends Hole{
 	private boolean isActive;
 	
 	/**
-	 * Konstruktor.
+	 * Konstruktor. Meghivja az ose konstruktorat.
 	 */
 	public TrapDoor(){
 		super();		
 	}
 	
 	/**
-	 * Beallitja hogy az adott TrapDoor aktiv legyen vagy se.
+	 * Beallitja hogy az adott TrapDoor aktiv allapotu legyen vagy se.
 	 *
 	 * @param b isActive valtozo - azaz a TrapDoor aktivitasa - erre valtozik.
 	 */
@@ -28,7 +28,7 @@ public class TrapDoor extends Hole{
 
 	/**
 	 * Ha az iActive true allapotban van, akkor ugy fut le, mintha egy Hole hivna,
-	 * Ha nem akkor ugy, mintha egy sima Field hivba.
+	 * Ha nem akkor ugy, mintha egy sima Field hivna.
 	 */
 	public void FieldAction(){		
 		if(isActive && myMoveable != null)
