@@ -13,18 +13,18 @@ public class Box extends Moveable {
 	 */
 	public Box() {
 		super();
-		// printOnConstruct("Box");
+		// //printOnConstruct("Box");
 		CountBoxes(1);
 		stuck = false;
-		// printOnExitConstuctor("Box");
+		// //printOnExitConstuctor("Box");
 	}
 
 	/**
 	 * Visszadja ki mozgatta meg a dobozt.
 	 */
 	public Player GetLastTouchedMe() {
-		printOnEntry(this, "GetLastTouchedMe");
-		printOnExit(this, "GetLastTouchedMe", lastTouchedMe + "");
+		//printOnEntry(this, "GetLastTouchedMe");
+		//printOnExit(this, "GetLastTouchedMe", lastTouchedMe + "");
 		return lastTouchedMe;
 	}
 
@@ -40,9 +40,10 @@ public class Box extends Moveable {
 	 * @throws Exception
 	 */
 	public boolean Control(Player p, Direction d, int f) throws Exception {
-		printOnEntry(this, "Control", p + "", d + "");
+		////printOnEntry(this, "Control", p + "", d + "");
 
 		SequenceCheck(this);
+		PushPos(myField,d);
 
 		boolean canGo = false;
 		lastTouchedMe = p;
@@ -70,7 +71,8 @@ public class Box extends Moveable {
 				}
 			}
 		}
-		// printOnExit(this,"Control","canGo");
+		CheckPos(this,d);
+		// //printOnExit(this,"Control","canGo");
 		return canGo;
 	}
 
@@ -98,8 +100,8 @@ public class Box extends Moveable {
 	 * @return Hamissal ter vissza mert a doboz nem hal meg.
 	 */
 	public boolean Kill() {
-		printOnEntry(this, "Kill");
-		printOnExit(this, "Kill", false + "");
+		//printOnEntry(this, "Kill");
+		//printOnExit(this, "Kill", false + "");
 		return false;
 	}
 
@@ -108,9 +110,9 @@ public class Box extends Moveable {
 	 */
 	public void Press() {
 
-		printOnEntry(this, "Press");
+		//printOnEntry(this, "Press");
 		myField.Activate(true);
-		printOnExit(this, "Press", null);
+		//printOnExit(this, "Press", null);
 
 	}
 
@@ -118,9 +120,9 @@ public class Box extends Moveable {
 	 * Eltunteti a dobozt
 	 */
 	public void Die() {
-		// printOnEntry(this, "Die");
+		// //printOnEntry(this, "Die");
 		CountBoxes(-1);
-		// printOnExit(this, "Die", null);
+		// //printOnExit(this, "Die", null);
 	}
 
 	////////////////////////////////////////////////////////////// SKELETON

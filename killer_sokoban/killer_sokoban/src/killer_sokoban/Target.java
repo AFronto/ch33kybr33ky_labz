@@ -8,16 +8,16 @@ public class Target extends Field{
 	 */
 	public Target(){
 		super();
-		printOnConstruct("Target");
+		//printOnConstruct("Target");
 		myMoveable = null;
-		printOnExitConstuctor("Target");
+		//printOnExitConstuctor("Target");
 	}
 
 	/**
 	 * Ha dobozt tolnak ra le kerdezi ki tolta ad neki egy pontot es a dobozt eltunteti 
 	 */
 	public void FieldAction(){
-		printOnEntry(this,"FieldAction");
+		//printOnEntry(this,"FieldAction");
 		Player p = myMoveable.GetLastTouchedMe();
 		if (p != null){
 			myMoveable.Die();
@@ -25,7 +25,7 @@ public class Target extends Field{
 			p.AddScore();
 			System.out.println("Player scored!");
 		}
-		printOnExit(this,"FieldAction",null);
+		//printOnExit(this,"FieldAction",null);
 
 	}
 	public boolean Step(Player p, Direction d,int f){

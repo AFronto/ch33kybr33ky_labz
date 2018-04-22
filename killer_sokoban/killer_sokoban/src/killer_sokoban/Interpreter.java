@@ -14,8 +14,12 @@ public class Interpreter {
 	/**
 	 * parancs
 	 */
+	private static boolean failedTest=false;
+
 	private static ArrayList<String> parts;
 	private static ArrayList<Moveable> seq=new ArrayList<Moveable>();
+	private static ArrayList<Field> originalPositions=new ArrayList<Field>();
+
 	/**
 	 * letrehozott fieldek es nevuk
 	 */
@@ -37,6 +41,7 @@ public class Interpreter {
 		/**
 		 * enterrel elvalasztva a parancsokat nezik
 		 */
+		System.out.print(">>> ");
 		Scanner sc = new Scanner(System.in);
 		while(sc.hasNextLine()) {
 			String command = sc.nextLine();
@@ -50,6 +55,7 @@ public class Interpreter {
 			} else {
 				Decide(parts);
 			}
+			System.out.print(">>> ");
 		}
 	}
 	
@@ -59,8 +65,10 @@ public class Interpreter {
 		    while (line != null) {
 		    	parts = new ArrayList<String>(Arrays.asList(line.split(" ")));
 		    	Decide(parts);
-		    	
 		        line = br.readLine();
+		    }
+		    if(!failedTest){
+		    	System.out.println("\nSuccessfull test!");
 		    }
 		}
 	}
@@ -204,13 +212,10 @@ public class Interpreter {
 			break;
 			
 		case "step":
-			System.out.println("Moving "+getMoveableName(chosen)+" "+Direction.valueOf(p.get(1)));
-			Field originalPos =	chosen.GetmyField();
 			try {
 				seq.add(chosen);
 				Field nextField=chosen.GetmyField().GetNeighbour(Direction.valueOf(p.get(1)));
 				while(nextField!=null){
-					System.out.println(getFieldName(nextField));
 					if(nextField.GetmyMoveable()!=null){
 						seq.add(nextField.GetmyMoveable());
 					}else{
@@ -221,11 +226,9 @@ public class Interpreter {
 
 				
 				chosen.Control(null, Direction.valueOf(p.get(1)), 0);
-				if(originalPos.equals(chosen.GetmyField().GetNeighbour(Direction.valueOf(p.get(1)).Opposite()))){         		//Megnezem hogy valoban megtortent-e a lepes.
-					System.out.println(getMoveableName(chosen)+" has been moved to "+getFieldName(chosen.GetmyField())+".");		//Ha az eredeti pozicio megegyezik az uj pozicio																											//mozgatassal ellenkezo iranybeli szomszeddal akkor sikeres
-				}
 			} catch (Exception e) {
 				System.out.println("Sikertelen teszt: "+e);
+				failedTest=true;
 			}
 			break;
 			
@@ -292,6 +295,20 @@ public class Interpreter {
 			}
 		}else{
 			throw new Exception("Hibas sorrendben hivodnak az elemek!");
+		}
+	}
+
+	public static void PushPos(Field originalPos, Direction d){
+		System.out.println("Moving "+getMoveableName(originalPos.GetmyMoveable())+" "+d);
+		originalPositions.add(originalPos);
+	}
+
+	public static void CheckPos(Moveable m, Direction d){
+		Field oP=originalPositions.remove(originalPositions.size()-1);
+		if(oP.equals(m.GetmyField().GetNeighbour(d.Opposite()))){         										//Megnezem hogy valoban megtortent-e a lepes.
+			System.out.println(getMoveableName(m)+" has been moved to "+getFieldName(m.GetmyField())+".");																													//mozgatassal ellenkezo iranybeli szomszeddal akkor sikeres
+		}else if(oP.equals(m.GetmyField())){																	//Ha az eredeti pozicio megegyezik az uj pozicio
+			System.out.println(getMoveableName(m)+" can not moved to "+getFieldName(m.GetmyField())+".");
 		}
 	}
 }

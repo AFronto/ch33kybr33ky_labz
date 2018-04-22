@@ -7,8 +7,8 @@ public class TrapDoor extends Hole{
 	
 	public TrapDoor(){
 		super();
-		printOnConstruct("TrapDoor");
-		printOnExitConstuctor("TrapDoor");
+		//printOnConstruct("TrapDoor");
+		//printOnExitConstuctor("TrapDoor");
 	}
 	
 	/**
@@ -17,12 +17,12 @@ public class TrapDoor extends Hole{
 	 * @param b isActive valtozo erteke erre allitodik.
 	 */
 	public void SetActive(boolean b){
-		printOnEntry(this, "SetActive", b+"");
+		//printOnEntry(this, "SetActive", b+"");
 		isActive = b;
 		if (isActive) {
 			FieldAction();
 		}
-		printOnExit(this, "SetActive", null);
+		//printOnExit(this, "SetActive", null);
 	}
 	
 
@@ -31,17 +31,15 @@ public class TrapDoor extends Hole{
 	 * Ha nem akkor olyan mint egy sima Field. 
 	 */
 	public void FieldAction(){
-		printOnEntry(this, "FieldAction");
+		//printOnEntry(this, "FieldAction");
 
 		if(isActive)
 		{
-				myMoveable.Die();
-				this.Remove();
-		}else {
-				super.FieldAction();
+			myMoveable.Die();
+			this.Remove();
 		}
 		
-		printOnExit(this, "FieldAction", null);
+		//printOnExit(this, "FieldAction", null);
 		
 	}
 
