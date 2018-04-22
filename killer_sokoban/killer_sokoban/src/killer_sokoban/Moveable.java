@@ -8,6 +8,8 @@ public abstract class Moveable {
 	/**
 	 * Megadja, hogy a Moveable be van-e szorulva. Itt defaultbol false-szal ter vissza, de minden leszarmazott
 	 * valodi korulmenyek alapjan ter vissza ertekkel.
+	 *
+	 * @return Mindig false-szal ter vissza, a leszarmazottjai mashogy valositjak meg.
 	 */
 	public boolean IsStuck(){
 		return false;
@@ -20,9 +22,11 @@ public abstract class Moveable {
 
 	/**
 	 * Egy lepest valosit meg egy Moveablebol leszarmaztatott objektumon. Itt nem tortenik semmi.
+	 *
 	 * @param p - A jatekos aki kezdemenyezte a lepest.
 	 * @param d - Az irany amerre a mozgas toretnik.
 	 * @param f - Az ero, amivel a mozgast kezdemenyezo Moveable rendelkezik meg.
+	 * @return Logikai ertek, hogy megteheto-e a lepes.
 	 */
 	public boolean Control(Player p, Direction d,int f) throws Exception{
 		return true; 
@@ -30,7 +34,9 @@ public abstract class Moveable {
 	
 	/**
 	 * Visszater a Moveablet tartalmazo Fielddel.
+	 *
 	 * @param A Moveable-t tartalmazo Field.
+	 * @return A Moveable-t tartalmazo Field.
 	 */
 	public Field GetmyField() {	
 		return myField;		
@@ -38,6 +44,7 @@ public abstract class Moveable {
 	
 	/**
 	 * Beallitja a Moveable-t tartalmazo Fieldet.
+	 *
 	 * @param f A Field ami tartalmazza a Moveablet.
 	 */
 	public void SetmyField(Field f) {	
@@ -45,7 +52,7 @@ public abstract class Moveable {
 	}
 	
 	/**
-	 * Kezdemenyezi a Moveable leszarmazottjanak "halalat" es eltunteteset elokeszito fuggveny.
+	 * Kezdemenyezi a Moveable leszarmazottjanak "megoleset" (osszenyomas) es eltunteteset elokeszito fuggveny.
 	 */
 	public abstract boolean Kill();
 	

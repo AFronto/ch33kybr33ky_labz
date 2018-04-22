@@ -162,11 +162,8 @@ public class Field {
 	 */
 	public void Activate(boolean b) {}
 
-
 	@Override
 	public String toString(){
 		return "Field";
 	}
-	
-
 }

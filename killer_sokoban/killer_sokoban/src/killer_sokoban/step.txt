@@ -1,7 +1,0 @@
-create Field vera
-create Field anyad
-connect Neighbour vera anyad DOWN
-create Player faszos
-connect Moveable anyad faszos
-choose faszos
-step UP
