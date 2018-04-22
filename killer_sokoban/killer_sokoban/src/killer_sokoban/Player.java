@@ -1,6 +1,7 @@
 package killer_sokoban;
 
 import static killer_sokoban.Game.*;
+import static killer_sokoban.Interpreter.*;
 
 public class Player extends Moveable {
 
@@ -12,29 +13,29 @@ public class Player extends Moveable {
 	 */
 	public Player(int s) {
 		super();
-		// printOnConstruct("Player");
+		// //printOnConstruct("Player");
 
 		score = 0;
 		strength = s;
 
-		// printOnExitConstuctor("Player");
+		// //printOnExitConstuctor("Player");
 	}
 
 	/**
 	 * Egyet ad a Player pontjaihoz
 	 */
 	public void AddScore() {
-		printOnEntry(this, "AddScore");
+		//printOnEntry(this, "AddScore");
 
 		score++;
 		UpdateScore(this);
 
-		printOnExit(this, "AddScore", null);
+		//printOnExit(this, "AddScore", null);
 	}
 
 	public int GetScore() {
-		// printOnEntry(this, "GetScore");
-		// printOnExit(this, "GetScore", score + "");
+		// //printOnEntry(this, "GetScore");
+		// //printOnExit(this, "GetScore", score + "");
 
 		return score;
 	}
@@ -51,38 +52,35 @@ public class Player extends Moveable {
 	 * @throws Exception 
 	 */
 	public boolean Control(Player m, Direction d, int f) throws Exception {
-		printOnEntry(this, "Control", m + "", d + "");
+		////printOnEntry(this, "Control", m + "", d + "");
+		SequenceCheck(this);
+		PushPos(myField,d);
 
 		boolean canGo = false;
 		Field myNeighbour;
-		try { // Az ero miatt
-			if (m == null) {
-				myNeighbour = this.GetmyField().GetNeighbour(d);
-				canGo = myNeighbour.Step(this, d, this.strength);
-				if (canGo) {
-					myField.Remove();
-					myNeighbour.Register(this);
-					myNeighbour.FieldAction();
-				}
+		myNeighbour = this.GetmyField().GetNeighbour(d);
+		if (m == null) {
+			canGo = myNeighbour.Step(this, d, this.strength);
+			if (canGo) {
+				myField.Remove();
+				myNeighbour.Register(this);
+				myNeighbour.FieldAction();
 			}
-			if (m != null) {
-				if (m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))) { // Player tol Playereset ellenorzese
-					return false;
-				}
-				myNeighbour = m.GetmyField().GetNeighbour(d);
-				canGo = myNeighbour.Step(this, d, f);
-				if (canGo) {
-					myField.Remove();
-					myNeighbour.Register(m);
-					myNeighbour.FieldAction();
-				}
-			}
-		} catch (Exception e) { // Ha a step dobott akkor továbbdobjuk az
-								// Interpreternek
-			throw e;
 		}
-
-		printOnExit(this, "Control", canGo + "");
+		if (m != null) {
+			if (m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))) { // Player tol Playereset ellenorzese
+				CheckPos(this,d);
+				return false;
+			}
+			canGo = myNeighbour.Step(this, d, f);
+			if (canGo) {
+				myField.Remove();
+				myNeighbour.Register(this);
+				myNeighbour.FieldAction();
+			}
+		}
+		////printOnExit(this, "Control", canGo + "");
+		CheckPos(this,d);
 		return canGo;
 	}
 
@@ -90,12 +88,12 @@ public class Player extends Moveable {
 	 * Torli a jatekos pontjait es elkezdi kivenni a jatekbol.
 	 */
 	public void DeadScore() {
-		// printOnEntry(this, "DeadScore");
+		// //printOnEntry(this, "DeadScore");
 
 		score = -1;
 		UpdateScore(this);
 
-		// printOnExit(this, "DeadScore", null);
+		// //printOnExit(this, "DeadScore", null);
 	}
 
 	/**
@@ -105,12 +103,12 @@ public class Player extends Moveable {
 	 * @return Igazzal ter vissza mert a Player ossze nyomhato.
 	 */
 	public boolean Kill() {
-		// printOnEntry(this, "Kill");
+		// //printOnEntry(this, "Kill");
 
 		Die();
 		myField.Remove();
 
-		// printOnExit(this, "Kill", true + "");
+		// //printOnExit(this, "Kill", true + "");
 		return true;
 	}
 
@@ -118,11 +116,11 @@ public class Player extends Moveable {
 	 * Ez az a fuggveny ami megnyomja a gombot amikor a jatekos ralep.
 	 */
 	public void Press() {
-		printOnEntry(this, "Press");
+		//printOnEntry(this, "Press");
 
 		myField.Activate(false);
 
-		printOnExit(this, "Press", null);
+		//printOnExit(this, "Press", null);
 
 	}
 
@@ -131,8 +129,8 @@ public class Player extends Moveable {
 	 * utoljara.
 	 */
 	public Player GetLastTouchedMe() {
-		// printOnEntry(this, "GetLastTouchedMe");
-		// printOnExit(this, "GetLastTouchedMe", null + "");
+		// //printOnEntry(this, "GetLastTouchedMe");
+		// //printOnExit(this, "GetLastTouchedMe", null + "");
 
 		return null;
 	}
@@ -141,11 +139,11 @@ public class Player extends Moveable {
 	 * A player mikor meghal ki esik a jatekbol ezt kezeli le ez a fuggveny.
 	 */
 	public void Die() {
-		// printOnEntry(this, "Die");
+		// //printOnEntry(this, "Die");
 
 		DeadScore();
 
-		// printOnExit(this, "Die", null);
+		// //printOnExit(this, "Die", null);
 	}
 
 	public int getStrength() {

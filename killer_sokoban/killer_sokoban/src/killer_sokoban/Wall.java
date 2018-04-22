@@ -1,6 +1,7 @@
 package killer_sokoban;
 
 import static killer_sokoban.Game.*;
+import static killer_sokoban.Interpreter.*;
 
 public class Wall extends Box{
 	
@@ -9,8 +10,8 @@ public class Wall extends Box{
 	 */
 	public Wall(){
 		super();
-		printOnConstruct("Wall");
-		printOnExitConstuctor("Wall");
+		//printOnConstruct("Wall");
+		//printOnExitConstuctor("Wall");
 	}
 	
 	/**
@@ -18,10 +19,11 @@ public class Wall extends Box{
 	 *
 	 *@return Mindig false.
 	 */
-	public boolean Control(Player p, Direction d){
-		printOnEntry(this,"Control",p+"",d+"");
+	public boolean Control(Player p, Direction d, int f)throws Exception{
+		//printOnEntry(this,"Control",p+"",d+"");
+		SequenceCheck(this);
 		boolean canGo = false;
-		printOnExit(this,"Control",canGo+"");
+		//printOnExit(this,"Control",canGo+"");
 		return canGo;
 	}
 	
@@ -31,8 +33,8 @@ public class Wall extends Box{
 	 * @return Fixen true, mivel a fal nem tud mozogni.
 	 */
 	public boolean IsStuck(){
-		printOnEntry(this,"IsStuck");
-		printOnExit(this,"IsStuck","true");
+		//printOnEntry(this,"IsStuck");
+		//printOnExit(this,"IsStuck","true");
 		return true;
 	}
 

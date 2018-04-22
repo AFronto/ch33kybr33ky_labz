@@ -1,6 +1,7 @@
 package killer_sokoban;
 
 import static killer_sokoban.Game.*;
+import static killer_sokoban.Interpreter.*;
 
 public class Box extends Moveable {
 
@@ -12,18 +13,18 @@ public class Box extends Moveable {
 	 */
 	public Box() {
 		super();
-		// printOnConstruct("Box");
+		// //printOnConstruct("Box");
 		CountBoxes(1);
 		stuck = false;
-		// printOnExitConstuctor("Box");
+		// //printOnExitConstuctor("Box");
 	}
 
 	/**
 	 * Visszadja ki mozgatta meg a dobozt.
 	 */
 	public Player GetLastTouchedMe() {
-		printOnEntry(this, "GetLastTouchedMe");
-		printOnExit(this, "GetLastTouchedMe", lastTouchedMe + "");
+		//printOnEntry(this, "GetLastTouchedMe");
+		//printOnExit(this, "GetLastTouchedMe", lastTouchedMe + "");
 		return lastTouchedMe;
 	}
 
@@ -39,43 +40,40 @@ public class Box extends Moveable {
 	 * @throws Exception
 	 */
 	public boolean Control(Player p, Direction d, int f) throws Exception {
-		printOnEntry(this, "Control", p + "", d + "");
+		////printOnEntry(this, "Control", p + "", d + "");
+
+		SequenceCheck(this);
+		PushPos(myField,d);
+
 		boolean canGo = false;
 		lastTouchedMe = p;
 		if (p == null) { // Ez elvileg nem lehet nulla, de ki tudja
 			System.out.println("Valami nem jo ba$tya");
 		}
-		try { // Step miatt
-			if (p != null) {
-				Field myNeighbour = this.GetmyField().GetNeighbour(d);
-				canGo = myNeighbour.Step(p, d, f);
-				if (canGo) {
-					myField.Remove();
-					myNeighbour.Register(this);
-					myNeighbour.FieldAction();
-				} else { // Megnezzuk, hogy player van-e ott, ha igen, akkor
-							// megoljuk
-					if (myNeighbour.GetmyMoveable() != null && myNeighbour.GetmyMoveable().GetLastTouchedMe() == null) { // Ha
-																															// a
-																															// szomszedon
-																															// van
-																															// moveable
-																															// es
-																															// az
-																															// player
-						boolean died = myNeighbour.GetmyMoveable().Kill();
-						if (died) { // Ha sikerult megolni..
-							System.out.println("Got rekt!!4!!4!4");
-							canGo = true; // .. akkor lehet jonni
-						}
+		if (p != null) {
+			Field myNeighbour = this.GetmyField().GetNeighbour(d);
+			canGo = myNeighbour.Step(p, d, f);
+			if (canGo) {
+				myField.Remove();
+				myNeighbour.Register(this);
+				myNeighbour.FieldAction();
+			} else { // Megnezzuk, hogy player van-e ott, ha igen, akkor
+						// megoljuk
+				if (myNeighbour.GetmyMoveable() != null) { 
+					boolean died = myNeighbour.GetmyMoveable().Kill();
+					if (died) { // Ha sikerult megolni..
+						System.out.println("Got rekt!!4!!4!4");
+						myField.Remove();
+						myNeighbour.Register(this);
+						myNeighbour.FieldAction();
+						canGo = true; // .. akkor lehet jonni
 					}
 				}
 			}
-		} catch (Exception e) { // Ha a step dobott akkor továbbdobjuk az
-			// Interpreternek
-			throw e;
 		}
-		 printOnExit(this,"Control","canGo");
+
+		CheckPos(this,d);
+
 		return canGo;
 	}
 
@@ -103,8 +101,8 @@ public class Box extends Moveable {
 	 * @return Hamissal ter vissza mert a doboz nem hal meg.
 	 */
 	public boolean Kill() {
-		printOnEntry(this, "Kill");
-		printOnExit(this, "Kill", false + "");
+		//printOnEntry(this, "Kill");
+		//printOnExit(this, "Kill", false + "");
 		return false;
 	}
 
@@ -113,9 +111,9 @@ public class Box extends Moveable {
 	 */
 	public void Press() {
 
-		printOnEntry(this, "Press");
+		//printOnEntry(this, "Press");
 		myField.Activate(true);
-		printOnExit(this, "Press", null);
+		//printOnExit(this, "Press", null);
 
 	}
 
@@ -123,9 +121,9 @@ public class Box extends Moveable {
 	 * Eltunteti a dobozt
 	 */
 	public void Die() {
-		// printOnEntry(this, "Die");
+		// //printOnEntry(this, "Die");
 		CountBoxes(-1);
-		// printOnExit(this, "Die", null);
+		// //printOnExit(this, "Die", null);
 	}
 
 	////////////////////////////////////////////////////////////// SKELETON
