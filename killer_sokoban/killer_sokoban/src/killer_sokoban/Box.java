@@ -74,8 +74,9 @@ public class Box extends Moveable {
 				}
 			}
 		}
+
 		CheckPos(this,d);
-		// //printOnExit(this,"Control","canGo");
+
 		return canGo;
 	}
 
