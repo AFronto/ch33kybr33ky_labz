@@ -42,11 +42,6 @@ public class Button extends Field{
 		myTrap.SetActive(b);	
 	}
 		
-
-	public void Activate(boolean b){
-		myTrap.SetActive(b);
-
-	}
 	
 	/**
 	 * A raallo Moveable megnyomasert felelos fuggvenyet fogja hivni,

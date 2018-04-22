@@ -88,7 +88,20 @@ public class Interpreter {
 			switch (p.get(1)) {
 			case "Map":
 				Map map = new Map();
+				System.out.println("\n----------- Legend -----------");
+				System.out.println("W: Wall");
+				System.out.println("H: Hole");
+				System.out.println("D: Trapdoor");
+				System.out.println("B: Button");				
+				System.out.println("T: Target");
+				System.out.println("b: Box");
+				System.out.println("p: Player");
+				System.out.println("------------------------------\n");
+				
+				
+				
 				map.CreateMap(4,6);
+				System.out.println("\nThe Map has been created succesfully.");
 				break;
 
 			case "Field":
