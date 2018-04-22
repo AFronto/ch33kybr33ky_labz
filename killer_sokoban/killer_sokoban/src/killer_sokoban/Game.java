@@ -19,8 +19,15 @@ public class Game {
 	private Map active_map;
 	private int maxStrength;
 	
+	/**
+	 * A legerosebb jatekos toloerejevel ter vissza.
+	 */
 	public int GetMaxStrength() { return maxStrength; }
 	
+	/**
+	 * Beallitja a tarolt maximalis toloerot.
+	 * @param newMaxStrength - az uj maximalis toloero.
+	 */
 	public void SetMaxStrength(int newMaxStrength) { maxStrength = newMaxStrength; }
 	
 	/**
@@ -33,10 +40,8 @@ public class Game {
 	/**
 	 *Konstruktor
 	 */
-	public Game() {
-		//printOnConstruct("Game");
-		active_map= new Map();
-		//printOnExitConstuctor("Game");
+	public Game() {		
+		active_map= new Map();		
 	}
 	
 	/**
@@ -67,18 +72,15 @@ public class Game {
 	 *
 	 *@param playerCount A jatekosok szama ahanyan jatszani akarnak.
 	 */
-	public void NewGame(int playerCount){
-		//printOnEntry(this,"NewGame",""+playerCount);
-		active_map.CreateMap(playerCount,6);
-		//printOnExit(this,"NewGame",null);
+	public void NewGame(int playerCount){		
+		active_map.CreateMap(playerCount,6);		
 	}
 	
 	/**
 	 *Jatek vege
 	 */
 	public static void EndGame(){
-		////printOnEntry(game,"EndGame");
-	//	//printOnExit(game,"EndGame",null);
+		
 	}
 	
 	/**
@@ -88,7 +90,7 @@ public class Game {
 	 *@param p A jatekos akinek epp updateli a pontjait
 	 */
 	public static void UpdateScore(Player p){
-	//	//printOnEntry(game,"UpdateScore",p+"");
+	
 		
 		int score = p.GetScore();
 		if(score == -1)
@@ -97,109 +99,30 @@ public class Game {
 		if(players <= 1)
 			EndGame();
 		
-	//	//printOnExit(game,"UpdateScore",null);
+	
 	}
 	
 	/**
 	 *Boxokat tartja szamon
 	 */
 	public static void CountBoxes(int add){
-	//	//printOnEntry(game,"CountBoxes",""+add);
+	
 		boxes+=add;
 		if(boxes == 0)
 			EndGame();
-	//	//printOnExit(game,"CountBoxes",null);
+	
 	}
 	
+	/**
+	 * Beallitja a Mapon levo Boxok szamat.
+	 * @param i - Boxok szama
+	 */
 	public static void setBoxNum(int i){
 		boxes=i;
 	}
 	
 
-	/**
-	 * Megnezi, hogy strength max erovel tekintve van-e beszorult doboz-blokk
-	 * 
-	 * @param strength A max tolhato dobozok szama
-	 */
-	/*public boolean CheckForInvalidShape(int strength)
-	{
-		int width = active_map.GetWiArrayList<E>	int height = active_map.GetHeight();
-		boolean isBlock;
-		
-		ArrayList<Field> fieldRow = new ArrayList<Field>(strength);
-		ArrayList<ArrayLits<Field>> fieldMatrix = new ArrayList<ArrayList<Field>>(strength);
-		
-		//vegigiteralas a palyan
-		for(int i = 0; i < height - strength) {
-			
-			for(int j = 0; j < width - strength) {
-				
-				//fieldMatrix feltoltese az epp vizsgalt strenth*strength matrix Field elemeivel
-				for(int k = 0; k < strength; k++) {
-					
-					for(int l = 0; l < strength; l++) {
-						
-						//fieldRow feltoltese az adott sorral
-						fieldRow.add(active_map.GetByIndex(i+k, j+l));
-					}
-				//fieldRow beaddolasa a matrixba
-				fieldMatrix.add(fieldRow);
-				fieldRow.clear();
-				}
-				
-				// TODO: itt kell elvegezni a kivalasztott reszmatrixra a vizsgalatokat
-				
-				//(1) megnezzuk, hogy a matrix minden eleme stuckolt Moveable-e
-				isBlock = true;
-				for(int k = 0; k < strength; k++) {
-					
-					fieldRow = fieldMatrix.get(k);
-					
-					for(int l = 0; l < strength; l++) {
-						
-						if(isBlock && (fieldRow.get(l).GetmyMoveable() == null || fieldRow.get(l).GetmyMoveable().IsActive() == null)) {
-							
-							isBlock = false;
-						}
-						
-					}
-					
-					fieldRow.clear();
-				}
-				//ezen a ponton ha az isBlock == true akkor egy invalid blokkot talaltunk; (stuckoljuk?) es visszaterunk
-				//TODO: ha kell hogy itt stuckoljuk oket, akkor azt meg kell valositani meg
-				if(isBlock) {
-					
-					return true;
-				}
-				
-				//(2)
-			
-			//A vizsgalatok utan uritjuk a fieldMatrixot, tovabb iteralunk a palyan jobbra, es elkeszitunk egy uj matrixot
-			fieldMatrix.clear();
-			
-			}
-		}
-		
-
-		
-		
-		
-		
-				
-			
-	}*/
 	
-	
-	/**
-	 * Method overloading - parameter nelkul is legyen hivhato a fuggveny. Ilyenkor  Game maxStrength ertekevel szamol.
-	 */
-	/*public boolean CheckForInvalidShape() {
-		
-		return CheckForInvalidShape(maxStrength);
-
-	}
-*/
 
 ////////////////////////////////////////////////Skeleton fuggvenyek///////////////////////////////////////////////////////////////////////
 	
@@ -336,46 +259,7 @@ public class Game {
 	 * @return Igaz hamisat ad vissza ami arra valasz hogy akarjuk e meg folytatni a tesztelest.
 	 */
 	public boolean Run() { 
-		/*String[] runStrings = {"1. Uj Jatek",
-							"2. Jatekos lep",
-							"3. Kilepes"};
-
-		for (String s : runStrings){
-			printOption(s);
-		}
-
-		int sel = printQuestion("Mit akarsz csinalni?", 1, 3);
-		switch (sel) {
-			case 1:
-				int numP=printQuestion("Hany jatekos legyen?", 1, 4);
-				NewGame(numP);
-				break;
-			case 2:
-				Player p= new Player();
-				String[] directionString = {"1. UP",
-							"2. DOWN",
-							"3. LEFT",
-							"4. RIGHT"};
-
-				for (String s : directionString){
-					printOption(s);
-				}
-
-				int dir=printQuestion("Hova lep?", 1, 4);
-				if(dir==1){
-					p.Control(null,Direction.UP);
-				}else if(dir==2){
-					p.Control(null,Direction.DOWN);
-				}else if(dir==3){
-					p.Control(null,Direction.LEFT);
-				}else if(dir==4){
-					p.Control(null,Direction.RIGHT);
-				}
-				break;
-			case 3:
-				return false;
-		}*/
-		
+				
 		Map newMap= new Map();
 		newMap.CreateMap(4,6);
 		return false;
