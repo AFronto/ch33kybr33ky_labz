@@ -10,33 +10,30 @@ public class Player extends Moveable {
 
 	/**
 	 * Konstruktor
+	 * @param s - A letrejovo Player toloereje.
 	 */
 	public Player(int s) {
 		super();
-		// //printOnConstruct("Player");
-
+		//Nullla ponttal indul mindenki
 		score = 0;
+		//Annyi erovel, amennyit megadunk
 		strength = s;
 
-		// //printOnExitConstuctor("Player");
 	}
 
 	/**
 	 * Egyet ad a Player pontjaihoz
 	 */
 	public void AddScore() {
-		//printOnEntry(this, "AddScore");
-
 		score++;
 		UpdateScore(this);
-
-		//printOnExit(this, "AddScore", null);
 	}
 
+	/**
+	 * Visszaadja a Player pontjait
+	 * @return Az adott jatekos pontszama.
+	 */
 	public int GetScore() {
-		// //printOnEntry(this, "GetScore");
-		// //printOnExit(this, "GetScore", score + "");
-
 		return score;
 	}
 
@@ -52,7 +49,6 @@ public class Player extends Moveable {
 	 * @throws Exception 
 	 */
 	public boolean Control(Player m, Direction d, int f) throws Exception {
-		////printOnEntry(this, "Control", m + "", d + "");
 		SequenceCheck(this);
 		PushPos(myField,d);
 
@@ -60,8 +56,10 @@ public class Player extends Moveable {
 		Field myNeighbour;
 		myNeighbour = this.GetmyField().GetNeighbour(d);
 		if (m == null) {
+			//A szomszedra hivjuk a step fuggvenyt, tehat lepesi szandekot kezdemenyezunk
 			canGo = myNeighbour.Step(this, d, this.strength);
 			if (canGo) {
+				//Ha sikerult leszedjuk a jelenlegi helyrol és atteszuk a szomszedra
 				myField.Remove();
 				myNeighbour.Register(this);
 				myNeighbour.FieldAction();
@@ -79,8 +77,8 @@ public class Player extends Moveable {
 				myNeighbour.FieldAction();
 			}
 		}
-		////printOnExit(this, "Control", canGo + "");
 		CheckPos(this,d);
+		//Visszateres
 		return canGo;
 	}
 
@@ -88,12 +86,9 @@ public class Player extends Moveable {
 	 * Torli a jatekos pontjait es elkezdi kivenni a jatekbol.
 	 */
 	public void DeadScore() {
-		// //printOnEntry(this, "DeadScore");
-
+		//-1 lesz a Player pontja ha meghal
 		score = -1;
 		UpdateScore(this);
-
-		// //printOnExit(this, "DeadScore", null);
 	}
 
 	/**
@@ -103,12 +98,8 @@ public class Player extends Moveable {
 	 * @return Igazzal ter vissza mert a Player ossze nyomhato.
 	 */
 	public boolean Kill() {
-		// //printOnEntry(this, "Kill");
-
 		Die();
 		myField.Remove();
-
-		// //printOnExit(this, "Kill", true + "");
 		return true;
 	}
 
@@ -116,22 +107,16 @@ public class Player extends Moveable {
 	 * Ez az a fuggveny ami megnyomja a gombot amikor a jatekos ralep.
 	 */
 	public void Press() {
-		//printOnEntry(this, "Press");
-
+		//Mivel jatekos nem tudja aktivalni ezert mindig false-al hivodik meg
 		myField.Activate(false);
-
-		//printOnExit(this, "Press", null);
-
 	}
 
 	/**
-	 * null-t add vissza, mert csak a boxoknal szamit, hogy ki erintette meg
+	 * Megadja, hogy ki erintette meg utoljara.
+	 * @return null-t add vissza, mert csak a boxoknal szamit, hogy ki erintette meg
 	 * utoljara.
 	 */
 	public Player GetLastTouchedMe() {
-		// //printOnEntry(this, "GetLastTouchedMe");
-		// //printOnExit(this, "GetLastTouchedMe", null + "");
-
 		return null;
 	}
 
@@ -139,23 +124,26 @@ public class Player extends Moveable {
 	 * A player mikor meghal ki esik a jatekbol ezt kezeli le ez a fuggveny.
 	 */
 	public void Die() {
-		// //printOnEntry(this, "Die");
-
+		//Visszaalitja a pontjait
 		DeadScore();
-
-		// //printOnExit(this, "Die", null);
 	}
-
+	
+	/**
+	 * Visszaadja az adott Player erejet.
+	 * @return Az adott Player toloereje.
+	 */
 	public int getStrength() {
 		return strength;
 	}
 
+	/**
+	 * Megvaltoztatja az adott Field surlodasat.
+	 */
 	public void changeFriction() {
 		myField.SetFriction();
 	}
 
-	////////////////////////////////////////////////////////////// SKELETON
-	////////////////////////////////////////////////////////////// FUGGVENYEK/////////////////////////////////////////
+	
 	@Override
 	public String toString() {
 		return "Player";

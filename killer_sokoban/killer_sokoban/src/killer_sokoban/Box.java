@@ -13,18 +13,14 @@ public class Box extends Moveable {
 	 */
 	public Box() {
 		super();
-		// //printOnConstruct("Box");
-		CountBoxes(1);
-		stuck = false;
-		// //printOnExitConstuctor("Box");
+		CountBoxes(1); //Egyel noveli a Box szamlalot
+		stuck = false; //Alapbol nincs beszorulva
 	}
 
 	/**
 	 * Visszadja ki mozgatta meg a dobozt.
 	 */
 	public Player GetLastTouchedMe() {
-		//printOnEntry(this, "GetLastTouchedMe");
-		//printOnExit(this, "GetLastTouchedMe", lastTouchedMe + "");
 		return lastTouchedMe;
 	}
 
@@ -40,7 +36,6 @@ public class Box extends Moveable {
 	 * @throws Exception
 	 */
 	public boolean Control(Player p, Direction d, int f) throws Exception {
-		////printOnEntry(this, "Control", p + "", d + "");
 
 		SequenceCheck(this);
 		PushPos(myField,d);
@@ -51,9 +46,11 @@ public class Box extends Moveable {
 			System.out.println("Valami nem jo ba$tya");
 		}
 		if (p != null) {
+			//A szomszedra hivjuk a step fuggvenyt, tehat lepesi szandekot kezdemenyezunk
 			Field myNeighbour = this.GetmyField().GetNeighbour(d);
 			canGo = myNeighbour.Step(p, d, f);
 			if (canGo) {
+				//Ha sikerult leszedjuk a jelenlegi helyrol és atteszuk a szomszedra
 				myField.Remove();
 				myNeighbour.Register(this);
 				myNeighbour.FieldAction();
@@ -65,7 +62,7 @@ public class Box extends Moveable {
 					//just for the interpreter
 					boolean died = myNeighbour.GetmyMoveable().Kill();
 					if (died) { // Ha sikerult megolni..
-						playerDiedInterpret(actm);
+						moveableDestroyed(actm);
 						myField.Remove();
 						myNeighbour.Register(this);
 						myNeighbour.FieldAction();
@@ -76,7 +73,8 @@ public class Box extends Moveable {
 		}
 
 		CheckPos(this,d);
-
+		
+		//vegso visszateresi ertek
 		return canGo;
 	}
 
@@ -104,8 +102,6 @@ public class Box extends Moveable {
 	 * @return Hamissal ter vissza mert a doboz nem hal meg.
 	 */
 	public boolean Kill() {
-		//printOnEntry(this, "Kill");
-		//printOnExit(this, "Kill", false + "");
 		return false;
 	}
 
@@ -113,20 +109,14 @@ public class Box extends Moveable {
 	 * Doboz megnyomja a gombot.
 	 */
 	public void Press() {
-
-		//printOnEntry(this, "Press");
 		myField.Activate(true);
-		//printOnExit(this, "Press", null);
-
 	}
 
 	/**
 	 * Eltunteti a dobozt
 	 */
 	public void Die() {
-		// //printOnEntry(this, "Die");
 		CountBoxes(-1);
-		// //printOnExit(this, "Die", null);
 	}
 
 	////////////////////////////////////////////////////////////// SKELETON

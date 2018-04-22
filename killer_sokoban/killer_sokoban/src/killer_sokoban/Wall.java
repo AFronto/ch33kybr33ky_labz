@@ -9,21 +9,19 @@ public class Wall extends Box{
 	 *Konstruktor
 	 */
 	public Wall(){
-		super();
-		//printOnConstruct("Wall");
-		//printOnExitConstuctor("Wall");
+		super();		
 	}
 	
 	/**
 	 *Mindig false-t ad vissza, igy nem lehet rajta atmenni es nem lehet eltolni se.
-	 *
+	 *@param p - A mozgast kezdemenyezo jatekos.
+	 *@param d - A mozgas iranya.
+	 *@param f - A toloero.
 	 *@return Mindig false.
 	 */
-	public boolean Control(Player p, Direction d, int f)throws Exception{
-		//printOnEntry(this,"Control",p+"",d+"");
+	public boolean Control(Player p, Direction d, int f)throws Exception{		
 		SequenceCheck(this);
-		boolean canGo = false;
-		//printOnExit(this,"Control",canGo+"");
+		boolean canGo = false;		
 		return canGo;
 	}
 	
@@ -32,13 +30,10 @@ public class Wall extends Box{
 	 *
 	 * @return Fixen true, mivel a fal nem tud mozogni.
 	 */
-	public boolean IsStuck(){
-		//printOnEntry(this,"IsStuck");
-		//printOnExit(this,"IsStuck","true");
+	public boolean IsStuck(){		
 		return true;
 	}
-
-	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
+	
 	@Override
 	public String toString(){
 		return "Wall";

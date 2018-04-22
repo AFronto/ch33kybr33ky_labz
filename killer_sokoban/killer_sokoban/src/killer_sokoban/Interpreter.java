@@ -308,7 +308,7 @@ public class Interpreter {
 		}
 	}
 
-	public static void playerDiedInterpret(Moveable p){
-		System.out.println(getMoveableName(p)+" died");
+	public static void moveableDestroyed(Moveable p){
+		System.out.println(getMoveableName(p)+" has been destroyed");
 	}
 }

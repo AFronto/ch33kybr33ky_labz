@@ -19,23 +19,49 @@ public abstract class Moveable {
 	public void SetStuck(){}
 
 	/**
-	 * 
+	 * Egy lepest valosit meg egy Moveablebol leszarmaztatott objektumon. Itt nem tortenik semmi.
+	 * @param p - A jatekos aki kezdemenyezte a lepest.
+	 * @param d - Az irany amerre a mozgas toretnik.
+	 * @param f - Az ero, amivel a mozgast kezdemenyezo Moveable rendelkezik meg.
 	 */
 	public boolean Control(Player p, Direction d,int f) throws Exception{
 		return true; 
 	}
 	
+	/**
+	 * Visszater a Moveablet tartalmazo Fielddel.
+	 * @param A Moveable-t tartalmazo Field.
+	 */
 	public Field GetmyField() {	
 		return myField;		
 	}
 	
+	/**
+	 * Beallitja a Moveable-t tartalmazo Fieldet.
+	 * @param f A Field ami tartalmazza a Moveablet.
+	 */
 	public void SetmyField(Field f) {	
 		myField = f;		
 	}
 	
+	/**
+	 * Kezdemenyezi a Moveable leszarmazottjanak "halalat" es eltunteteset elokeszito fuggveny.
+	 */
 	public abstract boolean Kill();
+	
+	/**
+	 * Egy Moveable leszarmazott gombnyomasat valositja meg. Absztrakt fuggveny.
+	 */
 	public abstract void Press();
+	
+	/**
+	 * Egy Moveable leszarmazottat utoljara megerinto Playerrel ter vissza. Absztrakt fuggveny.
+	 */
 	public abstract Player GetLastTouchedMe();
+	
+	/**
+	 * Az adott Moveable megolese. Absztrakt fuggveny.
+	 */
 	public abstract void Die();
 	
 }
