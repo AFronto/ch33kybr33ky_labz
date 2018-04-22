@@ -304,7 +304,7 @@ public class Interpreter {
 		if(oP.equals(m.GetmyField().GetNeighbour(d.Opposite()))){         										//Megnezem hogy valoban megtortent-e a lepes.
 			System.out.println(getMoveableName(m)+" has been moved to "+getFieldName(m.GetmyField())+".");																													//mozgatassal ellenkezo iranybeli szomszeddal akkor sikeres
 		}else if(oP.equals(m.GetmyField())){																	//Ha az eredeti pozicio megegyezik az uj pozicio
-			System.out.println(getMoveableName(m)+" can not moved to "+getFieldName(m.GetmyField())+".");
+			System.out.println(getMoveableName(m)+" can not be moved to "+getFieldName(m.GetmyField().GetNeighbour(d))+".");
 		}
 	}
 }
