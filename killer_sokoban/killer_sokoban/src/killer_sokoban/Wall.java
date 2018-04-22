@@ -20,10 +20,10 @@ public class Wall extends Box{
 	 *@return Mindig false.
 	 */
 	public boolean Control(Player p, Direction d, int f)throws Exception{
-		printOnEntry(this,"Control",p+"",d+"");
+		//printOnEntry(this,"Control",p+"",d+"");
 		SequenceCheck(this);
 		boolean canGo = false;
-		printOnExit(this,"Control",canGo+"");
+		//printOnExit(this,"Control",canGo+"");
 		return canGo;
 	}
 	

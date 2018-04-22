@@ -77,8 +77,8 @@ public class Game {
 	 *Jatek vege
 	 */
 	public static void EndGame(){
-		//printOnEntry(game,"EndGame");
-	//	printOnExit(game,"EndGame",null);
+		////printOnEntry(game,"EndGame");
+	//	//printOnExit(game,"EndGame",null);
 	}
 	
 	/**
@@ -88,7 +88,7 @@ public class Game {
 	 *@param p A jatekos akinek epp updateli a pontjait
 	 */
 	public static void UpdateScore(Player p){
-	//	printOnEntry(game,"UpdateScore",p+"");
+	//	//printOnEntry(game,"UpdateScore",p+"");
 		
 		int score = p.GetScore();
 		if(score == -1)
@@ -97,18 +97,18 @@ public class Game {
 		if(players <= 1)
 			EndGame();
 		
-	//	printOnExit(game,"UpdateScore",null);
+	//	//printOnExit(game,"UpdateScore",null);
 	}
 	
 	/**
 	 *Boxokat tartja szamon
 	 */
 	public static void CountBoxes(int add){
-	//	printOnEntry(game,"CountBoxes",""+add);
+	//	//printOnEntry(game,"CountBoxes",""+add);
 		boxes+=add;
 		if(boxes == 0)
 			EndGame();
-	//	printOnExit(game,"CountBoxes",null);
+	//	//printOnExit(game,"CountBoxes",null);
 	}
 	
 	public static void setBoxNum(int i){

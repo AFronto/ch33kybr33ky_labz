@@ -8,8 +8,8 @@ public class Hole extends Field {
 	 */
 	public Hole(){
 		super();
-	//	printOnConstruct("Hole");
-	//	printOnExitConstuctor("Hole");
+	//	//printOnConstruct("Hole");
+	//	//printOnExitConstuctor("Hole");
 	}
 
 
@@ -18,11 +18,11 @@ public class Hole extends Field {
 	 */
 	public void FieldAction()
 	{
-	//	printOnEntry(this, "FieldAction");
+	//	//printOnEntry(this, "FieldAction");
 		myMoveable.Die();
 		this.Remove();
 		System.out.println("Hole has killed a Moveable.");
-	//	printOnExit(this, "FieldAction", null);
+	//	//printOnExit(this, "FieldAction", null);
 
 	}
 

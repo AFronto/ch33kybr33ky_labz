@@ -33,11 +33,11 @@ public class Button extends Field{
 	 * @param b Megadja hogy aktivalja-e a gombot ami majd a trapdoort.
 	 */
 	public void Activate(boolean b){
-		printOnEntry(this, "Activate", b+"");
+		//printOnEntry(this, "Activate", b+"");
 		
 		myTrap.SetActive(b);
 		
-		printOnExit(this, "Activate", null);		
+		//printOnExit(this, "Activate", null);		
 	}
 	
 	/**
@@ -45,11 +45,11 @@ public class Button extends Field{
 	 * ha box akkor ez aktivalashoz vezet ha player akkor nem.
 	 */
 	public void FieldAction(){
-		printOnEntry(this, "FieldAction");
+		//printOnEntry(this, "FieldAction");
 		
 		myMoveable.Press();
 		
-		printOnExit(this, "Activate", null);
+		//printOnExit(this, "Activate", null);
 	}
 
 	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////

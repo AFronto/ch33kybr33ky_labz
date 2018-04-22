@@ -171,6 +171,7 @@ public class Map {
    		fields[nY][nX].FieldAction();
 
         double boxChance=0.05;
+        int myBcounter=5;                                                                       ///Igy max 6 doboz lehet
 
         for (int y = 0; y < height; y++)														///veletlen szeruen lerak dobozokat
         {	
@@ -184,9 +185,18 @@ public class Map {
             				b.SetmyField(fields[y][x]);
             				fields[y][x].Register(b);
             				fields[y][x].FieldAction();
+
+                            myBcounter--;
+                            if(myBcounter==0){
+                                break;
+                            }
             			}
             		}
             	}
+            }
+
+            if(myBcounter==0){
+                break;
             }
         }
 
