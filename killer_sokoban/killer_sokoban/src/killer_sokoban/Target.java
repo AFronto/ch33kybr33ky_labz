@@ -4,7 +4,7 @@ import static killer_sokoban.Game.*;
 public class Target extends Field{
 	
 	/**
-	 *Konstruktor
+	 *Konstruktor, meghivja az os konstruktorat, es a rajta levo Moveable-t null-ra allitja.
 	 */
 	public Target(){
 		super();		
@@ -12,7 +12,7 @@ public class Target extends Field{
 	}
 
 	/**
-	 * Ha dobozt tolnak ra le kerdezi ki tolta ad neki egy pontot es a dobozt eltunteti 
+	 * Ha dobozt tolnak ra le kerdezi ki tolta, ad neki egy pontot es a dobozt eltunteti.
 	 */
 	public void FieldAction(){		
 		Player p = myMoveable.GetLastTouchedMe();

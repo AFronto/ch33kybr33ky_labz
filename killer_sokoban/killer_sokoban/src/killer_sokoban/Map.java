@@ -248,6 +248,7 @@ public class Map {
 	 * 
 	 * @param i Az i index a 2d tombben 
 	 * @param j A j index a 2d tombben
+	 * @return A map matrixanak i,j-edik elemevel ter vissza - ez egy Field tipusu objektum egyebkent.
 	 */
 	public Field GetByIndex(int i, int j)
 	{
@@ -255,21 +256,21 @@ public class Map {
 	}
 	
 	/**
-	 * Vissaza adja a szelesseget
+	 * Vissaza adja a terkep szelesseget.
 	 *
 	 * @return width 
 	 */
 	public int GetWidth() { return width; }
 	
 	/**
-	 * Vissaza adja a magassagot
+	 * Vissaza adja a terkep magassagat.
 	 *
 	 * @return height
 	 */
 	public int GetHeight() { return height; }
 
 	/**
-	 * DFS segitsegeve rekurzivan le generalja a palya alapjait 
+	 * DFS segitsegeve rekurzivan legeneralja a palya alapjait 
 	 */
 	public void generateMazeBase()		
     {
