@@ -162,13 +162,9 @@ public class Field {
 	 * @param b Megadja hogy aktivalja-e a Buttont ami majd a TrapDoort.
 	 */
 	public void Activate(boolean b) {}
-
-
-	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
+	
 	@Override
 	public String toString(){
 		return "Field";
 	}
-	
-
 }

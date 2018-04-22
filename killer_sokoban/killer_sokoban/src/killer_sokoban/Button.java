@@ -11,27 +11,23 @@ public class Button extends Field{
 	*/
 	public Button(){
 		super();
-		//printOnConstruct("Button");
-		//printOnExitConstuctor("Button");
+		
 	}
 	
 	/**
 	 * Visszater a buttonhoz csatolt TrapDoor-ral.
+	 * @return A gombhoz rendelt TrapDoor.
 	 */
-	public TrapDoor GetmyTrap() {
-		//printOnEntry(this, "GetmyTrap");
-		//printOnExit(this, "GetmyTrap", myTrap+"");
-		return myTrap;
-	}
+	public TrapDoor GetmyTrap() {		
+		return myTrap;	
+		}
 	
 	/**
 	 * Hozzacsatol a buttonhoz egy TrapDoort.
 	 * @param t - a buttonhoz csatolando TrapDoor.
 	 */
-	public void SetmyTrap(TrapDoor t) {
-		//printOnEntry(this, "SetmyTrap", t+"");
-		myTrap = t;
-		//printOnExit(this, "SetmyTrap", null);
+	public void SetmyTrap(TrapDoor t) {		
+		myTrap = t;		
 	}
 	
 	/**
@@ -39,27 +35,20 @@ public class Button extends Field{
 	 * 
 	 * @param b Megadja hogy aktivalja-e a gombot ami majd a trapdoort.
 	 */
-	public void Activate(boolean b){
-		//printOnEntry(this, "Activate", b+"");
+	public void Activate(boolean b){		
+		myTrap.SetActive(b);		
 		
-		myTrap.SetActive(b);
-		
-		//printOnExit(this, "Activate", null);		
 	}
 	
 	/**
-	 * A raallo Moveble megnyomasert felelos fuggvenyet fogja hivni,
+	 * A raallo Moveable megnyomasert felelos fuggvenyet fogja hivni,
 	 * ha box akkor ez aktivalashoz vezet ha player akkor nem.
 	 */
-	public void FieldAction(){
-		//printOnEntry(this, "FieldAction");
-		
-		myMoveable.Press();
-		
-		//printOnExit(this, "Activate", null);
+	public void FieldAction(){			
+		myMoveable.Press();		
 	}
 
-	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
+	
 	@Override
 	public String toString(){
 		return "Button";
