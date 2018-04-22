@@ -27,13 +27,11 @@ public class Box extends Moveable {
 	/**
 	 * Ezzel a fuggvennyel kezeljuk le a doboz mozgatasat.
 	 *
-	 * @param p
-	 *            A player aki a mozgast inditotta.
-	 * @param d
-	 *            Az irany amibe a doboz mozdul.
-	 * @return Igaz hamis ertekkel ter vissza attol fuggoen hogy sikeresen
-	 *         mozgott e.
-	 * @throws Exception
+	 * @param p   A player aki a mozgast inditotta.
+	 * @param d   Az irany amibe a doboz mozdul.
+	 * @return 	  Igaz hamis ertekkel ter vissza attol fuggoen hogy sikeresen
+	 *        	  mozgott e.
+	 * @throws    Ez az Exception azert felel ha rossz volna a sorrend vagy mert elfogy az ero.
 	 */
 	public boolean Control(Player p, Direction d, int f) throws Exception {
 
@@ -43,19 +41,19 @@ public class Box extends Moveable {
 		boolean canGo = false;
 		lastTouchedMe = p;
 		if (p == null) { // Ez elvileg nem lehet nulla, de ki tudja
-			System.out.println("Valami nem jo ba$tya");
+			System.out.println("Invalid movement from the box");
 		}
 		if (p != null) {
 			//A szomszedra hivjuk a step fuggvenyt, tehat lepesi szandekot kezdemenyezunk
 			Field myNeighbour = this.GetmyField().GetNeighbour(d);
 			canGo = myNeighbour.Step(p, d, f);
 			if (canGo) {
-				//Ha sikerult leszedjuk a jelenlegi helyrol és atteszuk a szomszedra
+				//Ha sikerult leszedjuk a jelenlegi helyrol atteszuk a szomszedra es lefut a mezo akcioja
 				myField.Remove();
 				myNeighbour.Register(this);
 				myNeighbour.FieldAction();
 			} else { // Megnezzuk, hogy player van-e ott, ha igen, akkor
-						// megoljuk
+					 // megoljuk
 				if (myNeighbour.GetmyMoveable() != null) { 
 					//just for the interpreter
 					Moveable actm = myNeighbour.GetmyMoveable();
@@ -89,6 +87,7 @@ public class Box extends Moveable {
 
 	/**
 	 * Beallitja, hogy be van-e szorulva a doboz.
+	 * Amikor a doboz beszorul akkor kivonjuk az osszes dobozok szamabol.
 	 */
 	public void SetStuck() {
 		stuck = true;
@@ -119,8 +118,7 @@ public class Box extends Moveable {
 		CountBoxes(-1);
 	}
 
-	////////////////////////////////////////////////////////////// SKELETON
-	////////////////////////////////////////////////////////////// FUGGVENYEK/////////////////////////////////////////
+
 	@Override
 	public String toString() {
 		return "Box";
