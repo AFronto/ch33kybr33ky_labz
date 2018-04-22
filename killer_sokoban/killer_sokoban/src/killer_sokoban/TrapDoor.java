@@ -1,14 +1,16 @@
 package killer_sokoban;
 import static killer_sokoban.Game.*;
+import static killer_sokoban.Interpreter.*;
 
 public class TrapDoor extends Hole{
 
 	private boolean isActive;
 	
+	/**
+	 * Konstruktor.
+	 */
 	public TrapDoor(){
-		super();
-		//printOnConstruct("TrapDoor");
-		//printOnExitConstuctor("TrapDoor");
+		super();		
 	}
 	
 	/**
@@ -16,34 +18,27 @@ public class TrapDoor extends Hole{
 	 *
 	 * @param b isActive valtozo erteke erre allitodik.
 	 */
-	public void SetActive(boolean b){
-		//printOnEntry(this, "SetActive", b+"");
+	public void SetActive(boolean b){		
 		isActive = b;
 		if (isActive) {
 			FieldAction();
-		}
-		//printOnExit(this, "SetActive", null);
+		}		
 	}
 	
 
 	/**
-	 * Ha Aktiv akkor ugy viselkedik mint egy hole.
+	 * Ha Aktiv akkor ugy viselkedik mint egy Hole.
 	 * Ha nem akkor olyan mint egy sima Field. 
 	 */
-	public void FieldAction(){
-		//printOnEntry(this, "FieldAction");
-
+	public void FieldAction(){		
 		if(isActive && myMoveable != null)
 		{
+			moveableDestroyed(myMoveable);
 			myMoveable.Die();
 			this.Remove();
-		}
-		
-		//printOnExit(this, "FieldAction", null);
-		
+		}		
 	}
-
-	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
+	
 	@Override
 	public String toString(){
 		return "TrapDoor";

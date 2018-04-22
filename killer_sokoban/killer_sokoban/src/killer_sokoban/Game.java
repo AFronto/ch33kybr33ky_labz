@@ -21,6 +21,7 @@ public class Game {
 	
 	/**
 	 * A legerosebb jatekos toloerejevel ter vissza.
+	 * @return A maximalis toloero a jatek jelenlegi allasaban.
 	 */
 	public int GetMaxStrength() { return maxStrength; }
 	
@@ -104,6 +105,7 @@ public class Game {
 	
 	/**
 	 *Boxokat tartja szamon
+	 *@param add - Amennyivel novelni kell a szamontartott dobozok szamat.
 	 */
 	public static void CountBoxes(int add){
 	
@@ -122,6 +124,14 @@ public class Game {
 	}
 	
 
+	/**
+	 * Megnezi, hogy strength max erovel tekintve van-e beszorult doboz-blokk
+	 * 
+	 * @param strength A max tolhato dobozok szama
+	 */
+	public void CheckForInvalidShape()
+	{
+	}
 	
 
 ////////////////////////////////////////////////Skeleton fuggvenyek///////////////////////////////////////////////////////////////////////

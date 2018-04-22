@@ -10,12 +10,13 @@ public class Player extends Moveable {
 
 	/**
 	 * Konstruktor
+	 * @param s - A letrejovo Player toloereje.
 	 */
 	public Player(int s) {
 		super();
 		//Nullla ponttal indul mindenki
 		score = 0;
-		//Annyi erõvel, amennyit megadunk
+		//Annyi erovel, amennyit megadunk
 		strength = s;
 
 	}
@@ -30,6 +31,7 @@ public class Player extends Moveable {
 
 	/**
 	 * Visszaadja a Player pontjait
+	 * @return Az adott jatekos pontszama.
 	 */
 	public int GetScore() {
 		return score;
@@ -110,7 +112,8 @@ public class Player extends Moveable {
 	}
 
 	/**
-	 * null-t add vissza, mert csak a boxoknal szamit, hogy ki erintette meg
+	 * Megadja, hogy ki erintette meg utoljara.
+	 * @return null-t add vissza, mert csak a boxoknal szamit, hogy ki erintette meg
 	 * utoljara.
 	 */
 	public Player GetLastTouchedMe() {
@@ -126,21 +129,21 @@ public class Player extends Moveable {
 	}
 	
 	/**
-	 * Visszaadja az adott Player erejet
+	 * Visszaadja az adott Player erejet.
+	 * @return Az adott Player toloereje.
 	 */
 	public int getStrength() {
 		return strength;
 	}
 
 	/**
-	 * Megvaltoztatja az adott Field surlodasat
+	 * Megvaltoztatja az adott Field surlodasat.
 	 */
 	public void changeFriction() {
 		myField.SetFriction();
 	}
 
-	////////////////////////////////////////////////////////////// SKELETON
-	////////////////////////////////////////////////////////////// FUGGVENYEK/////////////////////////////////////////
+	
 	@Override
 	public String toString() {
 		return "Player";

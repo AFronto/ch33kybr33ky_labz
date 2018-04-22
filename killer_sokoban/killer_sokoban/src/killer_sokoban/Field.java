@@ -46,6 +46,7 @@ public class Field {
 	
 	/**
 	 * Visszater a Field altal tarolt Moveable-lel.
+	 * @return Az altala tarolt Moveable.
 	 */
 	public Moveable GetmyMoveable(){
 		
@@ -75,6 +76,7 @@ public class Field {
 	
 	/**
 	 * Visszater a Field surlodasaval.
+	 * @return A surlodasa.
 	 */
 	public int GetFriction(){
 		return friction;
@@ -88,8 +90,7 @@ public class Field {
 	 * @return Rekurzivan megkeresi es visszadja,hogy vegul tudunk e lepni
 	 * @throws Exception 
 	 */
-	public boolean Step(Player p, Direction d,int f) throws Exception{
-		//printOnEntry(this,"Step",p+"",d+"");
+	public boolean Step(Player p, Direction d,int f) throws Exception{		
 		boolean canGo=false;
 		
 
@@ -100,15 +101,11 @@ public class Field {
 				//System.out.println("Elfogyott az ero");  // Elfogyott az ero, nem tudjuk eltolni ami itt van.
 				//return false;
 				
-			}
-			//System.out.println("Current force: "+f);
+			}			
 			canGo = myMoveable.Control(p, d, f-friction);  // Csokkentjuk az erot, a foldon levo anyagnak megfeleloen.
 		}else{
 			return true;		//Ures a mezo, lehet jonni.
-		}
-		
-
-	//	//printOnExit(this,"Step",canGo+"");
+		}	
 		return canGo;  
 	}
 	
@@ -117,34 +114,28 @@ public class Field {
 	 *
 	 * @param m A bejegyzendo Movable
 	 */
-	public void Register(Moveable m){
-		////printOnEntry(this,"Register",m+"");
+	public void Register(Moveable m){		
 		myMoveable = m;
 		if(m!=null){
 			m.SetmyField(this);
-		}
-		////printOnExit(this,"Register",null);
+		}		
 	}
 
 	/**
 	 * Eltavolitja a Movablet a mezorol
 	 */
-	public void  Remove(){  	        
-	//	//printOnEntry(this,"Remove"); 	
-		myMoveable = null;
-	//	//printOnExit(this,"Remove",null);
+	public void  Remove(){      
+	 	
+		myMoveable = null;	
 	}
 	
 
 	/**
 	 *Az adott fieldre jellemzo akcio
 	 */
-	public void FieldAction(){
-		//printOnEntry(this, "FieldAction");
-		EnumMap<Direction, Boolean> stuckDirs=new EnumMap<Direction, Boolean>(Direction.class);
-		//System.out.println("Numeber of neighbours:" +neighbours.values().size());
-		for(Direction d: neighbours.keySet()){
-			//System.out.println("Field Action : "+this.GetNeighbour(d));
+	public void FieldAction(){		
+		EnumMap<Direction, Boolean> stuckDirs=new EnumMap<Direction, Boolean>(Direction.class);		
+		for(Direction d: neighbours.keySet()){			
 			if(this.GetNeighbour(d)!=null){
 				if(this.GetNeighbour(d).GetmyMoveable()!=null){
 					stuckDirs.put(d,this.GetNeighbour(d).GetmyMoveable().IsStuck());
@@ -162,8 +153,7 @@ public class Field {
 			GetmyMoveable().SetStuck();
 		}
 
-		///checkForInvalidShape();
-		//printOnExit(this, "FieldAction", null);
+		
 	}
 	
 	/**

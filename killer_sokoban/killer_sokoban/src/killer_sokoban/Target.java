@@ -7,17 +7,14 @@ public class Target extends Field{
 	 *Konstruktor
 	 */
 	public Target(){
-		super();
-		//printOnConstruct("Target");
-		myMoveable = null;
-		//printOnExitConstuctor("Target");
+		super();		
+		myMoveable = null;		
 	}
 
 	/**
 	 * Ha dobozt tolnak ra le kerdezi ki tolta ad neki egy pontot es a dobozt eltunteti 
 	 */
-	public void FieldAction(){
-		//printOnEntry(this,"FieldAction");
+	public void FieldAction(){		
 		Player p = myMoveable.GetLastTouchedMe();
 		if (p != null){
 			myMoveable.Die();
@@ -25,15 +22,8 @@ public class Target extends Field{
 			p.AddScore();
 			System.out.println("Player scored!");
 		}
-		//printOnExit(this,"FieldAction",null);
-
-	}
-	public boolean Step(Player p, Direction d,int f){
-		return true;
 	}
 
-
-	//////////////////////////////////////////////////////////////SKELETON FUGGVENYEK/////////////////////////////////////////
 	@Override
 	public String toString(){
 		return "Target";
