@@ -37,19 +37,20 @@ public class Interpreter {
 	Interpreter() {
 	}
 	
+	/**
+	 * Interpreter inditasa.
+	 */
 	public static void Run() {
-		/**
-		 * enterrel elvalasztva a parancsokat nezik
-		 */
+		
+		 // enterrel elvalasztva a parancsokat nezik		 
 		System.out.print(">>> ");
 		Scanner sc = new Scanner(System.in);
 		while(sc.hasNextLine()) {
 			String command = sc.nextLine();
 			parts = new ArrayList<String>(Arrays.asList(command.split(" ")));
 			
-			/**
-			 * ha tobb eleme van mint 5 akkor kuka, amugy eldontjuk mit akarunk vele kezdeni
-			 */
+			
+			//ha tobb eleme van mint 5 akkor kuka, amugy eldontjuk mit akarunk vele kezdeni			 
 			if (parts.size() > 5) {
 				System.out.println("Tul sok parameter");
 			} else {
@@ -59,6 +60,10 @@ public class Interpreter {
 		}
 	}
 	
+	/**
+	 * Script beolvasasa filebol.
+	 * @param file - A file amibol olvasunk.
+	 */
 	public static void Read(File file) throws FileNotFoundException, IOException {
 		try(BufferedReader br = new BufferedReader(new FileReader(file))) {
 		    String line = br.readLine();
@@ -72,9 +77,10 @@ public class Interpreter {
 		    }
 		}
 	}
-
+		  
 	/**
-	 * a megfelelo cucliba kerul es ott elvileg az tortenik vele ami kell
+	 * Parancsertelmezes.
+	 * @param p - A parancs szavankent szetszedve egy ArrayList<String>-be.
 	 */
 	public static void Decide(ArrayList<String> p) {
 		switch (p.get(0)) {
@@ -260,8 +266,10 @@ public class Interpreter {
 		}
 	}
 	
-	/*
+	/**
 	 * Visszaadja a Moveable nevet az interpreterben hasznalt a HashMapbol.
+	 * @param m - A Moveable aminek a nevet keressuk.
+	 * @return - A Moveable neve.
 	 */
 	public static String getMoveableName(Moveable m){
 		for(String key:moveables.keySet()){
@@ -271,8 +279,11 @@ public class Interpreter {
 		}
 		return null;
 	}
-	/*
+	
+	/**
 	 * Visszaadja a Field nevet az interpreterben hasznalt a HashMapbol.
+	 * @param m - A Field aminek a nevet keresunk.
+	 * @return - A Field neve.
 	 */
 	public static String getFieldName(Field m){
 		for(String key:fields.keySet()){
@@ -282,7 +293,13 @@ public class Interpreter {
 		}
 		return null;
 	}
-
+	
+	
+	/**
+	 * Ellenorzi, hogy megfelelo sorrenben megy-e vegbe a mozgas.
+	 * @param m - A soron kovetkezo Moveable.
+	 * @throws Exception.
+	 */
 	public static void SequenceCheck(Moveable m) throws Exception {
 		if(seq.size()>0){
 			Moveable act=seq.remove(0);
@@ -293,12 +310,22 @@ public class Interpreter {
 			throw new Exception("Hibas sorrendben hivodnak az elemek!");
 		}
 	}
-
+	
+	/**
+	 * Kimenti a Moveable poziciojat.
+	 * @param originalPos - jelenlegi pozicioja a Moveable-nek.
+	 * @param d - Lepes iranya.
+	 */
 	public static void PushPos(Field originalPos, Direction d){
 		System.out.println("Moving "+getMoveableName(originalPos.GetmyMoveable())+" "+d);
 		originalPositions.add(originalPos);
 	}
-
+	
+	/**
+	 * Ellenorzi, hogy egy lepes valoban megtortent-e.
+	 * @param originalPos - jelenlegi pozicioja a Moveable-nek.
+	 * @param d - Lepes iranya.
+	 */
 	public static void CheckPos(Moveable m, Direction d){
 		Field oP=originalPositions.remove(originalPositions.size()-1);
 		if(oP.equals(m.GetmyField().GetNeighbour(d.Opposite()))){         										//Megnezem hogy valoban megtortent-e a lepes.
@@ -307,7 +334,11 @@ public class Interpreter {
 			System.out.println(getMoveableName(m)+" can not be moved to "+getFieldName(m.GetmyField().GetNeighbour(d))+".");
 		}
 	}
-
+	
+	/**
+	 * Kiirja a megolt Moveable nevet.
+	 * @param p - A kiirando Moveable.
+	 */
 	public static void moveableDestroyed(Moveable p){
 		System.out.println(getMoveableName(p)+" has been destroyed");
 	}
