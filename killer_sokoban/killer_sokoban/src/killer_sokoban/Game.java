@@ -10,15 +10,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.xml.datatype.DatatypeConstants.Field;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JRadioButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-public class Game {
+public class Game implements ActionListener {
 	private static JFrame frame;
-	
+	//private static Game game;
 	private static int boxes;
-	private static int players;	
+	private static int players = 2;	
 	private int[] overallScore;
 	private Map active_map;
 	private int maxStrength;
@@ -78,20 +85,74 @@ public class Game {
 	}
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.getContentPane().setBackground(Color.ORANGE);
+		frame.setBackground(Color.ORANGE);
+		frame.setBounds(100, 100, 550, 550);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		Interpreter i = new Interpreter();
+
+		JPanel menuPanel = new JPanel();
+		menuPanel.setBackground(Color.YELLOW);
+		menuPanel.setBounds(0, 0, 534, 511);
+		frame.getContentPane().add(menuPanel);
+		menuPanel.setLayout(null);
 		
 		JButton newGameBtn = new JButton("New Game");
+		newGameBtn.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		newGameBtn.setBackground(Color.MAGENTA);
+		newGameBtn.setBounds(175, 5, 200, 50);
+		menuPanel.add(newGameBtn);
 		newGameBtn.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
-				i.Run();
+				NewGame(players);
+				menuPanel.setVisible(false);
 			}
 		});
-		frame.getContentPane().add(newGameBtn);
+		frame.getContentPane().setLayout(null);
+		
+
+		
+		
+		
+		JRadioButton radioButton_2 = new JRadioButton("2");
+		radioButton_2.setBackground(Color.MAGENTA);
+		radioButton_2.setBounds(222, 100, 35, 25);
+		menuPanel.add(radioButton_2);
+		radioButton_2.setActionCommand("2");
+		radioButton_2.setSelected(true);
+		
+		JRadioButton radioButton_3 = new JRadioButton("3");
+		radioButton_3.setBackground(Color.MAGENTA);
+		radioButton_3.setBounds(257, 100, 35, 25);
+		menuPanel.add(radioButton_3);
+		radioButton_3.setActionCommand("3");
+		
+		JRadioButton radioButton_4 = new JRadioButton("4");
+		radioButton_4.setBackground(Color.MAGENTA);
+		radioButton_4.setBounds(292, 100, 35, 25);
+		menuPanel.add(radioButton_4);
+		radioButton_4.setActionCommand("4");
+		
+
+		
+		ButtonGroup group = new ButtonGroup();
+		group.add(radioButton_2);
+		group.add(radioButton_3);
+		group.add(radioButton_4);
+		
+		JLabel lblNewLabel = new JLabel("Number of players\r\n");
+		lblNewLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 22));
+		lblNewLabel.setBounds(175, 70, 200, 23);
+		menuPanel.add(lblNewLabel);
+		
+		radioButton_2.addActionListener((ActionListener) this);
+		radioButton_3.addActionListener((ActionListener) this);
+		radioButton_4.addActionListener((ActionListener) this);
+				
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		players = Integer.parseInt(e.getActionCommand());
 	}
 
 	/**
@@ -150,6 +211,5 @@ public class Game {
 	public static void setBoxNum(int i){
 		boxes=i;
 	}
-		
 }
 
