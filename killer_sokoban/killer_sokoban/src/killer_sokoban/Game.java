@@ -4,13 +4,17 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.xml.datatype.DatatypeConstants.Field;
@@ -18,8 +22,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JRadioButton;
+import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.SystemColor;
 
 public class Game implements ActionListener {
 	private static JFrame frame;
@@ -87,27 +93,37 @@ public class Game implements ActionListener {
 
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.ORANGE);
-		frame.setBackground(Color.ORANGE);
+		frame.setBackground(Color.BLACK);
 		frame.setBounds(100, 100, 550, 550);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// JPanels
 		JPanel menuPanel = new JPanel();
-		menuPanel.setBackground(Color.YELLOW);
+		menuPanel.setBackground(SystemColor.info);
 		menuPanel.setBounds(0, 0, 534, 511);
 		frame.getContentPane().add(menuPanel);
 		menuPanel.setLayout(null);
 
 		JPanel optionsPanel = new JPanel();
 		optionsPanel.setLayout(null);
-		optionsPanel.setBackground(Color.YELLOW);
+		optionsPanel.setBackground(SystemColor.info);
 		optionsPanel.setBounds(0, 0, 534, 511);
 		frame.getContentPane().add(optionsPanel);
 		optionsPanel.setVisible(false);
 
-		JButton newGameBtn = new JButton("New Game");
-		newGameBtn.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		newGameBtn.setBackground(Color.MAGENTA);
+		/// JButtons
+		BufferedImage buttonIcon = null;
+		try {
+			buttonIcon = ImageIO.read(new File("buttonbg.png"));
+		} catch (IOException e1) {
+			System.out.println("bastya nem jo vmi: ");
+			e1.printStackTrace();
+		}
+		JButton newGameBtn = new JButton("New Game",(Icon) new ImageIcon(buttonIcon));
+		newGameBtn.setForeground(SystemColor.text);
+		newGameBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+		newGameBtn.setHorizontalTextPosition(JButton.CENTER);
+		newGameBtn.setVerticalTextPosition(JButton.CENTER);
 		newGameBtn.setBounds(175, 50, 200, 50);
 		menuPanel.add(newGameBtn);
 		newGameBtn.addActionListener(new ActionListener() {
@@ -117,42 +133,52 @@ public class Game implements ActionListener {
 				menuPanel.setVisible(false);
 			}
 		});
-		JButton backBtn = new JButton("Back");
+		
+		JButton backBtn = new JButton("Back",(Icon) new ImageIcon(buttonIcon));
+		backBtn.setForeground(SystemColor.text);
+		backBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
 		backBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				optionsPanel.setVisible(false);
 				menuPanel.setVisible(true);
 			}
 		});
-		backBtn.setBounds(222, 175, 105, 48);
+		backBtn.setHorizontalTextPosition(JButton.CENTER);
+		backBtn.setVerticalTextPosition(JButton.CENTER);
+		backBtn.setBounds(175, 175, 200, 50);
 		optionsPanel.add(backBtn);
 
-
-		JButton exitBtn = new JButton("Exit");
+		JButton exitBtn = new JButton("Exit",(Icon) new ImageIcon(buttonIcon));
+		exitBtn.setForeground(SystemColor.text);
 		exitBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-		exitBtn.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		exitBtn.setBackground(Color.MAGENTA);
+		exitBtn.setHorizontalTextPosition(JButton.CENTER);
+		exitBtn.setVerticalTextPosition(JButton.CENTER);
+		exitBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+		exitBtn.setBackground(SystemColor.activeCaptionBorder);
 		exitBtn.setBounds(175, 400, 200, 50);
 		menuPanel.add(exitBtn);
 
-		JButton optionsBtn = new JButton("Options");
+		JButton optionsBtn = new JButton("Options",(Icon) new ImageIcon(buttonIcon));
+		optionsBtn.setForeground(SystemColor.text);
 		optionsBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				menuPanel.setVisible(false);
 				optionsPanel.setVisible(true);
 			}
 		});
-		optionsBtn.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		optionsBtn.setBackground(Color.MAGENTA);
+		optionsBtn.setHorizontalTextPosition(JButton.CENTER);
+		optionsBtn.setVerticalTextPosition(JButton.CENTER);
+		optionsBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+		optionsBtn.setBackground(SystemColor.activeCaptionBorder);
 		optionsBtn.setBounds(175, 150, 200, 50);
 		menuPanel.add(optionsBtn);
 		///
-		
-		///JLabels
+
+		/// JLabels
 		JLabel lblNewLabel = new JLabel("Number of players\r\n");
 		lblNewLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 22));
 		lblNewLabel.setBounds(175, 70, 200, 23);
@@ -160,28 +186,28 @@ public class Game implements ActionListener {
 		///
 		// JRadioButtons
 		JRadioButton radioButton_2 = new JRadioButton("2");
-		radioButton_2.setBackground(Color.MAGENTA);
+		radioButton_2.setBackground(SystemColor.scrollbar);
 		radioButton_2.setBounds(222, 100, 35, 25);
 		optionsPanel.add(radioButton_2);
 		radioButton_2.setActionCommand("2");
 		radioButton_2.setSelected(true);
 
 		JRadioButton radioButton_3 = new JRadioButton("3");
-		radioButton_3.setBackground(Color.MAGENTA);
+		radioButton_3.setBackground(SystemColor.scrollbar);
 		radioButton_3.setBounds(257, 100, 35, 25);
 		optionsPanel.add(radioButton_3);
 		radioButton_3.setActionCommand("3");
 
 		JRadioButton radioButton_4 = new JRadioButton("4");
-		radioButton_4.setBackground(Color.MAGENTA);
+		radioButton_4.setBackground(SystemColor.scrollbar);
 		radioButton_4.setBounds(292, 100, 35, 25);
 		optionsPanel.add(radioButton_4);
 		radioButton_4.setActionCommand("4");
-		
+
 		radioButton_2.addActionListener((ActionListener) this);
 		radioButton_3.addActionListener((ActionListener) this);
 		radioButton_4.addActionListener((ActionListener) this);
-		
+
 		ButtonGroup group = new ButtonGroup();
 		group.add(radioButton_2);
 		group.add(radioButton_3);
