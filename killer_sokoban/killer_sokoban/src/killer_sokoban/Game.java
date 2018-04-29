@@ -1,15 +1,22 @@
 package killer_sokoban;
 
+import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.xml.datatype.DatatypeConstants.Field;
 
 public class Game {
-
+	private JFrame frame;
+	
 	private static int boxes;
 	private static int players;	
 	private int[] overallScore;
@@ -38,6 +45,7 @@ public class Game {
 	 */
 	public Game() {		
 		active_map= new Map();		
+		initialize();
 	}
 	
 	/**
@@ -46,7 +54,7 @@ public class Game {
 	 * @throws IOException 
 	 * @throws FileNotFoundException 
 	 */
-	public static void main(String[] args) throws FileNotFoundException, IOException {
+	/*public static void main(String[] args) throws FileNotFoundException, IOException {
 		Interpreter i = new Interpreter();
 
 		while (true) {
@@ -58,8 +66,37 @@ public class Game {
 				i.Run();
 			}
 		}
+	}*/
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Game window = new Game();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
-	
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		Interpreter i = new Interpreter();
+		
+		JButton newGameBtn = new JButton("New Game");
+		newGameBtn.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				i.Run();
+			}
+		});
+		frame.getContentPane().add(newGameBtn);
+	}
+
 	/**
 	 *Uj jatek
 	 *
