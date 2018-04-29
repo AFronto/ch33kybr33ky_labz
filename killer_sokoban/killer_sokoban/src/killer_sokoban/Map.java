@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.lang.Math;
 import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 
 import static killer_sokoban.Game.*;
 
@@ -34,7 +35,7 @@ public class Map {
 	 * @param playerCount a jatekosok szama
 	 * @param maxStrength a maximalis ero
 	 */
-	public void CreateMap(int playerCount,int maxStrength,JFrame frame){
+	public HashMap<Player,MyKeyListener> CreateMap(int playerCount,int maxStrength,JFrame frame){
 		
 		fields=new Field[height][width];
 		
@@ -227,6 +228,8 @@ public class Map {
         keys.add(keysUHJK);
         keys.add(keysNUMPAD);
 
+        HashMap<Player,MyKeyListener> keylisteners=new HashMap<Player,MyKeyListener>();
+
         nX = ThreadLocalRandom.current().nextInt(1, 10);
         nY = ThreadLocalRandom.current().nextInt(1, 10);
         while(playerCount>0){																			///random helyekre rakja le a megfelelo szamu playert.
@@ -244,9 +247,11 @@ public class Map {
             frame.addKeyListener(mKl);
             frame.setFocusable(true);
             frame.setFocusTraversalKeysEnabled(false);
+            keylisteners.put(p,mKl);
         }
         
         printMyMap();
+        return keylisteners;
 	}
 
     public void printMyMap(){

@@ -27,6 +27,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.SystemColor;
 
+import java.util.HashMap;
+
 public class Game implements ActionListener {
 	private static JFrame frame;
 	// private static Game game;
@@ -36,6 +38,7 @@ public class Game implements ActionListener {
 	private static Map active_map;
 	private int maxStrength;
 
+	private static HashMap<Player,MyKeyListener> keylisteners=new HashMap<Player,MyKeyListener>();
 	/**
 	 * A legerosebb jatekos toloerejevel ter vissza.
 	 *
@@ -228,7 +231,7 @@ public class Game implements ActionListener {
 	 *            A jatekosok szama ahanyan jatszani akarnak.
 	 */
 	public void NewGame(int playerCount){		
-		active_map.CreateMap(playerCount,6,frame);		
+		keylisteners=active_map.CreateMap(playerCount,6,frame);		
 	}
 
 	/**
@@ -237,6 +240,7 @@ public class Game implements ActionListener {
 	public static void EndGame(){
 		System.out.println();
 		System.out.println("Vege");
+		System.exit(0);
 	}
 
 	/**
@@ -249,11 +253,14 @@ public class Game implements ActionListener {
 	public static void UpdateScore(Player p) {
 
 		int score = p.GetScore();
-		if (score == -1)
+		if (score == -1){
 			players--;
+			frame.removeKeyListener(keylisteners.get(p));
+		}
 
-		if (players <= 1)
+		if (players <= 1){
 			EndGame();
+		}
 
 	}
 
