@@ -28,7 +28,7 @@ public abstract class Moveable {
 	 * @param f - Az ero, amivel a mozgast kezdemenyezo Moveable rendelkezik meg.
 	 * @return Logikai ertek, hogy megteheto-e a lepes.
 	 */
-	public boolean Control(Player p, Direction d,int f) throws Exception{
+	public boolean Control(Player p, Direction d,int f) {
 		return true; 
 	}
 	

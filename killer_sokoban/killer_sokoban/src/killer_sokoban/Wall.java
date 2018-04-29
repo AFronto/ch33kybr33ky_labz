@@ -20,8 +20,8 @@ public class Wall extends Box{
 	 *@param f - A toloero.
 	 *@return Mindig false.
 	 */
-	public boolean Control(Player p, Direction d, int f)throws Exception{		
-		SequenceCheck(this);
+	public boolean Control(Player p, Direction d, int f){		
+		///SequenceCheck(this);
 		boolean canGo = false;		
 		return canGo;
 	}

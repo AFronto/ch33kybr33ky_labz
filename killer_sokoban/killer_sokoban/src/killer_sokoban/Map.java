@@ -3,6 +3,8 @@ package killer_sokoban;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.ArrayList;
 import java.lang.Math;
+import javax.swing.JFrame;
+import java.awt.event.KeyEvent;
 
 import static killer_sokoban.Game.*;
 
@@ -32,7 +34,7 @@ public class Map {
 	 * @param playerCount a jatekosok szama
 	 * @param maxStrength a maximalis ero
 	 */
-	public void CreateMap(int playerCount,int maxStrength){
+	public void CreateMap(int playerCount,int maxStrength,JFrame frame){
 		
 		fields=new Field[height][width];
 		
@@ -199,6 +201,13 @@ public class Map {
         }
 
         
+        ArrayList<Integer> keysWASD=new ArrayList<Integer>();
+        keysWASD.add(KeyEvent.VK_W);
+        keysWASD.add(KeyEvent.VK_S);
+        keysWASD.add(KeyEvent.VK_A);
+        keysWASD.add(KeyEvent.VK_D);
+
+
         nX = ThreadLocalRandom.current().nextInt(1, 10);
         nY = ThreadLocalRandom.current().nextInt(1, 10);
         while(playerCount>0){																			///random helyekre rakja le a megfelelo szamu playert.
@@ -211,6 +220,11 @@ public class Map {
             fields[nY][nX].Register(p);
             maxStrength--;																				///fokozatosan csokkenti a jatekosok erejet.
             playerCount--;
+
+            MyKeyListener mKl=new MyKeyListener(p,keysWASD);
+            frame.addKeyListener(mKl);
+            frame.setFocusable(true);
+            frame.setFocusTraversalKeysEnabled(false);
         }
         
         for (int y = 0; y < height; y++)																///kiirja a vegeredmenyt

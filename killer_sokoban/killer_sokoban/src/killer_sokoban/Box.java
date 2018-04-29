@@ -34,9 +34,9 @@ public class Box extends Moveable {
 	 *        	  mozgott e.
 	 * @throws    Ez az Exception azert felel ha rossz volna a sorrend vagy mert elfogy az ero.
 	 */
-	public boolean Control(Player p, Direction d, int f) throws Exception {
+	public boolean Control(Player p, Direction d, int f) {
 
-		SequenceCheck(this);
+		///SequenceCheck(this);
 		PushPos(myField,d);
 
 		boolean canGo = false;
@@ -71,7 +71,7 @@ public class Box extends Moveable {
 			}
 		}
 
-		CheckPos(this,d);
+		///CheckPos(this,d);
 		
 		//vegso visszateresi ertek
 		return canGo;

@@ -93,14 +93,14 @@ public class Field {
 	 * @return Rekurzivan megkeresi es visszadja,hogy vegul tudunk e lepni
 	 * @throws Ez az Exception azert felel ha rossz volna a sorrend vagy mert elfogy az ero.
 	 */
-	public boolean Step(Player p, Direction d,int f) throws Exception{		
+	public boolean Step(Player p, Direction d,int f){		
 		boolean canGo=false;
 		
 
 
 		if(myMoveable != null){
 			if(f <= 0){		
-				throw new Exception("Elfogyott az ero");
+				///throw new Exception("Not enough force!!!");
 			}			
 			canGo = myMoveable.Control(p, d, f-friction);  // Csokkentjuk az erot, a foldon levo anyagnak megfeleloen.
 		}else{

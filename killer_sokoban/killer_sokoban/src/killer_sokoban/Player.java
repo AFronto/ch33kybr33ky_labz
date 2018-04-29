@@ -46,8 +46,8 @@ public class Player extends Moveable {
 	 *            mozgott e.
 	 * @throws 	  Ez az Exception azert felel ha rossz volna a sorrend vagy mert elfogy az ero.
 	 */
-	public boolean Control(Player m, Direction d, int f) throws Exception {
-		SequenceCheck(this);
+	public boolean Control(Player m, Direction d, int f) {
+		///SequenceCheck(this);
 		PushPos(myField,d);
 
 		boolean canGo = false;
@@ -65,7 +65,7 @@ public class Player extends Moveable {
 		}
 		if (m != null) {
 			if (m.GetmyField().equals(myField.GetNeighbour(d.Opposite()))) { // Player tol Player eset ellenorzese
-				CheckPos(this,d);
+				///CheckPos(this,d);
 				return false;
 			}
 			canGo = myNeighbour.Step(this, d, f);
@@ -75,7 +75,7 @@ public class Player extends Moveable {
 				myNeighbour.FieldAction();
 			}
 		}
-		CheckPos(this,d);
+		////CheckPos(this,d);
 		//Visszateres
 		return canGo;
 	}

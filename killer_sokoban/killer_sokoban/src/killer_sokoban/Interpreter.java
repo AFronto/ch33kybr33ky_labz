@@ -102,7 +102,7 @@ public class Interpreter {
 				
 				
 				
-				map.CreateMap(4,6);												//Map gyartas 4 playerrel 6 maximum erovel.
+				///map.CreateMap(4,6);												//Map gyartas 4 playerrel 6 maximum erovel.
 				System.out.println("\nThe Map has been created succesfully.");
 				break;
 
@@ -305,7 +305,7 @@ public class Interpreter {
 				}else {
 					field.SetFriction();
 					if(getFieldName(field).equals(p.get(1))){
-						System.out.println(getFieldName(field)+"'s friction has been changed. Now it has "+nameOfStuff(field.GetFriction())+"on.");		//kiiratoma a Mezot es a ra be allitott anyagot
+						System.out.println(getFieldName(field)+"'s friction has been changed. Now it has "+nameOfStuff(field.GetFriction())+" on.");		//kiiratoma a Mezot es a ra be allitott anyagot
 					}
 				}
 			}else{

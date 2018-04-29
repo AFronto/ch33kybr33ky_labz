@@ -13,7 +13,7 @@ public class Hole extends Field {
 
 
 	/**
-	 *Ha van rajta Moveable, akkor megöli, mert minden a Hole-ba kerulo Moveable elpusztul.
+	 *Ha van rajta Moveable, akkor megoli, mert minden a Hole-ba kerulo Moveable elpusztul.
 	 */
 	public void FieldAction()
 	{	

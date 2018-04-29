@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 import javax.xml.datatype.DatatypeConstants.Field;
 
 public class Game {
-	private JFrame frame;
+	private static JFrame frame;
 	
 	private static int boxes;
 	private static int players;	
@@ -36,9 +36,6 @@ public class Game {
 	 * @param newMaxStrength - az uj maximalis toloero.
 	 */
 	public void SetMaxStrength(int newMaxStrength) { maxStrength = newMaxStrength; }
-
-
-	private static Game game;
 	
 	/**
 	 *Konstruktor, letrehoz egy uj Mapot is.
@@ -103,7 +100,7 @@ public class Game {
 	 *@param playerCount A jatekosok szama ahanyan jatszani akarnak.
 	 */
 	public void NewGame(int playerCount){		
-		active_map.CreateMap(playerCount,6);		
+		active_map.CreateMap(playerCount,6,frame);		
 	}
 	
 	/**
