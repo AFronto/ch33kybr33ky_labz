@@ -27,7 +27,7 @@ public class Game implements ActionListener {
 	private static int boxes;
 	private static int players = 2;	
 	private int[] overallScore;
-	private Map active_map;
+	private static Map active_map;
 	private int maxStrength;
 	
 	/**
@@ -168,7 +168,8 @@ public class Game implements ActionListener {
 	 *Jatek vege
 	 */
 	public static void EndGame(){
-		
+		System.out.println();
+		System.out.println("Vege");
 	}
 	
 	/**
@@ -210,6 +211,13 @@ public class Game implements ActionListener {
 	 */
 	public static void setBoxNum(int i){
 		boxes=i;
+	}
+
+/////////////////////////////////////////////////////////////Konzolos teszthez//////////////////////////////////////////////////////////////////////
+	public static void getMyMap(){
+		System.out.println();
+		System.out.println();
+		active_map.printMyMap();
 	}
 }
 

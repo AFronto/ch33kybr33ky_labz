@@ -48,7 +48,7 @@ public class Player extends Moveable {
 	 */
 	public boolean Control(Player m, Direction d, int f) {
 		///SequenceCheck(this);
-		PushPos(myField,d);
+		///PushPos(myField,d);
 
 		boolean canGo = false;
 		Field myNeighbour;

@@ -206,7 +206,26 @@ public class Map {
         keysWASD.add(KeyEvent.VK_S);
         keysWASD.add(KeyEvent.VK_A);
         keysWASD.add(KeyEvent.VK_D);
-
+        ArrayList<Integer> keysARROWS=new ArrayList<Integer>();
+        keysARROWS.add(KeyEvent.VK_UP);
+        keysARROWS.add(KeyEvent.VK_DOWN);
+        keysARROWS.add(KeyEvent.VK_LEFT);
+        keysARROWS.add(KeyEvent.VK_RIGHT);
+        ArrayList<Integer> keysUHJK=new ArrayList<Integer>();
+        keysUHJK.add(KeyEvent.VK_U);
+        keysUHJK.add(KeyEvent.VK_J);
+        keysUHJK.add(KeyEvent.VK_H);
+        keysUHJK.add(KeyEvent.VK_K);
+        ArrayList<Integer> keysNUMPAD=new ArrayList<Integer>();
+        keysNUMPAD.add(KeyEvent.VK_NUMPAD5);
+        keysNUMPAD.add(KeyEvent.VK_NUMPAD2);
+        keysNUMPAD.add(KeyEvent.VK_NUMPAD1);
+        keysNUMPAD.add(KeyEvent.VK_NUMPAD3);
+        ArrayList<ArrayList<Integer>> keys=new ArrayList<ArrayList<Integer>>();
+        keys.add(keysWASD);
+        keys.add(keysARROWS);
+        keys.add(keysUHJK);
+        keys.add(keysNUMPAD);
 
         nX = ThreadLocalRandom.current().nextInt(1, 10);
         nY = ThreadLocalRandom.current().nextInt(1, 10);
@@ -221,41 +240,45 @@ public class Map {
             maxStrength--;																				///fokozatosan csokkenti a jatekosok erejet.
             playerCount--;
 
-            MyKeyListener mKl=new MyKeyListener(p,keysWASD);
+            MyKeyListener mKl=new MyKeyListener(p,keys.get(playerCount));
             frame.addKeyListener(mKl);
             frame.setFocusable(true);
             frame.setFocusTraversalKeysEnabled(false);
         }
         
-        for (int y = 0; y < height; y++)																///kiirja a vegeredmenyt
-        {	
+        printMyMap();
+	}
+
+    public void printMyMap(){
+        for (int y = 0; y < height; y++)                                                                ///kiirja a vegeredmenyt
+        {   
             for (int x = 0; x < width; x++)
             {
-            	if(fields[y][x].GetmyMoveable()==null){
-            		if((fields[y][x]+"").equals("Field")){
-            			System.out.print("  ");
-            		}else if((fields[y][x]+"").equals("Hole")){
-            			System.out.print("H ");
-            		}else if((fields[y][x]+"").equals("TrapDoor")){
-            			System.out.print("D ");
-            		}else if((fields[y][x]+"").equals("Target")){
-            			System.out.print("T ");
-            		}else if((fields[y][x]+"").equals("Button")){
-            			System.out.print("B ");
-            		}
-            	}else{
-            		if((fields[y][x].GetmyMoveable()+"").equals("Wall")){
-            			System.out.print("W ");
-            		}else if((fields[y][x].GetmyMoveable()+"").equals("Box")){
-            			System.out.print("b ");
-            		}else if((fields[y][x].GetmyMoveable()+"").equals("Player")){
-            			System.out.print("p ");
-            		}
-            	}
+                if(fields[y][x].GetmyMoveable()==null){
+                    if((fields[y][x]+"").equals("Field")){
+                        System.out.print("  ");
+                    }else if((fields[y][x]+"").equals("Hole")){
+                        System.out.print("H ");
+                    }else if((fields[y][x]+"").equals("TrapDoor")){
+                        System.out.print("D ");
+                    }else if((fields[y][x]+"").equals("Target")){
+                        System.out.print("T ");
+                    }else if((fields[y][x]+"").equals("Button")){
+                        System.out.print("B ");
+                    }
+                }else{
+                    if((fields[y][x].GetmyMoveable()+"").equals("Wall")){
+                        System.out.print("W ");
+                    }else if((fields[y][x].GetmyMoveable()+"").equals("Box")){
+                        System.out.print("b ");
+                    }else if((fields[y][x].GetmyMoveable()+"").equals("Player")){
+                        System.out.print("p ");
+                    }
+                }
             }
             System.out.println();
         }
-	}
+    }
 
 	/**
 	 * A megfelelo indexen levo field elemet adja vissza.

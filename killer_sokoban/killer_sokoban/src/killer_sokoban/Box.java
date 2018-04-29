@@ -37,7 +37,7 @@ public class Box extends Moveable {
 	public boolean Control(Player p, Direction d, int f) {
 
 		///SequenceCheck(this);
-		PushPos(myField,d);
+		///PushPos(myField,d);
 
 		boolean canGo = false;
 		lastTouchedMe = p;
