@@ -68,16 +68,25 @@ public class Field {
 		int oilFriction = 0;		//kulonbozo anyagokhoz kulonbozo ertekek
 		int honeyFriction = 2;
 		int baseFriction = 1;
+
+		image=image.replaceAll("_oil","");
+		image=image.replaceAll("_honey","");
+		
+
+		String[] separated=image.split("\\.");
 		
 		switch(friction){
 		case 1: 
 			friction = oilFriction;
+			image=separated[0]+"_oil."+separated[1];
 			break;
 		case 0:
 			friction = honeyFriction;
+			image=separated[0]+"_honey."+separated[1];
 			break;
 		case 2:
 			friction = baseFriction;
+			image=separated[0]+"."+separated[1];
 			break;
 		}
 	}

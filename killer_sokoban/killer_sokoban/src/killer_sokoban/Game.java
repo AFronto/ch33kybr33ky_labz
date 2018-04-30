@@ -36,7 +36,7 @@ public class Game implements ActionListener {
 	private static int players = 2;
 	private int[] overallScore;
 	private static Map active_map;
-	private int maxStrength;
+	private int maxStrength=6;
 
 	private static HashMap<Player,MyKeyListener> keylisteners=new HashMap<Player,MyKeyListener>();
 	/**
@@ -233,7 +233,7 @@ public class Game implements ActionListener {
 	 *            A jatekosok szama ahanyan jatszani akarnak.
 	 */
 	public void NewGame(int playerCount){		
-		keylisteners=active_map.CreateMap(playerCount,6,frame);		
+		keylisteners=active_map.CreateMap(playerCount,maxStrength,frame);		
 	}
 
 	/**
@@ -293,8 +293,6 @@ public class Game implements ActionListener {
 
 /////////////////////////////////////////////////////////////Konzolos teszthez//////////////////////////////////////////////////////////////////////
 	public static void getMyMap(){
-		System.out.println();
-		System.out.println();
 		active_map.printMyMap();
 	}
 }
