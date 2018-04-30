@@ -13,8 +13,8 @@ public class TrapDoor extends Hole{
 	public TrapDoor(){
 		super();	
 		//Betoltendo kep utvonala
-		OpenImage="trapdoor_open";
-		ClosedImage="trapdoor_close";
+		OpenImage="trapdoor_open.png";
+		ClosedImage="trapdoor_close.png";
 		image=ClosedImage;	
 	}
 	
