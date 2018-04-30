@@ -240,6 +240,7 @@ public class Game implements ActionListener {
 	 * Jatek vege
 	 */
 	public static void EndGame(){
+		getMyMap();
 		System.out.println();
 		System.out.println("Vege");
 		System.exit(0);

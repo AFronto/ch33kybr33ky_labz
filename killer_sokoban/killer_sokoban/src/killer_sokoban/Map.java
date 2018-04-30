@@ -47,239 +47,232 @@ public class Map {
 	 * @param maxStrength
 	 *            a maximalis ero
 	 */
-	public HashMap<Player, MyKeyListener> CreateMap(int playerCount, int maxStrength, JFrame frame) {
+
+	public HashMap<Player,MyKeyListener> CreateMap(int playerCount,int maxStrength,JFrame frame){
 		myFrame = frame;
-		fields = new Field[height][width];
+		fields=new Field[height][width];
+		
+		for (int y = 0; y < height; y++)											///csinal egy width x height méretu palyat sima mezokbol.
+        {	
+            for (int x = 0; x < width; x++)
+            {
+            	fields[y][x]=new Field();
+            	if(x-1>=0){
+           			fields[y][x-1].SetNeighbour(Direction.RIGHT,fields[y][x]);
+           			fields[y][x].SetNeighbour(Direction.LEFT,fields[y][x-1]);
+           		}
+           		if(y-1>=0){
+           			fields[y-1][x].SetNeighbour(Direction.DOWN,fields[y][x]);
+           			fields[y][x].SetNeighbour(Direction.UP,fields[y-1][x]);
+           		}
+            }
+        } 																		
 
-		for (int y = 0; y < height; y++) /// csinal egy width x height méretu
-											/// palyat sima mezokbol.
-		{
-			for (int x = 0; x < width; x++) {
-				fields[y][x] = new Field();
-				if (x - 1 >= 0) {
-					fields[y][x - 1].SetNeighbour(Direction.RIGHT, fields[y][x]);
-					fields[y][x].SetNeighbour(Direction.LEFT, fields[y][x - 1]);
-				}
-				if (y - 1 >= 0) {
-					fields[y - 1][x].SetNeighbour(Direction.DOWN, fields[y][x]);
-					fields[y][x].SetNeighbour(Direction.UP, fields[y - 1][x]);
-				}
-			}
-		}
+		generateMazeBase();															
+		
+		for (int y = 0; y < height; y++)											///felviszi a falakat a palyara
+        {	
+            for (int x = 0; x < width; x++)
+            {
+            	if(maze[y][x]==0){
+            		fields[y][x].Register(null);
+            	}else{
+            		Wall w=new Wall();
+            		w.SetmyField(fields[y][x]);
+            		fields[y][x].Register(w);
+            	}
+            }
+        }
 
-		generateMazeBase();
+        setBoxNum(0);																///kinullazza a doboz szamlalot 
 
-		for (int y = 0; y < height; y++) /// felviszi a falakat a palyara
-		{
-			for (int x = 0; x < width; x++) {
-				if (maze[y][x] == 0) {
-					fields[y][x].Register(null);
-				} else {
-					Wall w = new Wall();
-					w.SetmyField(fields[y][x]);
-					fields[y][x].Register(w);
-				}
-			}
-		}
+        double trapDoorChance=0.05;
+        double holeChance=0.05;
 
-		setBoxNum(0); /// kinullazza a doboz szamlalot
+        for (int y = 0; y < height; y++)										
+        {	
+            for (int x = 0; x < width; x++)
+            {
+            	double chance=Math.random();
+            	if(fields[y][x].GetmyMoveable()==null){
+            		if(chance>1-holeChance){										///ha a random szam bele esik a megszabott valoszinusegbe akkor Hole-t rak
+            			fields[y][x]=new Hole();
+            			fields[y][x-1].SetNeighbour(Direction.RIGHT,fields[y][x]);
+           				fields[y][x].SetNeighbour(Direction.LEFT,fields[y][x-1]);
+           				fields[y-1][x].SetNeighbour(Direction.DOWN,fields[y][x]);
+           				fields[y][x].SetNeighbour(Direction.UP,fields[y-1][x]);
 
-		double trapDoorChance = 0.05;
-		double holeChance = 0.05;
+           				fields[y][x+1].SetNeighbour(Direction.LEFT,fields[y][x]);
+           				fields[y][x].SetNeighbour(Direction.RIGHT,fields[y][x+1]);
+           				fields[y+1][x].SetNeighbour(Direction.UP,fields[y][x]);
+           				fields[y][x].SetNeighbour(Direction.DOWN,fields[y+1][x]);
+            		}else if(chance<trapDoorChance){								///A TrapDoor rakasnal is hasonloan valoszinuseg alapjan jar el.
+            			TrapDoor t=new TrapDoor();
 
-		for (int y = 0; y < height; y++) {
-			for (int x = 0; x < width; x++) {
-				double chance = Math.random();
-				if (fields[y][x].GetmyMoveable() == null) {
-					if (chance > 1 - holeChance) { /// ha a random szam bele
-													/// esik a megszabott
-													/// valoszinusegbe akkor
-													/// Hole-t rak
-						fields[y][x] = new Hole();
-						fields[y][x - 1].SetNeighbour(Direction.RIGHT, fields[y][x]);
-						fields[y][x].SetNeighbour(Direction.LEFT, fields[y][x - 1]);
-						fields[y - 1][x].SetNeighbour(Direction.DOWN, fields[y][x]);
-						fields[y][x].SetNeighbour(Direction.UP, fields[y - 1][x]);
+           				int counter=0;
+           				int nX = ThreadLocalRandom.current().nextInt(1, 10);
+           				int nY = ThreadLocalRandom.current().nextInt(1, 10);
+           				while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))&&counter<20){  ///Viszont a TrapDoort csak akkor rakja le ha gombot 
+           					nX = ThreadLocalRandom.current().nextInt(1, 10);												///ha gombot is tud raknihozza.
+           					nY = ThreadLocalRandom.current().nextInt(1, 10);
+           					counter++;
+           				}
 
-						fields[y][x + 1].SetNeighbour(Direction.LEFT, fields[y][x]);
-						fields[y][x].SetNeighbour(Direction.RIGHT, fields[y][x + 1]);
-						fields[y + 1][x].SetNeighbour(Direction.UP, fields[y][x]);
-						fields[y][x].SetNeighbour(Direction.DOWN, fields[y + 1][x]);
-					} else if (chance < trapDoorChance) { /// A TrapDoor
-															/// rakasnal is
-															/// hasonloan
-															/// valoszinuseg
-															/// alapjan jar el.
-						TrapDoor t = new TrapDoor();
+           				if(counter<20){
+           					Button b=new Button();
+           					b.SetmyTrap(t);
 
-						int counter = 0;
-						int nX = ThreadLocalRandom.current().nextInt(1, 10);
-						int nY = ThreadLocalRandom.current().nextInt(1, 10);
-						while ((fields[nY][nX].GetmyMoveable() != null || !(fields[nY][nX] + "").equals("Field"))
-								&& counter < 20) { /// Viszont a TrapDoort csak
-													/// akkor rakja le ha gombot
-							nX = ThreadLocalRandom.current().nextInt(1, 10); /// ha
-																				/// gombot
-																				/// is
-																				/// tud
-																				/// raknihozza.
-							nY = ThreadLocalRandom.current().nextInt(1, 10);
-							counter++;
-						}
+           					fields[nY][nX]=b;
 
-						if (counter < 20) {
-							Button b = new Button();
-							b.SetmyTrap(t);
+           					fields[nY][nX-1].SetNeighbour(Direction.RIGHT,fields[nY][nX]);
+           					fields[nY][nX].SetNeighbour(Direction.LEFT,fields[nY][nX-1]);
+           					fields[nY-1][nX].SetNeighbour(Direction.DOWN,fields[nY][nX]);
+           					fields[nY][nX].SetNeighbour(Direction.UP,fields[nY-1][nX]);
 
-							fields[nY][nX] = b;
+           					fields[nY][nX+1].SetNeighbour(Direction.LEFT,fields[nY][nX]);
+           					fields[nY][nX].SetNeighbour(Direction.RIGHT,fields[nY][nX+1]);
+           					fields[nY+1][nX].SetNeighbour(Direction.UP,fields[nY][nX]);
+           					fields[nY][nX].SetNeighbour(Direction.DOWN,fields[nY+1][nX]);
 
-							fields[nY][nX - 1].SetNeighbour(Direction.RIGHT, fields[nY][nX]);
-							fields[nY][nX].SetNeighbour(Direction.LEFT, fields[nY][nX - 1]);
-							fields[nY - 1][nX].SetNeighbour(Direction.DOWN, fields[nY][nX]);
-							fields[nY][nX].SetNeighbour(Direction.UP, fields[nY - 1][nX]);
 
-							fields[nY][nX + 1].SetNeighbour(Direction.LEFT, fields[nY][nX]);
-							fields[nY][nX].SetNeighbour(Direction.RIGHT, fields[nY][nX + 1]);
-							fields[nY + 1][nX].SetNeighbour(Direction.UP, fields[nY][nX]);
-							fields[nY][nX].SetNeighbour(Direction.DOWN, fields[nY + 1][nX]);
+            				fields[y][x]=t;
 
-							fields[y][x] = t;
+	            			fields[y][x-1].SetNeighbour(Direction.RIGHT,fields[y][x]);
+	           				fields[y][x].SetNeighbour(Direction.LEFT,fields[y][x-1]);
+	           				fields[y-1][x].SetNeighbour(Direction.DOWN,fields[y][x]);
+	           				fields[y][x].SetNeighbour(Direction.UP,fields[y-1][x]);
 
-							fields[y][x - 1].SetNeighbour(Direction.RIGHT, fields[y][x]);
-							fields[y][x].SetNeighbour(Direction.LEFT, fields[y][x - 1]);
-							fields[y - 1][x].SetNeighbour(Direction.DOWN, fields[y][x]);
-							fields[y][x].SetNeighbour(Direction.UP, fields[y - 1][x]);
+	           				fields[y][x+1].SetNeighbour(Direction.LEFT,fields[y][x]);
+	           				fields[y][x].SetNeighbour(Direction.RIGHT,fields[y][x+1]);
+	           				fields[y+1][x].SetNeighbour(Direction.UP,fields[y][x]);
+	           				fields[y][x].SetNeighbour(Direction.DOWN,fields[y+1][x]);
+           				}
+            		}
+            	}
+            }
+        }
+        
+        int nX = ThreadLocalRandom.current().nextInt(1, 10);			
+        int nY = ThreadLocalRandom.current().nextInt(1, 10);
+        while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))){      ///addig generalgat random koordinatakat amig nem talala egy ures mezot
+        	nX = ThreadLocalRandom.current().nextInt(1, 10);										
+           	nY = ThreadLocalRandom.current().nextInt(1, 10);										
+        }
+        
+        fields[nY][nX]=new Target();																///ide rakja le a targetet
 
-							fields[y][x + 1].SetNeighbour(Direction.LEFT, fields[y][x]);
-							fields[y][x].SetNeighbour(Direction.RIGHT, fields[y][x + 1]);
-							fields[y + 1][x].SetNeighbour(Direction.UP, fields[y][x]);
-							fields[y][x].SetNeighbour(Direction.DOWN, fields[y + 1][x]);
-						}
-					}
-				}
-			}
-		}
+        fields[nY][nX-1].SetNeighbour(Direction.RIGHT,fields[nY][nX]);								
+        fields[nY][nX].SetNeighbour(Direction.LEFT,fields[nY][nX-1]);
+        fields[nY-1][nX].SetNeighbour(Direction.DOWN,fields[nY][nX]);
+        fields[nY][nX].SetNeighbour(Direction.UP,fields[nY-1][nX]);
+	
 
-		int nX = ThreadLocalRandom.current().nextInt(1, 10);
-		int nY = ThreadLocalRandom.current().nextInt(1, 10);
-		while ((fields[nY][nX].GetmyMoveable() != null || !(fields[nY][nX] + "").equals("Field"))) { /// addig
-																										/// generalgat
-																										/// random
-																										/// koordinatakat
-																										/// amig
-																										/// nem
-																										/// talala
-																										/// egy
-																										/// ures
-																										/// mezot
-			nX = ThreadLocalRandom.current().nextInt(1, 10);
-			nY = ThreadLocalRandom.current().nextInt(1, 10);
-		}
+        fields[nY][nX+1].SetNeighbour(Direction.LEFT,fields[nY][nX]);
+        fields[nY][nX].SetNeighbour(Direction.RIGHT,fields[nY][nX+1]);
+        fields[nY+1][nX].SetNeighbour(Direction.UP,fields[nY][nX]);
+        fields[nY][nX].SetNeighbour(Direction.DOWN,fields[nY+1][nX]);
 
-		fields[nY][nX] = new Target(); /// ide rakja le a targetet
 
-		fields[nY][nX - 1].SetNeighbour(Direction.RIGHT, fields[nY][nX]);
-		fields[nY][nX].SetNeighbour(Direction.LEFT, fields[nY][nX - 1]);
-		fields[nY - 1][nX].SetNeighbour(Direction.DOWN, fields[nY][nX]);
-		fields[nY][nX].SetNeighbour(Direction.UP, fields[nY - 1][nX]);
+        nX = ThreadLocalRandom.current().nextInt(1, 10);										///Ez kell hogy 1 box fixen legyen
+        nY = ThreadLocalRandom.current().nextInt(1, 10);
+        while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))){     
+	        	nX = ThreadLocalRandom.current().nextInt(1, 10);
+	           	nY = ThreadLocalRandom.current().nextInt(1, 10);										
+	        }
+	    Box bx=new Box();
+        bx.SetmyField(fields[nY][nX]);
+        fields[nY][nX].Register(bx);
+   		fields[nY][nX].FieldAction();
 
-		fields[nY][nX + 1].SetNeighbour(Direction.LEFT, fields[nY][nX]);
-		fields[nY][nX].SetNeighbour(Direction.RIGHT, fields[nY][nX + 1]);
-		fields[nY + 1][nX].SetNeighbour(Direction.UP, fields[nY][nX]);
-		fields[nY][nX].SetNeighbour(Direction.DOWN, fields[nY + 1][nX]);
+        double boxChance=0.05;
+        int myBcounter=5;                                                                       ///Igy max 6 doboz lehet
 
-		nX = ThreadLocalRandom.current().nextInt(1, 10); /// Ez kell hogy 1 box
-															/// fixen legyen
-		nY = ThreadLocalRandom.current().nextInt(1, 10);
-		while ((fields[nY][nX].GetmyMoveable() != null || !(fields[nY][nX] + "").equals("Field"))) {
-			nX = ThreadLocalRandom.current().nextInt(1, 10);
-			nY = ThreadLocalRandom.current().nextInt(1, 10);
-		}
-		Box bx = new Box();
-		bx.SetmyField(fields[nY][nX]);
-		fields[nY][nX].Register(bx);
-		fields[nY][nX].FieldAction();
+        for (int y = 0; y < height; y++)														///veletlen szeruen lerak dobozokat
+        {	
+            for (int x = 0; x < width; x++)
+            {
+            	if(fields[y][x].GetmyMoveable()==null){
+            		if((fields[y][x]+"").equals("Field")){
+            			double chance=Math.random();
+            			if(chance<boxChance){
+            				Box b=new Box();
+            				b.SetmyField(fields[y][x]);
+            				fields[y][x].Register(b);
+            				fields[y][x].FieldAction();
 
-		double boxChance = 0.05;
-		int myBcounter = 5; /// Igy max 6 doboz lehet
+                            myBcounter--;
+                            if(myBcounter==0){
+                                break;
+                            }
+            			}
+            		}
+            	}
+            }
 
-		for (int y = 0; y < height; y++) /// veletlen szeruen lerak dobozokat
-		{
-			for (int x = 0; x < width; x++) {
-				if (fields[y][x].GetmyMoveable() == null) {
-					if ((fields[y][x] + "").equals("Field")) {
-						double chance = Math.random();
-						if (chance < boxChance) {
-							Box b = new Box();
-							b.SetmyField(fields[y][x]);
-							fields[y][x].Register(b);
-							fields[y][x].FieldAction();
+            if(myBcounter==0){
+                break;
+            }
+        }
 
-							myBcounter--;
-							if (myBcounter == 0) {
-								break;
-							}
-						}
-					}
-				}
-			}
+        
+        ArrayList<Integer> keysWASD=new ArrayList<Integer>();
+        keysWASD.add(KeyEvent.VK_W);
+        keysWASD.add(KeyEvent.VK_S);
+        keysWASD.add(KeyEvent.VK_A);
+        keysWASD.add(KeyEvent.VK_D);
+        ArrayList<Integer> keysARROWS=new ArrayList<Integer>();
+        keysARROWS.add(KeyEvent.VK_UP);
+        keysARROWS.add(KeyEvent.VK_DOWN);
+        keysARROWS.add(KeyEvent.VK_LEFT);
+        keysARROWS.add(KeyEvent.VK_RIGHT);
+        ArrayList<Integer> keysUHJK=new ArrayList<Integer>();
+        keysUHJK.add(KeyEvent.VK_U);
+        keysUHJK.add(KeyEvent.VK_J);
+        keysUHJK.add(KeyEvent.VK_H);
+        keysUHJK.add(KeyEvent.VK_K);
+        ArrayList<Integer> keysNUMPAD=new ArrayList<Integer>();
+        keysNUMPAD.add(KeyEvent.VK_NUMPAD5);
+        keysNUMPAD.add(KeyEvent.VK_NUMPAD2);
+        keysNUMPAD.add(KeyEvent.VK_NUMPAD1);
+        keysNUMPAD.add(KeyEvent.VK_NUMPAD3);
+        ArrayList<ArrayList<Integer>> keys=new ArrayList<ArrayList<Integer>>();
+        keys.add(keysWASD);
+        keys.add(keysARROWS);
+        keys.add(keysUHJK);
+        keys.add(keysNUMPAD);
 
-			if (myBcounter == 0) {
-				break;
-			}
-		}
+        HashMap<Player,MyKeyListener> keylisteners=new HashMap<Player,MyKeyListener>();
 
-		ArrayList<Integer> keysWASD = new ArrayList<Integer>();
-		keysWASD.add(KeyEvent.VK_W);
-		keysWASD.add(KeyEvent.VK_S);
-		keysWASD.add(KeyEvent.VK_A);
-		keysWASD.add(KeyEvent.VK_D);
-		ArrayList<Integer> keysARROWS = new ArrayList<Integer>();
-		keysARROWS.add(KeyEvent.VK_UP);
-		keysARROWS.add(KeyEvent.VK_DOWN);
-		keysARROWS.add(KeyEvent.VK_LEFT);
-		keysARROWS.add(KeyEvent.VK_RIGHT);
-		ArrayList<Integer> keysUHJK = new ArrayList<Integer>();
-		keysUHJK.add(KeyEvent.VK_U);
-		keysUHJK.add(KeyEvent.VK_J);
-		keysUHJK.add(KeyEvent.VK_H);
-		keysUHJK.add(KeyEvent.VK_K);
-		ArrayList<Integer> keysNUMPAD = new ArrayList<Integer>();
-		keysNUMPAD.add(KeyEvent.VK_NUMPAD5);
-		keysNUMPAD.add(KeyEvent.VK_NUMPAD2);
-		keysNUMPAD.add(KeyEvent.VK_NUMPAD1);
-		keysNUMPAD.add(KeyEvent.VK_NUMPAD3);
-		ArrayList<ArrayList<Integer>> keys = new ArrayList<ArrayList<Integer>>();
-		keys.add(keysWASD);
-		keys.add(keysARROWS);
-		keys.add(keysUHJK);
-		keys.add(keysNUMPAD);
+        ArrayList<String> colors=new ArrayList<String>();
+        colors.add("blue");
+        colors.add("red");
+        colors.add("green");
+        colors.add("yellow");
 
-		HashMap<Player, MyKeyListener> keylisteners = new HashMap<Player, MyKeyListener>();
 
-		nX = ThreadLocalRandom.current().nextInt(1, 10);
-		nY = ThreadLocalRandom.current().nextInt(1, 10);
-		while (playerCount > 0) { /// random helyekre rakja le a megfelelo szamu
-									/// playert.
-			while ((fields[nY][nX].GetmyMoveable() != null || !(fields[nY][nX] + "").equals("Field"))) {
-				nX = ThreadLocalRandom.current().nextInt(1, 10);
-				nY = ThreadLocalRandom.current().nextInt(1, 10);
-			}
-			Player p = new Player(maxStrength);
-			p.SetmyField(fields[nY][nX]);
-			fields[nY][nX].Register(p);
-			maxStrength--; /// fokozatosan csokkenti a jatekosok erejet.
-			playerCount--;
+        nX = ThreadLocalRandom.current().nextInt(1, 10);
+        nY = ThreadLocalRandom.current().nextInt(1, 10);
+        while(playerCount>0){																			///random helyekre rakja le a megfelelo szamu playert.
+	        while((fields[nY][nX].GetmyMoveable()!=null || !(fields[nY][nX]+"").equals("Field"))){     
+	        	nX = ThreadLocalRandom.current().nextInt(1, 10);
+	           	nY = ThreadLocalRandom.current().nextInt(1, 10);										
+	        }
+	        Player p=new Player(maxStrength,colors.get(playerCount));
+            p.SetmyField(fields[nY][nX]);
+            fields[nY][nX].Register(p);
+            maxStrength--;																				///fokozatosan csokkenti a jatekosok erejet.
+            playerCount--;
 
-			MyKeyListener mKl = new MyKeyListener(p, keys.get(playerCount));
-			frame.addKeyListener(mKl);
-			frame.setFocusable(true);
-			frame.setFocusTraversalKeysEnabled(false);
-			keylisteners.put(p, mKl);
-		}
+            MyKeyListener mKl=new MyKeyListener(p,keys.get(playerCount));
+            frame.addKeyListener(mKl);
+            frame.setFocusable(true);
+            frame.setFocusTraversalKeysEnabled(false);
+            keylisteners.put(p,mKl);
+        }
+        
+        printMyMap();
+        return keylisteners;
 
-		printMyMap();
-		return keylisteners;
 	}
 
 	public void printMyMap() {
