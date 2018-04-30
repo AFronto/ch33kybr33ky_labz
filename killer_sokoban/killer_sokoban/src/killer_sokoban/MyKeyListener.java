@@ -20,6 +20,7 @@ public class MyKeyListener implements KeyListener
         	this.mykeys.add(k);
         }
         this.p=p;
+        System.out.println("alma");
     }
 
     @Override

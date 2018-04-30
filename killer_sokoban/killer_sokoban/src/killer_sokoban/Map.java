@@ -285,15 +285,14 @@ public class Map {
 			playerCount--;
 
 			MyKeyListener mKl = new MyKeyListener(p, keys.get(playerCount));
-			frame.addKeyListener(mKl);
-			frame.setFocusable(true);
-			frame.setFocusTraversalKeysEnabled(false);
+			myFrame.addKeyListener(mKl);
+			myFrame.setFocusable(true);
+			myFrame.setFocusTraversalKeysEnabled(false);
 			keylisteners.put(p, mKl);
 		}
 
 		printMyMap();
 		return keylisteners;
-
 	}
 
 	public void printMyMap() {
@@ -302,51 +301,38 @@ public class Map {
 		{
 			for (int x = 0; x < width; x++) {
 				if (fields[y][x].GetmyMoveable() == null) {
-					if ((fields[y][x] + "").equals("Field")) {
-						System.out.print("  ");
-						JLabel toLoad = new JLabel(new ImageIcon("field.png"));
-						toLoad.setBounds(x * 50, y * 50, 50, 50);
-						// System.out.println("x:"+x*50+"y: "+y*50);
-						myPanel.add(toLoad);
-					} else if ((fields[y][x] + "").equals("Hole")) {
-						System.out.print("H ");
-						JLabel toLoad = new JLabel(new ImageIcon("hole.png"));
-						toLoad.setBounds(x * 50, y * 50, 50, 50);
-						myPanel.add(toLoad);
-					} else if ((fields[y][x] + "").equals("TrapDoor")) {
-						System.out.print("D ");
-						JLabel toLoad = new JLabel(new ImageIcon("trapdoor_close.png"));
-						toLoad.setBounds(x * 50, y * 50, 50, 50);
-						myPanel.add(toLoad);
-					} else if ((fields[y][x] + "").equals("Target")) {
-						System.out.print("T ");
-						JLabel toLoad = new JLabel(new ImageIcon("target.png"));
-						toLoad.setBounds(x * 50, y * 50, 50, 50);
-						myPanel.add(toLoad);
-					} else if ((fields[y][x] + "").equals("Button")) {
-						System.out.print("B ");
-						JLabel toLoad = new JLabel(new ImageIcon("button.png"));
-						toLoad.setBounds(x * 50, y * 50, 50, 50);
-						myPanel.add(toLoad);
-					}
-				} else {
-					if ((fields[y][x].GetmyMoveable() + "").equals("Wall")) {
-						System.out.print("W ");
-						JLabel toLoad = new JLabel(new ImageIcon("wall.png"));
-						toLoad.setBounds(x * 50, y * 50, 50, 50);
-						myPanel.add(toLoad);
-					} else if ((fields[y][x].GetmyMoveable() + "").equals("Box")) {
-						System.out.print("b ");
-						JLabel toLoad = new JLabel(new ImageIcon("box.png"));
-						toLoad.setBounds(x * 50, y * 50, 50, 50);
-						myPanel.add(toLoad);
-					} else if ((fields[y][x].GetmyMoveable() + "").equals("Player")) {
-						System.out.print("p ");
-					}
-				}
-			}
-			System.out.println();
-			myPanel.repaint();
+                    JLabel toLoad = new JLabel(new ImageIcon(fields[y][x].GetImage()));
+                    toLoad.setBounds(x * 50, y * 50, 50, 50);
+                    myPanel.add(toLoad);
+
+                    if ((fields[y][x] + "").equals("Field")) {
+                        System.out.print("  ");
+                    } else if ((fields[y][x] + "").equals("Hole")) {
+                        System.out.print("H ");
+                    } else if ((fields[y][x] + "").equals("TrapDoor")) {
+                        System.out.print("D ");   
+                    } else if ((fields[y][x] + "").equals("Target")) {
+                        System.out.print("T ");
+                    } else if ((fields[y][x] + "").equals("Button")) {
+                        System.out.print("B ");
+                    }
+                } else {
+                    JLabel toLoad = new JLabel(new ImageIcon(fields[y][x].GetmyMoveable().GetImage()));
+                    toLoad.setBounds(x * 50, y * 50, 50, 50);
+                    myPanel.add(toLoad);
+                    if ((fields[y][x].GetmyMoveable() + "").equals("Wall")) {
+                        System.out.print("W ");
+                    } else if ((fields[y][x].GetmyMoveable() + "").equals("Box")) {
+                        System.out.print("b ");
+                    } else if ((fields[y][x].GetmyMoveable() + "").equals("Player")) {
+                        System.out.print("p ");
+                    }
+                }
+            }
+            System.out.println();
+            myPanel.setFocusable(true);
+            myPanel.setFocusTraversalKeysEnabled(false);
+            myPanel.repaint();
 		}
 	}
 
