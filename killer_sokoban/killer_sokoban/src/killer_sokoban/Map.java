@@ -278,7 +278,7 @@ public class Map {
 				nX = ThreadLocalRandom.current().nextInt(1, 10);
 				nY = ThreadLocalRandom.current().nextInt(1, 10);
 			}
-			Player p = new Player(maxStrength, colors.get(playerCount));
+			Player p = new Player(maxStrength, colors.get(playerCount-1));
 			p.SetmyField(fields[nY][nX]);
 			fields[nY][nX].Register(p);
 			maxStrength--; /// fokozatosan csokkenti a jatekosok erejet.
@@ -333,6 +333,7 @@ public class Map {
             myPanel.setFocusable(true);
             myPanel.setFocusTraversalKeysEnabled(false);
             myPanel.repaint();
+            myFrame.requestFocus();
 		}
 	}
 
