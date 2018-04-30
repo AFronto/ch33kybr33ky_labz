@@ -1,7 +1,7 @@
 package killer_sokoban;
 
 import static killer_sokoban.Game.*;
-import static killer_sokoban.Interpreter.*;
+ 
 
 public class Wall extends Box{
 	
@@ -11,7 +11,7 @@ public class Wall extends Box{
 	public Wall(){
 		super();		
 		//Betoltendo kep utvonala
-		image="";
+		image="wall.png";
 	}
 	
 	/**

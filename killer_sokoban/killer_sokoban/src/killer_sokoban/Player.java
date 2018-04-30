@@ -1,7 +1,7 @@
 package killer_sokoban;
 
 import static killer_sokoban.Game.*;
-import static killer_sokoban.Interpreter.*;
+ 
 
 public class Player extends Moveable {
 

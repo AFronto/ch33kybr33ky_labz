@@ -1,7 +1,7 @@
 package killer_sokoban;
 
 import static killer_sokoban.Game.*;
-import static killer_sokoban.Interpreter.*;
+ 
 
 public class Box extends Moveable {
 
@@ -63,7 +63,6 @@ public class Box extends Moveable {
 					//just for the interpreter
 					boolean died = myNeighbour.GetmyMoveable().Kill();
 					if (died) { // Ha sikerult megolni..
-						moveableDestroyed(actm);
 						myField.Remove();
 						myNeighbour.Register(this);
 						myNeighbour.FieldAction();
