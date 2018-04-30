@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -29,7 +31,7 @@ public class Map {
 	private double roomChance;
 	private JFrame myFrame;
 	private JPanel myPanel;
-	
+
 	/**
 	 * Konstruktor
 	 */
@@ -54,8 +56,8 @@ public class Map {
 		myPanel = new JPanel();
 		myPanel.setBounds(0, 0, 550, 550);
 		myPanel.setLayout(null);
-		frame.add(myPanel);
-		
+		myFrame.add(myPanel);
+
 		fields = new Field[height][width];
 
 		for (int y = 0; y < height; y++) /// csinal egy width x height méretu
@@ -278,7 +280,7 @@ public class Map {
 				nX = ThreadLocalRandom.current().nextInt(1, 10);
 				nY = ThreadLocalRandom.current().nextInt(1, 10);
 			}
-			Player p = new Player(maxStrength, colors.get(playerCount-1));
+			Player p = new Player(maxStrength, colors.get(playerCount - 1));
 			p.SetmyField(fields[nY][nX]);
 			fields[nY][nX].Register(p);
 			maxStrength--; /// fokozatosan csokkenti a jatekosok erejet.
@@ -301,40 +303,40 @@ public class Map {
 		{
 			for (int x = 0; x < width; x++) {
 				if (fields[y][x].GetmyMoveable() == null) {
-                    JLabel toLoad = new JLabel(new ImageIcon(fields[y][x].GetImage()));
-                    toLoad.setBounds(x * 50, y * 50, 50, 50);
-                    myPanel.add(toLoad);
+					JLabel toLoad = new JLabel(new ImageIcon(fields[y][x].GetImage()));
+					toLoad.setBounds(x * 50, y * 50, 50, 50);
+					myPanel.add(toLoad);
 
-                    if ((fields[y][x] + "").equals("Field")) {
-                        System.out.print("  ");
-                    } else if ((fields[y][x] + "").equals("Hole")) {
-                        System.out.print("H ");
-                    } else if ((fields[y][x] + "").equals("TrapDoor")) {
-                        System.out.print("D ");   
-                    } else if ((fields[y][x] + "").equals("Target")) {
-                        System.out.print("T ");
-                    } else if ((fields[y][x] + "").equals("Button")) {
-                        System.out.print("B ");
-                    }
-                } else {
-                    JLabel toLoad = new JLabel(new ImageIcon(fields[y][x].GetmyMoveable().GetImage()));
-                    toLoad.setBounds(x * 50, y * 50, 50, 50);
-                    myPanel.add(toLoad);
-                    if ((fields[y][x].GetmyMoveable() + "").equals("Wall")) {
-                        System.out.print("W ");
-                    } else if ((fields[y][x].GetmyMoveable() + "").equals("Box")) {
-                        System.out.print("b ");
-                    } else if ((fields[y][x].GetmyMoveable() + "").equals("Player")) {
-                        System.out.print("p ");
-                    }
-                }
-            }
-            System.out.println();
-            myPanel.setFocusable(true);
-            myPanel.setFocusTraversalKeysEnabled(false);
-            myPanel.repaint();
-            myFrame.requestFocus();
+					if ((fields[y][x] + "").equals("Field")) {
+						System.out.print("  ");
+					} else if ((fields[y][x] + "").equals("Hole")) {
+						System.out.print("H ");
+					} else if ((fields[y][x] + "").equals("TrapDoor")) {
+						System.out.print("D ");
+					} else if ((fields[y][x] + "").equals("Target")) {
+						System.out.print("T ");
+					} else if ((fields[y][x] + "").equals("Button")) {
+						System.out.print("B ");
+					}
+				} else {
+					JLabel toLoad = new JLabel(new ImageIcon(fields[y][x].GetmyMoveable().GetImage()));
+					toLoad.setBounds(x * 50, y * 50, 50, 50);
+					myPanel.add(toLoad);
+					if ((fields[y][x].GetmyMoveable() + "").equals("Wall")) {
+						System.out.print("W ");
+					} else if ((fields[y][x].GetmyMoveable() + "").equals("Box")) {
+						System.out.print("b ");
+					} else if ((fields[y][x].GetmyMoveable() + "").equals("Player")) {
+						System.out.print("p ");
+					}
+				}
+
+			}
+			System.out.println();
 		}
+		myPanel.repaint();
+		myFrame.repaint();
+		myFrame.requestFocus();
 	}
 
 	/**

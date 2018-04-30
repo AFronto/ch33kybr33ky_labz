@@ -37,8 +37,13 @@ public class Game implements ActionListener {
 	private int[] overallScore;
 	private static Map active_map;
 	private int maxStrength;
+	private static JLabel blueScore;
+	private static JLabel redScore;
+	private static JLabel greenScore;
+	private static JLabel yellowScore;
 
-	private static HashMap<Player,MyKeyListener> keylisteners=new HashMap<Player,MyKeyListener>();
+	private static HashMap<Player, MyKeyListener> keylisteners = new HashMap<Player, MyKeyListener>();
+
 	/**
 	 * A legerosebb jatekos toloerejevel ter vissza.
 	 *
@@ -123,7 +128,7 @@ public class Game implements ActionListener {
 			System.out.println("bastya nem jo vmi: ");
 			e1.printStackTrace();
 		}
-		JButton newGameBtn = new JButton("New Game",(Icon) new ImageIcon(buttonIcon));
+		JButton newGameBtn = new JButton("New Game", (Icon) new ImageIcon(buttonIcon));
 		newGameBtn.setForeground(SystemColor.text);
 		newGameBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
 		newGameBtn.setHorizontalTextPosition(JButton.CENTER);
@@ -139,8 +144,8 @@ public class Game implements ActionListener {
 
 			}
 		});
-		
-		JButton backBtn = new JButton("Back",(Icon) new ImageIcon(buttonIcon));
+
+		JButton backBtn = new JButton("Back", (Icon) new ImageIcon(buttonIcon));
 		backBtn.setForeground(SystemColor.text);
 		backBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
 		backBtn.addActionListener(new ActionListener() {
@@ -154,7 +159,7 @@ public class Game implements ActionListener {
 		backBtn.setBounds(175, 175, 200, 50);
 		optionsPanel.add(backBtn);
 
-		JButton exitBtn = new JButton("Exit",(Icon) new ImageIcon(buttonIcon));
+		JButton exitBtn = new JButton("Exit", (Icon) new ImageIcon(buttonIcon));
 		exitBtn.setForeground(SystemColor.text);
 		exitBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -168,7 +173,7 @@ public class Game implements ActionListener {
 		exitBtn.setBounds(175, 400, 200, 50);
 		menuPanel.add(exitBtn);
 
-		JButton optionsBtn = new JButton("Options",(Icon) new ImageIcon(buttonIcon));
+		JButton optionsBtn = new JButton("Options", (Icon) new ImageIcon(buttonIcon));
 		optionsBtn.setForeground(SystemColor.text);
 		optionsBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -220,10 +225,42 @@ public class Game implements ActionListener {
 		group.add(radioButton_4);
 		//////
 
+		blueScore = new JLabel("Blue: 0");
+		blueScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 22));
+		blueScore.setForeground(Color.WHITE);
+		blueScore.setBounds(13, 503, 100, 40);
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(blueScore);
+
+		redScore = new JLabel("Red: 0");
+		redScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 22));
+		redScore.setForeground(Color.WHITE);
+		redScore.setBounds(163, 503, 100, 40);
+		frame.getContentPane().add(redScore);
+
+		greenScore = new JLabel("Green: 0");
+		greenScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 22));
+		greenScore.setForeground(Color.WHITE);
+		greenScore.setBounds(300, 503, 100, 40);
+		greenScore.setVisible(false);
+		frame.getContentPane().add(greenScore);
+
+		yellowScore = new JLabel("Yellow: 0");
+		yellowScore.setFont(new Font("Comic Sans MS", Font.PLAIN, 22));
+		yellowScore.setForeground(Color.WHITE);
+		yellowScore.setBounds(433, 503, 100, 40);
+		yellowScore.setVisible(false);
+		frame.getContentPane().add(yellowScore);
+
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		players = Integer.parseInt(e.getActionCommand());
+		if (players >= 3)
+			greenScore.setVisible(true);
+		if (players >= 4) {
+			yellowScore.setVisible(true);
+		}
 	}
 
 	/**
@@ -232,14 +269,14 @@ public class Game implements ActionListener {
 	 * @param playerCount
 	 *            A jatekosok szama ahanyan jatszani akarnak.
 	 */
-	public void NewGame(int playerCount){		
-		keylisteners=active_map.CreateMap(playerCount,6,frame);		
+	public void NewGame(int playerCount) {
+		keylisteners = active_map.CreateMap(playerCount, 6, frame);
 	}
 
 	/**
 	 * Jatek vege
 	 */
-	public static void EndGame(){
+	public static void EndGame() {
 		getMyMap();
 		System.out.println();
 		System.out.println("Vege");
@@ -256,12 +293,21 @@ public class Game implements ActionListener {
 	public static void UpdateScore(Player p) {
 
 		int score = p.GetScore();
-		if (score == -1){
+		if (score == -1) {
 			players--;
 			frame.removeKeyListener(keylisteners.get(p));
 		}
+		if (p.GetImage().equals("blueplayer.png")) {
+			blueScore.setText("Blue: " + score);
+		} else if (p.GetImage().equals("redplayer.png")) {
+			redScore.setText("Red: " + score);
+		} else if (p.GetImage().equals("greenplayer.png")) {
+			greenScore.setText("Green: " + score);
+		} else if (p.GetImage().equals("yellowplayer.png")) {
+			yellowScore.setText("Yellow :" + score);
+		}
 
-		if (players <= 1){
+		if (players <= 1) {
 			EndGame();
 		}
 
@@ -291,8 +337,9 @@ public class Game implements ActionListener {
 		boxes = i;
 	}
 
-/////////////////////////////////////////////////////////////Konzolos teszthez//////////////////////////////////////////////////////////////////////
-	public static void getMyMap(){
+	///////////////////////////////////////////////////////////// Konzolos
+	///////////////////////////////////////////////////////////// teszthez//////////////////////////////////////////////////////////////////////
+	public static void getMyMap() {
 		System.out.println();
 		System.out.println();
 		active_map.printMyMap();
