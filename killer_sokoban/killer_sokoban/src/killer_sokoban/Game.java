@@ -133,8 +133,10 @@ public class Game implements ActionListener {
 		newGameBtn.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
-				NewGame(players);
 				menuPanel.setVisible(false);
+				optionsPanel.setVisible(false);
+				NewGame(players);
+
 			}
 		});
 		
