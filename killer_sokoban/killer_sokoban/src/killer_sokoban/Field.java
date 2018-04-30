@@ -8,7 +8,12 @@ public class Field {
 	protected EnumMap<Direction, Field> neighbours; 				///iranyokkal allíithato tomb
 	protected Moveable myMoveable;									///A filden allo Moveable
 	protected int friction = 1;										// A mezo surlodasa
+	protected String image;
 
+	
+	public String GetImage(){
+		return image;
+	}
 	/**
 	 *Konstruktor
 	 */
@@ -17,7 +22,8 @@ public class Field {
 		myMoveable=null;
 		neighbours= new EnumMap<Direction,Field>(Direction.class);
 		
-	
+		//Betoltendo kep utvonala
+		image="field.png";
 	}
 
 	/**

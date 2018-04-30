@@ -230,6 +230,13 @@ public class Map {
 
         HashMap<Player,MyKeyListener> keylisteners=new HashMap<Player,MyKeyListener>();
 
+        ArrayList<String> colors=new ArrayList<String>();
+        colors.add("blue");
+        colors.add("red");
+        colors.add("green");
+        colors.add("yellow");
+
+
         nX = ThreadLocalRandom.current().nextInt(1, 10);
         nY = ThreadLocalRandom.current().nextInt(1, 10);
         while(playerCount>0){																			///random helyekre rakja le a megfelelo szamu playert.
@@ -237,7 +244,7 @@ public class Map {
 	        	nX = ThreadLocalRandom.current().nextInt(1, 10);
 	           	nY = ThreadLocalRandom.current().nextInt(1, 10);										
 	        }
-	        Player p=new Player(maxStrength);
+	        Player p=new Player(maxStrength,colors.get(playerCount));
             p.SetmyField(fields[nY][nX]);
             fields[nY][nX].Register(p);
             maxStrength--;																				///fokozatosan csokkenti a jatekosok erejet.

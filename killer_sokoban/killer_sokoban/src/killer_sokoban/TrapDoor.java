@@ -5,12 +5,17 @@ import static killer_sokoban.Interpreter.*;
 public class TrapDoor extends Hole{
 
 	private boolean isActive;
-	
+	private String OpenImage;
+	private String ClosedImage;
 	/**
 	 * Konstruktor. Meghivja az ose konstruktorat.
 	 */
 	public TrapDoor(){
-		super();		
+		super();	
+		//Betoltendo kep utvonala
+		OpenImage="trapdoor_open";
+		ClosedImage="trapdoor_close";
+		image=ClosedImage;	
 	}
 	
 	/**
@@ -21,7 +26,10 @@ public class TrapDoor extends Hole{
 	public void SetActive(boolean b){		
 		isActive = b;
 		if (isActive) {
+			image=OpenImage;
 			FieldAction();
+		}else{
+			image=ClosedImage;
 		}		
 	}
 	
