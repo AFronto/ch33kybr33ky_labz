@@ -98,20 +98,20 @@ public class Game implements ActionListener {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.ORANGE);
 		frame.setBackground(Color.BLACK);
-		frame.setBounds(100, 100, 550, 550);
+		frame.setBounds(100, 100, 565, 589);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// JPanels
 		JPanel menuPanel = new JPanel();
 		menuPanel.setBackground(SystemColor.info);
-		menuPanel.setBounds(0, 0, 534, 511);
+		menuPanel.setBounds(0, 0, 550, 550);
 		frame.getContentPane().add(menuPanel);
 		menuPanel.setLayout(null);
 
 		JPanel optionsPanel = new JPanel();
 		optionsPanel.setLayout(null);
 		optionsPanel.setBackground(SystemColor.info);
-		optionsPanel.setBounds(0, 0, 534, 511);
+		optionsPanel.setBounds(0, 0, 550, 550);
 		frame.getContentPane().add(optionsPanel);
 		optionsPanel.setVisible(false);
 
