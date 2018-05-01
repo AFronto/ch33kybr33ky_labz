@@ -31,7 +31,6 @@ import java.util.HashMap;
 
 public class Game implements ActionListener {
 	private static JFrame frame;
-	// private static Game game;
 	private static int boxes;
 	private static int players = 2;
 	private int[] overallScore;
