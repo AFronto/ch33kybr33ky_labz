@@ -51,9 +51,9 @@ public class Map {
 	 *            a maximalis ero
 	 */
 
-	public HashMap<Player, MyKeyListener> CreateMap(int playerCount, int maxStrength, JFrame frame) {
+	public HashMap<Player, MyKeyListener> CreateMap(int playerCount, int maxStrength, JFrame frame,JPanel panel) {
 		myFrame = frame;
-		myPanel = new JPanel();
+		myPanel = panel;
 		myPanel.setBounds(0, 0, 550, 550);
 		myPanel.setLayout(null);
 		myFrame.add(myPanel);

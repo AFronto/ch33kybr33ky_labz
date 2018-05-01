@@ -31,11 +31,12 @@ import java.util.HashMap;
 
 public class Game implements ActionListener {
 	private static JFrame frame;
+	private static JPanel panel = new JPanel();
 	private static int boxes;
 	private static int players = 2;
 	private int[] overallScore;
 	private static Map active_map;
-	private int maxStrength=6;
+	private static int maxStrength=6;
 	private static JLabel blueScore;
 	private static JLabel redScore;
 	private static JLabel greenScore;
@@ -268,8 +269,8 @@ public class Game implements ActionListener {
 	 * @param playerCount
 	 *            A jatekosok szama ahanyan jatszani akarnak.
 	 */
-	public void NewGame(int playerCount){		
-		keylisteners=active_map.CreateMap(playerCount,maxStrength,frame);		
+	public static void NewGame(int playerCount){		
+		keylisteners=active_map.CreateMap(playerCount,maxStrength,frame,panel);		
 	}
 
 	/**
