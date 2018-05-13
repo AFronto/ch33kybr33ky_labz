@@ -117,6 +117,58 @@ public class Game implements ActionListener {
 		frame.setBounds(100, 100, 565, 589);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+				// JPanels
+				menuPanel = new JPanel();
+				menuPanel.setBackground(SystemColor.info);
+				menuPanel.setBounds(0, 0, 550, 550);
+				frame.getContentPane().add(menuPanel);
+				menuPanel.setLayout(null);
+				JButton newGameBtn = new JButton("New Game", (Icon) new ImageIcon(buttonIcon));
+				newGameBtn.setForeground(Color.BLACK);
+				newGameBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+				newGameBtn.setHorizontalTextPosition(JButton.CENTER);
+				newGameBtn.setVerticalTextPosition(JButton.CENTER);
+				newGameBtn.setBounds(175, 50, 200, 50);
+				menuPanel.add(newGameBtn);
+				newGameBtn.addActionListener(new ActionListener() {
+
+					public void actionPerformed(ActionEvent arg0) {
+						menuPanel.setVisible(false);
+						optionsPanel.setVisible(false);
+						NewGame(players);
+
+					}
+				});
+				
+						JButton exitBtn = new JButton("Exit", (Icon) new ImageIcon(buttonIcon));
+						exitBtn.setForeground(Color.BLACK);
+						exitBtn.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								System.exit(0);
+							}
+						});
+						exitBtn.setHorizontalTextPosition(JButton.CENTER);
+						exitBtn.setVerticalTextPosition(JButton.CENTER);
+						exitBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+						exitBtn.setBackground(SystemColor.activeCaptionBorder);
+						exitBtn.setBounds(175, 400, 200, 50);
+						menuPanel.add(exitBtn);
+						
+								JButton optionsBtn = new JButton("Options", (Icon) new ImageIcon(buttonIcon));
+								optionsBtn.setForeground(Color.BLACK);
+								optionsBtn.addActionListener(new ActionListener() {
+									public void actionPerformed(ActionEvent e) {
+										menuPanel.setVisible(false);
+										optionsPanel.setVisible(true);
+									}
+								});
+								optionsBtn.setHorizontalTextPosition(JButton.CENTER);
+								optionsBtn.setVerticalTextPosition(JButton.CENTER);
+								optionsBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+								optionsBtn.setBackground(SystemColor.activeCaptionBorder);
+								optionsBtn.setBounds(175, 150, 200, 50);
+								menuPanel.add(optionsBtn);
+		
 		scorePanel = new JPanel();
 		scorePanel.setBackground(SystemColor.info);
 		scorePanel.setBounds(0, 0, 550, 550);
@@ -133,7 +185,7 @@ public class Game implements ActionListener {
 		});
 		button.setVerticalTextPosition(SwingConstants.CENTER);
 		button.setHorizontalTextPosition(SwingConstants.CENTER);
-		button.setForeground(Color.WHITE);
+		button.setForeground(Color.BLACK);
 		button.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
 		button.setBounds(175, 390, 200, 50);
 		scorePanel.add(button);
@@ -147,7 +199,7 @@ public class Game implements ActionListener {
 		});
 		button_1.setVerticalTextPosition(SwingConstants.CENTER);
 		button_1.setHorizontalTextPosition(SwingConstants.CENTER);
-		button_1.setForeground(Color.WHITE);
+		button_1.setForeground(Color.BLACK);
 		button_1.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
 		button_1.setBounds(175, 446, 200, 50);
 		scorePanel.add(button_1);
@@ -169,13 +221,6 @@ public class Game implements ActionListener {
 		scorePanel.add(yellowLabel);
 		scorePanel.setVisible(false);
 
-		// JPanels
-		menuPanel = new JPanel();
-		menuPanel.setBackground(SystemColor.info);
-		menuPanel.setBounds(0, 0, 550, 550);
-		frame.getContentPane().add(menuPanel);
-		menuPanel.setLayout(null);
-
 		JPanel optionsPanel = new JPanel();
 		optionsPanel.setLayout(null);
 		optionsPanel.setBackground(SystemColor.info);
@@ -192,22 +237,6 @@ public class Game implements ActionListener {
 			System.out.println("bastya nem jo vmi: ");
 			e1.printStackTrace();
 		}
-		JButton newGameBtn = new JButton("New Game", (Icon) new ImageIcon(buttonIcon));
-		newGameBtn.setForeground(SystemColor.text);
-		newGameBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
-		newGameBtn.setHorizontalTextPosition(JButton.CENTER);
-		newGameBtn.setVerticalTextPosition(JButton.CENTER);
-		newGameBtn.setBounds(175, 50, 200, 50);
-		menuPanel.add(newGameBtn);
-		newGameBtn.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent arg0) {
-				menuPanel.setVisible(false);
-				optionsPanel.setVisible(false);
-				NewGame(players);
-
-			}
-		});
 
 		JButton backBtn = new JButton("Back", (Icon) new ImageIcon(buttonIcon));
 		backBtn.setForeground(SystemColor.text);
@@ -222,35 +251,6 @@ public class Game implements ActionListener {
 		backBtn.setVerticalTextPosition(JButton.CENTER);
 		backBtn.setBounds(175, 175, 200, 50);
 		optionsPanel.add(backBtn);
-
-		JButton exitBtn = new JButton("Exit", (Icon) new ImageIcon(buttonIcon));
-		exitBtn.setForeground(SystemColor.text);
-		exitBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		exitBtn.setHorizontalTextPosition(JButton.CENTER);
-		exitBtn.setVerticalTextPosition(JButton.CENTER);
-		exitBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
-		exitBtn.setBackground(SystemColor.activeCaptionBorder);
-		exitBtn.setBounds(175, 400, 200, 50);
-		menuPanel.add(exitBtn);
-
-		JButton optionsBtn = new JButton("Options", (Icon) new ImageIcon(buttonIcon));
-		optionsBtn.setForeground(SystemColor.text);
-		optionsBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				menuPanel.setVisible(false);
-				optionsPanel.setVisible(true);
-			}
-		});
-		optionsBtn.setHorizontalTextPosition(JButton.CENTER);
-		optionsBtn.setVerticalTextPosition(JButton.CENTER);
-		optionsBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
-		optionsBtn.setBackground(SystemColor.activeCaptionBorder);
-		optionsBtn.setBounds(175, 150, 200, 50);
-		menuPanel.add(optionsBtn);
 		///
 
 		/// JLabels
