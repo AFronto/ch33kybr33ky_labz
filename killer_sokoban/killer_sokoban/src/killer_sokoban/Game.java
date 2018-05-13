@@ -373,6 +373,7 @@ public class Game implements ActionListener {
 			frame.removeKeyListener(keylisteners.get(actKey));
 		}
 		active_map=null;
+		active_map= new Map();
 		//System.exit(0);
 	}
 
