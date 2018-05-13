@@ -109,7 +109,11 @@ public class Game implements ActionListener {
 			}
 		});
 	}
-
+/**
+ * Letrehozza az osszes panelt: Menupanel,OptionsPanel, ScorePanel, valamint kezeli a gombok lenyomasat. Itt allitjuk a playerek szamat a comboboxok segitsegevel, valamint a 
+ * scoreokat JLabelekkel irjuk ki.
+ * A Panelek kozott a setVisibility segitsegevel valtunk
+ */
 	private void initialize() {
 
 		frame = new JFrame();
@@ -321,7 +325,9 @@ public class Game implements ActionListener {
 		frame.getContentPane().add(yellowScore);
 
 	}
-
+/**
+ * Kezeli a comboboxok valtasat.Akkor fut le amikor egy masik allapotra allitjuk. A jatekosok szamatol fugg, hogy kiirjuk e a pontokat. Mindig csak annak a pontjat irjuk ki aki tenylegesen jatszik
+ */
 	public void actionPerformed(ActionEvent e) {
 		players = Integer.parseInt(e.getActionCommand());
 		if (players >= 3)
@@ -346,6 +352,10 @@ public class Game implements ActionListener {
 
 	/**
 	 * Jatek vege
+	 * Amikor vege egy jateknak, a Score kepernyore kerulunk, itt mindent alapallasba allitunk, hogy az elozo jateknak ne legyen hatasa az ujra. Jlabeleket es a pontokat nullazzuk.
+	 * A jatekosok szamat visszaallitjuk a korrabbira
+	 * Generalunk egy uj palyat
+	 * A keylistenereket is frissitjuk
 	 */
 	public static void EndGame() {
 		gameOn=false;
@@ -442,6 +452,9 @@ public class Game implements ActionListener {
 		boxes = i;
 	}
 
+	/**
+	 * Visszaadja az aktualis palyat.
+	 */
 	public static void getMyMap() {
 		if(gameOn){
 			active_map.printMyMap();
