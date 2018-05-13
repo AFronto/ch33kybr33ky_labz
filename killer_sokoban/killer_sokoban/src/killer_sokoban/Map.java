@@ -29,8 +29,8 @@ public class Map {
 	private int height;
 	private int corridorLength;
 	private double roomChance;
-	private JFrame myFrame;
-	private JPanel myPanel;
+		private JFrame myFrame;
+		private JPanel myPanel;
 
 	/**
 	 * Konstruktor
