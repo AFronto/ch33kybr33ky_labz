@@ -34,15 +34,27 @@ public class Game implements ActionListener {
 	private static JPanel panel = new JPanel();
 	private static int boxes;
 	private static int players = 2;
+	private static int startingplayers = 2;
 	private int[] overallScore;
 	private static Map active_map;
-	private static int maxStrength = 2;
+	private static int maxStrength = 4;
 	private static JLabel blueScore;
 	private static JLabel redScore;
 	private static JLabel greenScore;
 	private static JLabel yellowScore;
-
+	private static JPanel menuPanel;
+	private static JPanel scorePanel;
+	private static 	JLabel blueLabel;
+	private static 	JLabel redLabel;
+	private static 	JLabel greenLabel;
+	private static 	JLabel yellowLabel;
+	private static int blueScoreNum = 0;
+	private static int redScoreNum=0;
+	private static int yellowScoreNum=0;
+	private static int greenScoreNum=0;
 	private static HashMap<Player, MyKeyListener> keylisteners = new HashMap<Player, MyKeyListener>();
+	private JButton button;
+	private JButton button_1;
 
 	/**
 	 * A legerosebb jatekos toloerejevel ter vissza.
@@ -105,9 +117,61 @@ public class Game implements ActionListener {
 		frame.setBackground(Color.BLACK);
 		frame.setBounds(100, 100, 565, 589);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		scorePanel = new JPanel();
+		scorePanel.setBackground(SystemColor.info);
+		scorePanel.setBounds(0, 0, 550, 550);
+		frame.getContentPane().add(scorePanel);
+		scorePanel.setLayout(null);
+		
+		button = new JButton("New Game", null);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scorePanel.setVisible(false);
+				startingplayers = players;
+				NewGame(players);
+			}
+		});
+		button.setVerticalTextPosition(SwingConstants.CENTER);
+		button.setHorizontalTextPosition(SwingConstants.CENTER);
+		button.setForeground(Color.WHITE);
+		button.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+		button.setBounds(175, 390, 200, 50);
+		scorePanel.add(button);
+		
+		button_1 = new JButton("Menu", null);
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				scorePanel.setVisible(false);
+				menuPanel.setVisible(true);
+			}
+		});
+		button_1.setVerticalTextPosition(SwingConstants.CENTER);
+		button_1.setHorizontalTextPosition(SwingConstants.CENTER);
+		button_1.setForeground(Color.WHITE);
+		button_1.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+		button_1.setBounds(175, 446, 200, 50);
+		scorePanel.add(button_1);
+		
+		blueLabel = new JLabel("");
+		blueLabel.setBounds(175, 80, 100, 40);
+		scorePanel.add(blueLabel);
+		
+		redLabel = new JLabel("");
+		redLabel.setBounds(175, 130, 100, 40);
+		scorePanel.add(redLabel);
+		
+		greenLabel = new JLabel("");
+		greenLabel.setBounds(175, 180, 100, 40);
+		scorePanel.add(greenLabel);
+		
+		yellowLabel = new JLabel("");
+		yellowLabel.setBounds(175, 230, 100, 40);
+		scorePanel.add(yellowLabel);
+		scorePanel.setVisible(false);
 
 		// JPanels
-		JPanel menuPanel = new JPanel();
+		menuPanel = new JPanel();
 		menuPanel.setBackground(SystemColor.info);
 		menuPanel.setBounds(0, 0, 550, 550);
 		frame.getContentPane().add(menuPanel);
@@ -119,7 +183,8 @@ public class Game implements ActionListener {
 		optionsPanel.setBounds(0, 0, 550, 550);
 		frame.getContentPane().add(optionsPanel);
 		optionsPanel.setVisible(false);
-
+		
+		
 		/// JButtons
 		BufferedImage buttonIcon = null;
 		try {
@@ -278,9 +343,32 @@ public class Game implements ActionListener {
 	 */
 	public static void EndGame() {
 		getMyMap();
+		scorePanel.setVisible(true);
+		blueLabel.setText("Blue: "+blueScoreNum);
+		if(blueScoreNum == -1)
+			blueLabel.setText("Blue got rekt :(");
+		redLabel.setText("Red: "+redScoreNum);
+		if(redScoreNum == -1)
+			redLabel.setText("Red got rekt :(");
+		greenLabel.setText("Green: "+greenScoreNum);
+		if(greenScoreNum == -1)
+			greenLabel.setText("Green got rekt :(");
+		yellowLabel.setText("Yellow: "+yellowScoreNum);
+		if(yellowScoreNum == -1)
+			yellowLabel.setText("Blue got rekt :(");
+		blueScoreNum = 0;
+		redScoreNum = 0;
+		greenScoreNum = 0;
+		yellowScoreNum=0;
+		blueScore.setText("Blue: "+0);
+		redScore.setText("Red: " + 0);
+		greenScore.setText("Green: " + 0);
+		yellowScore.setText("Yellow :" + 0);
+		players = startingplayers;
+		
 		System.out.println();
 		System.out.println("Vege");
-		System.exit(0);
+		//System.exit(0);
 	}
 
 	/**
@@ -299,12 +387,16 @@ public class Game implements ActionListener {
 		}
 		if (p.GetColor().equals("blue")) {
 			blueScore.setText("Blue: " + score);
+			blueScoreNum = score;
 		} else if (p.GetColor().equals("red")) {
 			redScore.setText("Red: " + score);
+			redScoreNum= score;
 		} else if (p.GetColor().equals("green")) {
 			greenScore.setText("Green: " + score);
+			greenScoreNum= score;
 		} else if (p.GetColor().equals("yellow")) {
 			yellowScore.setText("Yellow :" + score);
+			yellowScoreNum= score;
 		}
 
 		if (players <= 1) {

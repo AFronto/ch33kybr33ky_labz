@@ -56,8 +56,7 @@ public class ImageLoader{
 		}else{
 			switch(""+f.GetmyMoveable()){
 				case "Player":
-					Player p = (Player) f.GetmyMoveable();
-					image=p.GetColor()+player;
+					image=f.GetmyMoveable().GetColor()+player;
 					break;
 				case "Wall":
 					image=wall;
