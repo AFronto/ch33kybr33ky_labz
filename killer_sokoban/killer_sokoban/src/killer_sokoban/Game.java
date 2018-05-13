@@ -36,7 +36,7 @@ public class Game implements ActionListener {
 	private static int players = 2;
 	private int[] overallScore;
 	private static Map active_map;
-	private static int maxStrength=6;
+	private static int maxStrength = 2;
 	private static JLabel blueScore;
 	private static JLabel redScore;
 	private static JLabel greenScore;
@@ -269,8 +269,8 @@ public class Game implements ActionListener {
 	 * @param playerCount
 	 *            A jatekosok szama ahanyan jatszani akarnak.
 	 */
-	public static void NewGame(int playerCount){		
-		keylisteners=active_map.CreateMap(playerCount,maxStrength,frame,panel);		
+	public static void NewGame(int playerCount) {
+		keylisteners = active_map.CreateMap(playerCount, maxStrength, frame, panel);
 	}
 
 	/**
@@ -297,13 +297,13 @@ public class Game implements ActionListener {
 			players--;
 			frame.removeKeyListener(keylisteners.get(p));
 		}
-		if (p.GetImage().equals("blueplayer.png")) {
+		if (p.GetColor().equals("blue")) {
 			blueScore.setText("Blue: " + score);
-		} else if (p.GetImage().equals("redplayer.png")) {
+		} else if (p.GetColor().equals("red")) {
 			redScore.setText("Red: " + score);
-		} else if (p.GetImage().equals("greenplayer.png")) {
+		} else if (p.GetColor().equals("green")) {
 			greenScore.setText("Green: " + score);
-		} else if (p.GetImage().equals("yellowplayer.png")) {
+		} else if (p.GetColor().equals("yellow")) {
 			yellowScore.setText("Yellow :" + score);
 		}
 
@@ -337,8 +337,7 @@ public class Game implements ActionListener {
 		boxes = i;
 	}
 
-
-	public static void getMyMap(){
+	public static void getMyMap() {
 		active_map.printMyMap();
 	}
 }
