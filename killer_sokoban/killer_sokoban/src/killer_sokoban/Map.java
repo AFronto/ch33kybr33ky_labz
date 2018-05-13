@@ -303,18 +303,13 @@ public class Map {
 
 	public void printMyMap() {
 		myPanel.removeAll();
+		ImageLoader loader=new ImageLoader();
 		for (int y = 0; y < height; y++) /// kiirja a vegeredmenyt
 		{
 			for (int x = 0; x < width; x++) {
-				if (fields[y][x].GetmyMoveable() == null) {
-                    JLabel toLoad = new JLabel(new ImageIcon(fields[y][x].GetImage()));
-                    toLoad.setBounds(x * 50, y * 50, 50, 50);
-                    myPanel.add(toLoad);
-                } else {
-                    JLabel toLoad = new JLabel(new ImageIcon(fields[y][x].GetmyMoveable().GetImage()));
-                    toLoad.setBounds(x * 50, y * 50, 50, 50);
-                    myPanel.add(toLoad);
-                }
+                JLabel toLoad = new JLabel(new ImageIcon(loader.GetImage(fields[y][x])));
+                toLoad.setBounds(x * 50, y * 50, 50, 50);
+                myPanel.add(toLoad);
             }
         }
 		myPanel.repaint();

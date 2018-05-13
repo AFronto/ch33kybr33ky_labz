@@ -15,8 +15,6 @@ public class Box extends Moveable {
 		super();
 		CountBoxes(1); //Egyel noveli a Box szamlalot
 		stuck = false; //Alapbol nincs beszorulva
-		//Betoltendo kep utvonala
-		image="box.png";
 	}
 
 	/**

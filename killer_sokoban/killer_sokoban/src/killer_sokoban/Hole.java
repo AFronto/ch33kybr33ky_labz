@@ -9,8 +9,6 @@ public class Hole extends Field {
 	 */
 	public Hole(){
 		super();
-		//Betoltendo kep utvonala
-		image="hole.png";
 	}
 
 

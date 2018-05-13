@@ -7,6 +7,7 @@ public class Player extends Moveable {
 
 	private int score;
 	private int strength;
+	private String color;
 	/**
 	 * Konstruktor
 	 * @param s - A letrejovo Player toloereje.
@@ -17,8 +18,12 @@ public class Player extends Moveable {
 		score = 0;
 		//Annyi erovel, amennyit megadunk
 		strength = s;
-		//Betoltendo kep utvonala
-		image=color+"player.png";
+
+		this.color=color;
+	}
+
+	public String GetColor(){
+		return color;
 	}
 
 	/**

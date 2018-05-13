@@ -4,12 +4,7 @@ import static killer_sokoban.Game.*;
 public abstract class Moveable {
 
 	protected Field myField;
-	protected String image;
-
 	
-	public String GetImage(){
-		return image;
-	}
 	/**
 	 * Megadja, hogy a Moveable be van-e szorulva. Itt defaultbol false-szal ter vissza, de minden leszarmazott
 	 * valodi korulmenyek alapjan ter vissza ertekkel.

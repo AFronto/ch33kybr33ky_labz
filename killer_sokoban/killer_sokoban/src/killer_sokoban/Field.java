@@ -8,30 +8,7 @@ public class Field {
 	protected EnumMap<Direction, Field> neighbours; 				///iranyokkal allíithato tomb
 	protected Moveable myMoveable;									///A filden allo Moveable
 	protected int friction = 1;										// A mezo surlodasa
-	protected String image;
 
-	
-	public String GetImage(){
-		image=image.replaceAll("_oil","");
-		image=image.replaceAll("_honey","");
-		
-
-		String[] separated=image.split("\\.");
-		
-		switch(friction){
-		case 1: 
-			image=separated[0]+"."+separated[1];
-			break;
-		case 0:
-			image=separated[0]+"_oil."+separated[1];
-			break;
-		case 2:
-			image=separated[0]+"_honey."+separated[1];
-			break;
-		}
-
-		return image;
-	}
 	/**
 	 *Konstruktor
 	 */
@@ -39,9 +16,6 @@ public class Field {
 	
 		myMoveable=null;
 		neighbours= new EnumMap<Direction,Field>(Direction.class);
-		
-		//Betoltendo kep utvonala
-		image="field.png";
 	}
 
 	/**

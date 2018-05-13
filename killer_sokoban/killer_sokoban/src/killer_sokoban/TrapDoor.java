@@ -5,17 +5,11 @@ import static killer_sokoban.Game.*;
 public class TrapDoor extends Hole{
 
 	private boolean isActive;
-	private String OpenImage;
-	private String ClosedImage;
 	/**
 	 * Konstruktor. Meghivja az ose konstruktorat.
 	 */
 	public TrapDoor(){
-		super();	
-		//Betoltendo kep utvonala
-		OpenImage="trapdoor_open.png";
-		ClosedImage="trapdoor_close.png";
-		image=ClosedImage;	
+		super();		
 	}
 	
 	/**
@@ -26,14 +20,13 @@ public class TrapDoor extends Hole{
 	public void SetActive(boolean b){		
 		isActive = b;
 		if (isActive) {
-			image=OpenImage;
 			FieldAction();
-		}else{
-			image=ClosedImage;
-		}		
+		}
 	}
 	
-
+	public boolean GetActive(){
+		return isActive;
+	}
 	/**
 	 * Ha az iActive true allapotban van, akkor ugy fut le, mintha egy Hole hivna,
 	 * Ha nem akkor ugy, mintha egy sima Field hivna.

@@ -10,8 +10,6 @@ public class Wall extends Box{
 	 */
 	public Wall(){
 		super();		
-		//Betoltendo kep utvonala
-		image="wall.png";
 	}
 	
 	/**

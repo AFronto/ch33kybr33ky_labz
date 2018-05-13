@@ -11,8 +11,6 @@ public class Button extends Field{
 	*/
 	public Button(){
 		super();
-		//Betoltendo kep utvonala
-		image="button.png";
 	}
 	
 	/**

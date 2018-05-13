@@ -8,9 +8,7 @@ public class Target extends Field{
 	 */
 	public Target(){
 		super();		
-		myMoveable = null;	
-		//Betoltendo kep utvonala
-		image="target.png";	
+		myMoveable = null;				
 	}
 
 	/**
