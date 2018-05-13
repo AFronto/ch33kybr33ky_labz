@@ -116,7 +116,9 @@ public class Game implements ActionListener {
  */
 	private void initialize() {
 
+		//JFrame letrehozasa
 		frame = new JFrame();
+		//Hatter beallitasa
 		frame.getContentPane().setBackground(Color.ORANGE);
 		frame.setBackground(Color.BLACK);
 		frame.setBounds(100, 100, 565, 589);
@@ -129,60 +131,78 @@ public class Game implements ActionListener {
 				frame.getContentPane().add(menuPanel);
 				menuPanel.setLayout(null);
 
-		
+		//JPanel letrehozasa pontszamlalashoz
 		scorePanel = new JPanel();
+		//Hatter beallitasa
 		scorePanel.setBackground(SystemColor.info);
 		scorePanel.setBounds(0, 0, 550, 550);
 		frame.getContentPane().add(scorePanel);
 		scorePanel.setLayout(null);
 		
 		
-		
+		//New Game gomb letrehozasa
 		button = new JButton("New Game", null);
+		//ActionListener hozzarendelese
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scorePanel.setVisible(false);
 				NewGame(players);
 			}
 		});
+		//Button egyeb beallitasainek elvegzese
+		//Button elhelyezese
 		button.setVerticalTextPosition(SwingConstants.CENTER);
 		button.setHorizontalTextPosition(SwingConstants.CENTER);
+		//Button szinenek beallitasa
 		button.setForeground(Color.BLACK);
+		//Button font beallitasa
 		button.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
 		button.setBounds(175, 390, 200, 50);
+		//Panelhoz addolas
 		scorePanel.add(button);
 		
+		//Menu button letrehozasa
 		button_1 = new JButton("Menu", null);
+		//ActionListenerhez rendeles
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				scorePanel.setVisible(false);
 				menuPanel.setVisible(true);
 			}
 		});
+		//Button elhelyezese
 		button_1.setVerticalTextPosition(SwingConstants.CENTER);
 		button_1.setHorizontalTextPosition(SwingConstants.CENTER);
+		//Button szinenek beallitasa
 		button_1.setForeground(Color.BLACK);
+		//Button font beallitasa
 		button_1.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
 		button_1.setBounds(175, 446, 200, 50);
+		//Hozzaadas panelhez
 		scorePanel.add(button_1);
 		
+		//Kek Label letrehozasa
 		blueLabel = new JLabel("");
 		blueLabel.setBounds(175, 80, 100, 40);
 		scorePanel.add(blueLabel);
 		
+		//Piros Label letrehozasa
 		redLabel = new JLabel("");
 		redLabel.setBounds(175, 130, 100, 40);
 		scorePanel.add(redLabel);
 		
+		//zold label letrehozasa
 		greenLabel = new JLabel("");
 		greenLabel.setBounds(175, 180, 100, 40);
 		scorePanel.add(greenLabel);
 		
+		//Sarga label letrehozasa
 		yellowLabel = new JLabel("");
 		yellowLabel.setBounds(175, 230, 100, 40);
 		scorePanel.add(yellowLabel);
 		scorePanel.setVisible(false);
-
+		
+		//Beallitasok panel letrehozasa
 		JPanel optionsPanel = new JPanel();
 		optionsPanel.setLayout(null);
 		optionsPanel.setBackground(SystemColor.info);
@@ -192,7 +212,7 @@ public class Game implements ActionListener {
 		
 		
 		/// JButtons
-		
+		//Gomb grafika osszerendeles
 		BufferedImage buttonIcon = null;
 		try {
 			buttonIcon = ImageIO.read(new File("buttonbg.png"));
@@ -200,13 +220,19 @@ public class Game implements ActionListener {
 			System.out.println("bastya nem jo vmi: ");
 			e1.printStackTrace();
 		}
+		//New Game gomb letrehozasa
 		JButton newGameBtn = new JButton("New Game", (Icon) new ImageIcon(buttonIcon));
+		//Szin beallitas
 		newGameBtn.setForeground(Color.BLACK);
+		//Button font beallitasa
 		newGameBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+		//Button elhelyezes beallitasa
 		newGameBtn.setHorizontalTextPosition(JButton.CENTER);
 		newGameBtn.setVerticalTextPosition(JButton.CENTER);
 		newGameBtn.setBounds(175, 50, 200, 50);
+		//Button hozzaadasa a menuPanel-hez
 		menuPanel.add(newGameBtn);
+		//Button hozzarendelese ActionListenerhez
 		newGameBtn.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
@@ -216,48 +242,65 @@ public class Game implements ActionListener {
 
 			}
 		});
-		
+				//Exit button grafikajanak bellitasa			
 				JButton exitBtn = new JButton("Exit", (Icon) new ImageIcon(buttonIcon));
+				//Szin beallitasa
 				exitBtn.setForeground(Color.BLACK);
+				//Exit Button ActionListenerhez rendelese
 				exitBtn.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						System.exit(0);
 					}
 				});
+				//Exit Button elhelyezese
 				exitBtn.setHorizontalTextPosition(JButton.CENTER);
 				exitBtn.setVerticalTextPosition(JButton.CENTER);
+				//Exit Button font bellitasa
 				exitBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
 				exitBtn.setBackground(SystemColor.activeCaptionBorder);
 				exitBtn.setBounds(175, 400, 200, 50);
+				//Exit button hozzaadasa a menuPanelhez.
 				menuPanel.add(exitBtn);
 				
+						//Options Button grafikajanak beallitasa
 						JButton optionsBtn = new JButton("Options", (Icon) new ImageIcon(buttonIcon));
+						//Szin beallitasa
 						optionsBtn.setForeground(Color.BLACK);
+						//Options button ActionListenerhez rendelese
 						optionsBtn.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 								menuPanel.setVisible(false);
 								optionsPanel.setVisible(true);
 							}
 						});
+						//Options Button elhelyezese
 						optionsBtn.setHorizontalTextPosition(JButton.CENTER);
 						optionsBtn.setVerticalTextPosition(JButton.CENTER);
+						//Options Button fontjanak beallitasa
 						optionsBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
 						optionsBtn.setBackground(SystemColor.activeCaptionBorder);
 						optionsBtn.setBounds(175, 150, 200, 50);
+						//Options Button menuPanelre helyezese
 						menuPanel.add(optionsBtn);
-
+						
+		//Back Buton grafikajanak beallitasa
 		JButton backBtn = new JButton("Back", (Icon) new ImageIcon(buttonIcon));
+		//Back Button szin beallitas
 		backBtn.setForeground(Color.BLACK);
+		//Back Button font beallitasa
 		backBtn.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+		//Back Button ActionListenerhez rendelese
 		backBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				optionsPanel.setVisible(false);
 				menuPanel.setVisible(true);
 			}
 		});
+		//Back Button elhelyezese
 		backBtn.setHorizontalTextPosition(JButton.CENTER);
 		backBtn.setVerticalTextPosition(JButton.CENTER);
 		backBtn.setBounds(175, 175, 200, 50);
+		//Back Button hozzadasa az optionsPanelhez
 		optionsPanel.add(backBtn);
 		///
 
