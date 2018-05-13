@@ -1,5 +1,8 @@
 package killer_sokoban;
 
+/**
+ *Ez az osztaly feleleos a megfelelo kepek betolteseert.
+ */
 public class ImageLoader{
 	private String player="player.png";
 	private String box="box.png";
@@ -11,35 +14,43 @@ public class ImageLoader{
 	private String hole="hole.png";
 	private String button="button.png";
 
+
+	/**
+	 *A bevett mezo alapjan eldonti mit ad vissza.
+	 *
+	 * @param f  Field tipusu valtozo, az a mezo aminek a kepet akarjuk meg kapni.
+	 * @return   Egy Stringet ad vssza ami a betoltendo kep eleresi utvonala.
+	 */
 	public String GetImage(Field f){
 		String image="";
+		//Amennyiben nincs Moveable a mezon azokat az eseteket kezeli ez a switch case, ilyenkor mindig figyelni kell a keno anyagre is
 		if(f.GetmyMoveable()==null){
 			switch(""+f){
-				case "Field":
+				case "Field":		//Field esete
 					image=field;
 					break;
-				case "Hole":
+				case "Hole":		//Hole esete
 					image=hole;
 					break;
-				case "Target":
+				case "Target":		//Target esete
 					image=target;
 					break;
-				case "TrapDoor":
-					TrapDoor td=(TrapDoor) f;
+				case "TrapDoor":	//Trapdoor esete
+					TrapDoor td=(TrapDoor) f;	//A filedet TrapDoorra castolom mert meg kell tudnom hogy nyitott e vagy zart
 					if(td.GetActive()){
 						image=trapdoor_open;
 					}else{
 						image=trapdoor_colse;
 					}
 					break;
-				case "Button":
+				case "Button":		//Button esete
 					image=button;
 					break;
 					
 			}
 			
 
-			String[] separated=image.split("\\.");
+			String[] separated=image.split("\\.");//szetszedem hogy be tudjam szurni a kenoanyagnek megfelelo modositot.
 			
 			switch(f.GetFriction()){
 			case 1: 
@@ -53,21 +64,21 @@ public class ImageLoader{
 				break;
 			}
 
-		}else{
+		}else{									//Ha van valaki a Fielden itt azt kezelem.
 			switch(""+f.GetmyMoveable()){
-				case "Player":
-					Player p=(Player) f.GetmyMoveable();
+				case "Player":					//Player esete
+					Player p=(Player) f.GetmyMoveable();	//Playerbe castolom hogy le tudjam kerni a szinet.
 					image=p.GetColor()+player;
 					break;
-				case "Wall":
+				case "Wall":					//Wall esete
 					image=wall;
 					break;
-				case "Box":
+				case "Box":						//Box esete
 					image=box;
 					break;
 			}
 		}
 
-		return image;
+		return image;							//Vissza adom az elkeszult eleresi utat a megfelelo kephez.
 	}
 }

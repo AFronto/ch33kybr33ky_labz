@@ -238,6 +238,7 @@ public class Map {
             }
         }
 
+        //osszerakom a kontrollokat, ki mivel mozog ezeket tombbe gyujtjuk
 		ArrayList<Integer> keysWASD = new ArrayList<Integer>();
 		keysWASD.add(KeyEvent.VK_W);
 		keysWASD.add(KeyEvent.VK_S);
@@ -268,8 +269,10 @@ public class Map {
 		keys.add(keysUHJK);
 		keys.add(keysNUMPAD);
 
+		//Ezt fogjuk vissza adni, itt a playerekhez parositva taroljuk az oket mozgato keylistenereket
 		HashMap<Player, MyKeyListener> keylisteners = new HashMap<Player, MyKeyListener>();
 
+		//A lehetseges player szinek
 		ArrayList<String> colors = new ArrayList<String>();
 		colors.add("blue");
 		colors.add("red");
@@ -290,6 +293,7 @@ public class Map {
 			maxStrength--; /// fokozatosan csokkenti a jatekosok erejet.
 			playerCount--;
 
+			//itt regisztralom be a megfeleleo playerhez a megfelelo keylistenert
 			MyKeyListener mKl = new MyKeyListener(p, keys.get(playerCount));
 			myFrame.addKeyListener(mKl);
 			myFrame.setFocusable(true);
@@ -298,15 +302,21 @@ public class Map {
 		}
 
 		printMyMap();
+		//vissza adom az osszerendelt player keylistener mapet
 		return keylisteners;
 	}
 
+	/**
+	 * Kirajzolja a Mapet amikor hivjak minden lepes utan hivodik meg ekkor pedig mindent ujra rajzol.
+	 */
 	public void printMyMap() {
 		myPanel.removeAll();
+		//A megfelelo kep betoltesehez hasznalt osztaly
 		ImageLoader loader=new ImageLoader();
-		for (int y = 0; y < height; y++) /// kiirja a vegeredmenyt
+		for (int y = 0; y < height; y++) 
 		{
 			for (int x = 0; x < width; x++) {
+				//Az adott mezo alapjan az ImageLoader eldonti hogy milyen kepet kell betolteni az adott helyre
                 JLabel toLoad = new JLabel(new ImageIcon(loader.GetImage(fields[y][x])));
                 toLoad.setBounds(x * 50, y * 50, 50, 50);
                 myPanel.add(toLoad);
