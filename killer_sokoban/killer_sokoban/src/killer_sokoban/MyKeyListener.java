@@ -42,11 +42,9 @@ public class MyKeyListener implements KeyListener
         }else if(e.getKeyCode()==mykeys.get(4)){
         	p.changeFriction();
         	getMyMap();        	
-        }else if(e.getKeyCode()==KeyEvent.VK_ESCAPE){
-            if(!endflag){
+        }else if(!endflag&&e.getKeyCode()==KeyEvent.VK_ESCAPE){
                 endflag=true;
                 EndGame();
-            }
         }
 
 

@@ -54,6 +54,7 @@ public class Game implements ActionListener {
 	private static HashMap<Player, MyKeyListener> keylisteners = new HashMap<Player, MyKeyListener>();
 	private JButton button;
 	private JButton button_1;
+	private static boolean gameOn=false;
 
 	/**
 	 * A legerosebb jatekos toloerejevel ter vissza.
@@ -137,7 +138,6 @@ public class Game implements ActionListener {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scorePanel.setVisible(false);
-				startingplayers = players;
 				NewGame(players);
 			}
 		});
@@ -339,6 +339,8 @@ public class Game implements ActionListener {
 	 */
 	public static void NewGame(int playerCount) {
 		boxes=0;
+		gameOn=true;
+		startingplayers = players;
 		keylisteners = active_map.CreateMap(playerCount, maxStrength, frame, panel);
 	}
 
@@ -346,7 +348,8 @@ public class Game implements ActionListener {
 	 * Jatek vege
 	 */
 	public static void EndGame() {
-		getMyMap();
+		gameOn=false;
+
 		scorePanel.setVisible(true);
 		blueLabel.setText("Blue: "+blueScoreNum);
 		if(blueScoreNum == -1)
@@ -440,6 +443,8 @@ public class Game implements ActionListener {
 	}
 
 	public static void getMyMap() {
-		active_map.printMyMap();
+		if(gameOn){
+			active_map.printMyMap();
+		}
 	}
 }
