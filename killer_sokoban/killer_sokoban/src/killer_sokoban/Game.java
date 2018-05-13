@@ -34,7 +34,6 @@ public class Game implements ActionListener {
 	private static JPanel panel = new JPanel();
 	private static int boxes;
 	private static int players = 2;
-	private int[] overallScore;
 	private static Map active_map;
 	private static int maxStrength = 2;
 	private static JLabel blueScore;
@@ -270,6 +269,7 @@ public class Game implements ActionListener {
 	 *            A jatekosok szama ahanyan jatszani akarnak.
 	 */
 	public static void NewGame(int playerCount) {
+		boxes=0;
 		keylisteners = active_map.CreateMap(playerCount, maxStrength, frame, panel);
 	}
 
@@ -280,6 +280,12 @@ public class Game implements ActionListener {
 		getMyMap();
 		System.out.println();
 		System.out.println("Vege");
+		
+		for(Player actKey : keylisteners.keySet()){
+			frame.removeKeyListener(keylisteners.get(actKey));
+		}
+		active_map=null;
+
 		System.exit(0);
 	}
 

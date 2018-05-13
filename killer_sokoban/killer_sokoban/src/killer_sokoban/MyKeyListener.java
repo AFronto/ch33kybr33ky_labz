@@ -13,6 +13,8 @@ public class MyKeyListener implements KeyListener
 	private Player p;
 	private ArrayList<Integer> mykeys;
 
+    private static boolean endflag;
+
 	public MyKeyListener(Player p,ArrayList<Integer> mykeys){
         super();
         this.mykeys=new ArrayList<Integer>();
@@ -20,6 +22,7 @@ public class MyKeyListener implements KeyListener
         	this.mykeys.add(k);
         }
         this.p=p;
+        endflag=false;
     }
 
     @Override
@@ -39,6 +42,11 @@ public class MyKeyListener implements KeyListener
         }else if(e.getKeyCode()==mykeys.get(4)){
         	p.changeFriction();
         	getMyMap();        	
+        }else if(e.getKeyCode()==KeyEvent.VK_ESCAPE){
+            if(!endflag){
+                endflag=true;
+                EndGame();
+            }
         }
 
 
