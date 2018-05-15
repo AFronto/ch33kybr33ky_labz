@@ -167,4 +167,28 @@ m2=_-active_map: Map_</panel_attributes>
 m2=-p: Player</panel_attributes>
     <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
   </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1161</x>
+      <y>441</y>
+      <w>171</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>ImageLoader
+--
+-player: String
+-box: String
+-wall: String
+-field: Strnig
+-trapdoor_open: String
+-trapdoor_close: String
+-target: String
+-hole: String
+-button: String
+--
++GetImage(f: Field): String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
 </diagram>
